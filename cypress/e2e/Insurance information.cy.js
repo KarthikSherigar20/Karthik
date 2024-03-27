@@ -7,7 +7,7 @@ before(() => {
   cy.parseXlsx('cypress/Excels/Insurance information.xlsx').then((jsonData) => {
       const rowLength = Cypress.$(jsonData[0].data).length;
       cy.log(rowLength);
-      const firstRow = jsonData[0].data[1]; // Assuming the login details are in the first row
+      const firstRow = jsonData[0].data[1]; // Assuming the login details are in the first row 
       
       cy.visit(url.Dev);  //Mention urlname: Dev or Stage or Prod
       
