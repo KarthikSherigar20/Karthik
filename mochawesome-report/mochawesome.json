@@ -1,66 +1,66 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 0,
-    "passes": 0,
+    "tests": 1,
+    "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-03-06T09:47:57.698Z",
-    "end": "2024-03-06T09:48:04.590Z",
-    "duration": 6892,
+    "start": "2024-03-27T06:20:31.308Z",
+    "end": "2024-03-27T06:21:32.771Z",
+    "duration": 61463,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 1,
-    "hasSkipped": true
+    "skipped": 0,
+    "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "17b1725c-b759-459a-9749-a1131c37a59a",
+      "uuid": "5e8a866b-60bb-4a5a-b555-513895790203",
       "title": "",
-      "fullFile": "cypress\\e2e\\Adding address.cy.js",
-      "file": "cypress\\e2e\\Adding address.cy.js",
+      "fullFile": "cypress\\e2e\\Insurance information.cy.js",
+      "file": "cypress\\e2e\\Insurance information.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "b8457408-aafe-4882-9a92-167338ad2182",
-          "title": "Adding address.cy",
+          "uuid": "77a6c45e-bc3d-4cfc-b998-5d9246803119",
+          "title": "Insurance information.cy",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Adding address",
-              "fullTitle": "Adding address.cy Adding address",
+              "title": "Insurance information.cy",
+              "fullTitle": "Insurance information.cy Insurance information.cy",
               "timedOut": null,
-              "duration": 0,
-              "state": "skipped",
-              "speed": null,
-              "pass": false,
+              "duration": 58742,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
               "fail": false,
               "pending": false,
-              "context": null,
-              "code": "cy.parseXlsx('cypress/Excels/Adding address.xlsx').then(jsonData => {\n  const rowLength = Cypress.$(jsonData[0].data).length;\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    // Adding ben\n    const P1 = new _Elements.default();\n    cy.wait(1500);\n    P1.address();\n    cy.wait(1500);\n    P1.addanotheraddress();\n    cy.wait(1500);\n    P1.addnew();\n    cy.wait(1500);\n    P1.label(value[2]);\n    cy.wait(1500);\n    P1.Houseno(value[3]);\n    cy.wait(1500);\n    P1.Area(value[4]);\n    cy.wait(1500);\n    P1.Landmark(value[5]);\n    cy.wait(1500);\n    P1.Pincode(value[6]);\n    cy.wait(1500);\n    P1.town(value[7]);\n    cy.wait(1500);\n    P1.State(value[8]);\n    cy.wait(1500);\n    P1.Ambulance(value[9]);\n    cy.wait(1500);\n    P1.lift(value[10]);\n    cy.wait(1500);\n    P1.locate();\n    cy.wait(15000);\n    P1.saveaddress();\n    cy.wait(1500);\n    P1.profilepreview();\n  }\n  //Validation\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    const P1 = new _Elements.default();\n    cy.wait(1500);\n    P1.address();\n    cy.wait(1500);\n    cy.contains(value[3]).should('exist');\n    cy.wait(1500);\n    P1.profilepreview();\n  }\n});",
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\Insurance information.cy.js\"\n}",
+              "code": "cy.parseXlsx('cypress/Excels/Insurance information.xlsx').then(jsonData => {\n  const rowLength = Cypress.$(jsonData[0].data).length;\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    // Adding ben\n    const P1 = new _Elements.default();\n    //Insurance information\n    cy.wait(1500);\n    // P1.addinsuranceinfo();\n    // addinsuranceinfo(){\n    cy.get('body').then($body => {\n      const bodyText = $body.text();\n      if (bodyText.includes('Add InsuranceInfo')) {\n        cy.contains('Add InsuranceInfo').scrollIntoView().should('be.visible').click();\n        cy.wait(1500);\n        if (value[2]) {\n          P1.Policyid(value[2]);\n          cy.wait(1500);\n        }\n        if (value[3]) {\n          P1.thirdpartyname(value[3]);\n          cy.wait(1500);\n        }\n        if (value[4]) {\n          P1.policytype(value[4]);\n          cy.wait(1500);\n        }\n        if (value[5]) {\n          cy.get;\n          P1.insurancecompany(value[5]);\n          cy.wait(1500);\n        }\n        P1.uploaddocument();\n        cy.wait(7000);\n        if (value[2] && value[4] && value[5]) {\n          P1.ADDinsurance();\n          cy.wait(1500);\n          P1.profilepreview();\n        } else {\n          P1.ADDinsurance();\n          P1.Errormsgforinsu(value[2], value[4], value[5]);\n          cy.wait(1500);\n          P1.profilepreview();\n        }\n      } else {\n        cy.get('div[class=\"ProfileInsurance_editIcon__4Mq82 css-0\"]').click();\n        cy.wait(1500);\n        if (bodyText.includes(value[2])) {\n          console.log('text', bodyText);\n          cy.log('Insurance number is already present');\n          P1.profilepreview();\n        } else {\n          cy.contains('Add Another Insurance').click();\n          if (value[2]) {\n            P1.Policyid(value[2]);\n            cy.wait(1500);\n          }\n          if (value[3]) {\n            P1.thirdpartyname(value[3]);\n            cy.wait(1500);\n          }\n          if (value[4]) {\n            P1.policytype(value[4]);\n            cy.wait(1500);\n          }\n          if (value[5]) {\n            cy.get;\n            P1.nameofinsurer(value[5]);\n            cy.wait(1500);\n          }\n          P1.uploaddocument();\n          cy.wait(7000);\n          if (value[2] && value[4] && value[5]) {\n            cy.get('button[class=\"chakra-button css-38nwlg\"]').click({\n              force: true\n            });\n            cy.wait(1500);\n            P1.profilepreview();\n          } else {\n            cy.get('button[class=\"chakra-button css-38nwlg\"]').click({\n              force: true\n            });\n            P1.Errormsgforinsu(value[2], value[4], value[5]);\n            cy.wait(1500);\n            cy.get('button[class=\"chakra-button css-ez23ye\"]').click();\n            cy.wait(1500);\n            P1.profilepreview();\n          }\n        }\n      }\n    });\n  }\n  //validation\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      if (bodyText.includes(value[2])) {} else {\n        if (value[2] && value[4] && value[5]) {\n          const P1 = new _Elements.default();\n          // P1.profilepreview();\n          cy.wait(1500);\n          cy.contains('Insurance Info').scrollIntoView().should('be.visible');\n          cy.wait(1500);\n          cy.contains(value[2]).should('be.visible');\n          cy.wait(1500);\n        }\n      }\n    });\n  }\n});",
               "err": {},
-              "uuid": "1f78185b-59f9-49a5-afee-4f77995626c7",
-              "parentUUID": "b8457408-aafe-4882-9a92-167338ad2182",
+              "uuid": "b798767a-81fa-4743-878c-25951168fe7d",
+              "parentUUID": "77a6c45e-bc3d-4cfc-b998-5d9246803119",
               "isHook": false,
-              "skipped": true
+              "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
+          "passes": [
+            "b798767a-81fa-4743-878c-25951168fe7d"
+          ],
           "failures": [],
           "pending": [],
-          "skipped": [
-            "1f78185b-59f9-49a5-afee-4f77995626c7"
-          ],
-          "duration": 0,
+          "skipped": [],
+          "duration": 58742,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
