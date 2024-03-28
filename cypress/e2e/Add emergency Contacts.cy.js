@@ -41,61 +41,82 @@ it('Add emergency Contacts',()=>{
                 }).join(' ');
               }
               let partialText=capital(value[2]);
-
-              cy.get('select[class="chakra-select css-161pkch"]').eq(0).then(($select)=>{
-                const options=$select.find('option').toArray();
-                const optionswithpartialltext=options.find(option =>option.innerText.includes(partialText));
-                if(optionswithpartialltext){
-                  cy.wrap(optionswithpartialltext).invoke('text').then(optionText =>{
-                    console.log('Select option:', optionText);
-                    cy.wrap(optionswithpartialltext).parent().select(optionText);
-                    cy.wait(1500);
-                    P1.whatspp();
-                    cy.wait(1500);
-                    P1.savee();
-                    cy.wait(1500);
-                    P1.profilepreview();
-                    console.log('value[2]',value[2]);
-                  });
+              cy.get('body').then(($bodyText)=>{
+              const  text=$bodyText.text();
+              if(!text.includes(partialText)){
+                cy.get('select[class="chakra-select css-161pkch"]').eq(0).then(($select)=>{
+                  const options=$select.find('option').toArray();
+                  const optionswithpartialltext=options.find(option =>option.innerText.includes(partialText));
+                  if(optionswithpartialltext){
+                    cy.wrap(optionswithpartialltext).invoke('text').then(optionText =>{
+                      console.log('Select option:', optionText);
+                      cy.wrap(optionswithpartialltext).parent().select(optionText);
+                      cy.wait(1500);
+                      P1.whatspp();
+                      cy.wait(1500);
+                      P1.savee();
+                      cy.wait(1500);
+                      P1.profilepreview();
+                      console.log('value[2]',value[2]);
+                      
+                    })
+                  }
+                  
+                });
+              }else{
+                cy.log('This user is already present.')
+                cy.get('button[class="chakra-button css-ez23ye"]').click();
+                P1.profilepreview();
                 }
+
               }
               )
             }
             else{
-              if(value[3]!==null && value[3]!==undefined){
-                P1.Funame(value[3]);
-              }
-              cy.wait(1500);
-              if(value[4]!==null && value[4]!==undefined){
-                P1.Relationship(value[4]);
-              }
-              cy.wait(1500);
-              if(value[5]!==null && value[5]!==undefined){
-                P1.Mobileno(value[5]);
-              }
-              cy.wait(1500);
-              if(value[3]!==null && value[3]!==undefined &&
-                value[4]!==null && value[4]!==undefined &&
-                value[5]!==null && value[5]!==undefined ){
-                  P1.whatspp();
-                  cy.wait(1500);
-                  P1.savee();
-                  cy.wait(1500);
-                  P1.profilepreview();
-                }
-                
-                if(value[3]===null || value[3]===undefined ||
-                  value[4]===null || value[4]===undefined ||
-                  value[5]===null || value[5]===undefined ){
-                    cy.wait(2000);
-                    P1.savee();
-                    cy.wait(1500);
-                    P1.checkErrormessage(value[3],value[4],value[5]);
-                    cy.wait(1500);
-                    cy.contains('Cancel').click();
-                    P1.profilepreview();
+              cy.get('body').then(($bodyText)=>{
+                const bodyText=$bodyText.text();
+                if(!bodyText.includes(value[3])){
+
+                  if(value[3]!==null && value[3]!==undefined){
+                    P1.Funame(value[3]);
                   }
-                }
+                  cy.wait(1500);
+                  if(value[4]!==null && value[4]!==undefined){
+                    P1.Relationship(value[4]);
+                  }
+                  cy.wait(1500);
+                  if(value[5]!==null && value[5]!==undefined){
+                    P1.Mobileno(value[5]);
+                  }
+                  cy.wait(1500);
+                  if(value[3]!==null && value[3]!==undefined &&
+                    value[4]!==null && value[4]!==undefined &&
+                    value[5]!==null && value[5]!==undefined ){
+                      P1.whatspp();
+                      cy.wait(1500);
+                      P1.savee();
+                      cy.wait(1500);
+                      P1.profilepreview();
+                    }
+                    
+                    if(value[3]===null || value[3]===undefined ||
+                      value[4]===null || value[4]===undefined ||
+                      value[5]===null || value[5]===undefined ){
+                        cy.wait(2000);
+                        P1.savee();
+                        cy.wait(1500);
+                        P1.checkErrormessage(value[3],value[4],value[5]);
+                        cy.wait(1500);
+                        cy.contains('Cancel').click();
+                        P1.profilepreview();
+                      }
+                    }else{
+                      cy.log("This contact is already present");
+                      cy.get('button[class="chakra-button css-ez23ye"]').click();
+                      P1.profilepreview();
+                    }
+                  })
+                  }
               }
             }
               //Validation

@@ -122,25 +122,27 @@ it('Insurance information.cy',()=>{
             //validation
             for(let i=1;i<rowLength;i++){
               const value=jsonData[0].data[i];
-            cy.get('body').then(($bodyText)=>{
-             const bodyText=$bodyText.text();
-             if(bodyText.includes(value[2])){
-
-             }else{
-              
-                 if(value[2]&&value[4]&&value[5]){
-                   
-                   const P1 = new Elements();
-                   // P1.profilepreview();
-                   cy.wait(1500);
-                   cy.contains('Insurance Info').scrollIntoView().should('be.visible');
-                   cy.wait(1500);
-                   cy.contains(value[2]).should('be.visible');
-                   cy.wait(1500);
-                  }
-                }
-              })
+              console.log('rowlength',rowLength);
+              console.log('value',value);
+              processValue(value);
             }
+              function processValue(value){
+                cy.get('body').then(($bodyText)=>{
+                  const bodyText=$bodyText.text();
+                  if(!bodyText.includes(value[2])){
+                    if(value[2]&&value[4]&&value[5]){
+                      const P1 = new Elements();
+                      // P1.profilepreview();
+                      cy.wait(1500);
+                      cy.contains('Insurance Info').scrollIntoView().should('be.visible');
+                      cy.wait(1500);
+                      cy.contains(value[2]).should('be.visible');
+                      cy.wait(1500);
+                      
+                    }
+                  }
+                })
+              }
           });
         });
       });

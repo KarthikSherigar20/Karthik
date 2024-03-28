@@ -50,7 +50,7 @@ class Elements{
     addhos="Add Hospital";
     cityn="input[placeholder='Enter City Name']";
     hosname="input[placeholder='Enter Hospital Name']";
-    savhos="Save";
+    savhos="button[class='chakra-button css-38nwlg']";
 
     //Insurance information
     addins="Add InsuranceInfo";
@@ -210,7 +210,7 @@ class Elements{
         cy.get(this.hosname).trigger('mousemove',{clientY:50}).trigger('contextmenu', { button: 2 });
     }
     savehospital(){
-        cy.contains(this.savhos).click();
+        cy.get(this.savhos).click({force:true});
     }
 
 

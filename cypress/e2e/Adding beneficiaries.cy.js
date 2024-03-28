@@ -57,7 +57,7 @@ describe('Adding beneficiaries',()=>{
                         P1.pincode(value[5]);
                         cy.wait(1500);
                     }
-                    if(value[1]!==null && value[1]!==undefined &&
+                    if( value[1]!==null && value[1]!==undefined &&
                         value[2]!==null && value[2]!==undefined &&
                         value[3]!==null && value[3]!==undefined &&
                         value[4]!==null && value[4]!==undefined &&
@@ -78,7 +78,7 @@ describe('Adding beneficiaries',()=>{
             //validation
             for(let i=1;i<rowLength;i++){
                 const value=jsonData[0].data[i];
-            if(value[1]!==null && value[1]!==undefined &&
+            if( value[1]!==null && value[1]!==undefined &&
                 value[2]!==null && value[2]!==undefined &&
                 value[3]!==null && value[3]!==undefined &&
                 value[4]!==null && value[4]!==undefined &&

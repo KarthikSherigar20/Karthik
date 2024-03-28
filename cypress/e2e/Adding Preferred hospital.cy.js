@@ -1,4 +1,4 @@
-import Elements from "../../Objects/Elements";
+import Elements from "../Objects/Elements";
 const url=require('../fixtures/urls.json');
 
 describe('Preferred hospital',()=>{
@@ -28,21 +28,29 @@ describe('Preferred hospital',()=>{
    it('Preferred hospital',()=>{
     cy.parseXlsx('cypress/Excels/Preferred hospital.xlsx').then((jsonData)=>{
         const rowLength = Cypress.$(jsonData[0].data).length;
+
         for(let i = 1; i < rowLength; i++){
             const value = jsonData[0].data[i];
             // Adding ben
       const P1 = new Elements();
       cy.wait(1500);
-      P1.preferredhospital();
-      cy.wait(1500);
-      P1.Addhospital();
-      cy.wait(1500);
-      P1.Cityname(value[2]);
-      cy.wait(1500);
-      P1.Hospitalname(value[3]);
-      cy.wait(5000);
-      P1.savehospital();
-      cy.wait(1500);
+      cy.get('body').then(($bodyText)=>{
+        const bodyText=$bodyText.text();
+        if(bodyText.includes('Add Preferred Hospital')){
+            P1.preferredhospital();
+        }else{
+            cy.get('div[class="ProfilePreferredHospital_editIcon__qIa1L css-0"]').click();
+        }
+            cy.wait(1500);
+            P1.Addhospital();
+            cy.wait(1500);
+            P1.Cityname(value[2]);
+            cy.wait(1500);
+            P1.Hospitalname(value[3]);
+            cy.wait(5000);
+            P1.savehospital();
+            cy.wait(1500);
+    })
     }
      //validation
      for(let i=1;i<rowLength;i++){
@@ -51,7 +59,12 @@ describe('Preferred hospital',()=>{
       cy.wait(2000);
       cy.contains('Preferred Hospital').scrollIntoView().should('be.visible');
       cy.wait(2000);
-      cy.contains('Add Preferred Hospital').should('not.exist');
+      cy.get('body').then(($bodyText)=>{
+        const bodyText=$bodyText.text()
+        const Text=value[3];
+        const partialText=Text.charAt(0).toUpperCase()+Text.slice(1).toLowerCase();
+        expect(bodyText).to.include(partialText);
+      })
      }
   });
 });
