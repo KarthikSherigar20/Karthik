@@ -5,6 +5,7 @@ const path=require('path');
 
 module.exports = defineConfig({
 reporter: 'cypress-mochawesome-reporter',
+// pageLoadTimeout: 180000,
 watchForFileChanges:false,
 video:true,
   e2e: {
