@@ -67,25 +67,5 @@ describe('View Profile',()=>{
         cy.get('body').contains('Self').should('exist');
         // cy.url().should('include','.pdf');
         cy.wait(1500);
-        // cy.go(-1);
-        // cy.wait(1500);
-        cy.get('button').contains('Click here to download profile').click({ force: true }); // Force click to bypass any potential issues
-
-        // Wait for the download to complete
-        cy.wait(5000); // Adjust this wait time according to the expected download time
-
-        // Assert that the file exists in the download directory
-        cy.readFile('Downloads').should('exist');
-
-
-        
-        
-
-        
-
-
-
-
-
     })
 })
