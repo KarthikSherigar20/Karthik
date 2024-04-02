@@ -17,9 +17,13 @@ describe('Basic information',()=>{
         cy.contains('Verify').click();
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text()
+            const bodyText=$bodyText.text();
+            if(bodyText.includes('Edit Profile')){
+                click();
+            }else{
+            cy.contains('Complete Profile').eq(0).click();
+            }
         })
-        cy.contains('Complete Profile').eq(0).click();
         cy.wait(1500);
         cy.contains('Address').should('be.visible').should('not.be.disabled').click();
         cy.wait(1500);

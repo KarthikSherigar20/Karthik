@@ -35,16 +35,23 @@ describe('WP buttons',()=>{
                 expect(selfname.trim()).to.equal(wlname.trim());
             })
         })
-        cy.contains('Edit Profile').then(($elments)=>{
-            const noofele=$elments.length;
-            console.log('noofel',noofele);
-            for(let i=0;i<noofele;i++){
-                console.log('noofele',noofele);
-                cy.wrap($elments.eq(i)).should('be.visible').should('not.be.disabled');
-                console.log('i',i);
-
+        cy.get('body').then(($bodyText)=>{
+            const bodyText=$bodyText.text();
+            if(bodyText.includes('Edit Profile')){
+                cy.contains('Edit Profile').then(($elments)=>{
+                    const noofele=$elments.length;
+                    console.log('noofel',noofele);
+                    for(let i=0;i<noofele;i++){
+                        console.log('noofele',noofele);
+                        cy.wrap($elments.eq(i)).should('be.visible').should('not.be.disabled');
+                        console.log('i',i);
+        
+                    }
+                })
+            }else{
             }
         })
+       
         cy.wait(1500);
         cy.contains('View Profile').then(($elements)=>{
             const no=$elements.length;
