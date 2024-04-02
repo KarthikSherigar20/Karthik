@@ -1,4 +1,5 @@
 import url from '../../../fixtures/urls.json';
+import url from '../../../fixtures/UN&PASS.json';
 
 describe('Otp is required',()=>{
     it('Checking OTP is required message',()=>{
@@ -9,7 +10,7 @@ describe('Otp is required',()=>{
         cy.wait(1500);
         cy.contains('Login').click();
         cy.wait(1500);
-        cy.get('input[id="email"]').type('karthik.s@pococare.com');
+        cy.get('input[id="email"]').type(un.Un);
         cy.wait(1500);
         cy.get('button[type="submit"]').click();
         cy.wait(1500);

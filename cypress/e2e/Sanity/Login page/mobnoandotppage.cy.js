@@ -1,4 +1,5 @@
 import url from '../../../fixtures/urls.json';
+import un from '../../../fixtures/UN&PASS.json';
 
 describe('mobileno and otp page',()=>{
     it('mobileno and otp page',()=>{
@@ -10,7 +11,7 @@ describe('mobileno and otp page',()=>{
         cy.wait(1500);
         cy.contains('Login').click();
         cy.wait(1500);
-        cy.get('input[placeholder="Phone Number"]').type('9019803837');
+        cy.get('input[placeholder="Phone Number"]').type(un.PhoneNo);
         cy.wait(1500);
         cy.get('button[type="submit"]').click();
         cy.wait(1500);

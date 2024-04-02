@@ -1,4 +1,5 @@
 import url from '../../../fixtures/urls.json';
+import un from '../../../fixtures/UN&PASS.json';
 
 describe('Email and otp page',()=>{
     it('Email and otp page',()=>{
@@ -10,7 +11,7 @@ describe('Email and otp page',()=>{
         cy.wait(1500);
         cy.contains('Login').click();
         cy.wait(1500);
-        cy.get('input[id="email"]').type('karthik.s@pococare.com');
+        cy.get('input[id="email"]').type(un.Un);
         cy.wait(1500);
         cy.get('button[type="submit"]').click();
         cy.wait(1500);

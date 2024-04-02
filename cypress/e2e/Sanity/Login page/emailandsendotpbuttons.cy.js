@@ -1,4 +1,5 @@
 import url from '../../../fixtures/urls.json';
+import un from '../../../fixtures/UN&PASS.json';
 
 describe('Email and send OTP',()=>{
     it('Checking Email and send OTP',()=>{
@@ -14,7 +15,7 @@ describe('Email and send OTP',()=>{
         cy.wait(1500);
         cy.get('input[class="chakra-checkbox__input"]').should('be.checked');
         cy.wait(1500);
-        cy.get('input[id="email"]').type('karthik.s@pococare.com');
+        cy.get('input[id="email"]').type(un.Un);
         cy.wait(1500);
         cy.get('button[type="submit"]').should('not.be.disabled');
         cy.wait(1500);

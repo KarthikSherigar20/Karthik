@@ -34,23 +34,21 @@ describe('Basic information',()=>{
         cy.get('select[class="chakra-select css-161pkch"]').eq(1).should('be.visible').should('not.be.disabled');
         cy.wait(1500);
 
-        let previouslyselctedoption;
-
-        cy.get('select[class="chakra-select css-161pkch"]').eq(1).then(dropdown=>{
-            previouslyselctedoption=dropdown.val();
-            console.log('prev',previouslyselctedoption);
-            const options=dropdown.find('option');
-            console.log('option',options);
-            options.each((index,option)=>{
-                const isDisabled=Cypress.$(option).prop('disabled');
-
-                cy.wrap(isDisabled).should('be.false');
-                cy.wait(2000);
-                cy.wrap(option).click({force: true});
-            })
-        }).then(()=>{
-            cy.get('select[class="chakra-select css-161pkch"]').eq(1).select(previouslyselctedoption);
+        cy.get('select[class="chakra-select css-161pkch"]').eq(1).then((dropdown)=>{
+        let previouslyselectedoption=dropdown.val();
+        cy.get('select[class="chakra-select css-161pkch"]').eq(1).find('option').then(options => {
+            const actual = [...options].map(o => o.value)
+            console.log('options',actual);
+            // expect(actual).to.deep.eq(['', 'Male', 'Female'])
+            for (let i = 0; i < actual.length; i++) {
+                cy.get('select[class="chakra-select css-161pkch"]').eq(1).select(actual[i]).should('have.value',actual[i])
+                .should('be.visible').should('not.be.disabled');
+                cy.wait(2000); // Optional: Wait for some time after selecting each option
+            }
+            cy.get('select[class="chakra-select css-161pkch"]').eq(1).select(previouslyselectedoption);
         })
+    })
+        
         cy.get('input[placeholder="Age"]').should('be.visible').should('not.be.disabled');
         cy.wait(1500);
         cy.get('input[placeholder="Email"]').should('be.visible').should('not.be.disabled');
@@ -64,8 +62,6 @@ describe('Basic information',()=>{
         cy.get('svg[class="BasicInfo_greenIcon__ixaNK"]').should('be.visible').should('not.be.disabled').click();
         cy.wait(1500);
         cy.get('body').contains('Add Another Address').should('exist');
-
-
 
     })
 })

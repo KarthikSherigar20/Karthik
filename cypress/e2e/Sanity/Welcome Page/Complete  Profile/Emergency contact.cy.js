@@ -36,11 +36,33 @@ describe('Basic information',()=>{
             cy.wait(1500);
             cy.get('body').contains('Add New Contact').should('exist');
             cy.wait(1500);
-            cy.get('select[class="chakra-select css-161pkch"]').eq(0).should('be.visible').should('not.be.disabled');
+            const CEC='select[class="chakra-select css-161pkch"]';
+            cy.get(CEC).eq(0).then((dropdown)=>{
+                const previouslySelectedOption=dropdown.val();
+            cy.get(CEC).eq(0).find('option').then((options)=>{
+                const actual=[...options].map(o=>o.value)
+            for(let i=0;i<actual.length;i++){
+                cy.get(CEC).eq(0).select(actual[i]).should('have.value',actual[i]).should('be.visible').should('not.be.disabled');
+                cy.wait(500);
+            }
+            })
+            cy.get(CEC).eq(0).select(previouslySelectedOption).should('have.value',previouslySelectedOption);
+            })
             cy.wait(1500);
             cy.get('input[placeholder="Full Name"]').should('be.visible').should('not.be.disabled');
             cy.wait(1500);
-            cy.get('select[class="chakra-select css-161pkch"]').eq(1).should('be.visible').should('not.be.disabled');
+
+            cy.get(CEC).eq(1).then((dropdown)=>{
+                const previouslySelectedOption=dropdown.val();
+            cy.get(CEC).eq(1).find('option').then((options)=>{
+                let actual=[...options].map(o=>o.value)
+                for(let i=0;i<actual.length;i++){
+                    cy.get(CEC).eq(1).select(actual[i]).should('have.value',actual[i]).should('be.visible').should('not.be.disabled');
+            cy.wait(500);
+                }
+            })
+            cy.get(CEC).eq(1).select(previouslySelectedOption).should('have.value',previouslySelectedOption);
+            })
             cy.wait(1500);
             cy.get('input[placeholder="Mobile Number"]').should('be.visible').should('not.be.disabled');
             cy.wait(1500);
@@ -69,43 +91,22 @@ describe('Basic information',()=>{
             cy.wait(1500);
 
               // Assuming your dropdown selector
-const dropdownSelector = 'div[class="chakra-select__wrapper css-1os4oeg"]';
-
-cy.get(dropdownSelector).then(dropdown => {
-    // Get the previously selected option
-    const previouslySelectedOption = dropdown.val();
-    
-    // Fetch all the options within the dropdown
-    const options = dropdown.find('option');
-    cy.log('options',options);
-    
-    // Iterate through each option
-    options.each((index, option) => {
-        // Check if the option is disabled
-        const isDisabled = Cypress.$(option).prop('disabled');
-        
-        if (!isDisabled) {
-            // Click on the option
-            cy.wrap(option).click({force:true}).then(() => {
-                // Do any action you want after clicking the option
-                cy.wait(1000);
-
-                cy.get(dropdownSelector).should('have.value', Cypress.$(option).val());
-                
-                // Log to confirm
-                cy.log(`Option ${index + 1} is clickable and not disabled.`);
-            });
-        } else {
-            cy.log(`Option ${index + 1} is disabled.`);
+const dropdownSelector = 'select[class="chakra-select css-161pkch"]';
+cy.get(dropdownSelector).then((dropdown)=>{
+    const previouslySelectedOption=dropdown.val();
+    cy.get(dropdownSelector).find('option').then((options)=>{
+        const actual=[...options].map(o=>o.value)
+        for(let i=0;i<actual.length;i++){
+            cy.get(dropdownSelector).select(actual[i]).should('have.value',actual[i]).should('not.be.disabled');
+            cy.wait(500);
         }
-    });
+    })
+    cy.get(dropdownSelector).select(previouslySelectedOption).should('have.value',previouslySelectedOption);
+})
+
+    
 
     // Select the previously selected option
-    cy.get(dropdownSelector).select(previouslySelectedOption).then(() => {
-        // Do any action you want after selecting the previously selected option
-        cy.log(`Previously selected option '${previouslySelectedOption}' is selected again.`);
-    });
-});
 cy.get('input[placeholder="Mobile Number"]').should('be.visible').should('not.be.disabled');
 cy.wait(1000);
 cy.get('span[class="chakra-switch__thumb css-7roig"]').eq(0).should('be.visible').should('not.be.disabled');
@@ -116,7 +117,7 @@ cy.contains('Save Changes').should('be.visible').should('not.be.disabled');
 cy.wait(1000);
 cy.contains('Cancel').should('be.visible').should('not.be.disabled');
 cy.wait(1000);
-cy.contains('button[aria-label="Close"]').should('be.visible').should('not.be.disabled');
+cy.get('button[aria-label="Close"]').should('be.visible').should('not.be.disabled').click();
             }
         })
     })

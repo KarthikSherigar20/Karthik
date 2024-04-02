@@ -46,7 +46,18 @@ describe('Basic information',()=>{
                 cy.wait(1500);
                 cy.contains('Add New').should('be.visible').should('not.be.disabled').click();
                 cy.wait(1500);
-                cy.get('select[class="chakra-select css-161pkch"]').eq(0).should('be.visible').should('not.be.disabled');
+                const adresslabel='select[class="chakra-select css-161pkch"]';
+                cy.get(adresslabel).eq(0).then((dropdown)=>{
+                    let previouslyselectedoption=dropdown.val();
+                cy.get(adresslabel).eq(0).find('option').then((options)=>{
+                    const actural=[...options].map(o=>o.value)
+                for(let i=0;i<actural.length;i++){
+                    cy.get(adresslabel).eq(0).select(actural[i]).should('have.value',actural[i]).should('not.be.disabled').should('be.visible');
+                cy.wait(1500);
+                }
+                })
+                cy.get(adresslabel).eq(0).select(previouslyselectedoption);
+                })
                 cy.wait(1500);
                 cy.get('input[placeholder="Flat No. / House No. / Building / Company / Apartment"]').should('be.visible').should('not.be.disabled');
                 cy.wait(1500);
@@ -60,9 +71,31 @@ describe('Basic information',()=>{
                 cy.wait(1500);
                 cy.get('input[placeholder="State"]').should('be.visible').should('not.be.disabled');
                 cy.wait(1500)
-                cy.get('select[class="chakra-select css-161pkch"]').eq(1).should('be.visible').should('not.be.disabled');
+                const amb='select[class="chakra-select css-161pkch"]';
+                cy.get(amb).eq(1).then((dropdown)=>{
+                    let previouslyselectedoption=dropdown.val();
+                cy.get(amb).eq(1).find('option').then((options)=>{
+                    const actual=[...options].map(o=>o.value);
+                    for(let i=0;i<actual.length;i++){
+                        cy.get(amb).eq(1).select(actual[i]).should('have.value',actual[i]).should('be.visible').should('not.be.disabled');
                 cy.wait(1500);
-                cy.get('select[class="chakra-select css-161pkch"]').eq(2).should('be.visible').should('not.be.disabled');
+                    }
+                })
+                cy.get(amb).eq(1).select(previouslyselectedoption);
+                })
+                cy.wait(1500);
+                let lift='select[class="chakra-select css-161pkch"]';
+                cy.get(lift).eq(2).then((dropdown)=>{
+                    const previouslyselectedoption=dropdown.val();
+                cy.get(lift).eq(2).find('option').then((options)=>{
+                    const actual=[...options].map(o=>o.value)
+                for(let i=0;i<actual.length;i++){
+                    cy.get(lift).eq(2).select(actual[i]).should('have.value',actual[i]).should('be.visible').should('not.be.disabled');
+                    cy.wait(1500);
+                }
+                })
+                cy.get(lift).eq(2).select(previouslyselectedoption);
+                })
                 cy.wait(1500);
                 cy.contains('Locate On Map').should('be.visible').should('not.be.disabled');
                 cy.wait(1500);

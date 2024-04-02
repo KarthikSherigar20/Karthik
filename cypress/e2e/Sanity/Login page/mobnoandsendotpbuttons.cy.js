@@ -1,4 +1,5 @@
 import url from '../../../fixtures/urls.json';
+import un from '../../../fixtures/UN&PASS.json';
 
 describe('Phoneno and send OTP',()=>{
     it('Checking Phonenumber and send OTP',()=>{
@@ -14,7 +15,7 @@ describe('Phoneno and send OTP',()=>{
         cy.wait(1500);
         cy.get('input[class="chakra-checkbox__input"]').should('be.checked');
         cy.wait(1500);
-        cy.get('input[placeholder="Phone Number"]').type('9019803837');
+        cy.get('input[placeholder="Phone Number"]').type(un.PhoneNo);
         cy.wait(1500);
         cy.get('button[type="submit"]').should('not.be.disabled');
         cy.wait(1500);
