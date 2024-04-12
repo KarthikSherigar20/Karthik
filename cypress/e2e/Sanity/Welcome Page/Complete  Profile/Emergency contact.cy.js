@@ -19,7 +19,7 @@ describe('Basic information',()=>{
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
             if(bodyText.includes('Edit Profile')){
-                click();
+                cy.contains('Edit Profile').click();
             }else{
             cy.contains('Complete Profile').eq(0).click();
             }
@@ -97,11 +97,11 @@ cy.get(dropdownSelector).then((dropdown)=>{
     cy.get(dropdownSelector).find('option').then((options)=>{
         const actual=[...options].map(o=>o.value)
         for(let i=0;i<actual.length;i++){
-            cy.get(dropdownSelector).select(actual[i]).should('have.value',actual[i]).should('not.be.disabled');
+            cy.get(dropdownSelector).eq(0).select(actual[i]).should('have.value',actual[i]).should('not.be.disabled');
             cy.wait(500);
         }
     })
-    cy.get(dropdownSelector).select(previouslySelectedOption).should('have.value',previouslySelectedOption);
+    cy.get(dropdownSelector).eq(0).select(previouslySelectedOption).should('have.value',previouslySelectedOption);
 })
 
     

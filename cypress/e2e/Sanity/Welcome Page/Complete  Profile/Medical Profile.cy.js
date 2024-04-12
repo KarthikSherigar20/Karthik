@@ -19,7 +19,7 @@ describe('Basic information',()=>{
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
             if(bodyText.includes('Edit Profile')){
-                click();
+                cy.contains('Edit Profile').click();
             }else{
             cy.contains('Complete Profile').eq(0).click();
             }

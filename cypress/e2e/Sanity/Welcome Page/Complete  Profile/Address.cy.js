@@ -19,7 +19,7 @@ describe('Basic information',()=>{
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
             if(bodyText.includes('Edit Profile')){
-                click();
+                cy.contains('Edit Profile').click();
             }else{
             cy.contains('Complete Profile').eq(0).click();
             }
@@ -53,7 +53,7 @@ describe('Basic information',()=>{
                     const actural=[...options].map(o=>o.value)
                 for(let i=0;i<actural.length;i++){
                     cy.get(adresslabel).eq(0).select(actural[i]).should('have.value',actural[i]).should('not.be.disabled').should('be.visible');
-                cy.wait(1500);
+                cy.wait(500);
                 }
                 })
                 cy.get(adresslabel).eq(0).select(previouslyselectedoption);

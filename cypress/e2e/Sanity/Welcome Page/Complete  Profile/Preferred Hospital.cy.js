@@ -19,23 +19,23 @@ describe('Basic information',()=>{
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
             if(bodyText.includes('Edit Profile')){
-                click();
+                cy.contains('Edit Profile').click();
             }else{
             cy.contains('Complete Profile').eq(0).click();
             }
         })
         cy.contains('Preferred Hospital').click();
         cy.wait(1000);
-        cy.contains('Add Hospital').should('be.visible').should('not.be.disabled').click();
+        cy.contains('Add Hospital').scrollIntoView().should('be.visible').should('not.be.disabled').click();
         cy.wait(1000);
-        cy.get('input[placeholder="Enter City Name"]').should('be.visible').should('not.be.disabled');
+        cy.get('input[placeholder="Enter City Name"]').scrollIntoView().should('be.visible').should('not.be.disabled');
         cy.wait(1000);
-        cy.get('input[placeholder="Enter Hospital Name"]').should('be.visible').should('not.be.disabled');
+        cy.get('input[placeholder="Enter Hospital Name"]').scrollIntoView().should('be.visible').should('not.be.disabled');
         cy.wait(1000);
-        cy.contains('Save').should('be.visible').should('not.be.disabled');
+        cy.contains('Save').scrollIntoView().should('be.visible').should('not.be.disabled');
         cy.wait(1000);
-        cy.contains('Cancel').should('be.visible').should('not.be.disabled');
+        cy.contains('Cancel').scrollIntoView().should('be.visible').should('not.be.disabled');
         cy.wait(1000);
-        cy.get('button[class="chakra-button chakra-menu__menu-button css-7pfzb9"]').should('be.visible').should('not.be.disabled').click();
+        cy.get('button[class="chakra-modal__close-btn css-1ik4h6n"]').scrollIntoView().should('be.visible').should('not.be.disabled').click();
     })
 })

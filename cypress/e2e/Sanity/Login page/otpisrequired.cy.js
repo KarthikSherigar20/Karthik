@@ -1,5 +1,5 @@
 import url from '../../../fixtures/urls.json';
-import url from '../../../fixtures/UN&PASS.json';
+import un from '../../../fixtures/UN&PASS.json';
 
 describe('Otp is required',()=>{
     it('Checking OTP is required message',()=>{
