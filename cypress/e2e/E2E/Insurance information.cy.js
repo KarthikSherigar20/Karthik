@@ -8,8 +8,11 @@ before(() => {
       const rowLength = Cypress.$(jsonData[0].data).length;
       cy.log(rowLength);
       const firstRow = jsonData[0].data[1]; // Assuming the login details are in the first row 
+       
+      const selectedEnvironment=url.selectedEnvironment;
+      const selectUrl=url.environments[selectedEnvironment];
       
-      cy.visit(url.Dev);  //Mention urlname: Dev or Stage or Prod
+      cy.visit(selectUrl);  //Mention urlname: Dev or Stage or Prod
       
       const P1 = new Elements();
       P1.loginbtn();

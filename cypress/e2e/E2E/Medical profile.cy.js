@@ -9,7 +9,10 @@ describe('Emergencyready',()=>{
         cy.log(rowLength);
         const firstRow = jsonData[0].data[1]; // Assuming the login details are in the first row
 
-        cy.visit(url.Dev);  //Mention urlname: Dev or Stage or Prod
+        const selectedEnvironment=url.selectedEnvironment;
+        const selectUrl=url.environments[selectedEnvironment];
+
+        cy.visit(selectUrl);  //Mention urlname: Dev or Stage or Prod
         
         const P1 = new Elements();
         P1.loginbtn();

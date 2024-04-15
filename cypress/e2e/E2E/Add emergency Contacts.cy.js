@@ -28,27 +28,34 @@ it('Add emergency Contacts',()=>{
   cy.parseXlsx('cypress/Excels/Add emergency Contacts.xlsx').then((jsonData)=>{
       const rowLength = Cypress.$(jsonData[0].data).length;
       console.log('row---1',rowLength);
+      cy.wait(1500);
+      const P1 = new Elements();
+      // P1.emergencycontacts();
       let conditionMet=false;
       for(let i = 1; i < rowLength; i++){
         const value = jsonData[0].data[i];
         
-          console.log('cond---2',conditionMet,value);
-          if(conditionMet){
-           break;
-          }
-          // Adding emergency contacts
-          if(value.length!==0){
-            const P1 = new Elements();
-            cy.wait(1500);
-            P1.emergencycontacts();
-            cy.wait(1500);
-            P1.addanothercontact();
-            cy.wait(1500);
-            if(value[2]){
-              console.log('value[2]---3',value[2]);
-              conditionMet=true;
-              function capital(sentence){
-                return sentence.split(' ').map(word=>{
+        console.log('cond---2',conditionMet,value);
+        if(conditionMet){
+          break;
+        }
+        // Adding emergency contacts
+        if(value.length!==0){
+          cy.wait(1500);
+          P1.emergencycontacts();
+          cy.contains('Add Another Contact').then(($btn)=>{
+            if($btn.is(':disabled')){
+              cy.log('Maximum limit is already reached')
+              return;
+            }else{
+              cy.wait(1500);
+              P1.addanothercontact();
+              cy.wait(1500);
+              if(value[2]){
+                console.log('value[2]---3',value[2]);
+                conditionMet=true;
+                function capital(sentence){
+                  return sentence.split(' ').map(word=>{
                   return word.charAt(0).toUpperCase()+word.slice(1).toLowerCase();
                 }).join(' ');
               }
@@ -57,13 +64,13 @@ it('Add emergency Contacts',()=>{
               const  text=$bodyText.text();
               // console.log('partoaal',partialText);
               // console.log('part-----',text);
-
+              
               const searchText = text.toUpperCase();
               const searchValue = partialText.toUpperCase();
               const occurrences = searchText.split(searchValue).length - 1;
               console.log("---4",occurrences);
-
-
+              
+              
               if(occurrences===1){
                 cy.get('select[class="chakra-select css-161pkch"]').eq(0).then(($select)=>{
                   const options=$select.find('option').toArray();
@@ -91,7 +98,7 @@ it('Add emergency Contacts',()=>{
                 cy.get('button[class="chakra-button css-ez23ye"]').click();
                 P1.profilepreview();
                 conditionMet=true;
-                }
+              }
               }
               )
             }
@@ -113,8 +120,8 @@ it('Add emergency Contacts',()=>{
                   }
                   cy.wait(1500);
                   if(value[3]!==null && value[3]!==undefined &&
-                     value[4]!==null && value[4]!==undefined &&
-                     value[5]!==null && value[5]!==undefined ){
+                    value[4]!==null && value[4]!==undefined &&
+                    value[5]!==null && value[5]!==undefined ){
                       P1.whatspp();
                       cy.wait(1500);
                       P1.savee();
@@ -123,8 +130,8 @@ it('Add emergency Contacts',()=>{
                     }
                     
                     if(value[3]===null || value[3]===undefined ||
-                       value[4]===null || value[4]===undefined ||
-                       value[5]===null || value[5]===undefined ){
+                      value[4]===null || value[4]===undefined ||
+                      value[5]===null || value[5]===undefined ){
                         cy.wait(2000);
                         P1.savee();
                         cy.wait(1500);
@@ -139,12 +146,13 @@ it('Add emergency Contacts',()=>{
                       P1.profilepreview();
                     }
                   })
-                  }
+                }
               }
+            })
             }
-              //Validation
-              let condition=false;
-              for(let i=1;i<rowLength;i++){
+            //Validation
+            let condition=false;
+            for(let i=1;i<rowLength;i++){
               const value=jsonData[0].data[i];
               if(condition){
                 break;
@@ -161,23 +169,25 @@ it('Add emergency Contacts',()=>{
                 cy.wait(2000);
                 condition=true;
                 P1.profilepreview();
-                }
-
-                else{
+              }
+              
+              else{
                     const P1 = new Elements();
                     cy.wait(2000);
                     P1.emergencycontacts();
                     cy.wait(2000);
                     if(value[3]!==null && value[3]!==undefined &&
-                       value[4]!==null && value[4]!==undefined &&
-                       value[5]!==null && value[5]!==undefined ){
+                      value[4]!==null && value[4]!==undefined &&
+                      value[5]!==null && value[5]!==undefined ){
                         cy.contains(value[3]).should('exist');
                       }
                       cy.wait(2000);
                       P1.profilepreview();
                     }
                   }
-                    
-  });
-});
-});
+                  
+                }
+                });
+              });
+            });
+            

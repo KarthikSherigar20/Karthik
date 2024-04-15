@@ -13,7 +13,7 @@ describe('Basic information',()=>{
         cy.get('input[id="email"]').type(un.Un);
         cy.wait(1500);
         cy.get('button[type="submit"]').click();
-        cy.wait(10000);
+        cy.wait(15000);
         cy.contains('Verify').click();
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{
