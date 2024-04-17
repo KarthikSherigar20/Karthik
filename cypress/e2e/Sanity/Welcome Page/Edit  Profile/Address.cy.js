@@ -1,5 +1,6 @@
 import url from '../../../../fixtures/urls.json';
 import un from '../../../../fixtures/UN&PASS.json';
+import Elements from '../../../../Objects/Elements';
 
 describe('Basic information',()=>{
     it('Checking Basic information page',()=>{
@@ -7,13 +8,18 @@ describe('Basic information',()=>{
         const selectUrl=url.environments[selectedEnvironment];
 
         cy.visit(selectUrl);
+        const P1=new Elements();
         cy.wait(1500);
         cy.contains('Login').click();
         cy.wait(1500);
         cy.get('input[id="email"]').type(un.Un);
         cy.wait(1500);
         cy.get('button[type="submit"]').click();
-        cy.wait(15000);
+        cy.wait(3500);
+        P1.PTA();
+        cy.wait(1500);
+        P1.OTP();
+        cy.wait(1000);
         cy.contains('Verify').click();
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{

@@ -409,5 +409,29 @@ class Elements{
             }
         }
     }
+    OTP(){
+        cy.get('input[aria-label="Please enter OTP character 1"]').type('1');
+        cy.wait(100);
+        cy.get('input[aria-label="Please enter OTP character 2"]').type('2');
+        cy.wait(100);
+        cy.get('input[aria-label="Please enter OTP character 3"]').type('3');
+        cy.wait(100);
+        cy.get('input[aria-label="Please enter OTP character 4"]').type('4');
+        cy.wait(100);
+        cy.get('input[aria-label="Please enter OTP character 5"]').type('5');
+        cy.wait(100);
+        cy.get('input[aria-label="Please enter OTP character 6"]').type('6');
+        cy.wait(100);
+    }
+    PTA(){
+        cy.get('body').then(($bodyText)=>{
+            const bodyText=$bodyText.text();
+            cy.wait(2000);
+        if(!bodyText.includes('Verify')){
+        cy.get('button[type="submit"]').click();
+        }else{
+        }
+        })
+    }
 }
 export default Elements;
