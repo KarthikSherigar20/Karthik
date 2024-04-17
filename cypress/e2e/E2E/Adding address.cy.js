@@ -19,7 +19,7 @@ describe('Adding address.cy', () => {
             P1.loginbtn();
             P1.email(firstRow[0]); // Assuming email is in the first column
             P1.sendotp();
-            cy.wait(11000);
+            cy.wait(15000);
             P1.verify();
             cy.wait(1500);
             const profilename=firstRow[1];

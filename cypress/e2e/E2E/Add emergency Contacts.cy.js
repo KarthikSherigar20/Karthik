@@ -16,7 +16,7 @@ describe('Add emergency Contacts.cy',()=>{
         P1.loginbtn();
         P1.email(firstRow[0]); // Assuming email is in the first column
         P1.sendotp();
-        cy.wait(10000);
+        cy.wait(15000);
         P1.verify();
         cy.wait(1500);
         const profilename=firstRow[1];
@@ -26,13 +26,13 @@ describe('Add emergency Contacts.cy',()=>{
 });
 it('Add emergency Contacts',()=>{
   cy.parseXlsx('cypress/Excels/Add emergency Contacts.xlsx').then((jsonData)=>{
-      const rowLength = Cypress.$(jsonData[0].data).length;
+      let rowLength = Cypress.$(jsonData[0].data).length;
       console.log('row---1',rowLength);
       cy.wait(1500);
       const P1 = new Elements();
-      // P1.emergencycontacts();
       let conditionMet=false;
       for(let i = 1; i < rowLength; i++){
+      // P1.emergencycontacts();
         const value = jsonData[0].data[i];
         
         console.log('cond---2',conditionMet,value);
@@ -45,8 +45,9 @@ it('Add emergency Contacts',()=>{
           P1.emergencycontacts();
           cy.contains('Add Another Contact').then(($btn)=>{
             if($btn.is(':disabled')){
-              cy.log('Maximum limit is already reached')
-              return;
+              cy.log('Maximum limit is already reached');
+              P1.profilepreview();
+              conditionMet=true;
             }else{
               cy.wait(1500);
               P1.addanothercontact();
@@ -103,6 +104,7 @@ it('Add emergency Contacts',()=>{
               )
             }
             else{
+              console.log('value[3]',value[3]);
               cy.get('body').then(($bodyText)=>{
                 const bodyText=$bodyText.text();
                 if(!bodyText.includes(value[3])){
@@ -150,44 +152,50 @@ it('Add emergency Contacts',()=>{
               }
             })
             }
+          }
             //Validation
-            let condition=false;
-            for(let i=1;i<rowLength;i++){
-              const value=jsonData[0].data[i];
-              if(condition){
-                break;
-              }
-              if(value[2]){
-                const P1 = new Elements();
-                cy.wait(2000);
-                P1.emergencycontacts();
-                cy.wait(2000);
-                const name=value[2];
-                const na=name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
-                console.log('na',na)
-                cy.contains(na).should('exist');
-                cy.wait(2000);
+            P1.emergencycontacts();
+            cy.contains('Add Another Contact').then(($btn)=>{
+              if($btn.is(':disabled')){
+              }else{
+                
+                let condition=false;
+                for(let i=1;i<rowLength;i++){
+                  const value=jsonData[0].data[i];
+                  if(condition){
+                    break;
+                  }
+                  if(value[2]){
+                    const P1 = new Elements();
+                    cy.wait(2000);
+                    P1.emergencycontacts();
+                    cy.wait(2000);
+                    const name=value[2];
+                    const na=name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+                    console.log('na',na)
+                    cy.contains(na).should('exist');
+                    cy.wait(2000);
                 condition=true;
                 P1.profilepreview();
               }
               
               else{
-                    const P1 = new Elements();
-                    cy.wait(2000);
-                    P1.emergencycontacts();
-                    cy.wait(2000);
-                    if(value[3]!==null && value[3]!==undefined &&
-                      value[4]!==null && value[4]!==undefined &&
-                      value[5]!==null && value[5]!==undefined ){
-                        cy.contains(value[3]).should('exist');
-                      }
-                      cy.wait(2000);
-                      P1.profilepreview();
-                    }
+                const P1 = new Elements();
+                cy.wait(2000);
+                P1.emergencycontacts();
+                cy.wait(2000);
+                if(value[3]!==null && value[3]!==undefined &&
+                  value[4]!==null && value[4]!==undefined &&
+                  value[5]!==null && value[5]!==undefined ){
+                    cy.contains(value[3]).should('exist');
                   }
-                  
+                  cy.wait(2000);
+                  P1.profilepreview();
                 }
-                });
-              });
+              }
+            }
             });
-            
+            });
+          });
+        });
+        

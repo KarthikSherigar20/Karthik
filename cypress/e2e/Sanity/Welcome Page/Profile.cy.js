@@ -28,7 +28,7 @@ describe('View Profile',()=>{
         cy.wait(1500);
         cy.get('button[class="chakra-menu__menuitem css-18esm8n"]').eq(1).should('not.be.disabled').should('be.visible').click();
         cy.wait(1500);
-        expect(bodyText).to.includes('Hme');
+        expect(bodyText).to.includes('Home');
     })
     })
 })
