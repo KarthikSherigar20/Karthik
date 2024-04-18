@@ -426,11 +426,15 @@ class Elements{
     PTA(){
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            cy.wait(2000);
+            cy.wait(4000);
         if(!bodyText.includes('Verify')){
         cy.get('button[type="submit"]').click();
+        cy.wait(1000);
+        if(!bodyText.includes('Verify')){
+            this.PTA();
         }else{
         }
+    }
         })
     }
 }
