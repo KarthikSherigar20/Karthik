@@ -397,7 +397,11 @@ class Elements{
     }
     Errormsgforadd(addlabel,houseno,Area,landmark,pincode,town,state,){
         if(addlabel===null || houseno===null || Area===null || landmark===null || pincode===null || town===null || state===null){
-            cy.get('div[class="Toastify__toast-body"]').should('be.visible').and('contain','All fields are required')
+            if(pincode===null){
+            cy.get('div[class="Toastify__toast-body"]').should('be.visible').and('contain','Pincode must be 6 digits')
+            }else{
+                cy.get('div[class="Toastify__toast-body"]').should('be.visible').and('contain','All fields are required')
+            }
         }
     }
     Errormsgforinsu(policyid,policytype,insurancecom){
@@ -424,9 +428,9 @@ class Elements{
         cy.wait(100);
     }
     PTA(){
+        cy.wait(4000);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            cy.wait(4000);
         if(!bodyText.includes('Verify')){
         cy.get('button[type="submit"]').click();
         cy.wait(1000);

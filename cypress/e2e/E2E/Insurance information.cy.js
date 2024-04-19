@@ -67,7 +67,7 @@ it('Insurance information.cy',()=>{
                   }
                   P1.uploaddocument();
                   cy.wait(7000);
-                  if(value[2]&&value[4]&&value[5]){
+                  if(value[2]&&value[5]){
                     P1.ADDinsurance();
                     cy.wait(1500);
                     P1.profilepreview();
@@ -75,7 +75,7 @@ it('Insurance information.cy',()=>{
                   }
                   else{
                     P1.ADDinsurance();
-                    P1.Errormsgforinsu(value[2],value[4],value[5]);
+                    P1.Errormsgforinsu(value[2],value[5]);
                     cy.wait(1500);
                     P1.profilepreview();
                   }
@@ -107,7 +107,7 @@ it('Insurance information.cy',()=>{
                   }
                   P1.uploaddocument();
                   cy.wait(7000);
-                  if(value[2]&&value[4]&&value[5]){
+                  if(value[2]&&value[5]){
                     cy.get('button[class="chakra-button css-38nwlg"]').click({force:true});
                     cy.wait(1500);
                     P1.profilepreview();
@@ -115,7 +115,7 @@ it('Insurance information.cy',()=>{
                   }
                   else{
                     cy.get('button[class="chakra-button css-38nwlg"]').click({force:true});
-                    P1.Errormsgforinsu(value[2],value[4],value[5]);
+                    P1.Errormsgforinsu(value[2],value[5]);
                     cy.wait(1500);
                     cy.get('button[class="chakra-button css-ez23ye"]').click();
                     cy.wait(1500);
@@ -137,7 +137,7 @@ it('Insurance information.cy',()=>{
                 cy.get('body').then(($bodyText)=>{
                   const bodyText=$bodyText.text();
                   if(!bodyText.includes(value[2])){
-                    if(value[2]&&value[4]&&value[5]){
+                    if(value[2]&&value[5]){
                       const P1 = new Elements();
                       // P1.profilepreview();
                       cy.wait(1500);
