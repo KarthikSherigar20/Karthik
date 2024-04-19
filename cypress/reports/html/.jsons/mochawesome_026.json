@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-19T08:47:56.528Z",
+    "end": "2024-04-19T08:48:05.854Z",
+    "duration": 9326,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "25f50f6a-a81d-4f7f-9096-c9eaa2edb05f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\T&C.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\T&C.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cfbb35b9-7378-481a-86f3-d6268dfa19d3",
+          "title": "T&C",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking T&C page",
+              "fullTitle": "T&C Checking T&C page",
+              "timedOut": null,
+              "duration": 7422,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\Sanity\\\\Home page\\\\T&C.cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('terms and conditions').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('terms and conditions').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');\n});",
+              "err": {},
+              "uuid": "89d5c411-cb0b-4a0c-8aca-a1a1080f1bfb",
+              "parentUUID": "cfbb35b9-7378-481a-86f3-d6268dfa19d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "89d5c411-cb0b-4a0c-8aca-a1a1080f1bfb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7422,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

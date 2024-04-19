@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-04-19T08:40:52.324Z",
+    "end": "2024-04-19T08:41:11.434Z",
+    "duration": 19110,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "189c361e-2ed9-47d0-b6ca-a1997fb19660",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Login page\\Bothemailandmobnootppage.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Login page\\Bothemailandmobnootppage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cc3741a9-0b80-4029-a336-9575128d08bc",
+          "title": "Email&mobilno. and otp page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Email&mobilno. and otp page",
+              "fullTitle": "Email&mobilno. and otp page Email&mobilno. and otp page",
+              "timedOut": null,
+              "duration": 17124,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\Sanity\\\\Login page\\\\Bothemailandmobnootppage.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\Sanity\\\\Login page\\\\Bothemailandmobnootppage.cy.js\\\\Email&mobilno. and otp page -- Email&mobilno. and otp page (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "const selectedEnvironment = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironment];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('input[placeholder=\"Phone Number\"]').type(_UNPASS.default.PhoneNo);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(1500);\ncy.get('body').contains('Enter OTP').should('exist');\ncy.wait(1500);\ncy.get('body').contains(\"We've sent the OTP to your phone or email!\").should('exist');\ncy.wait(1500);\ncy.contains('Verify').should('not.be.disabled');\ncy.wait(30000);\ncy.contains('Resend OTP').click();\ncy.wait(1500);\ncy.contains('Not received OTP?').should('not.exist');\ncy.wait(1500);\ncy.get('body').contains(\"OTP has been sent to your number\").should('exist');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Enter OTP' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Enter OTP' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Login page/Bothemailandmobnootppage.cy.js:20:45)",
+                "diff": null
+              },
+              "uuid": "b5ad6013-a721-4654-b6d4-b3e5aa165c0e",
+              "parentUUID": "cc3741a9-0b80-4029-a336-9575128d08bc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b5ad6013-a721-4654-b6d4-b3e5aa165c0e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17124,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

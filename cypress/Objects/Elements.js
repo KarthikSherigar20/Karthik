@@ -428,7 +428,7 @@ class Elements{
         cy.wait(100);
     }
     PTA(){
-        cy.wait(4000);
+        cy.wait(2000);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
         if(!bodyText.includes('Verify')){

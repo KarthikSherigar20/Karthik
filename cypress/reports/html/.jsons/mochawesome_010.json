@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-19T08:43:12.826Z",
+    "end": "2024-04-19T08:43:59.677Z",
+    "duration": 46851,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "83e43a4e-aa37-454f-90d4-27f87cf2ff77",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Login page\\mobnoandotppage.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Login page\\mobnoandotppage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5a319a4f-5b7c-4183-ba64-10b529595ed0",
+          "title": "mobileno and otp page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "mobileno and otp page",
+              "fullTitle": "mobileno and otp page mobileno and otp page",
+              "timedOut": null,
+              "duration": 44910,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\Sanity\\\\Login page\\\\mobnoandotppage.cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selecturl = _urls.default.environments[selectedEnvironments];\ncy.visit(selecturl);\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[placeholder=\"Phone Number\"]').type(_UNPASS.default.PhoneNo);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(1500);\ncy.get('body').contains('Enter OTP').should('exist');\ncy.wait(1500);\ncy.get('body').contains(\"We've sent the OTP to your phone or email!\").should('exist');\ncy.wait(1500);\ncy.contains('Verify').should('not.be.disabled');\ncy.wait(30000);\ncy.contains('Resend OTP').click();\ncy.wait(1500);\ncy.contains('Not received OTP?').should('not.exist');\ncy.wait(1500);\ncy.get('body').contains(\"OTP has been sent to your number\").should('exist');",
+              "err": {},
+              "uuid": "d794dadd-f92a-4aac-b498-5f24a25cfff2",
+              "parentUUID": "5a319a4f-5b7c-4183-ba64-10b529595ed0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d794dadd-f92a-4aac-b498-5f24a25cfff2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 44910,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
