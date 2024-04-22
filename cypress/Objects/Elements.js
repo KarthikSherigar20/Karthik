@@ -441,5 +441,218 @@ class Elements{
     }
         })
     }
+    FullName() {
+        cy.get('input[placeholder="Full Name"]').then($FullName => {
+            const FullName = $FullName.val();
+            console.log('FullName',FullName);
+            let modifiedValue = FullName + '1';
+            console.log('modi',modifiedValue);
+            cy.wait(1000);
+            cy.get('input[placeholder="Full Name"]').clear().type(modifiedValue);
+            cy.wait(1000);
+            cy.contains('Save and continue').click();
+            
+            cy.get('body').then($bodyText => {
+                // Ensure you uncomment this assertion if you want to use it
+                // const bodyText = $bodyText.text();
+                // expect(bodyText).to.include('Basic Info Updated Successfully');
+            });
+    
+            cy.wait(1000);
+            cy.get('img[class="chakra-image css-wlnxkn"]').click();
+            cy.wait(1000);
+    
+            cy.get('span[style="color: blue;"]').then($Na => {
+                const Na = $Na.text();
+                console.log('Na', Na);
+                expect(Na).to.include(modifiedValue + ',');
+            });
+            cy.get('body').then(($bodyText)=>{
+                const bodyText=$bodyText.text();
+                if(bodyText.includes('Edit Profile')){
+                    cy.contains('Edit Profile').click();
+                }else{
+                cy.contains('Complete Profile').eq(0).click();
+                }
+            })
+            cy.contains('Basic Information').click();
+            cy.wait(1000);
+            cy.get('input[placeholder="Full Name"]').clear().type(FullName);
+            cy.wait(1000);
+            cy.contains('Save and continue').click();
+            cy.wait(1000);
+            cy.get('img[class="chakra-image css-wlnxkn"]').click();
+            cy.wait(1000);
+            cy.get('span[style="color: blue;"]').invoke('text').then(Na => {
+                console.log('Na', Na);
+                expect(Na).to.include(FullName + ',');
+            });
+        });
+    }
+    FullName1() {
+        cy.get('input[placeholder="Full Name"]').then($FullName => {
+            const FullName = $FullName.val();
+            console.log('FullName',FullName);
+            let modifiedValue = FullName + '1';
+            console.log('modi',modifiedValue);
+            cy.wait(1000);
+            cy.get('input[placeholder="Full Name"]').clear().type(modifiedValue);
+            cy.wait(1000);
+            cy.contains('Save and continue').click();
+            
+            cy.get('body').then($bodyText => {
+                // Ensure you uncomment this assertion if you want to use it
+                // const bodyText = $bodyText.text();
+                // expect(bodyText).to.include('Basic Info Updated Successfully');
+            });
+    
+            cy.wait(1000);
+            cy.contains('Basic Information').click();
+            cy.wait(3000);
+    
+            cy.get('input[placeholder="Full Name"]').then($Na => {
+                const Na=$Na.val();
+                console.log('Na', Na);
+                expect(Na).to.include(modifiedValue);
+            });
+            cy.wait(1000);
+            cy.get('input[placeholder="Full Name"]').clear().type(FullName);
+            cy.wait(1000);
+            cy.contains('Save and continue').click();
+            cy.wait(1000);
+            cy.contains('Basic Information').scrollIntoView().click();
+            cy.wait(1000);
+    
+            cy.get('input[placeholder="Full Name"]').then($Na => {
+                const Na=$Na.val();
+                console.log('Na', Na);
+                expect(Na).to.include(FullName);
+            });
+        });
+    }
+    Gender(){
+        const Gen='select[class="chakra-select css-161pkch"]';
+        cy.get(Gen).eq(1).then((dropdown)=>{
+            const previouslyselectedoption=dropdown.val();
+            if(previouslyselectedoption==='Male'){
+                cy.get(Gen).eq(1).select('Female');
+                cy.wait(1000);
+                cy.contains('Save and continue').click();
+                cy.wait(1000);
+                cy.contains('Basic Information').click();
+                cy.wait(1000);
+                cy.get(Gen).eq(1).should('have.value','Female');
+                cy.wait(1000);
+                cy.get(Gen).eq(1).select(previouslyselectedoption);
+                cy.wait(1000);
+                cy.contains('Save and continue').click();
+                cy.wait(1000);
+                cy.contains('Basic Information').click();
+                cy.wait(1000);
+                cy.get(Gen).eq(1).should('have.value',previouslyselectedoption);
+                cy.wait(1000);
+
+            }
+            if(previouslyselectedoption==='Female'){
+                cy.get(Gen).eq(1).select('Male');
+                cy.wait(1000);
+                cy.contains('Save and continue').click();
+                cy.wait(1000);
+                cy.contains('Basic Information').click();
+                cy.wait(1000);
+                cy.get(Gen).eq(1).should('have.value','Male');
+                cy.wait(1000);
+                cy.get(Gen).eq(1).select(previouslyselectedoption);
+                cy.wait(1000);
+                cy.contains('Save and continue').click();
+                cy.wait(1000);
+                cy.contains('Basic Information').click();
+                cy.wait(1000);
+                cy.get(Gen).eq(1).should('have.value',previouslyselectedoption);
+                cy.wait(1000);
+            }
+        
+        
+        })
+    }
+    Age(){
+        const Ag='input[placeholder="Age"]';
+        cy.wait(1000);
+        cy.get('svg[class="chakra-icon css-onkibi"]').eq(0).click();
+        cy.wait(1000);
+        cy.get(Ag).then((Agee)=>{
+            const Age=Agee.val();
+            console.log('Age',Age)
+        cy.contains('Save and continue').click();
+        cy.wait(1000);
+        cy.contains('Basic Information').click();
+        cy.wait(1000);
+        cy.get(Ag).should('have.value',Age);
+        cy.wait(1000);
+        cy.get('svg[class="chakra-icon css-onkibi"]').eq(1).click();
+        cy.wait(1000);
+        cy.get(Ag).then((Agee)=>{
+            const Age=Agee.val();
+        cy.contains('Save and continue').click();
+        cy.wait(1000);
+        cy.contains('Basic Information').click();
+        cy.wait(1000);
+        cy.get(Ag).should('have.value',Age);
+        cy.wait(1000);
+        })
+    })
+}
+    Email(){
+        let em='input[class="chakra-input css-1bqyy6o"]';
+    cy.get(em).then((ema)=>{
+        let email=ema.val();
+    cy.wait(1000);
+    cy.get(em).clear();
+    cy.wait(1000);
+    cy.get(em).type('123k@gmail.com');
+    cy.wait(1000);
+    cy.contains('Save and continue').click();
+    cy.wait(1000);
+    cy.contains('Basic Information').click();
+    cy.wait(1000);
+    cy.get(em).should('have.value','123k@gmail.com');
+    cy.wait(1000);
+    cy.get(em).clear().type(email);
+    cy.wait(1000);
+    cy.contains('Save and continue').click();
+    cy.wait(1000);
+    cy.contains('Basic Information').click();
+    cy.wait(1000);
+    cy.get(em).should('have.value',email);
+    cy.wait(1000);
+    })
+    }
+    PhoneNumber(){
+        let ph='input[placeholder="Phone Number"]';
+    cy.get(ph).then((pho)=>{
+        let Phone=pho.val();
+    cy.wait(1000);
+    cy.get(ph).clear().type('9888888888');
+    cy.wait(1000);
+    cy.contains('Save and continue').click();
+    cy.wait(1000);
+    cy.contains('Basic Information').click();
+    cy.wait(1000);
+    cy.get(ph).invoke('val').then((PhoneN)=>{
+        expect(PhoneN).to.include('9888');
+    })
+    cy.wait(1000);
+    cy.get(ph).clear().type(Phone);
+    cy.wait(1000);
+    cy.contains('Save and continue').click();
+    cy.wait(1000);
+    cy.contains('Basic Information').click();
+    cy.wait(1000);
+    cy.get(ph).invoke('val').then((PhoneN)=>{
+        expect(PhoneN).to.include(Phone);
+    })
+    cy.wait(1000);
+    })
+    }
 }
 export default Elements;
