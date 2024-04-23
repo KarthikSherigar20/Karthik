@@ -46,7 +46,6 @@ describe('Emergency contacts',()=>{
                     if($btn.is(':disabled')){
                         cy.log('Maximum limit is already reached');
                         P1.profilepreview();
-                        conditionMet=true;
                     }else{
                         cy.wait(1500);
                         P1.addanothercontact();

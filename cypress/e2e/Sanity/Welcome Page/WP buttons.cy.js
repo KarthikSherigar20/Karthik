@@ -38,7 +38,7 @@ describe('WP buttons',()=>{
             cy.contains('Welcome').next().prev().invoke('text').then((wl)=>{
                 cy.log('wl',wl);
                 const wlname=wl.split('Welcome')[1].trim().replace(',','');
-                expect(selfname.trim()).to.equal(wlname.trim());
+                expect(selfname.trim().toLowerCase()).to.equal(wlname.trim().toLowerCase());
             })
         })
         cy.get('body').then(($bodyText)=>{

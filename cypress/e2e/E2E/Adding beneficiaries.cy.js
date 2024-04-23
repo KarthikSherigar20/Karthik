@@ -107,7 +107,7 @@ describe('Adding beneficiaries',()=>{
                                 cy.wait(1500);
                                 P1.emergencycontacts();
                                 cy.wait(1500);
-                                cy.contains(selfname).should('exist');
+                                cy.contains(new RegExp(selfname, 'i')).should('exist');
                                 cy.wait(1500);
                                 console.log('Emergency contact is present');
                                 

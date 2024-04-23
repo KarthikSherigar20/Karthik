@@ -68,7 +68,7 @@ class Elements{
 
     //Medical profile
     Addmedin='Add Medical Info';
-    crocon="Select...";
+    crocon="div[class='dropdown-heading']";
     BG="select[class='chakra-select css-161pkch']";
     currmedno="span[class='chakra-radio__control css-8o2sux']";
     saveandc="Save and continue";
@@ -322,7 +322,7 @@ class Elements{
         cy.contains(this.Addmedin).scrollIntoView().should('be.visible').click();
     }
     croniccondition(){
-        cy.contains(this.crocon).click();
+        cy.get(this.crocon).click();
     }
     Bloodgroup(bldg){
         cy.get(this.BG).eq(0).select(bldg);
@@ -428,7 +428,7 @@ class Elements{
         cy.wait(100);
     }
     PTA(){
-        cy.wait(2000);
+        cy.wait(3000);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
         if(!bodyText.includes('Verify')){

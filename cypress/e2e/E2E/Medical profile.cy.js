@@ -40,7 +40,14 @@ describe('Emergencyready',()=>{
           // Adding ben
       const P1 = new Elements();
       cy.wait(1500);
-      P1.Addmedicalinfo();
+      cy.get('body').then(($bodyText)=>{
+        const bodyText=$bodyText.text();
+      if(bodyText.includes('Add Medical Info')){
+        P1.Addmedicalinfo();
+      }else{
+        cy.get('div[class="ProfileMedicalDetails_editIcon__FV9pz css-0"]').click();
+      }
+      })
       cy.wait(1500);
       P1.croniccondition();
       cy.wait(1500);
