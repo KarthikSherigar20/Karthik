@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-23T10:10:28.406Z",
+    "end": "2024-04-23T10:12:18.027Z",
+    "duration": 109621,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e3a9f9ba-f605-4cce-bd1b-64dbb6fa2fde",
+      "title": "",
+      "fullFile": "cypress\\e2e\\E2E\\Insurance information.cy.js",
+      "file": "cypress\\e2e\\E2E\\Insurance information.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aad95c3a-d866-42e4-9987-7429081f97c2",
+          "title": "Insurance information.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Insurance information.cy",
+              "fullTitle": "Insurance information.cy Insurance information.cy",
+              "timedOut": null,
+              "duration": 107416,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\E2E\\\\Insurance information.cy.js\"\n}",
+              "code": "cy.parseXlsx('cypress/Excels/Insurance information.xlsx').then(jsonData => {\n  const rowLength = Cypress.$(jsonData[0].data).length;\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    // Adding ben\n    const P1 = new _Elements.default();\n    //Insurance information\n    cy.wait(1500);\n    // P1.addinsuranceinfo();\n    // addinsuranceinfo(){\n    cy.get('body').then($body => {\n      const bodyText = $body.text();\n      if (bodyText.includes('Add InsuranceInfo')) {\n        cy.contains('Add InsuranceInfo').scrollIntoView().should('be.visible').click();\n        cy.wait(1500);\n        if (value[2]) {\n          P1.Policyid(value[2]);\n          cy.wait(1500);\n        }\n        if (value[3]) {\n          P1.thirdpartyname(value[3]);\n          cy.wait(1500);\n        }\n        if (value[4]) {\n          P1.policytype(value[4]);\n          cy.wait(1500);\n        }\n        if (value[5]) {\n          cy.get;\n          P1.insurancecompany(value[5]);\n          cy.wait(1500);\n        }\n        P1.uploaddocument();\n        cy.wait(7000);\n        if (value[2] && value[5]) {\n          P1.ADDinsurance();\n          cy.wait(1500);\n          P1.profilepreview();\n        } else {\n          P1.ADDinsurance();\n          P1.Errormsgforinsu(value[2], value[5]);\n          cy.wait(1500);\n          P1.profilepreview();\n        }\n      } else {\n        cy.get('div[class=\"ProfileInsurance_editIcon__4Mq82 css-0\"]').click();\n        cy.wait(1500);\n        if (bodyText.includes(value[2])) {\n          console.log('text', bodyText);\n          cy.log('Insurance number is already present');\n          P1.profilepreview();\n        } else {\n          cy.contains('Add Another Insurance').click();\n          if (value[2]) {\n            P1.Policyid(value[2]);\n            cy.wait(1500);\n          }\n          if (value[3]) {\n            P1.thirdpartyname(value[3]);\n            cy.wait(1500);\n          }\n          if (value[4]) {\n            P1.policytype(value[4]);\n            cy.wait(1500);\n          }\n          if (value[5]) {\n            cy.get;\n            P1.nameofinsurer(value[5]);\n            cy.wait(1500);\n          }\n          P1.uploaddocument();\n          cy.wait(7000);\n          if (value[2] && value[5]) {\n            cy.get('button[class=\"chakra-button css-38nwlg\"]').click({\n              force: true\n            });\n            cy.wait(1500);\n            P1.profilepreview();\n          } else {\n            cy.get('button[class=\"chakra-button css-38nwlg\"]').click({\n              force: true\n            });\n            P1.Errormsgforinsu(value[2], value[5]);\n            cy.wait(1500);\n            cy.get('button[class=\"chakra-button css-ez23ye\"]').click();\n            cy.wait(1500);\n            P1.profilepreview();\n          }\n        }\n      }\n    });\n  }\n  //validation\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    console.log('rowlength', rowLength);\n    console.log('value', value);\n    processValue(value);\n  }\n  function processValue(value) {\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      if (!bodyText.includes(value[2])) {\n        if (value[2] && value[5]) {\n          const P1 = new _Elements.default();\n          // P1.profilepreview();\n          cy.wait(1500);\n          cy.contains('Insurance Info').scrollIntoView().should('be.visible');\n          cy.wait(1500);\n          cy.contains(value[2]).should('be.visible');\n          cy.wait(1500);\n        }\n      }\n    });\n  }\n});",
+              "err": {},
+              "uuid": "3022ace1-39d3-4b85-9c30-09e7ec8f429b",
+              "parentUUID": "aad95c3a-d866-42e4-9987-7429081f97c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3022ace1-39d3-4b85-9c30-09e7ec8f429b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 107416,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

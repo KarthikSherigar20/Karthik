@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-04-23T10:05:21.637Z",
+    "end": "2024-04-23T10:05:57.208Z",
+    "duration": 35571,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0e35101f-79f8-43d5-82cf-8db64fa0ef5d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\PhoneNumber.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\PhoneNumber.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ddf6781-789a-40bf-81fa-6d45ea4d7551",
+          "title": "View Profile",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PhoneNumber",
+              "fullTitle": "View Profile PhoneNumber",
+              "timedOut": null,
+              "duration": 33351,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\DataFlow\\\\PhoneNumber.cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.get('input[placeholder=\"Age\"]').invoke('val').then(textField => {\n  const valueLength = textField.length;\n  console.log('text', textField);\n  console.log('valuele', valueLength);\n  if (valueLength > 0) {\n    P1.PhoneNumber();\n  } else {\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).select('Male');\n    cy.wait(1000);\n    cy.get('div[placeholder=\"Age\"]').type(26);\n    cy.wait(1000);\n    cy.get('span[class=\"chakra-switch__track css-p27qcy\"]').click();\n    cy.wait(1000);\n    cy.contains('Save and continue').click();\n    cy.wait(500);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText).to.contains('Basic Info Updated Successfully');\n      cy.wait(1000);\n      P1.PhoneNumber();\n    });\n  }\n});",
+              "err": {},
+              "uuid": "5f38643e-d501-4e5c-94be-42d045578374",
+              "parentUUID": "8ddf6781-789a-40bf-81fa-6d45ea4d7551",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5f38643e-d501-4e5c-94be-42d045578374"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 33351,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
