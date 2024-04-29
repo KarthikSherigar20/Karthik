@@ -434,9 +434,13 @@ class Elements{
         if(!bodyText.includes('Verify')){
         cy.get('button[type="submit"]').click();
         cy.wait(1000);
-        if(!bodyText.includes('Verify')){
-            this.PTA();
+        if(!bodyText.includes("Couldn't find Pococare account")){
+            if(!bodyText.includes('Verify')){
+                this.PTA();
+            }else{
+            }
         }else{
+            cy.log("Couldn't find Pococare account");
         }
     }
         })
