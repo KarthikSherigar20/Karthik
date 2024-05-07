@@ -35,7 +35,7 @@ describe('BG',()=>{
         cy.wait(1000);
         cy.get(BG).eq(1).select('Assisted Mobility (Walker, Wheel chair)');
         cy.wait(1000);
-        cy.get(BG).eq(1).should('have.value','Assisted Mobility (Walker, Wheel chair)');
+        cy.get(BG).eq(1).should('have.value','Assisted Mobility');
 
     })
 })

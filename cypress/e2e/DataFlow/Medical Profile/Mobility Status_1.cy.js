@@ -35,7 +35,7 @@ describe('BG',()=>{
         cy.wait(1000);
         cy.get(BG).eq(1).select('Immobile (Bed-ridden)');
         cy.wait(1000);
-        cy.get(BG).eq(1).should('have.value','Immobile (Bed-ridden)');
+        cy.get(BG).eq(1).should('have.value','Immobile');
 
     })
 })

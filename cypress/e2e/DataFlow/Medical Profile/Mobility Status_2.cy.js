@@ -35,7 +35,7 @@ describe('BG',()=>{
         cy.wait(1000);
         cy.get(BG).eq(1).select('Mobile (Able to move)');
         cy.wait(1000);
-        cy.get(BG).eq(1).should('have.value','Mobile (Able to move)');
+        cy.get(BG).eq(1).should('have.value','Mobile');
 
     })
 })
