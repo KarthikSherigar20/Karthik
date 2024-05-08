@@ -35,32 +35,44 @@ describe('Adding address.cy', () => {
     //Adding Address 
     it('Adding address', () => {
         cy.parseXlsx('cypress/Excels/Adding address.xlsx').then((jsonData) => {
-            const rowLength = Cypress.$(jsonData[0].data).length;
+            let rowLength = Cypress.$(jsonData[0].data).length;
+            cy.log('5');
             let conditionMet=false;
 
             for (let i = 1; i < rowLength; i++) {
                 const value = jsonData[0].data[i];
+                cy.log('1',conditionMet);
                 if(conditionMet){
                     break;
                 }
                 // Adding ben
                 const P1 = new Elements();
                 cy.wait(1500);
+                cy.log('2');
                 P1.address();
                 cy.wait(1500);
-                P1.addanotheraddress();
-                cy.wait(1500);
-                if(value[2]){
-                    cy.contains('Select From Existing Addresses').click();
-                    cy.wait(5000);
-                    cy.contains('Save Address').click();
-                    P1.profilepreview();
-                    conditionMet=true;
+                cy.contains('Add Another Address').then(($button)=>{
+                    if($button.prop('disabled')){
+                        cy.log('Maximum limit is reached');
+                        cy.log('2',conditionMet);
+                        conditionMet=true;
+                        cy.log('3',conditionMet);
+                        P1.profilepreview();
 
-                }
-                else{
+                    }else{
+                        P1.addanotheraddress();
+                        cy.wait(1500);
+                        if(value[2]){
+                            cy.contains('Select From Existing Addresses').click();
+                            cy.wait(5000);
+                            cy.contains('Save Address').click();
+                            P1.profilepreview();
+                            conditionMet=true;
+                            
+                        }
+                        else{
 
-                    P1.addnew();
+                            P1.addnew();
                     cy.wait(1500);
                     
                     if(value[3]!==null && value[3]!==undefined){
@@ -101,19 +113,19 @@ describe('Adding address.cy', () => {
                     }
                 }
                 if(value[3]===null || value[3]===undefined ||
-                   value[4]===null || value[4]===undefined || 
-                   value[5]===null || value[5]===undefined ||
-                   value[6]===null || value[6]===undefined ||
-                   value[7]===null || value[7]===undefined ||
-                   value[8]===null || value[8]===undefined ||
-                   value[9]===null || value[9]===undefined ){
-                       P1.locate();
-                       cy.wait(1500);
-                       P1.Errormsgforadd(value[3],value[4],value[5],value[6],value[7],value[8],value[9]);
-                       cy.wait(1500);
-                       cy.contains('Cancel').click();
-                       P1.profilepreview();
-                       
+                    value[4]===null || value[4]===undefined || 
+                    value[5]===null || value[5]===undefined ||
+                    value[6]===null || value[6]===undefined ||
+                    value[7]===null || value[7]===undefined ||
+                    value[8]===null || value[8]===undefined ||
+                    value[9]===null || value[9]===undefined ){
+                        P1.locate();
+                        cy.wait(1500);
+                        P1.Errormsgforadd(value[3],value[4],value[5],value[6],value[7],value[8],value[9]);
+                        cy.wait(1500);
+                        cy.contains('Cancel').click();
+                        P1.profilepreview();
+                        
                     }
                     else{
                         if(value[2]===null || value[2]===undefined){
@@ -124,33 +136,36 @@ describe('Adding address.cy', () => {
                             cy.wait(1500);
                             P1.profilepreview();
                         }
-                   }
-            }
-            //Validation
-            for(let i=1;i<rowLength;i++){
-                const value=jsonData[0].data[i];
-                const P1 = new Elements();
-            if( value[3]!==null && value[3]!==undefined &&
-                value[4]!==null && value[4]!==undefined && 
-                value[5]!==null && value[5]!==undefined &&
-                value[6]!==null && value[6]!==undefined &&
-                value[7]!==null && value[7]!==undefined &&
-                value[8]!==null && value[8]!==undefined &&
-                value[9]!==null && value[9]!==undefined ){
-                    if(value[2]){
-
-
-                    }else{
-
-                        cy.wait(1500);
-                        P1.address();
-                        cy.wait(1500);
-                        cy.contains(value[4]).should('exist');
-                        cy.wait(1500);
-                        P1.profilepreview();
                     }
+                    //Validation
+                    for(let i=1;i<rowLength;i++){
+                        const value=jsonData[0].data[i];
+                        const P1 = new Elements();
+                        if( value[3]!==null && value[3]!==undefined &&
+                            value[4]!==null && value[4]!==undefined && 
+                            value[5]!==null && value[5]!==undefined &&
+                            value[6]!==null && value[6]!==undefined &&
+                            value[7]!==null && value[7]!==undefined &&
+                            value[8]!==null && value[8]!==undefined &&
+                            value[9]!==null && value[9]!==undefined ){
+                                if(value[2]){
+                                
+                                
+                                }else{
+                                    
+                                    cy.wait(1500);
+                                    cy.log('1');
+                                    P1.address();
+                                    cy.wait(1500);
+                                    cy.contains(value[4]).should('exist');
+                                    cy.wait(1500);
+                                    P1.profilepreview();
+                                }
+                            }
+                        }
                     }
-                }
+                })
+                    }
         });
     });
 });
