@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-20T12:19:07.002Z",
+    "end": "2024-05-20T12:19:37.348Z",
+    "duration": 30346,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e1d85913-6cd7-4ca7-b73c-041368864184",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Preferred Hospital\\Hospital .cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Preferred Hospital\\Hospital .cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0b5b1512-731a-47c8-84eb-83fbe3d16674",
+          "title": "Hospital ype",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Hospital ype",
+              "fullTitle": "Hospital ype Hospital ype",
+              "timedOut": null,
+              "duration": 28454,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\DataFlow\\\\Preferred Hospital\\\\Hospital .cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Preferred Hospital').click();\ncy.wait(1000);\ncy.contains('Preferred Hospital').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Hospital').scrollIntoView().click();\n    cy.wait(1000);\n    let Hospital = 'input[placeholder=\"Enter Hospital Name\"]';\n    cy.get(Hospital).type('Others');\n    cy.wait(1000);\n    cy.get(Hospital).should('have.value', 'Others');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
+              "err": {},
+              "uuid": "7c1d77d2-dee2-4c4c-9e0d-712de4ca44df",
+              "parentUUID": "0b5b1512-731a-47c8-84eb-83fbe3d16674",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7c1d77d2-dee2-4c4c-9e0d-712de4ca44df"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28454,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

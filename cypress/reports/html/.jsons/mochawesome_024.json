@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-20T12:08:15.994Z",
+    "end": "2024-05-20T12:08:46.650Z",
+    "duration": 30656,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4b1304e8-b067-49fc-849f-a051c41167b6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Emergency Contact\\Relationship_Sister.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Emergency Contact\\Relationship_Sister.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ce2a94b0-a6f7-41f8-9ea4-6f47ba776ef3",
+          "title": "Relationship_Sister",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Relationship_Sister",
+              "fullTitle": "Relationship_Sister Relationship_Sister",
+              "timedOut": null,
+              "duration": 28690,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\DataFlow\\\\Emergency Contact\\\\Relationship_Sister.cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Emergency Contact').click();\ncy.wait(1000);\ncy.contains('Add Another Contact').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Contact').click();\n    cy.wait(1000);\n    let relation = 'select[class=\"chakra-select css-161pkch\"]';\n    cy.get(relation).eq(1).select('Sister');\n    cy.wait(1000);\n    cy.get(relation).eq(1).should('have.value', 'Sister');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
+              "err": {},
+              "uuid": "2c8148b0-86cd-4969-81c3-25639f4de767",
+              "parentUUID": "ce2a94b0-a6f7-41f8-9ea4-6f47ba776ef3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2c8148b0-86cd-4969-81c3-25639f4de767"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28690,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
