@@ -31,6 +31,15 @@ describe('TPA',()=>{
         })
         cy.contains('Insurance Information').click();
         cy.wait(1000);
+        cy.get('body').then(($bodyText)=>{
+            const bodyText=$bodyText.text();
+            if(bodyText.includes('Add Insurance')){
+                let TPA='input[placeholder="TPA (Third Party Administrator) Name"]';
+                cy.get(TPA).type('ABBCCCDDDD');
+                cy.wait(1000);
+                cy.get(TPA).should('have.value','ABBCCCDDDD');
+                cy.wait(1000);
+            }else{
         cy.contains('Add Another Insurance').then($button=>{
             if($button.prop('disabled')){
                 cy.log('Maximum limit is reached');
@@ -44,6 +53,8 @@ describe('TPA',()=>{
                 cy.wait(1000);
                 cy.contains('Cancel').click();
             }
+        })
+    }
         })
 
     })

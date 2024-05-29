@@ -31,6 +31,15 @@ describe('Insuranceype',()=>{
         })
         cy.contains('Insurance Information').click();
         cy.wait(1000);
+        cy.get('body').then(($bodyText)=>{
+            const bodyText=$bodyText.text();
+            if(bodyText.includes('Add Insurance')){
+                let Insurance='input[placeholder="Name of Insurance Company"]';
+                cy.get(Insurance).type('Others');
+                cy.wait(1000);
+                cy.get(Insurance).should('have.value','Others');
+                cy.wait(1000);
+            }else{
         cy.contains('Add Another Insurance').then($button=>{
             if($button.prop('disabled')){
                 cy.log('Maximum limit is reached');
@@ -45,6 +54,8 @@ describe('Insuranceype',()=>{
                 cy.contains('Cancel').click();
             }
         })
+        }
+    })
 
     })
 })

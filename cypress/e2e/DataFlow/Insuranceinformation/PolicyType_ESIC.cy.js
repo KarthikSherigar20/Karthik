@@ -31,6 +31,15 @@ describe('PolicyType',()=>{
         })
         cy.contains('Insurance Information').click();
         cy.wait(1000);
+        cy.get('body').then(($bodyText)=>{
+            const bodyText=$bodyText.text();
+            if(bodyText.includes('Add Insurance')){
+                let Policyt='select[class="chakra-select css-161pkch"]';
+                cy.get(Policyt).select('ESIC');
+                cy.wait(1000);
+                cy.get(Policyt).should('have.value','ESIC');
+                cy.wait(1000);
+            }else{
         cy.contains('Add Another Insurance').then($button=>{
             if($button.prop('disabled')){
                 cy.log('Maximum limit is reached');
@@ -44,6 +53,9 @@ describe('PolicyType',()=>{
                 cy.wait(1000);
                 cy.contains('Cancel').click();
             }
+        })
+        }
+
         })
 
     })

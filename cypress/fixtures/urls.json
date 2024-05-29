@@ -1,5 +1,5 @@
 {
-        "selectedEnvironment":"Stage",
+        "selectedEnvironment":"Dev",
         "environments":{
                 "Dev":"https://customerapp.dev.pococare.com/",
                 "Stage":"https://pococustomerapp.stage.pococare.com/",
