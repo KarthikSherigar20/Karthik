@@ -31,8 +31,10 @@ describe('Basic information',()=>{
             }
         })
         cy.contains('Insurance Information').click();
+        cy.wait(2000);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
+            cy.log(bodyText);
             if(bodyText.includes('Add Insurance')){
                 cy.get('input[placeholder="Policy Id / E-Card Number"]').should('be.visible').should('not.be.disabled');
                 cy.wait(1000);

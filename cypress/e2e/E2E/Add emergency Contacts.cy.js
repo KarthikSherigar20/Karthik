@@ -126,8 +126,8 @@ it('Add emergency Contacts',()=>{
                   }
                   cy.wait(1500);
                   if(value[3]!==null && value[3]!==undefined &&
-                    value[4]!==null && value[4]!==undefined &&
-                    value[5]!==null && value[5]!==undefined ){
+                     value[4]!==null && value[4]!==undefined &&
+                     value[5]!==null && value[5]!==undefined ){
                       P1.whatspp();
                       cy.wait(1500);
                       P1.savee();
@@ -136,8 +136,8 @@ it('Add emergency Contacts',()=>{
                     }
                     
                     if(value[3]===null || value[3]===undefined ||
-                      value[4]===null || value[4]===undefined ||
-                      value[5]===null || value[5]===undefined ){
+                       value[4]===null || value[4]===undefined ||
+                       value[5]===null || value[5]===undefined ){
                         cy.wait(2000);
                         P1.savee();
                         cy.wait(1500);
@@ -189,8 +189,8 @@ it('Add emergency Contacts',()=>{
                 P1.emergencycontacts();
                 cy.wait(2000);
                 if(value[3]!==null && value[3]!==undefined &&
-                  value[4]!==null && value[4]!==undefined &&
-                  value[5]!==null && value[5]!==undefined ){
+                   value[4]!==null && value[4]!==undefined &&
+                   value[5]!==null && value[5]!==undefined ){
                     cy.contains(value[3]).should('exist');
                   }
                   cy.wait(2000);
