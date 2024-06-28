@@ -84,7 +84,7 @@ it('Add emergency Contacts',()=>{
                     cy.wrap(optionswithpartialltext).invoke('text').then(optionText =>{
                       console.log('Select option:', optionText);
                       cy.wrap(optionswithpartialltext).parent().select(optionText);
-                      cy.wait(1500);
+                      cy.wait(1500)
                       P1.whatspp();
                       cy.wait(1500);
                       P1.savee();
