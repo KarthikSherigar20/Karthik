@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-28T11:38:40.267Z",
+    "end": "2024-06-28T11:39:08.711Z",
+    "duration": 28444,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a84c3c7d-f4cf-471b-aa65-ada6b909a088",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Medical Profile\\Blood Group_A+.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Medical Profile\\Blood Group_A+.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c3d78092-0832-4de2-8e92-d3f3f4ebe134",
+          "title": "BG",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "BG",
+              "fullTitle": "BG BG",
+              "timedOut": null,
+              "duration": 26736,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\DataFlow\\\\Medical Profile\\\\Blood Group_A+.cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Medical Profile').click();\ncy.wait(1000);\nlet BG = 'select[class=\"chakra-select css-161pkch\"]';\ncy.wait(1000);\ncy.get(BG).eq(0).select('A+');\ncy.wait(1000);\ncy.get(BG).eq(0).should('have.value', 'A+');",
+              "err": {},
+              "uuid": "68fc7c62-3f4c-4fd5-9d9a-5563b2299345",
+              "parentUUID": "c3d78092-0832-4de2-8e92-d3f3f4ebe134",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "68fc7c62-3f4c-4fd5-9d9a-5563b2299345"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26736,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

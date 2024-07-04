@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-28T11:37:31.236Z",
+    "end": "2024-06-28T11:38:02.138Z",
+    "duration": 30902,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c07b0d5c-c011-4cb6-a82c-76f0793f7395",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Insuranceinformation\\TPA.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Insuranceinformation\\TPA.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d0b015e4-7bce-454a-9d67-19346fe4d71f",
+          "title": "TPA",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TPA",
+              "fullTitle": "TPA TPA",
+              "timedOut": null,
+              "duration": 29221,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\DataFlow\\\\Insuranceinformation\\\\TPA.cy.js\"\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Insurance Information').click();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Add Insurance')) {\n    let TPA = 'input[placeholder=\"TPA (Third Party Administrator) Name\"]';\n    cy.get(TPA).type('ABBCCCDDDD');\n    cy.wait(1000);\n    cy.get(TPA).should('have.value', 'ABBCCCDDDD');\n    cy.wait(1000);\n  } else {\n    cy.contains('Add Another Insurance').then($button => {\n      if ($button.prop('disabled')) {\n        cy.log('Maximum limit is reached');\n      } else {\n        cy.contains('Add Another Insurance').click();\n        cy.wait(1000);\n        let TPA = 'input[placeholder=\"TPA (Third Party Administrator) Name\"]';\n        cy.get(TPA).type('ABBCCCDDDD');\n        cy.wait(1000);\n        cy.get(TPA).should('have.value', 'ABBCCCDDDD');\n        cy.wait(1000);\n        cy.contains('Cancel').click();\n      }\n    });\n  }\n});",
+              "err": {},
+              "uuid": "e177fc79-6b5e-428a-a774-8b6bf8642110",
+              "parentUUID": "d0b015e4-7bce-454a-9d67-19346fe4d71f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e177fc79-6b5e-428a-a774-8b6bf8642110"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 29221,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
