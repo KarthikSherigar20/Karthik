@@ -13,7 +13,7 @@ describe('Privacypolicy',()=>{
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('THE POLICY');
+            expect(bodyText).to.contain('PRIVACY POLICY');
         })
     })
 })

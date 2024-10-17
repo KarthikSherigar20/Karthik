@@ -20,7 +20,7 @@ describe('T&C',()=>{
         cy.wait(2000);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('THE POLICY');
+            expect(bodyText).to.contain('PRIVACY POLICY');
         })
     })
 })
