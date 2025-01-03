@@ -13,6 +13,7 @@ describe('Email&mobilno. and otp page',()=>{
         cy.wait(1500);
         cy.get('input[id="email"]').type(un.Un);
         cy.wait(1500);
+        // cy.wait(1500);
         cy.get('input[placeholder="Phone Number"]').type(un.PhoneNo);
         cy.wait(1500);
         cy.get('button[type="submit"]').click();
