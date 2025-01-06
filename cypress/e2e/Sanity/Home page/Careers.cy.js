@@ -1,4 +1,4 @@
-import url from 'D:/Cypress/cypress3/cypress/fixtures/urls.json';
+import url from '../../../fixtures/urls.json';
 
 describe('Careers',()=>{
     it('Checking Careers page',()=>{

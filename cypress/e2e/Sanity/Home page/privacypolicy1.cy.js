@@ -1,4 +1,4 @@
-import url from 'D:/Cypress/cypress3/cypress/fixtures/urls.json';
+import url from '../../../fixtures/urls.json';
 
 describe('T&C',()=>{
     it('Checking T&C page',()=>{
