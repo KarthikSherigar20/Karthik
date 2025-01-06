@@ -25,5 +25,6 @@ describe('Buttons', () => {
         cy.get('body').should('contain','Tickets').should('be.visible').should('not.be.disabled');
         cy.wait(1500);
         cy.get('body').should('contain','Logout').should('be.visible').should('not.be.disabled')
+        cy.wait(1500);
     });
 });
