@@ -9,11 +9,14 @@ const login =() =>{
     const selectedEnviornment= url.SelectedEnviornment;
     const selectUrl = url.Environments[selectedEnviornment];
 
+    const selectedApi=url.SelectedApi;
+    const selectapi=url.Apis[selectedApi];
+
     cy.visit(selectUrl);
 
     cy.request({
         method:"POST",
-        url:url.PLD,
+        url:selectapi,
         body:{
             email:un.Un,
             password:un.Pass
