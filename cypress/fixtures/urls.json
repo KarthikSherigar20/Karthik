@@ -1,6 +1,6 @@
 {
     "SelectedEnviornment":"Dev",
-    "Environment":{
+    "Environments":{
         "Dev":"https://ops.dev.pococare.com/",
         "Stage":"https://ops.stage.pococare.com/",
         "Prod":"https://ops.pococare.com/"
