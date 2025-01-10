@@ -23,11 +23,11 @@ const login =() =>{
         }
     }).then((response)=>{
         expect(response.status).to.eq(201);
-        cy.wait(1500);
+        cy.wait(200);
         accessToken=response.body.adminAccessToken;
         refreshToken=response.body.adminRefreshToken;
 
-        cy.wait(1500);
+        cy.wait(200);
         cy.window().then((win)=>{
             win.sessionStorage.setItem('adminAccessToken',accessToken);
             win.sessionStorage.setItem('adminRefreshToken',refreshToken);
