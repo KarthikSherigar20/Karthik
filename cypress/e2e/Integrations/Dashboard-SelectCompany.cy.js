@@ -1,4 +1,4 @@
-import login from "../../../support/login";
+import login from "../../support/login";
 
 describe('Dashboard-SelectCompany',()=>{
     before(()=>{
