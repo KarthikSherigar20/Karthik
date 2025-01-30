@@ -23,9 +23,9 @@ describe('Incorming Call-Not registered number',()=>{
                 const bodyText=$bodyText.text();
                 expect(bodyText).to.include('General Enquiry');
                 cy.wait(2000);
-                expect(bodyText).to.include('Test Demo');
+                expect(bodyText).to.include('TestDemo');
             })
-            cy.contains('Test Demo').scrollIntoView().click();
+            cy.contains('TestDemo').scrollIntoView().click();
           }
         })
     })

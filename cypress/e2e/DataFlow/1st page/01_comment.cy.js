@@ -22,7 +22,7 @@ describe('comment', () => {
                 cy.wait(1500);
                 cy.get('input[name="isAmbulanceRequired"]').eq(1).click();
                 cy.wait(1500);
-                cy.contains('Save Assessment').scrollIntoView().click();
+                cy.contains('Start Emergency').scrollIntoView().click();
                 cy.wait(1500);
                 cy.contains('Comment').click();
                 cy.wait(1500);
@@ -36,12 +36,6 @@ describe('comment', () => {
                     expect(text).to.include(partialText);
                 });
                 cy.get('.ant-modal-close-x').click();
-                cy.wait(1500);
-                cy.get('input[type="radio"]').eq(0).click();
-                cy.wait(1500);
-                cy.get('input[type="radio"]').eq(1).click();
-                cy.wait(1500);
-                cy.contains('Start Emergency').click();
                 cy.wait(1500);
                 cy.contains('Emergency Resolved').click();
 
