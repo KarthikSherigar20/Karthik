@@ -19,8 +19,9 @@ it('textfields',()=>{
 
     })
     cy.get(tf).each((tff)=>{
-        cy.wrap(tff).type('abcd1234').should('contain','abcd1234')
+        cy.wrap(tff).clear().
+        type('1234').should('have.value','1234').
+        clear();
     })
- 
 })
 })
