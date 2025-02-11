@@ -1,4 +1,5 @@
 import login from "../../support/login";
+import mob from "../../fixtures/Email&no.json"
 
 describe('Whatsapp',()=>{
     before(()=>{
@@ -21,7 +22,9 @@ it('Whatsapp',()=>{
 
     cy.contains('Select Ben').click();
 
-    cy.get('[placeholder="Enter PhoneNumber"]').scrollIntoView().type('9019803837')
+    const mo=mob.Mobno;
+
+    cy.get('[placeholder="Enter PhoneNumber"]').scrollIntoView().type(mo)
 
     cy.get('button[class="BenAddressData_button__0kXLn"]').eq(1).click();
 
