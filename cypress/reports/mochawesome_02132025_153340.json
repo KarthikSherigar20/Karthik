@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-13T10:03:20.543Z",
+    "end": "2025-02-13T10:03:40.292Z",
+    "duration": 19749,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "14f346ca-d031-4117-acde-eb769f3dbaf2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "515e19ec-5c1c-426e-bd3c-1202028cd722",
+          "title": "Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Buttons Buttons",
+              "timedOut": null,
+              "duration": 17541,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('button[class=\"button undefined ticketFilter_button__QAw0v\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Tickets').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Logout').should('be.visible').should('not.be.disabled');\ncy.wait(1500);",
+              "err": {},
+              "uuid": "be8c5986-0781-47d2-9140-f0ae03083982",
+              "parentUUID": "515e19ec-5c1c-426e-bd3c-1202028cd722",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "be8c5986-0781-47d2-9140-f0ae03083982"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17541,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
