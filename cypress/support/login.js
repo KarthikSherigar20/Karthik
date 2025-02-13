@@ -31,20 +31,39 @@ const login = () => {
         },
         failOnStatusCode: false // Prevent Cypress from failing on non-2xx status codes
     }).then((response) => {
-        if (response.status === 201) {
-            accessToken = response.body.adminAccessToken;
-            refreshToken = response.body.adminRefreshToken;
+        cy.wait(2000);
+        cy.log('response',response.status);
+        console.log('response',response[0]);
+        if (!response || !response.status) {
+            cy.log("Response is undefined or invalid. Retrying login...");
+            login();
+        }else{
 
-            cy.window().then((win) => {
-                win.sessionStorage.setItem('adminAccessToken', accessToken);
-                win.sessionStorage.setItem('adminRefreshToken', refreshToken);
-            });
-
-            cy.log('Login successful');
-        } else {
-            cy.log(`Login failed with status ${response.status}: Retrying...`);
-            cy.wait(1000); // Small wait before retrying
-            login(); // Retry login if the status is not 201
+            
+            if (response.status === 201) {
+                accessToken = response.body.adminAccessToken;
+                refreshToken = response.body.adminRefreshToken;
+                
+                cy.window().then((win) => {
+                    win.sessionStorage.setItem('adminAccessToken', accessToken);
+                    win.sessionStorage.setItem('adminRefreshToken', refreshToken);
+                });
+                cy.wait(1500)
+                
+                cy.get('body').then(($bodyText)=>{
+                    const bodyText=$bodyText.text();
+                    if(bodyText.includes('Admin Login')){
+                        cy.wait(1000);
+                        login();
+                        
+                    }
+                })
+                // cy.log('Login successful');
+            } else {
+                cy.log(`Login failed with status ${response.status}: Retrying...`);
+                cy.wait(1000); // Small wait before retrying
+                login(); // Retry login if the status is not 201
+            }
         }
     });
 };

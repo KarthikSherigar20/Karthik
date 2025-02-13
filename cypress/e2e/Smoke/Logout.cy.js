@@ -7,7 +7,7 @@ describe('Logout',()=>{
     })
 
 it('Logout',()=>{
-    cy.get('svg[class="chakra-icon css-6ey7w3"]').eq(10).click();
+    cy.get('svg[class="chakra-icon css-6ey7w3"]').eq(11).click();
 
     cy.wait(500)
 

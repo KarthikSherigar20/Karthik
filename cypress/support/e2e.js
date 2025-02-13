@@ -24,6 +24,8 @@ if (!app.document.head.querySelector("[data-hide-command-log-request]")) {
  style.setAttribute("data-hide-command-log-request", "");
  app.document.head.appendChild(style); 
 }
+import index from "../support/index";
+
 
 //xpath
 // require('cypress-xpath')

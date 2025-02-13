@@ -53,7 +53,7 @@ it('Sendemail',()=>{
     cy.contains('option','Select Template').click({force:true})
 
 
-    cy.get('select[class="chakra-select css-161pkch"]').select('Poco EmUrgency App Update');
+    cy.get('select[class="chakra-select css-161pkch"]').select('Activated and non activated welcome');
 
     buttons.forEach((bu)=>{
         cy.contains(bu).should('not.be.disabled')

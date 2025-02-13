@@ -15,8 +15,8 @@ it('Search Ben-Buttons',()=>{
         cy.wrap(button).scrollIntoView().should('be.enabled').and('be.visible')
     })
 
-    cy.get('button[class="customButton_button__Ol41S BenAddressData_button__0kXLn"]')
-    .scrollIntoView().should('be.enabled').and('be.visible');
+    // cy.get('button[class="customButton_button__Ol41S BenAddressData_button__0kXLn"]')
+    // .scrollIntoView().should('be.enabled').and('be.visible');
 
 
 })

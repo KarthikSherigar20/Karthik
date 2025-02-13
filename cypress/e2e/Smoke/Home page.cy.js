@@ -84,6 +84,13 @@ describe('Homepage',()=>{
         cy.wait( 500);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
+            expect(bodyText).to.contain('Bulk WhatsApp Template');
+        })
+        cy.wait( 500);
+        cy.get('svg[class="chakra-icon css-6ey7w3"]').eq(11).click();
+        cy.wait( 500);
+        cy.get('body').then(($bodyText)=>{
+            const bodyText=$bodyText.text();
             expect(bodyText).to.contain('Admin Login');
         })
 
