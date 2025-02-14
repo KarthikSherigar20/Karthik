@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-14T09:05:45.997Z",
+    "end": "2025-02-14T09:05:58.579Z",
+    "duration": 12582,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c19b08fe-2400-4302-a01b-e5d252a52a7d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Sendemail.cy.js",
+      "file": "cypress\\e2e\\e2e\\Sendemail.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ea78d844-9b24-48b8-bd37-b7810a1ec320",
+          "title": "Sendemail",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sendemail",
+              "fullTitle": "Sendemail Sendemail",
+              "timedOut": null,
+              "duration": 11296,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(5).scrollIntoView().click();\ncy.get('body').should('contain', 'Send Email');\ncy.contains('Create Job').scrollIntoView().click();\ncy.get('input[type=\"text\"]').type('Test');\ncy.get('button[type=\"button\"]').eq(2).click();\ncy.contains('New').click();\ncy.contains('Add Beneficiary').click();\nconst email = _EmailNo.default.Email;\ncy.get('input[placeholder=\"Enter email\"]').type(email);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\nfunction addall() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Add All Ben To Job')) {\n      cy.contains('Add All Ben To Job').click();\n    } else {\n      cy.wait(1000);\n      addall();\n    }\n  });\n}\naddall();\ncy.wait(2000);\nconst buttons = ['Send Email', 'Send To Subscriber'];\nbuttons.forEach(button => {\n  cy.contains(button).should('be.disabled');\n});\ncy.contains('option', 'Select Template').click({\n  force: true\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').select('Activated and non activated welcome');\nbuttons.forEach(bu => {\n  cy.contains(bu).should('not.be.disabled');\n});\ncy.contains('Send Email').click();\ncy.wait(1000);\nbuttons.forEach(button => {\n  cy.contains(button).should('be.disabled');\n});",
+              "err": {},
+              "uuid": "80fbe5d7-8f4a-4f76-ac2e-03034d4dafc7",
+              "parentUUID": "ea78d844-9b24-48b8-bd37-b7810a1ec320",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "80fbe5d7-8f4a-4f76-ac2e-03034d4dafc7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11296,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

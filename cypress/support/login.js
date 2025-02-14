@@ -32,14 +32,13 @@ const login = () => {
         failOnStatusCode: false // Prevent Cypress from failing on non-2xx status codes
     }).then((response) => {
         cy.wait(2000);
-        cy.log('response',response.status);
-        console.log('response',response[0]);
+        
         if (!response || !response.status) {
             cy.log("Response is undefined or invalid. Retrying login...");
             login();
         }else{
-
-            
+            console.log('response',response);
+            cy.log('response',response.status);
             if (response.status === 201) {
                 accessToken = response.body.adminAccessToken;
                 refreshToken = response.body.adminRefreshToken;

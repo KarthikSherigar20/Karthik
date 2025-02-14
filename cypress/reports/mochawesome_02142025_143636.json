@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-14T09:06:16.929Z",
+    "end": "2025-02-14T09:06:36.694Z",
+    "duration": 19765,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3199081d-0dd3-4766-ba94-ba95e99c48d2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\printingQR.cy.js",
+      "file": "cypress\\e2e\\e2e\\printingQR.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "067adbd3-e6ec-45bb-a761-d18c137a1559",
+          "title": "QRP",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "QR",
+              "fullTitle": "QRP QR",
+              "timedOut": null,
+              "duration": 18459,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(3).scrollIntoView().click();\ncy.contains('Create Job').click();\ncy.get('input[placeholder=\"Job Name\"]').type('test');\ncy.get('textarea[placeholder=\"Description\"]').type('description');\ncy.get('button[type=\"button\"]').eq(3).click({\n  force: true\n});\nconst date = new Date();\n// Format the date and time\nconst formattedDate = date.toLocaleString('en-GB', {\n  day: '2-digit',\n  // Two-digit day (e.g., 30)\n  month: '2-digit',\n  // Two-digit month (e.g., 01)\n  year: 'numeric',\n  // Full year (e.g., 2025)\n  hour: '2-digit',\n  // Two-digit hour (e.g., 03)\n  minute: '2-digit',\n  // Two-digit minute (e.g., 28)\n  hour12: true // Use 12-hour format (e.g., 03:28 PM)\n});\ncy.log('Formatted Date: ', formattedDate);\ncy.contains(formattedDate).nextAll().eq(1).then(da => {\n  const text = da.text();\n  expect(text).to.contain('New');\n});\ncy.contains(formattedDate).click();\n// cy.contains('New').click();\ncy.contains('Add Records').click();\ncy.contains('option', 'Select Company').click({\n  force: true\n});\ncy.get('select[class=\"CustomSelect_select_border__lWd7w\"]').select('Pococare');\ncy.contains('button', 'Search').scrollIntoView().click();\nfunction checkAndClickButton() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Add All Ben To Job')) {\n      // Use `.includes()` instead of `.contains()`\n      cy.contains('button', 'Add All Ben To Job').click();\n    } else {\n      cy.wait(1000);\n      checkAndClickButton(); // Recursively call the function\n    }\n  });\n}\n// Call the function initially\ncheckAndClickButton();\nfunction submit() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Submit')) {\n      cy.contains('Submit').click();\n    } else {\n      cy.wait(1000);\n      submit();\n    }\n  });\n}\nsubmit();\ncy.get('button[class=\"chakra-button css-41aesz\"]').click();\ncy.get('body').should('contain', 'Print QR');\ncy.contains('Print QR').click();\ncy.get('body').should('contain', 'Print QR Codes');",
+              "err": {},
+              "uuid": "9eda26b5-b6b3-40d3-abfd-03d8afdf1756",
+              "parentUUID": "067adbd3-e6ec-45bb-a761-d18c137a1559",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9eda26b5-b6b3-40d3-abfd-03d8afdf1756"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18459,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
