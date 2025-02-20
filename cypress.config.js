@@ -9,7 +9,7 @@ module.exports = defineConfig({
   // pageLoadTimeout: 180000,
   watchForFileChanges: false,
 
-  video: true,
+  video: false,
 
   e2e: {
     setupNodeEvents(on, config) {
@@ -29,6 +29,7 @@ module.exports = defineConfig({
       });
     },
   },
+  defaultCommandTimeout: 10000,
 
   component: {
     devServer: {
