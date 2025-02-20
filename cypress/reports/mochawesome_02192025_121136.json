@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-19T06:41:29.447Z",
+    "end": "2025-02-19T06:41:36.663Z",
+    "duration": 7216,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "473e17bc-0a36-456e-8aad-a5779a8849ce",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Texfields.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Texfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f77aea05-a89f-428d-b8eb-94ed4dc38b41",
+          "title": "Search Ben-Textfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Search Ben-Textfields",
+              "fullTitle": "Search Ben-Textfields Search Ben-Textfields",
+              "timedOut": null,
+              "duration": 5855,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('input[class=\"custominput_input__AQGtC \"]').each(input => {\n  cy.wrap(input).scrollIntoView().should('be.enabled').and('be.visible');\n});",
+              "err": {},
+              "uuid": "58803521-5240-4033-8bdc-76661d480f1b",
+              "parentUUID": "f77aea05-a89f-428d-b8eb-94ed4dc38b41",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "58803521-5240-4033-8bdc-76661d480f1b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5855,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
