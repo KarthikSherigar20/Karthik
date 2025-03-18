@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-13T10:16:03.228Z",
+    "end": "2025-03-13T10:16:10.001Z",
+    "duration": 6773,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "529fbf6e-ef8e-4168-b121-1787366a2e0d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Logout.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Logout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "121581a3-7ab9-4eca-9ff7-5580445b9143",
+          "title": "Logout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logout",
+              "fullTitle": "Logout Logout",
+              "timedOut": null,
+              "duration": 5414,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(11).click();\ncy.wait(500);\nconst names = ['Login with Microsoft ', 'Admin Login'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {},
+              "uuid": "63efba1e-cb72-4a60-bec7-906d535b28e4",
+              "parentUUID": "121581a3-7ab9-4eca-9ff7-5580445b9143",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "63efba1e-cb72-4a60-bec7-906d535b28e4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5414,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

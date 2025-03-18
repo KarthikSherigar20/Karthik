@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-20T06:55:26.656Z",
+    "end": "2025-02-20T06:55:39.247Z",
+    "duration": 12591,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fc817d5e-207d-4d73-b6ba-570c4a5d5df4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Manage\\Buttons.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Manage\\Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43830323-52de-4bf8-8df9-9f54242502e0",
+          "title": "Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Buttons Buttons",
+              "timedOut": null,
+              "duration": 9289,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\nconst buttons = ['button[type=\"button\"]', 'button[type=\"submit\"]'];\nbuttons.forEach(button => {\n  cy.get(button).each(b => {\n    cy.wrap(b).scrollIntoView().should('be.visible').and('not.be.disabled');\n  });\n});",
+              "err": {},
+              "uuid": "1d8b8ce1-61c0-4307-b868-3a9ef494abc9",
+              "parentUUID": "43830323-52de-4bf8-8df9-9f54242502e0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1d8b8ce1-61c0-4307-b868-3a9ef494abc9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9289,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

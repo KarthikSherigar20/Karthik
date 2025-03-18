@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-20T06:31:08.870Z",
+    "end": "2025-02-20T06:31:20.819Z",
+    "duration": 11949,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0c20c812-336f-4875-a1c7-82cf945f8773",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Searchben-textfields.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Searchben-textfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "614d592f-599e-4344-947c-dac8dcc91cee",
+          "title": "textfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "textfields",
+              "fullTitle": "textfields textfields",
+              "timedOut": null,
+              "duration": 10559,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\nconst tf = '.custominput_input__AQGtC ';\ncy.get(tf).then(len => {\n  const le = len.length;\n  cy.log('len', le);\n});\ncy.get(tf).each(tff => {\n  cy.wrap(tff).clear().type('1234').should('have.value', '1234').clear();\n});",
+              "err": {
+                "message": "CypressError: Cypress test was stopped while running this command. (and Mocha's done() called multiple times)\n\nBecause this error occurred during a `before all` hook we are skipping all of the remaining tests.",
+                "estack": "CypressError: Cypress test was stopped while running this command. (and Mocha's done() called multiple times)\n\nBecause this error occurred during a `before all` hook we are skipping all of the remaining tests.\n    at cypressErr (https://ops.dev.pococare.com/__cypress/runner/cypress_runner.js:76065:18)\n    at Object.errByPath (https://ops.dev.pococare.com/__cypress/runner/cypress_runner.js:76119:10)\n    at https://ops.dev.pococare.com/__cypress/runner/cypress_runner.js:145614:72",
+                "diff": null
+              },
+              "uuid": "9f38c781-3a93-420e-8df3-d46a3c68917a",
+              "parentUUID": "614d592f-599e-4344-947c-dac8dcc91cee",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9f38c781-3a93-420e-8df3-d46a3c68917a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10559,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

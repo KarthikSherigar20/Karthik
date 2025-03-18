@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-13T10:15:33.375Z",
+    "end": "2025-03-13T10:15:40.681Z",
+    "duration": 7306,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a906a31b-0c29-4740-9d28-135e7796becf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\whatsappresponse.cy.js",
+      "file": "cypress\\e2e\\e2e\\whatsappresponse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "94cb2fe2-bfcf-4dd7-9c7a-6e29553987c1",
+          "title": "whatsappresponse",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "whatsappresponse",
+              "fullTitle": "whatsappresponse whatsappresponse",
+              "timedOut": null,
+              "duration": 5923,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(6).scrollIntoView().click();\ncy.contains('send').click();\ncy.get('body').should('contain', 'whatsappMsgId');",
+              "err": {},
+              "uuid": "e85b7c31-6e5e-4897-85b5-10f57331914c",
+              "parentUUID": "94cb2fe2-bfcf-4dd7-9c7a-6e29553987c1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e85b7c31-6e5e-4897-85b5-10f57331914c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5923,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-28T06:06:46.824Z",
+    "end": "2025-02-28T06:07:26.369Z",
+    "duration": 39545,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "54a0ba1e-9900-4ecd-b8a9-0edb0c1a2a44",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Checkbox.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Checkbox.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1a6f35aa-6fae-4e58-a026-57b45f7a328d",
+          "title": "Checkbox",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checkbox",
+              "fullTitle": "Checkbox Checkbox",
+              "timedOut": null,
+              "duration": 37533,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('input[class=\"checkbox_inputStyle__Rjg8M\"]').each(check => {\n  cy.wrap(check).scrollIntoView().should('be.enabled').and('be.visible');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` timed out waiting `30000ms` for a response from your server.\n\nThe request we sent was:\n\nMethod: POST\nURL: https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login\n\nNo response was received within the timeout.\n\nhttps://on.cypress.io/request\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Checkbox`",
+                "estack": "CypressError: `cy.request()` timed out waiting `30000ms` for a response from your server.\n\nThe request we sent was:\n\nMethod: POST\nURL: https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login\n\nNo response was received within the timeout.\n\nhttps://on.cypress.io/request\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Checkbox`\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:132893:70)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4209:41)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at login (webpack:///./cypress/support/login.js:25:7)\n    at Context.eval (webpack:///./cypress/support/login.js:38:12)",
+                "diff": null
+              },
+              "uuid": "b5617edd-2813-42fb-96fd-e1e90b18568f",
+              "parentUUID": "1a6f35aa-6fae-4e58-a026-57b45f7a328d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b5617edd-2813-42fb-96fd-e1e90b18568f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 37533,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

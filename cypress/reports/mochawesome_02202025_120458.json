@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-20T06:34:46.111Z",
+    "end": "2025-02-20T06:34:58.146Z",
+    "duration": 12035,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2b44128e-d412-47c3-a0ae-815e3614d795",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Manage\\File,dropdown,links.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Manage\\File,dropdown,links.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a2fb27af-0c17-4f83-a965-ecfa9c3bc1d0",
+          "title": "F,D,L",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "F,D,L",
+              "fullTitle": "F,D,L F,D,L",
+              "timedOut": null,
+              "duration": 8548,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\nconst links = ['div[class=\"css-1ugipnq\"]', 'div[class=\"css-1h2sv0j\"]'];\nlinks.forEach(link => {\n  cy.get(link).each(l => {\n    cy.wrap(l).scrollIntoView().should('be.visible').and('not.be.disabled');\n  });\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').should('be.visible').and('not.be.disabled');\ncy.wait(500);\ncy.get('input[class=\"chakra-input css-10on6wl\"]').each(F => {\n  cy.wrap(F).scrollIntoView().should('be.visible').and('not.be.disabled');\n});",
+              "err": {},
+              "uuid": "49f99156-3be0-4c3e-b96f-50a1195f0c38",
+              "parentUUID": "a2fb27af-0c17-4f83-a965-ecfa9c3bc1d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "49f99156-3be0-4c3e-b96f-50a1195f0c38"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8548,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

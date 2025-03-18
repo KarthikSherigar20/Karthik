@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-20T06:47:24.825Z",
+    "end": "2025-02-20T06:48:08.566Z",
+    "duration": 43741,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6593bf92-bcb7-46e3-b586-e21ac4799549",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Searchben-checkbox.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Searchben-checkbox.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f1af265-1ca7-42a9-acef-a22aa66b434a",
+          "title": "Checkbox",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checkbox",
+              "fullTitle": "Checkbox Checkbox",
+              "timedOut": null,
+              "duration": 40024,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\nconst chec = 'input[class=\"checkbox_inputStyle__Rjg8M\"]';\ncy.get(chec).each((check, index) => {\n  // Scroll into view and click to check\n  cy.wrap(check).scrollIntoView().then($checkbox => {\n    if ($checkbox.is(':checked')) {\n      cy.get(chec).eq(index).click();\n      // Assert that the checkbox is checked\n      cy.get(chec).eq(index).should('not.be.checked');\n      // Re-query the checkbox (breaking the chain)\n      cy.get(chec).eq(index).click();\n      // Assert that the checkbox is unchecked\n      cy.get(chec).eq(index).should('be.checked');\n    } else {\n      cy.get(chec).eq(index).click();\n      // Assert that the checkbox is checked\n      cy.get(chec).eq(index).should('be.checked');\n      // Re-query the checkbox (breaking the chain)\n      cy.get(chec).eq(index).click();\n      // Assert that the checkbox is unchecked\n      cy.get(chec).eq(index).should('not.be.checked');\n    }\n  });\n});",
+              "err": {},
+              "uuid": "1695a0d2-bd75-48b7-8d13-74c36861c385",
+              "parentUUID": "9f1af265-1ca7-42a9-acef-a22aa66b434a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1695a0d2-bd75-48b7-8d13-74c36861c385"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 40024,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

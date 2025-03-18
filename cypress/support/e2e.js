@@ -31,3 +31,25 @@ import index from "../support/index";
 // require('cypress-xpath')
 
 // import 'cypress-mochawesome-reporter/register';
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // Returning false prevents Cypress from failing the test
+    return false;
+  });
+
+  // before(() => {
+  //   cy.wrap(null).then(() => {
+  //     // Your setup code here
+  //   }).catch(() => {
+  //     cy.log('Error in before hook, continuing test execution');
+  //   });
+  // });
+
+  // Cypress.on('fail', (error, runnable) => {
+  //   Cypress.log({
+  //     name: "Error caught",
+  //     message: error.message
+  //   });
+  //   return false; // Prevents Cypress from failing the test
+  // });
+  

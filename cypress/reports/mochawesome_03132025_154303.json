@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-13T10:12:48.033Z",
+    "end": "2025-03-13T10:13:03.058Z",
+    "duration": 15025,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3f7e7415-c776-4c58-975e-0bf3fb13bf98",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Searchben-dropdown.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Searchben-dropdown.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "de56f209-c32b-4f5d-867a-6aed06508b99",
+          "title": "Dropdown",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "dropdown",
+              "fullTitle": "Dropdown dropdown",
+              "timedOut": null,
+              "duration": 13087,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('select[style=\"border: 1px solid black;\"]').find('option').then($options => {\n  const dropdown = [];\n  // Extract the text of each option\n  $options.each((index, option) => {\n    dropdown.push(option.innerText);\n  });\n  // Iterate through the dropdown options and select each one\n  dropdown.forEach(drop => {\n    cy.log('Selecting value: ', drop);\n    cy.get('select[style=\"border: 1px solid black;\"]').select(drop).should('have.value', drop); // Assert selected value\n  });\n});\nconst dropdownValues = [];\ncy.get('.CustomSelect_select_border__lWd7w').select('Select Company');\ncy.wait(500);\ncy.get('.CustomSelect_select_border__lWd7w').find('option').each($ec => {\n  dropdownValues.push($ec.text()); // Collect all dropdown values\n}).then(() => {\n  // Iterate over the collected values\n  dropdownValues.forEach(value => {\n    cy.log('Selecting value: ', value);\n    cy.get('.CustomSelect_select_border__lWd7w').select(value).should('have.value', value); // Select the current value\n  });\n});",
+              "err": {},
+              "uuid": "ff79e14a-1d8d-491c-a316-cea301f33587",
+              "parentUUID": "de56f209-c32b-4f5d-867a-6aed06508b99",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ff79e14a-1d8d-491c-a316-cea301f33587"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13087,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

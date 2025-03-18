@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-20T06:31:55.163Z",
+    "end": "2025-02-20T06:32:01.654Z",
+    "duration": 6491,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9a37e157-89e3-4443-878c-afac2f764c64",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Searchradius.cy.js",
+      "file": "cypress\\e2e\\e2e\\Searchradius.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a35ef78d-6232-4a80-b28d-dc21ccea3ace",
+          "title": "Searchradius",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Searchradius",
+              "fullTitle": "Searchradius Searchradius",
+              "timedOut": null,
+              "duration": 4874,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(7).scrollIntoView().click();\ncy.get('body').should('contain', 'Beneficiary Having No Hospital Dashboard Details').scrollIntoView();\ncy.get('select[id=\"hospital-select\"]').select('Pococare');\ncy.get('input[type=\"number\"]').type('5');\ncy.contains('Search').click();\nfunction BenID() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('BenID')) {\n      expect(bodyText).to.include('BenID');\n    } else {\n      cy.wait(1000);\n      BenID();\n    }\n  });\n}\nBenID();",
+              "err": {},
+              "uuid": "15376810-36c0-4403-8aba-263e513e4524",
+              "parentUUID": "a35ef78d-6232-4a80-b28d-dc21ccea3ace",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "15376810-36c0-4403-8aba-263e513e4524"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4874,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-13T10:15:42.205Z",
+    "end": "2025-03-13T10:16:01.809Z",
+    "duration": 19604,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1fb94fce-b874-411f-a522-46aad8dda030",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Home page.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Home page.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ba65e909-cecc-479b-a326-d52f3748db87",
+          "title": "Homepage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Homepage Buttons",
+              "timedOut": null,
+              "duration": 18228,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(0).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Dashboard');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Get Ben Data By Filter Data');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Manage User Data');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(3).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Task Name');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(4).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Create Job');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(5).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Send Email');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(6).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Whatsapp Job List');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(7).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Beneficiary Having No Hospital Dashboard Details');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Manage Company');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Ambulance Provider');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(10).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Bulk WhatsApp Template');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(11).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Admin Login');\n});",
+              "err": {},
+              "uuid": "c9ebc5df-c7e0-431f-9da2-1adf4c038fb1",
+              "parentUUID": "ba65e909-cecc-479b-a326-d52f3748db87",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c9ebc5df-c7e0-431f-9da2-1adf4c038fb1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18228,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
