@@ -7,7 +7,7 @@ module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
 
   // pageLoadTimeout: 180000,
-  watchForFileChanges: false,
+  // watchForFileChanges: false,
 
   video: false,
 
