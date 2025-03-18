@@ -9,5 +9,8 @@
     "test": "cypress run",
     "generate-report": "mochawesome-merge cypress/reports/*.json -o cypress/reports/report.json && marge cypress/reports/report.json -o cypress/reports",
     "test:regression": "npx cypress run --spec cypress/e2e/Smoke/SearchBen/*.cy.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.14.2"
   }
 }

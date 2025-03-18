@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const { MongoClient } = require('mongodb');
 
 module.exports = defineConfig({
   e2e: {
