@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:05:39.256Z",
+    "end": "2025-04-23T06:05:56.123Z",
+    "duration": 16867,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e46ade46-e087-43c2-83a4-1225ac7f8f43",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Nearest Hospital.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Nearest Hospital.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6a318997-2671-44e7-9c3e-7d64aac06a5d",
+          "title": "Nearest Hospital",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Nearest Hospital",
+              "fullTitle": "Nearest Hospital Nearest Hospital",
+              "timedOut": null,
+              "duration": 13202,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('No').click();\n    cy.wait(2000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes(\"Relieved and happy to know that it is not a medical emergency, is there anything I could assist you with ?\")).to.be.true;\n      cy.wait(1500);\n    });\n    cy.get('button[class=\"button undefined selectOption_btn__MUg8+\"]').eq(0).should('exist').should('be.enabled').click();\n    cy.wait(1500);\n    cy.get('button[class=\"button undefined selectOption_btn_option__UwXY7\"]').eq(1).should('exist').should('be.visible');\n  }\n});",
+              "err": {},
+              "uuid": "ad442953-1639-4573-b04b-3634e24fead5",
+              "parentUUID": "6a318997-2671-44e7-9c3e-7d64aac06a5d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ad442953-1639-4573-b04b-3634e24fead5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13202,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

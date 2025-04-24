@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:08:37.900Z",
+    "end": "2025-04-23T06:08:50.697Z",
+    "duration": 12797,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d7899754-854c-4277-a126-55f62a01751f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\icrn.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\icrn.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a1b14f2e-69b1-402c-a494-f92978486a33",
+          "title": "Incorming Call-Registered number",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Incorming Call-Registered number",
+              "fullTitle": "Incorming Call-Registered number Incorming Call-Registered number",
+              "timedOut": null,
+              "duration": 11484,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('p[class=\"text ticketBasicDetails_value__wibkg\"]').eq(1).should('contain', 'Direct');\n  }\n});",
+              "err": {},
+              "uuid": "5e5e6496-26c8-4629-bd18-f7e2a2252a3a",
+              "parentUUID": "a1b14f2e-69b1-402c-a494-f92978486a33",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5e5e6496-26c8-4629-bd18-f7e2a2252a3a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11484,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:01:38.970Z",
+    "end": "2025-04-23T06:01:52.590Z",
+    "duration": 13620,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1fadd9af-a440-4d92-85d9-7c84892b811e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Doctorconsultation-No.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Doctorconsultation-No.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9a525d91-a1ec-40d6-9583-09d8d1ea464e",
+          "title": "Doctorconsultation-No",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Doctorconsultation-No",
+              "fullTitle": "Doctorconsultation-No Doctorconsultation-No",
+              "timedOut": null,
+              "duration": 12335,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[name=\"isDoctorConsultationRequired\"]').eq(0).scrollIntoView().should('be.disabled');\n    cy.wait(2000);\n    cy.get('input[name=\"isAmbulanceRequired\"]').eq(1).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"isDoctorConsultationRequired\"]').eq(1).scrollIntoView().should('be.visible').click();\n  }\n});",
+              "err": {},
+              "uuid": "c10684f2-2076-4fd0-9b5e-6e9d38ba31ea",
+              "parentUUID": "9a525d91-a1ec-40d6-9583-09d8d1ea464e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c10684f2-2076-4fd0-9b5e-6e9d38ba31ea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12335,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

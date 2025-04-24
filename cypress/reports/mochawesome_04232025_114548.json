@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:15:14.287Z",
+    "end": "2025-04-23T06:15:48.305Z",
+    "duration": 34018,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "357f101f-785b-4899-b189-1ad893c0aafd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Condition-Breathing Difficulty.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Condition-Breathing Difficulty.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "64b53ce2-afd5-4407-bcc7-b50640bfbada",
+          "title": "Assement results-Condition-Breathing Difficulty.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Breathing Difficulty.cy",
+              "fullTitle": "Assement results-Condition-Breathing Difficulty.cy Assement results-Condition-Breathing Difficulty.cy",
+              "timedOut": null,
+              "duration": 32611,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(7).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(2).click();\n    cy.wait(1500);\n    cy.get('div[class=\"container patientcondition_conditionWrap__PlYFu\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.contains('Start Emergency').click();\n    cy.wait(1500);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1500);\n    cy.get('p[class=\"text assessmentResult_ans__WOIlg\"]').eq(0).invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Breathing Difficulty'.toLowerCase());\n    });\n    cy.wait(1000);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1000);\n    cy.contains('Emergency Resolved').scrollIntoView().click();\n    cy.wait(2000);\n  }\n});",
+              "err": {},
+              "uuid": "a6ee9f1f-8d97-43ea-867a-a793ed746bb7",
+              "parentUUID": "64b53ce2-afd5-4407-bcc7-b50640bfbada",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6ee9f1f-8d97-43ea-867a-a793ed746bb7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 32611,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

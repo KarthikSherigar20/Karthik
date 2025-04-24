@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T05:58:06.518Z",
+    "end": "2025-04-23T05:59:05.185Z",
+    "duration": 58667,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b6801670-fc59-45d2-941a-de12585bb515",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\ANL-Fields.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\ANL-Fields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b12c1b69-2029-4dae-a3f4-ec22b5553b50",
+          "title": "ANL-Fields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "ANL-Fields",
+              "fullTitle": "ANL-Fields ANL-Fields",
+              "timedOut": null,
+              "duration": 57310,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.contains('No').click();\n    cy.wait(1500);\n    cy.contains('General Enquiry').scrollIntoView().click();\n    cy.wait(1500);\n    cy.contains('Nearest Hospital').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Add New Location').should('be.visible');\n    cy.wait(1500);\n    cy.contains('Add New Location').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('body').should('contain', \"Just to confirm, the patient is at <Summarize the address>, we will be dispatching the ambulance to this location.\");\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Enter Location\"]').should('not.be.disabled').type('VR Chambers');\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Flat No/Door No\"]').click();\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Enter Location\"]').should('have.value', 'VR Chambers');\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Flat No/Door No\"]').should('not.be.disabled').type('23');\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Flat No/Door No\"]').should('have.value', '23');\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Landmark (Optional)\"]').should('not.be.disabled').type('23');\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Landmark (Optional)\"]').should('have.value', '23');\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-search\"]').eq(0).scrollIntoView().click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(0).click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-item\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Yes'.toLowerCase());\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-search\"]').eq(0).scrollIntoView().click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(1).click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-item\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('No'.toLowerCase());\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-search\"]').eq(1).scrollIntoView().click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(0).click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-item\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Yes'.toLowerCase());\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-search\"]').eq(1).scrollIntoView().click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(3).click({\n      force: true\n    });\n    cy.wait(2000);\n    cy.get('span[class=\"ant-select-selection-item\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('No'.toLowerCase());\n      cy.wait(2000);\n    });\n  }\n});",
+              "err": {},
+              "uuid": "aff6aa78-0b6c-4815-9b26-3bb5e8fb6b98",
+              "parentUUID": "b12c1b69-2029-4dae-a3f4-ec22b5553b50",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aff6aa78-0b6c-4815-9b26-3bb5e8fb6b98"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 57310,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

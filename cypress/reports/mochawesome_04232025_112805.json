@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T05:57:56.237Z",
+    "end": "2025-04-23T05:58:05.013Z",
+    "duration": 8776,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e4c7b0d9-4cea-48f5-ab77-f1e1a5f3402e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\02_Date&Time.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\02_Date&Time.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f090e70-8caa-41a6-9cad-cb3ce12eb0c5",
+          "title": "Date&Time",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Date&Time",
+              "fullTitle": "Date&Time Date&Time",
+              "timedOut": null,
+              "duration": 7464,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    // Get the current date and format it as 'MM/DD/YYYY HH'\n    const currentDate = new Date();\n    const day = String(currentDate.getDate()).padStart(2, '0');\n    const month = String(currentDate.getMonth() + 1); // Months are zero-indexed\n    const year = currentDate.getFullYear();\n    const hours = String(currentDate.getHours()).padStart(2, '0');\n    const formattedDate = `${month}/${day}/${year}, ${hours}`;\n    cy.wait(1500);\n    cy.contains('New').prevAll().eq(0).invoke('text').then(text => {\n      const partialText = formattedDate;\n      expect(text).to.include(partialText);\n    });\n  }\n});",
+              "err": {},
+              "uuid": "ec31c877-ab24-449c-82b5-f7ac66ac82e7",
+              "parentUUID": "9f090e70-8caa-41a6-9cad-cb3ce12eb0c5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ec31c877-ab24-449c-82b5-f7ac66ac82e7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7464,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,8 +1,7 @@
 {
-    "SelectedEnvironment":"Dev1",
+    "SelectedEnvironment":"Dev",
     "Enviroments":{
-        "Dev":"https://newem.dev.pococare.com/",
-        "Dev1":"https://adminapp.dev.pococare.com/",
+        "Dev":"https://adminapp.dev.pococare.com/",
         "Stage":"https://pocoadmin.stage.pococare.com/",
         "Prod":"https://new-em.pococare.com/"
     },

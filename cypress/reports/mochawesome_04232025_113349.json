@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:03:22.621Z",
+    "end": "2025-04-23T06:03:49.149Z",
+    "duration": 26528,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a459ec5c-508f-4d4b-93df-09adb50121eb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\GE-ID-ER.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\GE-ID-ER.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7032d0b0-1e26-450a-bb82-e78ada11dcb5",
+          "title": "GE-ID-ER",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GE-ID-ER",
+              "fullTitle": "GE-ID-ER GE-ID-ER",
+              "timedOut": null,
+              "duration": 25173,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').prevAll().eq(2).invoke('text').then(text => {\n      const storedText = text;\n      cy.log('storedText', storedText);\n      cy.wait(1500);\n      cy.contains('New').click();\n      cy.wait(1500);\n      cy.contains('No').click();\n      cy.wait(1500);\n      cy.get('body').should('not.contain', 'Insurance details');\n      cy.wait(1500);\n      cy.get('body').should('not.contain', 'Nearest Hospital');\n      cy.wait(1500);\n      cy.contains('General Enquiry').scrollIntoView().click();\n      cy.wait(1500);\n      cy.get('body').should('contain', 'Insurance details');\n      cy.wait(1500);\n      cy.get('body').should('contain', 'Nearest Hospital');\n      cy.wait(1500);\n      cy.get('body').should('not.contain', 'Resolve Emergency');\n      cy.wait(1500);\n      cy.contains('Insurance details').click();\n      cy.wait(1500);\n      cy.get('body').should('contain', 'Resolve Emergency');\n      cy.wait(1500);\n      cy.contains('Resolve Emergency').scrollIntoView().click();\n      cy.wait(2000);\n      cy.contains(storedText).nextAll().eq(2).should('have.text', 'GeneralEnquiry');\n    });\n  }\n});",
+              "err": {},
+              "uuid": "197e4cde-8145-4fea-b40d-4c7a00d84730",
+              "parentUUID": "7032d0b0-1e26-450a-bb82-e78ada11dcb5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "197e4cde-8145-4fea-b40d-4c7a00d84730"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25173,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

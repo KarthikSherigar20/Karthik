@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:07:44.863Z",
+    "end": "2025-04-23T06:07:59.522Z",
+    "duration": 14659,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2a3f2dbe-1bc5-42cd-af3c-e7a046718302",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Wheelchair.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Wheelchair.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ca653b57-8607-4605-8926-7767e90fd4f4",
+          "title": "Wheelchair",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Wheelchair",
+              "fullTitle": "Wheelchair Wheelchair",
+              "timedOut": null,
+              "duration": 13036,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('Wheelchair').scrollIntoView().should('not.be.disabled').click();\n    cy.wait(1500);\n    cy.get('input[value=\"wheelChair\"]').should('be.checked');\n    cy.wait(1500);\n    cy.get('input[value=\"wheelChair\"]').click();\n    cy.wait(1500);\n    cy.get('input[value=\"wheelChair\"]').should('not.be.checked');\n  }\n});",
+              "err": {},
+              "uuid": "06b47be5-ff2d-4d67-a586-68703d49ad8e",
+              "parentUUID": "ca653b57-8607-4605-8926-7767e90fd4f4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "06b47be5-ff2d-4d67-a586-68703d49ad8e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13036,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

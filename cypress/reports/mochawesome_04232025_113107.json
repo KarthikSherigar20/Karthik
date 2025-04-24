@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T06:00:53.552Z",
+    "end": "2025-04-23T06:01:07.134Z",
+    "duration": 13582,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b3de6c48-38c3-45ee-a997-ac2ccabfd20f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Condition-Burn.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Condition-Burn.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "14e65f78-8f93-4f38-9667-edac6b8358ac",
+          "title": "Assement results-Condition-Burn.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Burn.cy",
+              "fullTitle": "Assement results-Condition-Burn.cy Assement results-Condition-Burn.cy",
+              "timedOut": null,
+              "duration": 12328,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(3).click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('span[aria-live=\"polite\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Burn'.toLowerCase());\n    });\n  }\n});",
+              "err": {},
+              "uuid": "1bfa62b3-0aff-4fd7-96ff-91aa8ba2bc75",
+              "parentUUID": "14e65f78-8f93-4f38-9667-edac6b8358ac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1bfa62b3-0aff-4fd7-96ff-91aa8ba2bc75"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12328,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

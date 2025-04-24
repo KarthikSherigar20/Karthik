@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-23T06:00:01.002Z",
+    "end": "2025-04-23T06:00:21.670Z",
+    "duration": 20668,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d410747c-e253-4328-a33f-b0c3dd1680d0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Condition-Accident.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Condition-Accident.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f553877-c425-440f-b209-59dfb55fb3f1",
+          "title": "Assement results-Condition-Accident.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Accident.cy",
+              "fullTitle": "Assement results-Condition-Accident.cy Assement results-Condition-Accident.cy",
+              "timedOut": null,
+              "duration": 19416,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Condition-Accident.cy.js\\\\Assement results-Condition-Accident.cy -- Assement results-Condition-Accident.cy (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('span[aria-live=\"polite\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Accident'.toLowerCase());\n    });\n  }\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is not visible:\n\n`<div class=\"ant-select-item-option-content\">Accident</div>`\n\nThis element `<div.ant-select-item-option-content>` is not visible because its parent `<div.ant-select-dropdown.ant-select-dropdown-hidden.css-zg0ahe.ant-select-dropdown-placement-bottomLeft>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is not visible:\n\n`<div class=\"ant-select-item-option-content\">Accident</div>`\n\nThis element `<div.ant-select-item-option-content>` is not visible because its parent `<div.ant-select-dropdown.ant-select-dropdown-hidden.css-zg0ahe.ant-select-dropdown-placement-bottomLeft>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at runVisibilityCheck (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:144856:58)\n    at Object.isStrictlyVisible (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:144870:10)\n    at runAllChecks (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:112801:26)\n    at retryActionability (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:112869:16)\n    at tryCatcher (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise.attempt.Promise.try (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:4315:29)\n    at whenStable (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:143646:68)\n    at <unknown> (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:143587:14)\n    at tryCatcher (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1701:18)\n    at Promise._fulfill (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1645:18)\n    at <unknown> (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:5450:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/support/login.js:24:4)",
+                "diff": null
+              },
+              "uuid": "3f1fa9f0-2250-4e59-970a-06196cdba91c",
+              "parentUUID": "9f553877-c425-440f-b209-59dfb55fb3f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3f1fa9f0-2250-4e59-970a-06196cdba91c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19416,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
