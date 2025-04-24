@@ -53,3 +53,4 @@ import index from "../support/index";
   //   return false; // Prevents Cypress from failing the test
   // });
   
+  require('cy-verify-downloads').addCustomCommand();

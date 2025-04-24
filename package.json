@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "cy-verify-downloads": "^0.2.6",
     "cypress": "^13.17.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.2.0",

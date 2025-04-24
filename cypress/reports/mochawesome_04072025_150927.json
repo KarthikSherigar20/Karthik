@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-07T09:38:11.703Z",
+    "end": "2025-04-07T09:39:27.938Z",
+    "duration": 76235,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0a647c23-0863-46d8-a6d1-d4c8ff6cfd80",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Ambulance\\Ambulance without email adress.cy.js",
+      "file": "cypress\\e2e\\e2e\\Ambulance\\Ambulance without email adress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1488f407-c452-44bb-87db-6ad0c9542aca",
+          "title": "Ambulance without email adress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulanceprovider",
+              "fullTitle": "Ambulance without email adress Ambulanceprovider",
+              "timedOut": null,
+              "duration": 10177,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(9).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Test_Provider')) {\n    cy.contains('Test_Provider').parent().find('button').contains('Del').click();\n  }\n  cy.get('body').should('not.contain', 'Test_Provider');\n});\ncy.wait(500);\ncy.get('input[placeholder=\"Enter service name\"]').type('Test_Provider');\ncy.get('input[placeholder=\"Enter address line 1\"]').type('Abcd 1244 gjfhe');\ncy.get('input[placeholder=\"Enter city\"]').type('Bangalore');\ncy.get('input[placeholder=\"Enter state\"]').type('Karnataka');\ncy.get('input[placeholder=\"Enter country\"]').type('India');\ncy.get('#pinCode').type('560103');\ncy.get('input[placeholder=\"Enter contact number\"]').scrollIntoView().type('9898989865');\ncy.contains('Next').click();\ncy.wait(1500);\ncy.get('body').should('contain', 'Test_Provider');",
+              "err": {},
+              "uuid": "8084e4b1-b303-48a7-85c1-84be60d8390b",
+              "parentUUID": "1488f407-c452-44bb-87db-6ad0c9542aca",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ambulance RateCard",
+              "fullTitle": "Ambulance without email adress Ambulance RateCard",
+              "timedOut": null,
+              "duration": 46062,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(9).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance RateCard').click();\ncy.get('body').should('contain', 'Ambulance Provider Rate Card');\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\nconst Type = []; // Ensure this is defined before usage\nconst vehicleNames = ['EECO/Bolero', 'Tempo/Tata Winger', 'ALS-Tempo/Tata Winger', 'BLS-Tempo/Tata Winger'];\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).find('option').each($options => {\n  const optionText = $options.text().trim();\n  if (optionText !== 'Select Ambulance Type') {\n    Type.push(optionText);\n  }\n}).then(() => {\n  cy.log('Ambulance types: ', Type.join(' , '));\n});\ncy.wrap(Type).each((Types, index) => {\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\n  cy.wait(500);\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).select(Types);\n  cy.wait(500);\n  const vehicle = vehicleNames[index % vehicleNames.length];\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter vehicle type (e.g., EECO/Bolero)\"]').type(vehicle);\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').type('0-5');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').type('700');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(1).type('5-10');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(1).type('900');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(2).type('10-15');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(2).type('1200');\n  cy.wait(500);\n  cy.contains('Create').click();\n  cy.wait(500);\n});",
+              "err": {},
+              "uuid": "bae3a5c5-4db6-4bbd-ab7e-460b7772dfcb",
+              "parentUUID": "1488f407-c452-44bb-87db-6ad0c9542aca",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adding ambulance cities",
+              "fullTitle": "Ambulance without email adress Adding ambulance cities",
+              "timedOut": null,
+              "duration": 16821,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(9).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\nconst cities = ['amravati', 'imphal', 'visakhapatnam', 'vijayawada', 'ghaziabad'];\nconst State = ['Andhra Pradesh', 'Manipur', 'Andhra Pradesh', 'Andhra Pradesh', 'Uttar Pradesh'];\ncities.forEach((city, index) => {\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g Bangalore\"]').each($input => {\n    cy.wrap($input).invoke('val').then(text => {\n      if (!text) {\n        // If the field is empty\n        cy.wrap($input).type(city);\n      }\n    });\n  });\n  cy.wait(500);\n  cy.get('div[class=\" css-1jqq78o-placeholder\"]').click({\n    force: true\n  });\n  cy.contains(State[index]).click();\n  if (index < cities.length - 1) {\n    cy.contains('Add City').click();\n  }\n});\ncy.get('button[class=\"chakra-button css-1t8s8ud\"]').eq(1).click();\ncy.wait(500);\ncy.reload();\ncy.wait(500);\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\ncy.wait(1500);\nState.forEach((st, index) => {\n  cy.get('body').should('contain', st);\n});",
+              "err": {},
+              "uuid": "4dfac9a2-e63c-4dce-90f1-113df8afa8e6",
+              "parentUUID": "1488f407-c452-44bb-87db-6ad0c9542aca",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8084e4b1-b303-48a7-85c1-84be60d8390b",
+            "bae3a5c5-4db6-4bbd-ab7e-460b7772dfcb",
+            "4dfac9a2-e63c-4dce-90f1-113df8afa8e6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 73060,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

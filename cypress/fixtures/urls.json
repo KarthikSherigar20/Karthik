@@ -1,11 +1,11 @@
 {
-    "SelectedEnviornment":"Dev",
+    "SelectedEnviornment":"Stage",
     "Environments":{
         "Dev":"https://ops.dev.pococare.com/",
         "Stage":"https://ops.stage.pococare.com/",
         "Prod":"https://ops.pococare.com/"
     },
-    "SelectedApi":"DevApi",
+    "SelectedApi":"StageApi",
     "Apis":{
         "DevApi":"https://dev.apis.pococare.com/auth/api/v1/auth/poco-user-login",
         "StageApi":"https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login"

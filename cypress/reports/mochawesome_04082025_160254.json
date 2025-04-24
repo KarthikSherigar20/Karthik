@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-08T10:32:41.256Z",
+    "end": "2025-04-08T10:32:54.344Z",
+    "duration": 13088,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "56da44cf-edb5-4dde-906b-62bc5f501cdf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\Ambulancecity.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\Ambulancecity.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0588c37e-eaa5-4e69-a1b7-3e62188ad3ec",
+          "title": "ambulancecity",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulancecity",
+              "fullTitle": "ambulancecity Ambulancecity",
+              "timedOut": null,
+              "duration": 11499,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.contains('Ambulance City').click();\nconst names = ['Ambulance Cities', 'Select Provider', 'City', 'State', 'Remove', 'Add'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').should('not.be.disabled').should('exist');\ncy.contains('Remove All Cities').should('exist').and('be.disabled');\ncy.contains('Add City').should('exist').and('not.be.disabled');\ncy.contains('Add').should('exist').and('not.be.disabled');\nconst loc = ['input[placeholder=\"e.g Bangalore\"]', 'div[class=\" css-hlgwow\"]', 'button[class=\"chakra-button css-dna3k\"]'];\nloc.forEach(lo => {\n  cy.get(lo).should('exist').and('not.be.disabled');\n});",
+              "err": {},
+              "uuid": "c92c108d-5d13-48be-bddf-28575efd4cd4",
+              "parentUUID": "0588c37e-eaa5-4e69-a1b7-3e62188ad3ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c92c108d-5d13-48be-bddf-28575efd4cd4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11499,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
