@@ -104,5 +104,6 @@ module.exports = defineConfig({
   // // chromeWebSecurity: false,
   //   experimentalSessionAndOrigin: true,
   defaultCommandTimeout: 10000,
+  downloads:'cypress/downloads',
   },
 });
