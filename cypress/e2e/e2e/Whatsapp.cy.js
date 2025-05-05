@@ -28,6 +28,8 @@ it('Whatsapp',()=>{
 
     cy.get('button[class="BenAddressData_button__0kXLn"]').eq(1).click();
 
+    cy.wait(1000);
+
     function addall(){
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text()
@@ -43,6 +45,19 @@ it('Whatsapp',()=>{
     }
     addall();
 
+    cy.wait(5000);
+
+    cy.get('body').then(($bodyText)=>{
+        const bodyText=$bodyText.text();
+
+        if(bodyText.includes('Clear All Invalid Ben')){
+            cy.wait(1000);
+            cy.contains('Clear All Invalid Ben').scrollIntoView().click();
+        }else{
+            cy.log('There is no Clear All invalid ben button');
+        }
+    })
+    cy.wait(3000);
     function Send(){
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text()
