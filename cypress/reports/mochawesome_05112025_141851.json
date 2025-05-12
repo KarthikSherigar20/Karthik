@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-05-11T08:48:16.468Z",
+    "end": "2025-05-11T08:48:51.675Z",
+    "duration": 35207,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "70775e57-fab2-4b03-a7f4-839d8ffe3542",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Buttons.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6edad215-0f8a-4a55-8760-7c7f0c4cfb55",
+          "title": "Search Ben-Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Search Ben-Buttons",
+              "fullTitle": "Search Ben-Buttons Search Ben-Buttons",
+              "timedOut": null,
+              "duration": 30282,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').each(button => {\n  cy.wrap(button).scrollIntoView().should('be.enabled').and('be.visible');\n});\n// cy.get('button[class=\"customButton_button__Ol41S BenAddressData_button__0kXLn\"]')\n// .scrollIntoView().should('be.enabled').and('be.visible');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://ops.pococare.com/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: ESOCKETTIMEDOUT\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Search Ben-Buttons`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://ops.pococare.com/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: ESOCKETTIMEDOUT\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Search Ben-Buttons`\n    at <unknown> (https://ops.pococare.com/__cypress/runner/cypress_runner.js:131607:74)\n    at visitFailedByErr (https://ops.pococare.com/__cypress/runner/cypress_runner.js:131006:12)\n    at <unknown> (https://ops.pococare.com/__cypress/runner/cypress_runner.js:131606:11)\n    at tryCatcher (https://ops.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.pococare.com/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (https://ops.pococare.com/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (https://ops.pococare.com/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (https://ops.pococare.com/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (https://ops.pococare.com/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at login (webpack:///./cypress/support/login.js:14:7)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/SearchBen/Search Ben-Buttons.cy.js:5:14)\n\nFrom Node.js Internals:\n  Error: ESOCKETTIMEDOUT\n      at ClientRequest.<anonymous> (<embedded>:290:108477)\n      at Object.onceWrapper (node:events:628:28)\n      at ClientRequest.emit (node:events:514:28)\n      at TLSSocket.emitRequestTimeout (node:_http_client:847:9)\n      at Object.onceWrapper (node:events:628:28)\n      at TLSSocket.emit (node:events:526:35)\n      at TLSSocket._onTimeout (node:net:571:8)\n      at listOnTimeout (node:internal/timers:569:17)\n      at process.processTimers (node:internal/timers:512:7)",
+                "diff": null
+              },
+              "uuid": "b0294a45-9610-49b1-b989-dcc9276de449",
+              "parentUUID": "6edad215-0f8a-4a55-8760-7c7f0c4cfb55",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b0294a45-9610-49b1-b989-dcc9276de449"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 30282,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
