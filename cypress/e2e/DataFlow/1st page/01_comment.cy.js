@@ -10,9 +10,9 @@ describe('comment', () => {
     });
 
     it('comment', () => {
-        cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text();
-            if(bodyText.includes('New')){
+        cy.get('body').then(($bodyText) => {
+            const bodyText = $bodyText.text();
+            if (bodyText.includes('New')) {
 
                 cy.contains('New').click();
                 cy.wait(1500);
@@ -26,11 +26,11 @@ describe('comment', () => {
                 cy.wait(1500);
                 cy.contains('Comment').click();
                 cy.wait(1500);
-                
+
                 // Get the current date and format it
                 const currentDate = new Date();
                 const formattedDate = currentDate.toISOString().split('T')[0] + ' ' + currentDate.toTimeString().split(':')[0]; // 'YYYY-MM-DD HH'
-                
+
                 cy.get('[class="text agentNotes_agentNotes__XKhpk"]').invoke('text').then((text) => {
                     const partialText = `Assessment Details Updated,${formattedDate}`;
                     expect(text).to.include(partialText);
@@ -40,6 +40,6 @@ describe('comment', () => {
                 cy.contains('Emergency Resolved').click();
 
             }
-            })
+        })
     });
 });

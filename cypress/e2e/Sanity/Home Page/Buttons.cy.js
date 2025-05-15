@@ -22,9 +22,9 @@ describe('Buttons', () => {
         cy.wait(1500);
         cy.get('div[class="ant-col css-zg0ahe"]').eq(1).should('be.visible').should('not.be.disabled');
         cy.wait(1500);
-        cy.get('body').should('contain','Tickets').should('be.visible').should('not.be.disabled');
+        cy.get('body').should('contain', 'Tickets').should('be.visible').should('not.be.disabled');
         cy.wait(1500);
-        cy.get('body').should('contain','Logout').should('be.visible').should('not.be.disabled')
+        cy.get('body').should('contain', 'Logout').should('be.visible').should('not.be.disabled')
         cy.wait(1500);
     });
 });

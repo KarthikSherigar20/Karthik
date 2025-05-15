@@ -1,17 +1,17 @@
 import login, { isWorkInProgress } from "../../../support/login";
 
-describe('Stretcher',()=>{
-    before(()=>{
-        cy.wrap((null)).then(()=>{
+describe('Stretcher', () => {
+    before(() => {
+        cy.wrap((null)).then(() => {
             login()
-        }).then(()=>{
+        }).then(() => {
             cy.log('Login completed')
         })
     })
-    it('Stretcher',()=>{
-        cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text();
-            if(bodyText.includes('New')){
+    it('Stretcher', () => {
+        cy.get('body').then(($bodyText) => {
+            const bodyText = $bodyText.text();
+            if (bodyText.includes('New')) {
                 cy.contains('New').click();
                 cy.wait(1500);
                 cy.get('input[class="radioButton_radio__Dmg-B"]').eq(3).scrollIntoView().click();
@@ -30,7 +30,7 @@ describe('Stretcher',()=>{
                 cy.wait(1500);
                 cy.get('img[class="icon undefined"]').eq(5).click();
                 cy.wait(1500);
-                cy.get('p[class="text assessmentResult_ans__WOIlg"]').eq(2).invoke('text').then((text)=>{
+                cy.get('p[class="text assessmentResult_ans__WOIlg"]').eq(2).invoke('text').then((text) => {
                     expect(text.toLowerCase()).to.include('Stretcher'.toLowerCase());
                 })
                 cy.wait(1000);
@@ -38,7 +38,7 @@ describe('Stretcher',()=>{
                 cy.wait(1000);
                 cy.contains('Emergency Resolved').scrollIntoView().click();
                 cy.wait(2000);
-                    }
-                })
+            }
+        })
     })
 })

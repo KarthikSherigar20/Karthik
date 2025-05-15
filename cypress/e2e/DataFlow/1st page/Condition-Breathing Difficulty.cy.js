@@ -1,17 +1,17 @@
 import login, { isWorkInProgress } from "../../../support/login";
 
-describe('Assement results-Condition-Breathing Difficulty.cy',()=>{
-    before(()=>{
-        cy.wrap((null)).then(()=>{
+describe('Assement results-Condition-Breathing Difficulty.cy', () => {
+    before(() => {
+        cy.wrap((null)).then(() => {
             login()
-        }).then(()=>{
+        }).then(() => {
             cy.log('Login completed')
         })
     })
-    it('Assement results-Condition-Breathing Difficulty.cy',()=>{
-        cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text();
-            if(bodyText.includes('New')){
+    it('Assement results-Condition-Breathing Difficulty.cy', () => {
+        cy.get('body').then(($bodyText) => {
+            const bodyText = $bodyText.text();
+            if (bodyText.includes('New')) {
                 cy.contains('New').click();
                 cy.wait(1500);
                 cy.get('input[class="radioButton_radio__Dmg-B"]').eq(3).scrollIntoView().click();
@@ -22,10 +22,10 @@ describe('Assement results-Condition-Breathing Difficulty.cy',()=>{
                 cy.wait(1500);
                 cy.get('div[class="container patientcondition_conditionWrap__PlYFu"]').scrollIntoView().click();
                 cy.wait(1500);
-                cy.get('body').invoke('text').then((text)=>{
+                cy.get('body').invoke('text').then((text) => {
                     expect(text.toLowerCase()).to.include('Breathing Difficulty'.toLowerCase())
                 })
-                    }
-                })
+            }
+        })
     })
 })

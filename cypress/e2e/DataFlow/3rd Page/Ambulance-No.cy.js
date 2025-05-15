@@ -1,17 +1,17 @@
 import login, { isWorkInProgress } from "../../../support/login";
 
-describe('Assement results-Ambulance-No',()=>{
-    before(()=>{
-        cy.wrap((null)).then(()=>{
+describe('Assement results-Ambulance-No', () => {
+    before(() => {
+        cy.wrap((null)).then(() => {
             login()
-        }).then(()=>{
+        }).then(() => {
             cy.log('Login completed')
         })
     })
-    it('Assement results-Ambulance-No',()=>{
-        cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text();
-            if(bodyText.includes('New')){
+    it('Assement results-Ambulance-No', () => {
+        cy.get('body').then(($bodyText) => {
+            const bodyText = $bodyText.text();
+            if (bodyText.includes('New')) {
                 cy.contains('New').click();
                 cy.wait(1500);
                 cy.get('input[class="radioButton_radio__Dmg-B"]').eq(3).scrollIntoView().click();
@@ -30,7 +30,7 @@ describe('Assement results-Ambulance-No',()=>{
                 cy.wait(1500);
                 cy.get('img[class="icon undefined"]').eq(5).click();
                 cy.wait(1500);
-                cy.get('p[class="text horizontalList_ans__3hClf"]').eq(1).invoke('text').then((text)=>{
+                cy.get('p[class="text horizontalList_ans__3hClf"]').eq(1).invoke('text').then((text) => {
                     expect(text.toLowerCase()).to.include('no'.toLowerCase());
                 })
                 cy.wait(1000);
@@ -38,7 +38,7 @@ describe('Assement results-Ambulance-No',()=>{
                 cy.wait(1000);
                 cy.contains('Emergency Resolved').scrollIntoView().click();
                 cy.wait(2000);
-                    }
-                })
+            }
+        })
     })
 })

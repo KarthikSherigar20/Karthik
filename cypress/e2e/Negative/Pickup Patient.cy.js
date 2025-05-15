@@ -1,18 +1,18 @@
 import login1 from '../../support/login1';
 
-describe('Pickup Patient',()=>{
-    before(() => {
-        cy.wrap(null).then(() => {
-          login1();
-        }).then(() => {
-          cy.log('Login completed');
-        });
-      })
+describe('Pickup Patient', () => {
+  before(() => {
+    cy.wrap(null).then(() => {
+      login1();
+    }).then(() => {
+      cy.log('Login completed');
+    });
+  })
 
-it('Pickup Patient',()=>{
-cy.get('body').then(($bodyText)=>{
-    const bodyText=$bodyText.text();
-    if(bodyText.includes('New')){
+  it('Pickup Patient', () => {
+    cy.get('body').then(($bodyText) => {
+      const bodyText = $bodyText.text();
+      if (bodyText.includes('New')) {
 
         cy.wait(1500);
         cy.contains('New').click();
@@ -20,33 +20,33 @@ cy.get('body').then(($bodyText)=>{
         cy.get('input[class="radioButton_radio__Dmg-B"]').eq(3).scrollIntoView().click();
         cy.wait(2000);
         cy.get('input[class="radioButton_radio__Dmg-B"]').eq(8).scrollIntoView().click();
-cy.wait(2000);
-cy.contains('Save Assessment').scrollIntoView().click();
-cy.wait(2000);
-cy.get('input[name="addressSelection"]').eq(0).click();
-cy.wait(2000);
-cy.get('input[type="radio"]').eq(0).click();
-cy.wait(2000);
-cy.contains('Start Emergency').click();
-cy.wait(2000);
-cy.contains('Pickup Patient').click();
-cy.wait(1500);
-cy.get('body').should('contain','Success');
-cy.wait(2000);
-cy.contains('Pickup Patient').click();
-cy.wait(1500);
-cy.get('body').should('contain','Already Patient picked');
-}else{
-    cy.contains('Pickup Patient').click();
-    cy.wait(1500);
-    cy.get('body').should('contain','Success');
-    cy.wait(2000);
-    cy.contains('Pickup Patient').click();
-    cy.wait(1500);
-    cy.get('body').should('contain','Already Patient picked');
+        cy.wait(2000);
+        cy.contains('Save Assessment').scrollIntoView().click();
+        cy.wait(2000);
+        cy.get('input[name="addressSelection"]').eq(0).click();
+        cy.wait(2000);
+        cy.get('input[type="radio"]').eq(0).click();
+        cy.wait(2000);
+        cy.contains('Start Emergency').click();
+        cy.wait(2000);
+        cy.contains('Pickup Patient').click();
+        cy.wait(1500);
+        cy.get('body').should('contain', 'Success');
+        cy.wait(2000);
+        cy.contains('Pickup Patient').click();
+        cy.wait(1500);
+        cy.get('body').should('contain', 'Already Patient picked');
+      } else {
+        cy.contains('Pickup Patient').click();
+        cy.wait(1500);
+        cy.get('body').should('contain', 'Success');
+        cy.wait(2000);
+        cy.contains('Pickup Patient').click();
+        cy.wait(1500);
+        cy.get('body').should('contain', 'Already Patient picked');
 
-}
-})
-})
+      }
+    })
+  })
 })
 

@@ -22,8 +22,8 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
     },
-  watchForFileChanges: false,
-  // chromeWebSecurity: false,
+    watchForFileChanges: false,
+    // chromeWebSecurity: false,
     experimentalSessionAndOrigin: true,
     defaultCommandTimeout: 10000,
   },

@@ -1,18 +1,18 @@
 import login1 from '../../support/login1';
 
-describe('Patient Dropped',()=>{
-    before(() => {
-        cy.wrap(null).then(() => {
-          login1();
-        }).then(() => {
-          cy.log('Login completed');
-        });
-      })
+describe('Patient Dropped', () => {
+  before(() => {
+    cy.wrap(null).then(() => {
+      login1();
+    }).then(() => {
+      cy.log('Login completed');
+    });
+  })
 
-it('Patient Dropped',()=>{
-cy.get('body').then(($bodyText)=>{
-    const bodyText=$bodyText.text();
-    if(bodyText.includes('New')){
+  it('Patient Dropped', () => {
+    cy.get('body').then(($bodyText) => {
+      const bodyText = $bodyText.text();
+      if (bodyText.includes('New')) {
 
         cy.wait(1500);
         cy.contains('New').click();
@@ -31,22 +31,22 @@ cy.get('body').then(($bodyText)=>{
         cy.wait(2000);
         cy.contains('Patient Dropped').click();
         cy.wait(1500);
-        cy.get('body').should('contain','Success');
+        cy.get('body').should('contain', 'Success');
         cy.wait(2000);
         cy.contains('Patient Dropped').click();
         cy.wait(1500);
-        cy.get('body').should('contain','Already Patient dropped');
-}else{
-    cy.contains('Patient Dropped').click();
-    cy.wait(1500);
-    cy.get('body').should('contain','Success');
-    cy.wait(2000);
-    cy.contains('Patient Dropped').click();
-    cy.wait(1500);
-    cy.get('body').should('contain','Already Patient dropped');
+        cy.get('body').should('contain', 'Already Patient dropped');
+      } else {
+        cy.contains('Patient Dropped').click();
+        cy.wait(1500);
+        cy.get('body').should('contain', 'Success');
+        cy.wait(2000);
+        cy.contains('Patient Dropped').click();
+        cy.wait(1500);
+        cy.get('body').should('contain', 'Already Patient dropped');
 
-}
-})
-})
+      }
+    })
+  })
 })
 
