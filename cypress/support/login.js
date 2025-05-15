@@ -32,29 +32,29 @@ const login = () => {
         failOnStatusCode: false // Prevent Cypress from failing on non-2xx status codes
     }).then((response) => {
         cy.wait(2000);
-        
+
         if (!response || !response.status) {
             cy.log("Response is undefined or invalid. Retrying login...");
             login();
-        }else{
-            console.log('response',response);
-            cy.log('response',response.status);
+        } else {
+            console.log('response', response);
+            cy.log('response', response.status);
             if (response.status === 201) {
                 accessToken = response.body.adminAccessToken;
                 refreshToken = response.body.adminRefreshToken;
-                
+
                 cy.window().then((win) => {
                     win.sessionStorage.setItem('adminAccessToken', accessToken);
                     win.sessionStorage.setItem('adminRefreshToken', refreshToken);
                 });
                 cy.wait(1500)
-                
-                cy.get('body').then(($bodyText)=>{
-                    const bodyText=$bodyText.text();
-                    if(bodyText.includes('Admin Login')){
+
+                cy.get('body').then(($bodyText) => {
+                    const bodyText = $bodyText.text();
+                    if (bodyText.includes('Admin Login')) {
                         cy.wait(1000);
                         login();
-                        
+
                     }
                 })
                 // cy.log('Login successful');

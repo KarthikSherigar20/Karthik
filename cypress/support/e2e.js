@@ -19,10 +19,10 @@ import './commands'
 //disable fetch and xhr  
 const app = window.top;
 if (!app.document.head.querySelector("[data-hide-command-log-request]")) {
- const style = app.document.createElement("style");
- style.innerHTML =".command-name-request, .command-name-xhr { display: none }";
- style.setAttribute("data-hide-command-log-request", "");
- app.document.head.appendChild(style); 
+  const style = app.document.createElement("style");
+  style.innerHTML = ".command-name-request, .command-name-xhr { display: none }";
+  style.setAttribute("data-hide-command-log-request", "");
+  app.document.head.appendChild(style);
 }
 import index from "../support/index";
 
@@ -37,20 +37,20 @@ import index from "../support/index";
 //     return false;
 //   });
 
-  // before(() => {
-  //   cy.wrap(null).then(() => {
-  //     // Your setup code here
-  //   }).catch(() => {
-  //     cy.log('Error in before hook, continuing test execution');
-  //   });
-  // });
+// before(() => {
+//   cy.wrap(null).then(() => {
+//     // Your setup code here
+//   }).catch(() => {
+//     cy.log('Error in before hook, continuing test execution');
+//   });
+// });
 
-  // Cypress.on('fail', (error, runnable) => {
-  //   Cypress.log({
-  //     name: "Error caught",
-  //     message: error.message
-  //   });
-  //   return false; // Prevents Cypress from failing the test
-  // });
-  
-  require('cy-verify-downloads').addCustomCommand();
+// Cypress.on('fail', (error, runnable) => {
+//   Cypress.log({
+//     name: "Error caught",
+//     message: error.message
+//   });
+//   return false; // Prevents Cypress from failing the test
+// });
+
+require('cy-verify-downloads').addCustomCommand();
