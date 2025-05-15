@@ -1,15 +1,16 @@
 {
-    "SelectedEnviornment":"Stage",
-    "Environments":{
-        "Dev":"https://ops.dev.pococare.com/",
-        "Stage":"https://ops.stage.pococare.com/",
-        "Prod":"https://ops.pococare.com/"
+    "SelectedEnviornment": "Stage",
+    "Environments": {
+        "Dev": "https://ops.dev.pococare.com/",
+        "Stage": "https://ops.stage.pococare.com/",
+        "Prod": "https://ops.pococare.com/",
+        "test": "https://testops.pococare.com/"
     },
-    "SelectedApi":"StageApi",
-    "Apis":{
-        "DevApi":"https://dev.apis.pococare.com/auth/api/v1/auth/poco-user-login",
-        "StageApi":"https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login",
-        "ProdApi":"https://v3.apis.pococare.com/auth/api/v1/auth/poco-user-login"
-
+    "SelectedApi": "StageApi",
+    "Apis": {
+        "DevApi": "https://dev.apis.pococare.com/auth/api/v1/auth/poco-user-login",
+        "StageApi": "https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login",
+        "ProdApi": "https://v3.apis.pococare.com/auth/api/v1/auth/poco-user-login",
+        "testApi": "https://test.v3.apis.pococare.com/auth/api/v1/auth/poco-user-login"
     }
 }
