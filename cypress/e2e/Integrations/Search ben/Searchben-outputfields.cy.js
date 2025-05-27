@@ -61,13 +61,28 @@ describe('Searchben-outputfields', () => {
                         return;
                     }
 
-                    const $label = $filtered.first();
+                    // Check if an index is provided in the 'label' parameter
+                    const parts = label.split('@');
+                    let targetIndex = 0; // Default to the first matching element
+
+                    if (parts.length > 1 && !isNaN(parseInt(parts[1]))) {
+                        label = parts[0].trim(); // Extract the actual label
+                        targetIndex = parseInt(parts[1].trim());
+                    }
+
+                    if (targetIndex >= $filtered.length) {
+                        cy.log(`Checkbox index out of bounds for label "${label}". Found ${$filtered.length} matching checkboxes.`);
+                        return;
+                    }
+
+                    const $label = $filtered.eq(targetIndex); // Select the element at the specified index
                     cy.wrap($label)
                         .scrollIntoView()
                         .click({ force: true })
                         .then(() => {
-                            alreadyChecked.push(label);
+                            alreadyChecked.push(label); // Note: We're pushing the original label (without index)
                         });
+                        cy.wait(500);
 
                 }).then(() => {
                     cy.get('button[aria-label="Close"]').scrollIntoView().click({ force: true });
