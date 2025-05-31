@@ -81,9 +81,12 @@ const login2 = () => {
             cy.wait(2000);
             if (bodyText1.includes('Add New Location')) {
               cy.wait(1500);
-              cy.get('input[type="radio"]').eq(0).click();
+              cy.get('div[class="backgroundWrapper_backgroundWrapper__o39ed pickupLocation_background__0UPLQ"]')
+                .find('div[class="addressCard_card__z5GWw"]').first().click();
               cy.wait(1500);
-              cy.get('input[type="radio"]').eq(0).click();
+              cy.contains('Select Drop Location',{timeout:30000}).scrollIntoView().should('be.visible');
+              cy.get('div[class="container nearByHospital_addressCard__ORdPs"]').find('div[class="addressCard_card_flex__6BZvF"]')
+                .first().click();
               cy.wait(1500);
               cy.contains('Start Emergency').click();
               cy.wait(1500);

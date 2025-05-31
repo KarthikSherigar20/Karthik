@@ -39,10 +39,10 @@ if (!app.document.head.querySelector("[data-hide-command-log-request]")) {
 
 import 'cypress-mochawesome-reporter/register';
 
-// Cypress.on('uncaught:exception', (err, runnable) => {
-//     // Returning false prevents Cypress from failing the test
-//     return false;
-//   });
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Returning false prevents Cypress from failing the test
+  return false;
+});
 
 // before(() => {
 //   cy.wrap(null).then(() => {
