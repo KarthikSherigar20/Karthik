@@ -73,40 +73,40 @@ const login2 = () => {
           }
         })
       } else {
-        if (bodyText.includes('Work in progress')) {
-          cy.contains('Work in progress').click();
-          cy.wait(2000);
-          cy.get('body').then(($bodyText1) => {
-            const bodyText1 = $bodyText1.text();
-            cy.wait(2000);
-            if (bodyText1.includes('Add New Location')) {
-              cy.wait(1500);
-              cy.get('div[class="backgroundWrapper_backgroundWrapper__o39ed pickupLocation_background__0UPLQ"]')
-                .find('div[class="addressCard_card__z5GWw"]').first().click();
-              cy.wait(1500);
-              cy.contains('Select Drop Location',{timeout:30000}).scrollIntoView().should('be.visible');
-              cy.get('div[class="container nearByHospital_addressCard__ORdPs"]').find('div[class="addressCard_card_flex__6BZvF"]')
-                .first().click();
-              cy.wait(1500);
-              cy.contains('Start Emergency').click();
-              cy.wait(1500);
-              cy.contains('Emergency Resolved').scrollIntoView().click();
-              cy.wait(2000);
-              login2();
-            } else {
-              cy.contains('Emergency Resolved').scrollIntoView().click();
-              cy.wait(2000);
-              login2();
-            }
-          })
-        } else {
-          cy.request('GET', url.EB).then((response) => {
-            cy.log('New ticket created');
-            cy.wait(2000);
-            cy.reload();
-            cy.wait(3000);
-          });
-        }
+        // if (bodyText.includes('Work in progress')) {
+        //   cy.contains('Work in progress').click();
+        //   cy.wait(2000);
+        //   cy.get('body').then(($bodyText1) => {
+        //     const bodyText1 = $bodyText1.text();
+        //     cy.wait(2000);
+        //     if (bodyText1.includes('Add New Location')) {
+        //       cy.wait(1500);
+        //       cy.get('div[class="backgroundWrapper_backgroundWrapper__o39ed pickupLocation_background__0UPLQ"]')
+        //         .find('div[class="addressCard_card__z5GWw"]').first().click();
+        //       cy.wait(1500);
+        //       cy.contains('Select Drop Location',{timeout:30000}).scrollIntoView().should('be.visible');
+        //       cy.get('div[class="container nearByHospital_addressCard__ORdPs"]').find('div[class="addressCard_card_flex__6BZvF"]')
+        //         .first().click();
+        //       cy.wait(1500);
+        //       cy.contains('Start Emergency').click();
+        //       cy.wait(1500);
+        //       cy.contains('Emergency Resolved').scrollIntoView().click();
+        //       cy.wait(2000);
+        //       login2();
+        //     } else {
+        //       cy.contains('Emergency Resolved').scrollIntoView().click();
+        //       cy.wait(2000);
+        //       login2();
+        //     }
+        //   })
+        // } else {
+        //   cy.request('GET', url.EB).then((response) => {
+        //     cy.log('New ticket created');
+        //     cy.wait(2000);
+        //     cy.reload();
+        //     cy.wait(3000);
+        //   });
+        // }
       }
     })
 

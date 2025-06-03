@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-03T10:26:13.586Z",
+    "end": "2025-06-03T10:26:37.911Z",
+    "duration": 24325,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ffd4c7e-fcc1-44d4-bd7b-3516625c48b5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\E2E\\CQR\\04_Emergency-4.cy.js",
+      "file": "cypress\\e2e\\E2E\\CQR\\04_Emergency-4.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eb7a5f7f-a210-4a7b-9180-1d53d0d71132",
+          "title": "CQR-Test demo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "E2E for Test demo",
+              "fullTitle": "CQR-Test demo E2E for Test demo",
+              "timedOut": null,
+              "duration": 22418,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').prevAll().eq(2).invoke('text').then(text => {\n      storedText = text;\n      cy.contains('New').click();\n      cy.wait(2000);\n      cy.contains('No').scrollIntoView().click();\n      cy.wait(2000);\n      cy.get('body').then($bodyText => {\n        const bodyText = $bodyText.text();\n        expect(bodyText).to.match(/General\\s*Enquiry/i);\n        cy.wait(2000);\n        expect(bodyText).to.match(/Test\\s*Demo/i);\n      });\n      cy.contains(/Test\\s*Demo/).scrollIntoView().click();\n      cy.wait(2000);\n      cy.contains(storedText).nextAll().eq(2).invoke('text').should(text => {\n        expect(text).to.match(/Test\\s*Demo/);\n      });\n    });\n  }\n});",
+              "err": {},
+              "uuid": "2823ed65-c2c2-4269-ac36-12c69e936254",
+              "parentUUID": "eb7a5f7f-a210-4a7b-9180-1d53d0d71132",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2823ed65-c2c2-4269-ac36-12c69e936254"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22418,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

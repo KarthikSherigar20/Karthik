@@ -20,17 +20,21 @@ describe('CQR-Test demo', () => {
                     storedText = text;
                     cy.contains('New').click();
                     cy.wait(2000);
-                    cy.get('input[value="no"]').scrollIntoView().click();
+                    cy.contains('No').scrollIntoView().click();
                     cy.wait(2000);
                     cy.get('body').then(($bodyText) => {
                         const bodyText = $bodyText.text();
-                        expect(bodyText).to.include('General Enquiry');
+                        expect(bodyText).to.match(/General\s*Enquiry/i);
                         cy.wait(2000);
-                        expect(bodyText).to.include('TestDemo');
+                        expect(bodyText).to.match(/Test\s*Demo/i);
                     })
-                    cy.contains('TestDemo').scrollIntoView().click();
+                    cy.contains(/Test\s*Demo/).scrollIntoView().click();
                     cy.wait(2000);
-                    cy.contains(storedText).nextAll().eq(2).should('have.text', 'TestDemo');
+                    cy.contains(storedText).nextAll().eq(2)
+                        .invoke('text')
+                        .should((text) => {
+                            expect(text).to.match(/Test\s*Demo/);
+                        })
                 })
             }
         })

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-03T10:23:40.673Z",
+    "end": "2025-06-03T10:24:44.562Z",
+    "duration": 63889,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6286fe55-d864-4530-bc48-3e88964ddac0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\E2E\\CQR\\02_Emergency-2.cy.js",
+      "file": "cypress\\e2e\\E2E\\CQR\\02_Emergency-2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2da98eed-a67d-4f90-8098-6ece0f2ed42f",
+          "title": "CQR-Search by mobile Number",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Emergency-1",
+              "fullTitle": "CQR-Search by mobile Number Emergency-1",
+              "timedOut": null,
+              "duration": 61701,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('By Mobile Number').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Enter Mobile No\"]').type(_Number.default.Numtosearch);\n    cy.wait(2000);\n    cy.contains('Search').click();\n    cy.wait(2000);\n    // cy.reload();\n    // cy.wait(2000);\n    cy.get('div[class=\"selectPatient_container_2__S9N5F\"]').find('input[name=\"radio\"]').first().click();\n    cy.wait(3000);\n    cy.get('div.container.selectPoc_wrapper__MBvMf', {\n      timeout: 5000\n    }).then($div => {\n      if ($div.find('input[name=\"radio\"]').length > 0) {\n        cy.wrap($div).find('input[name=\"radio\"]').click();\n      } else {\n        // cy.log('Radio input not found — skipping click');\n        cy.get('div[class=\"container ticketBasicDetails_cardWrapper__Zq72v\"]').find('p[class=\"text phoneNumber_value__Ktlo5\"]').eq(1).invoke('text').then(mob => {\n          const mo = mob.trim();\n          cy.wait(500);\n          cy.contains('Add Poc').scrollIntoView().click();\n          cy.wait(500);\n          cy.get('input[placeholder=\"POC Name\"]').type('POC');\n          cy.get('input[placeholder=\"POC Mobile\"]').type(mo);\n        });\n      }\n    });\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('div[class=\"backgroundWrapper_backgroundWrapper__o39ed pickupLocation_background__0UPLQ\"]').find('div[class=\"addressCard_card__z5GWw\"]').first().click();\n    cy.wait(600);\n    cy.contains('Select Drop Location', {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('div[class=\"container nearByHospital_addressCard__ORdPs\"]').find('div[class=\"addressCard_card_flex__6BZvF\"]').first().click();\n    cy.wait(600);\n    cy.contains('Start Emergency').click();\n    cy.wait(600);\n    cy.get(`input[placeholder=\"Doctor's Name\"]`).type('Doctor');\n    cy.wait(500);\n    cy.get(`[placeholder=\"Doctor's Number\"]`).type(_Number.default.Doc);\n    cy.wait(600);\n    cy.contains(' Send Meeting Link').click();\n    cy.wait(600);\n    cy.on('window:alert', alertmsg => {\n      expect(alertmsg).to.equal('MeetingLink Sent Successfully');\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Meeting link shared to patient/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Share Patient’s Profile').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Patient details shared to doctor');\n    cy.wait(1500);\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Patient Profile Shared/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.contains('Send Ambulance Message').scrollIntoView().click();\n    cy.wait(3000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Ambulance Request Successfully Sent')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Pickup and drop location shared to agent/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Ambulance Dispatched').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/ambulanceDispatched/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Pickup Location').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/ambulanceArrivedPickupLocation/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Pickup Patient').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/patientPicked/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Patient Dropped').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/patientDropped/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Emergency Resolved').click();\n    cy.wait(1000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Emergency Resolved Successfully')).to.be.true;\n    });\n    cy.wait(1000);\n    cy.get('div[class=\"container tickets_table__naHin\"]').find('tr[class=\"ant-table-row ant-table-row-level-0\"]').first().click();\n    cy.wait(600);\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Ticket Resolved/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n  }\n});",
+              "err": {},
+              "uuid": "356f25c2-99a9-4f4e-b9d6-b939052fb816",
+              "parentUUID": "2da98eed-a67d-4f90-8098-6ece0f2ed42f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "356f25c2-99a9-4f4e-b9d6-b939052fb816"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 61701,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

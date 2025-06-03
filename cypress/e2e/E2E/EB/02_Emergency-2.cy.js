@@ -85,6 +85,20 @@ describe('EB-Search by mobile Number', () => {
                 cy.contains(/Meeting link shared to patient/i, { timeout: 10000 }).scrollIntoView().should('be.visible');
                 cy.get('svg[data-icon="close"]').scrollIntoView().click();
                 cy.wait(600);
+                cy.contains('Share Patient’s Profile').click();
+                cy.wait(1500);
+                cy.get('body').should('contain', 'Patient details shared to doctor');
+                cy.wait(1500);
+
+                cy.contains('Comment').scrollIntoView().click();
+                cy.contains(/Agent No/i, { timeout: 10000 }).should('be.visible');
+
+                cy.window().then((win) => {
+                    win.scrollTo(0, win.document.body.scrollHeight)
+                })
+
+                cy.contains(/Patient Profile Shared/i, { timeout: 10000 }).scrollIntoView().should('be.visible');
+                cy.get('svg[data-icon="close"]').scrollIntoView().click();
 
                 cy.contains('Send Ambulance Message').scrollIntoView().click();
                 cy.wait(3000);

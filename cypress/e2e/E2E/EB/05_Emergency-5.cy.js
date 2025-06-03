@@ -10,7 +10,7 @@ describe('EB-Ambulance-No-Consultaion-No', () => {
         })
     })
 
-    it('Ambulance-No', () => {
+    it('Ambulance-No,doctor-no', () => {
         cy.get('body').then(($bodyText) => {
             const bodyText = $bodyText.text();
             if (bodyText.includes('New')) {

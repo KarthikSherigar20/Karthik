@@ -24,11 +24,19 @@ describe('EB-Search name and company', () => {
                 cy.wait(2000);
                 cy.get('div[class="container benSearchByCompany_container__HE8P8"]').eq(1).click();
                 cy.wait(2000);
-                cy.get('div[class="ant-select-item-option-content"]').eq(19).click();
+                // cy.get('span[class="ant-select-selection-placeholder"]').eq(0).click();
+                cy.wait(1000);
+                cy.get('div.ant-select-item-option-content').each(($el, index) => {
+                    cy.log(`Option ${index + 1}: ${$el.text()}`);
+                });
+                cy.get('div[class="ant-select-item-option-content"]').contains('Pococare').scrollIntoView().click();
+
+
+                // cy.get('div[class="ant-select-item-option-content"]').eq(19).click();
                 cy.wait(2000);
                 cy.contains('Search').click();
                 cy.wait(2000);
-                cy.get('div[class="container selectPatient_container__02wpR"]').find('input[name="radio"]').first().click();
+                cy.get('div[class="selectPatient_container_2__S9N5F"]').find('input[name="radio"]').first().click();
                 cy.wait(600);
 
                 cy.get('div.container.selectPoc_wrapper__MBvMf', { timeout: 5000 }).then($div => {
@@ -89,6 +97,21 @@ describe('EB-Search name and company', () => {
                 cy.contains(/Meeting link shared to patient/i, { timeout: 10000 }).scrollIntoView().should('be.visible');
                 cy.get('svg[data-icon="close"]').scrollIntoView().click();
                 cy.wait(600);
+
+                cy.contains('Share Patient’s Profile').click();
+                cy.wait(1500);
+                cy.get('body').should('contain', 'Patient details shared to doctor');
+                cy.wait(1500);
+
+                cy.contains('Comment').scrollIntoView().click();
+                cy.contains(/Agent No/i, { timeout: 10000 }).should('be.visible');
+                
+                cy.window().then((win) => {
+                    win.scrollTo(0, win.document.body.scrollHeight)
+                })
+
+                cy.contains(/Patient Profile Shared/i, { timeout: 10000 }).scrollIntoView().should('be.visible');
+                cy.get('svg[data-icon="close"]').scrollIntoView().click();
 
                 cy.contains('Send Ambulance Message').scrollIntoView().click();
                 cy.wait(3000);

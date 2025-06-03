@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-06-03T10:24:46.570Z",
+    "end": "2025-06-03T10:26:11.594Z",
+    "duration": 85024,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5ed65cdd-d54b-4025-b416-b3b7757afa38",
+      "title": "",
+      "fullFile": "cypress\\e2e\\E2E\\CQR\\03_Emergency-3.cy.js",
+      "file": "cypress\\e2e\\E2E\\CQR\\03_Emergency-3.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aeafb80f-f2f5-4ce1-83bf-f5f69e0a6ff9",
+          "title": "CQR-Search name and company",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Emergency-1",
+              "fullTitle": "CQR-Search name and company Emergency-1",
+              "timedOut": null,
+              "duration": 83291,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\03_Emergency-3.cy.js\\\\CQR-Search name and company -- Emergency-1 (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('By Company Name & Beneficiary Name').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Enter Ben Name\"]').scrollIntoView().type(_Number.default.Benname);\n    cy.wait(2000);\n    cy.get('div[class=\"container benSearchByCompany_container__HE8P8\"]').eq(1).click();\n    cy.wait(2000);\n    // cy.get('span[class=\"ant-select-selection-placeholder\"]').eq(0).click();\n    cy.wait(1000);\n    cy.get('div.ant-select-item-option-content').each(($el, index) => {\n      cy.log(`Option ${index + 1}: ${$el.text()}`);\n    });\n    cy.get('div[class=\"ant-select-item-option-content\"]').contains('Pococare').scrollIntoView().click();\n    // cy.get('div[class=\"ant-select-item-option-content\"]').eq(19).click();\n    cy.wait(2000);\n    cy.contains('Search').click();\n    cy.wait(2000);\n    cy.get('div[class=\"selectPatient_container_2__S9N5F\"]').find('input[name=\"radio\"]').first().click();\n    cy.wait(600);\n    cy.get('div.container.selectPoc_wrapper__MBvMf', {\n      timeout: 5000\n    }).then($div => {\n      if ($div.find('input[name=\"radio\"]').length > 0) {\n        cy.wrap($div).find('input[name=\"radio\"]').click();\n      } else {\n        // cy.log('Radio input not found — skipping click');\n        cy.get('div[class=\"container ticketBasicDetails_cardWrapper__Zq72v\"]').find('p[class=\"text phoneNumber_value__Ktlo5\"]').eq(1).invoke('text').then(mob => {\n          const mo = mob.trim();\n          cy.wait(500);\n          cy.contains('Add Poc').scrollIntoView().click();\n          cy.wait(500);\n          cy.get('input[placeholder=\"POC Name\"]').type('POC');\n          cy.get('input[placeholder=\"POC Mobile\"]').type(mo);\n        });\n      }\n    });\n    cy.wait(600);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('div[class=\"backgroundWrapper_backgroundWrapper__o39ed pickupLocation_background__0UPLQ\"]').find('div[class=\"addressCard_card__z5GWw\"]').first().click();\n    cy.wait(600);\n    cy.contains('Select Drop Location', {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('div[class=\"container nearByHospital_addressCard__ORdPs\"]').find('div[class=\"addressCard_card_flex__6BZvF\"]').first().click();\n    cy.wait(600);\n    cy.contains('Start Emergency').click();\n    cy.wait(600);\n    cy.get(`input[placeholder=\"Doctor's Name\"]`).type('Doctor');\n    cy.wait(500);\n    cy.get(`[placeholder=\"Doctor's Number\"]`).type(_Number.default.Doc);\n    cy.wait(600);\n    cy.contains(' Send Meeting Link').click();\n    cy.wait(600);\n    cy.on('window:alert', alertmsg => {\n      expect(alertmsg).to.equal('MeetingLink Sent Successfully');\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Meeting link shared to patient/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Share Patient’s Profile').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Patient details shared to doctor');\n    cy.wait(1500);\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Patient Profile Shared/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.contains('Send Ambulance Message').scrollIntoView().click();\n    cy.wait(3000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Ambulance Request Successfully Sent')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Pickup and drop location shared to agent/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Ambulance Dispatched').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/ambulanceDispatched/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Pickup Location').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/ambulanceArrivedPickupLocation/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Pickup Patient').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/patientPicked/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Patient Dropped').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Success')).to.be.true;\n    });\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/patientDropped/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n    cy.wait(600);\n    cy.contains('Emergency Resolved').click();\n    cy.wait(1000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes('Emergency Resolved Successfully')).to.be.true;\n    });\n    cy.wait(1000);\n    cy.get('div[class=\"container tickets_table__naHin\"]').find('tr[class=\"ant-table-row ant-table-row-level-0\"]').first().click();\n    cy.wait(600);\n    cy.contains('Comment').scrollIntoView().click();\n    cy.contains(/Agent No/i, {\n      timeout: 10000\n    }).should('be.visible');\n    cy.window().then(win => {\n      win.scrollTo(0, win.document.body.scrollHeight);\n    });\n    cy.contains(/Ticket Resolved/i, {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('svg[data-icon=\"close\"]').scrollIntoView().click();\n  }\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10000ms: `cy.should()` failed because the page updated as a result of this command, but you tried to continue the command chain. The subject is no longer attached to the DOM, and Cypress cannot requery the page after commands such as `cy.should()`.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou can typically solve this by breaking up a chain. For example, rewrite:\n\n> `cy.get('button').click().should('have.class', 'active')`\n\nto\n\n> `cy.get('button').as('btn').click()`\n> `cy.get('@btn').should('have.class', 'active')`\n\nhttps://on.cypress.io/element-has-detached-from-dom",
+                "estack": "CypressError: Timed out retrying after 10000ms: `cy.should()` failed because the page updated as a result of this command, but you tried to continue the command chain. The subject is no longer attached to the DOM, and Cypress cannot requery the page after commands such as `cy.should()`.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou can typically solve this by breaking up a chain. For example, rewrite:\n\n> `cy.get('button').click().should('have.class', 'active')`\n\nto\n\n> `cy.get('button').as('btn').click()`\n> `cy.get('@btn').should('have.class', 'active')`\n\nhttps://on.cypress.io/element-has-detached-from-dom\n    at Object.isAttached (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:144879:58)\n    at applyChainers (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:118364:24)\n    at tryCatcher (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise.attempt.Promise.try (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:4315:29)\n    at Context.shouldFn (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:118392:66)\n    at Context.should (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:118409:23)\n    at <unknown> (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:142916:39)\n    at assertions (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:143164:16)\n    at tryCatcher (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1807:23)\n    at Object.gotValue (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:6478:18)\n    at Object.gotAccum (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:6465:25)\n    at Object.tryCatcher (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://adminapp.dev.pococare.com/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/E2E/CQR/03_Emergency-3.cy.js:221:85)",
+                "diff": null
+              },
+              "uuid": "e8dc5665-b4c7-4f02-b310-223d62a4be56",
+              "parentUUID": "aeafb80f-f2f5-4ce1-83bf-f5f69e0a6ff9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e8dc5665-b4c7-4f02-b310-223d62a4be56"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 83291,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -10,7 +10,7 @@ describe('IC-NRN-Test demo', () => {
             cy.log('Login completed')
         })
     })
-    it('E2E for Test demo', () => {
+   it('E2E for Test demo', () => {
         cy.get('body').then(($bodyText) => {
             const bodyText = $bodyText.text();
             if (bodyText.includes('New')) {
@@ -24,13 +24,17 @@ describe('IC-NRN-Test demo', () => {
                     cy.wait(2000);
                     cy.get('body').then(($bodyText) => {
                         const bodyText = $bodyText.text();
-                        expect(bodyText).to.include('General Enquiry');
+                        expect(bodyText).to.match(/General\s*Enquiry/i);
                         cy.wait(2000);
-                        expect(bodyText).to.include('Test Demo');
+                        expect(bodyText).to.match(/Test\s*Demo/i);
                     })
-                    cy.contains('Test Demo').scrollIntoView().click();
+                    cy.contains(/Test\s*Demo/).scrollIntoView().click();
                     cy.wait(2000);
-                    cy.contains(storedText).nextAll().eq(2).should('have.text', 'TestDemo');
+                    cy.contains(storedText).nextAll().eq(2)
+                        .invoke('text')
+                        .should((text) => {
+                            expect(text).to.match(/Test\s*Demo/);
+                        })
                 })
             }
         })
