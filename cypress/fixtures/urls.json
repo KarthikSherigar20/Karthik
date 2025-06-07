@@ -1,13 +1,13 @@
 {
-    "SelectedEnvironment": "Stage",
+    "SelectedEnvironment": "Dev",
     "Enviroments": {
         "Dev": "https://adminapp.dev.pococare.com/",
         "Stage": "https://pocoadmin.stage.pococare.com/",
         "Prod": "https://new-em.pococare.com/"
     },
-    "Api": "https://stage.apis.pococare.com/ticket/api/v1/qr/681caa0ea9218cf8677ad1eb/9019803837/12.966000/77.573810/qr",
-    "EB": "https://stage.apis.pococare.com/ticket/api/v1/qr/681caa0ea9218cf8677ad1eb/9019803837/12.966000/77.573810/em",
-    "PL": "https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login",
-    "CQR": "https://stage.apis.pococare.com/ticket/api/v1/company-qr/POCOBENKAD/null/12.9499136/77.6994816/companyQr",
-    "IC": "https://stage.apis.pococare.com/ticket/api/v1/incoming-call"
+    "Api": "https://dev.apis.pococare.com/ticket/api/v1/qr/6834401199c6530c9c113750/9019803837/12.966000/77.573810/qr",
+    "EB": "https://dev.apis.pococare.com/ticket/api/v1/qr/6834401199c6530c9c113750/9019803837/12.966000/77.573810/em",
+    "PL": "https://dev.apis.pococare.com/auth/api/v1/auth/poco-user-login",
+    "CQR": "https://dev.apis.pococare.com/ticket/api/v1/company-qr/POCOBENKAD/null/12.9499136/77.6994816/companyQr",
+    "IC": "https://dev.apis.pococare.com/ticket/api/v1/incoming-call"
 }
