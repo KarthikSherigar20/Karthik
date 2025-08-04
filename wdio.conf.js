@@ -56,8 +56,8 @@ exports.config = {
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
         // browserName: 'Chrome',
-        'appium:deviceName': 'Small-Galaxy_S7-5.1_API_29',
-        'appium:platformVersion': '10.0',
+        'appium:deviceName': 'Pixel_3a_XL_API_30_6.0',
+        'appium:platformVersion': '11.0',
         'appium:automationName': 'UiAutomator2',
         'appium:app':path.join(process.cwd(),'APP\\Adroid\\PocoEmUrgency.apk'),
     }],
