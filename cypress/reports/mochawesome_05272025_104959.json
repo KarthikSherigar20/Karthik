@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-27T05:19:48.269Z",
+    "end": "2025-05-27T05:19:59.717Z",
+    "duration": 11448,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d60890b9-52e1-4a41-8d0e-a3fb04ebcf3f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Bulk qr gen.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Bulk qr gen.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "701dc38c-355a-40a6-b5f8-6fcc712ffcdb",
+          "title": "Bulk qr gen",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Bulk qr gen",
+              "fullTitle": "Bulk qr gen Bulk qr gen",
+              "timedOut": null,
+              "duration": 9060,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Bulk Qr Generate').click();\nlet texts = ['Bulk-Qr Generator', 'Generate QR and export them to Excel', 'Total QR Count: ', 'Activated QR Count: ', 'Downloaded QR Count: ', 'NotDownloaded QR Count: ', 'Number of Documents', 'Generate Documents', 'Download Excel'];\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  texts.forEach(text => {\n    expect(bodyText).to.include(text);\n  });\n});\nlet buttons = ['Generate Documents', 'Download Excel'];\nbuttons.forEach(bu => {\n  cy.contains(bu).should('be.visible').and('not.be.disabled');\n});\ncy.get('input[class=\"chakra-input css-1cjy4zv\"]').eq(0).should('be.visible').and('not.be.disabled');\ncy.get('input[class=\"chakra-input css-1cjy4zv\"]').eq(1).should('be.visible').and('not.be.disabled');",
+              "err": {},
+              "uuid": "1841b4e8-3609-412c-80b7-1ced7f9ca2eb",
+              "parentUUID": "701dc38c-355a-40a6-b5f8-6fcc712ffcdb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1841b4e8-3609-412c-80b7-1ced7f9ca2eb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9060,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

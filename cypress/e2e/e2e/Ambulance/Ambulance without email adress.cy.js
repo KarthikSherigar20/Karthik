@@ -27,7 +27,7 @@ describe('Ambulance without email adress',()=>{
 
 
 it('Ambulanceprovider',()=>{
-    cy.get('[class="chakra-icon css-6ey7w3"]').eq(9).scrollIntoView().click();
+    cy.get('[class="chakra-icon css-6ey7w3"]').eq(8).scrollIntoView().click();
 
     cy.get('body').should('contain','Ambulance Provider').scrollIntoView();
 
@@ -60,7 +60,7 @@ it('Ambulanceprovider',()=>{
 
     cy.get('#pinCode').type('560103');
 
-    cy.get('input[placeholder="Enter contact number"]').scrollIntoView().type('9898989865');
+    cy.get('input[placeholder="Enter contact number"]').scrollIntoView().type('8888888865');
 
     cy.contains('Next').click();
 
@@ -70,7 +70,7 @@ it('Ambulanceprovider',()=>{
 })
 
 it('Ambulance RateCard',()=>{
-    cy.get('[class="chakra-icon css-6ey7w3"]').eq(9).scrollIntoView().click();
+    cy.get('[class="chakra-icon css-6ey7w3"]').eq(8).scrollIntoView().click();
 
     cy.get('body').should('contain','Ambulance Provider').scrollIntoView();
 
@@ -120,7 +120,7 @@ it('Ambulance RateCard',()=>{
         cy.get('input[placeholder="e.g., 0-5 km"]').eq(1).type('5-10');
         cy.wait(500);
         
-        cy.get('input[placeholder="Enter price"]').eq(1).type('900');
+        cy.get('input[placeholder="Enter price"]').eq(1).type('800');
         cy.wait(500);
         
         cy.contains('Add Rate Card').scrollIntoView().click();
@@ -138,7 +138,7 @@ it('Ambulance RateCard',()=>{
   })
 
   it('Adding ambulance cities',()=>{
-    cy.get('[class="chakra-icon css-6ey7w3"]').eq(9).scrollIntoView().click();
+    cy.get('[class="chakra-icon css-6ey7w3"]').eq(8).scrollIntoView().click();
 
     cy.get('body').should('contain','Ambulance Provider').scrollIntoView();
 

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-05-27T06:09:37.315Z",
+    "end": "2025-05-27T06:11:59.799Z",
+    "duration": 142484,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fbcecaab-ff80-4050-a9e1-0e1bbd48d3d8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-outputfields.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-outputfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93f0402b-783d-43dc-bf01-a6fbd4283c78",
+          "title": "Searchben-outputfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checks checkboxes one by one excluding ignored and already-checked",
+              "fullTitle": "Searchben-outputfields checks checkboxes one by one excluding ignored and already-checked",
+              "timedOut": null,
+              "duration": 137924,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const ignoreCheckboxes = [\"personalInfo\", \"address\", \"preferredHospital\", \"emergencyContacts\", \"insurancePolicies\", \"company\", \"subscriberDetails\"].map(i => i.toLowerCase());\ncy.get('svg.chakra-icon.css-6ey7w3').eq(1).scrollIntoView().click();\ncy.get('button.BenAddressData_button__0kXLn').eq(0).scrollIntoView().click();\nexpandAllSections();\nuncheckAll();\ncy.get('div.react-checkbox-tree.rct-icons-fa4 label').then($labels => {\n  const checkboxLabels = [];\n  $labels.each((index, label) => {\n    const labelText = Cypress.$(label).text().trim().toLowerCase();\n    if (!ignoreCheckboxes.includes(labelText) && !alreadyChecked.includes(labelText)) {\n      checkboxLabels.push(labelText);\n    }\n  });\n  cy.wrap(checkboxLabels).each((label, idx, labelsArray) => {\n    cy.get('div.react-checkbox-tree.rct-icons-fa4 label').filter((_, el) => {\n      return Cypress.$(el).text().trim().toLowerCase() === label;\n    }).then($filtered => {\n      if ($filtered.length === 0) {\n        notFoundCheckboxes.push(label);\n        cy.log(`Checkbox label not found: ${label}`);\n        return;\n      }\n      // Check if an index is provided in the 'label' parameter\n      const parts = label.split('@');\n      let targetIndex = 0; // Default to the first matching element\n      if (parts.length > 1 && !isNaN(parseInt(parts[1]))) {\n        label = parts[0].trim(); // Extract the actual label\n        targetIndex = parseInt(parts[1].trim());\n      }\n      if (targetIndex >= $filtered.length) {\n        cy.log(`Checkbox index out of bounds for label \"${label}\". Found ${$filtered.length} matching checkboxes.`);\n        return;\n      }\n      const $label = $filtered.eq(targetIndex); // Select the element at the specified index\n      cy.wrap($label).scrollIntoView().click({\n        force: true\n      }).then(() => {\n        alreadyChecked.push(label); // Note: We're pushing the original label (without index)\n      });\n      cy.wait(500);\n    }).then(() => {\n      cy.get('button[aria-label=\"Close\"]').scrollIntoView().click({\n        force: true\n      });\n      cy.contains('No data Found').scrollIntoView().should('be.visible');\n      cy.get('button.BenAddressData_button__0kXLn').eq(1).scrollIntoView().click();\n      const pattern = `(${label}|benName|address.1|EmContact)`;\n      cy.contains(new RegExp(pattern, 'i'), {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible');\n      cy.wait(600);\n      cy.get('button.BenAddressData_button__0kXLn').eq(2).scrollIntoView().click({\n        force: true\n      });\n      cy.contains('No data Found', {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible');\n      if (idx !== labelsArray.length - 1) {\n        cy.get('svg.chakra-icon.css-6ey7w3').eq(1).scrollIntoView().click();\n        cy.get('button.BenAddressData_button__0kXLn').eq(0).scrollIntoView().click();\n        expandAllSections();\n        uncheckAll();\n      }\n    });\n  }).then(() => {\n    if (notFoundCheckboxes.length > 0) {\n      cy.log('Checkboxes not found:', [...new Set(notFoundCheckboxes)].join(', '));\n      // Optional: uncomment next line if you want to fail the test for missing checkboxes\n      // throw new Error(`Checkboxes not found: ${[...new Set(notFoundCheckboxes)].join(', ')}`);\n    }\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 30000ms: Expected to find content: 'No data Found' but never did.",
+                "estack": "AssertionError: Timed out retrying after 30000ms: Expected to find content: 'No data Found' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Integrations/Search ben/Searchben-outputfields.cy.js:99:23)",
+                "diff": null
+              },
+              "uuid": "5d8d9187-e581-4ef9-94bb-05386b77b916",
+              "parentUUID": "93f0402b-783d-43dc-bf01-a6fbd4283c78",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5d8d9187-e581-4ef9-94bb-05386b77b916"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 137924,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

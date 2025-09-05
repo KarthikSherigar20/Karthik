@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-27T06:36:42.251Z",
+    "end": "2025-05-27T06:37:15.435Z",
+    "duration": 33184,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "99f0533b-792f-43f8-8c12-4720ac9cd9ac",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-textfields.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-textfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "52c5835c-9629-45e6-9807-52e3c0de0d25",
+          "title": "textfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "textfields",
+              "fullTitle": "textfields textfields",
+              "timedOut": null,
+              "duration": 26471,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 20000\n}).should('be.visible');\ncy.wait(500);\nconst requiredHeaders = ['benId', 'email', 'benName', 'benMobile'];\nconst headerIndexes = {};\nconst rowData = [];\ncy.get('thead th').each(($th, index) => {\n  const headerText = $th.text().trim();\n  if (requiredHeaders.includes(headerText)) {\n    headerIndexes[headerText] = index;\n  }\n}).then(() => {\n  cy.get('tbody tr').first().within(() => {\n    requiredHeaders.forEach(header => {\n      const index = headerIndexes[header];\n      cy.get('td').eq(index).invoke('text').then(text => {\n        rowData.push(text.trim());\n      });\n    });\n  });\n}).then(() => {\n  cy.log('Row Data:', JSON.stringify(rowData));\n  expect(rowData[0]).to.match(/^[a-f0-9]{24}$/);\n  expect(rowData[1]).to.include('@');\n  // All dependent actions should go here!\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter benId\"]').scrollIntoView().type(rowData[0]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter email\"]').scrollIntoView().type(rowData[1]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter name\"]').scrollIntoView().type(rowData[2]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter PhoneNumber\"]').scrollIntoView().type(rowData[3]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter city\"]').scrollIntoView().type('Bangalore');\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter pinCode\"]').scrollIntoView().type('560103');\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n});",
+              "err": {},
+              "uuid": "9a92958e-0498-4ef4-96d9-4b8ab0ffe49d",
+              "parentUUID": "52c5835c-9629-45e6-9807-52e3c0de0d25",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9a92958e-0498-4ef4-96d9-4b8ab0ffe49d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26471,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

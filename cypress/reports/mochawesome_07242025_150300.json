@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-24T09:32:50.346Z",
+    "end": "2025-07-24T09:33:00.667Z",
+    "duration": 10321,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "7ef388ff-0812-44b0-8341-f4c22b062252",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\whatsappresponse.cy.js",
+      "file": "cypress\\e2e\\e2e\\whatsappresponse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "322f19b5-4071-4dfa-8a68-300b080c495d",
+          "title": "whatsappresponse",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "whatsappresponse",
+              "fullTitle": "whatsappresponse whatsappresponse",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(6).scrollIntoView().click();\ncy.contains('send').click();\ncy.get('body').should('contain', 'whatsappMsgId');\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('N/A')) {\n    cy.get('body').should('contain', 'N/A');\n    cy.get('body').should('contain', 'Get deliveryStatus');\n    cy.contains('Get deliveryStatus').scrollIntoView().click();\n    cy.contains('Success').eq(0).next().should('not.contain', 'N/A');\n  } else {\n    cy.contains('Success').eq(0).next().invoke('text').should('match', /DELIVERED|Failed|ACCEPTED|IN_PROGRESS|READ/i);\n  }\n});\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Failed')) {\n    cy.log(\"1\");\n    cy.get('body').should('contain', 'Resend All Failed Messages');\n    cy.contains('Resend All Failed Messages').scrollIntoView().click();\n    cy.wait(500);\n    // cy.get('body').should('not.contain','Resend All Failed Messages')\n    cy.wait(500);\n    // cy.get('body').should('contain','N/A')\n    cy.get('body').should('contain', 'Get deliveryStatus');\n    cy.contains('Get deliveryStatus').scrollIntoView().click();\n    cy.contains('Success').eq(0).next().should('not.contain', 'N/A');\n  }\n});",
+              "err": {},
+              "uuid": "b22711ea-6cb8-47e0-9902-657e4d3d4483",
+              "parentUUID": "322f19b5-4071-4dfa-8a68-300b080c495d",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [
+            "b22711ea-6cb8-47e0-9902-657e4d3d4483"
+          ],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
