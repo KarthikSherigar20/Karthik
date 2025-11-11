@@ -1,0 +1,284 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-11T11:58:44.747Z",
+    "end": "2025-11-11T11:58:47.000Z",
+    "duration": 2253,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bae5b80c-6b76-40be-8afb-59810f68eb0a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\integration\\three-api-workflow.cy.js",
+      "file": "cypress\\e2e\\integration\\three-api-workflow.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "110103ec-79d0-4f99-9c54-7996bde11b49",
+          "title": "3 API Linked Workflow - Auth & Subscriber Creation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "482539a3-87d0-466d-8c41-d88d039909ae",
+              "title": "Complete 3 API Workflow",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "API 1: External User Login",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Complete 3 API Workflow API 1: External User Login",
+                  "timedOut": null,
+                  "duration": 1375,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "makeRequest({\n  method: 'POST',\n  url: 'https://stage.apis.pococare.com/auth/api/v1/auth/external-user-login',\n  body: {\n    \"email\": testData.auth.login.email,\n    \"password\": testData.auth.login.password\n  }\n}).then(response => {\n  console.log('API 1 - Response Status:', response.status);\n  console.log('API 1 - Response Headers:', JSON.stringify(response.headers, null, 2));\n  console.log('API 1 - Response Body:', JSON.stringify(response.body, null, 2));\n  if (response.status === 200 || response.status === 201) {\n    expect(response.body).to.have.property('adminAccessToken');\n    expect(response.body).to.have.property('adminRefreshToken');\n    // Store tokens for next API\n    workflowData.adminAccessToken = response.body.adminAccessToken;\n    workflowData.adminRefreshToken = response.body.adminRefreshToken;\n    // Update testData with cookie format\n    testData.auth.headers.Cookie = `adminAccessToken=${workflowData.adminAccessToken};adminRefreshToken=${workflowData.adminRefreshToken}`;\n    cy.log('API 1 - External Login Success');\n    cy.log('Admin Access Token:', workflowData.adminAccessToken);\n  } else {\n    cy.log('API 1 - Login Failed with status:', response.status);\n    cy.log('API 1 - Error Body:', JSON.stringify(response.body, null, 2));\n  }\n});",
+                  "err": {},
+                  "uuid": "7e9904b5-28a4-4ea1-8ee3-c1844b7f5dfa",
+                  "parentUUID": "482539a3-87d0-466d-8c41-d88d039909ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "API 2: Poco User Login",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Complete 3 API Workflow API 2: Poco User Login",
+                  "timedOut": null,
+                  "duration": 127,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "makeRequest({\n  method: 'POST',\n  url: 'https://stage.apis.pococare.com/auth/api/v1/auth/poco-user-login',\n  body: {\n    \"email\": testData.auth.login.email,\n    \"password\": testData.auth.login.password\n  }\n}).then(response => {\n  console.log('API 2 - Response Status:', response.status);\n  console.log('API 2 - Response Headers:', JSON.stringify(response.headers, null, 2));\n  console.log('API 2 - Response Body:', JSON.stringify(response.body, null, 2));\n  if (response.status === 200 || response.status === 201) {\n    expect(response.body).to.have.property('adminAccessToken');\n    expect(response.body).to.have.property('adminRefreshToken');\n    // Store tokens for next API\n    workflowData.pocoAccessToken = response.body.adminAccessToken;\n    workflowData.pocoRefreshToken = response.body.adminRefreshToken;\n    // Update testData with cookie1 format\n    testData.auth.headers.Cookie1 = `adminAccessToken=${workflowData.pocoAccessToken};adminRefreshToken=${workflowData.pocoRefreshToken}`;\n    // Save tokens to testData.json file permanently\n    cy.task('updateTestData', {\n      Cookie: testData.auth.headers.Cookie,\n      Cookie1: testData.auth.headers.Cookie1,\n      lastRun: {\n        timestamp: new Date().toISOString(),\n        api1UserId: workflowData.adminAccessToken ? 'success' : 'failed',\n        api2UserId: workflowData.pocoAccessToken ? 'success' : 'failed'\n      }\n    });\n    cy.log('API 2 - Poco User Login Success');\n    cy.log('Poco Access Token:', workflowData.pocoAccessToken);\n    cy.log('Tokens saved to testData.json file');\n  } else {\n    cy.log('API 2 - Login Failed with status:', response.status);\n    cy.log('API 2 - Error Body:', JSON.stringify(response.body, null, 2));\n  }\n});",
+                  "err": {},
+                  "uuid": "5955c784-5f97-4c7c-aa0c-620111f2189f",
+                  "parentUUID": "482539a3-87d0-466d-8c41-d88d039909ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "API 3: Create Insurance Subscriber",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Complete 3 API Workflow API 3: Create Insurance Subscriber",
+                  "timedOut": null,
+                  "duration": 123,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const timestamp = Date.now();\nconst subscriberData = {\n  \"companyId\": testData.subscriber.companyId,\n  \"name\": `${testData.subscriber.name}_${timestamp}`,\n  \"email\": `test_${timestamp}@example.com`,\n  \"mobileNo\": {\n    \"countryCode\": testData.subscriber.mobileNo.countryCode,\n    \"number\": `${testData.subscriber.mobileNo.number}${timestamp.toString().slice(-3)}`\n  },\n  \"addBeneficiaryAllowed\": testData.subscriber.addBeneficiaryAllowed,\n  \"numberOfBeneficiariesAllowed\": testData.subscriber.numberOfBeneficiariesAllowed\n};\nmakeRequest({\n  method: 'POST',\n  url: 'https://stage.apis.pococare.com/beneficiary/api/v1/beneficiary/create-insurance-subscriber',\n  headers: {\n    'Cookie': testData.auth.headers.Cookie,\n    'Content-Type': 'application/json'\n  },\n  body: subscriberData\n}).then(response => {\n  console.log('API 3 - Response Status:', response.status);\n  console.log('API 3 - Response Headers:', JSON.stringify(response.headers, null, 2));\n  console.log('API 3 - Response Body:', JSON.stringify(response.body, null, 2));\n  console.log('API 3 - Request Body:', JSON.stringify(subscriberData, null, 2));\n  console.log('API 3 - Request Headers:', JSON.stringify({\n    'Cookie': testData.auth.headers.Cookie\n  }, null, 2));\n  if (response.status === 200 || response.status === 201) {\n    expect(response.body).to.have.property('_id');\n    expect(response.body).to.have.property('email', subscriberData.email);\n    expect(response.body).to.have.property('name', subscriberData.name);\n    // Store subscriber data\n    workflowData.subscriberId = response.body._id;\n    workflowData.subscriberEmail = response.body.email;\n    workflowData.subscriberName = response.body.name;\n    // Save subscriber data to testData.json\n    cy.task('updateTestData', {\n      subscriber: {\n        lastCreatedId: workflowData.subscriberId,\n        lastCreatedEmail: workflowData.subscriberEmail,\n        lastCreatedName: workflowData.subscriberName,\n        createdAt: new Date().toISOString()\n      }\n    });\n    cy.log('API 3 - Subscriber Created Successfully');\n    cy.log('Subscriber ID:', workflowData.subscriberId);\n    cy.log('Subscriber Email:', workflowData.subscriberEmail);\n    cy.log('Subscriber data saved to testData.json');\n  } else {\n    cy.log('API 3 - Subscriber Creation Failed with status:', response.status);\n    cy.log('API 3 - Error Body:', JSON.stringify(response.body, null, 2));\n  }\n});",
+                  "err": {},
+                  "uuid": "3590085c-723c-4360-a882-39252aa65000",
+                  "parentUUID": "482539a3-87d0-466d-8c41-d88d039909ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Workflow Validation: Verify all APIs executed successfully",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Complete 3 API Workflow Workflow Validation: Verify all APIs executed successfully",
+                  "timedOut": null,
+                  "duration": 195,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "expect(workflowData).to.have.property('adminAccessToken');\nexpect(workflowData).to.have.property('adminRefreshToken');\nexpect(workflowData).to.have.property('pocoAccessToken');\nexpect(workflowData).to.have.property('pocoRefreshToken');\n// expect(workflowData).to.have.property('subscriberId');\nexpect(workflowData).to.have.property('subscriberEmail');\nexpect(workflowData).to.have.property('subscriberName');\ncy.log('Complete workflow data:', JSON.stringify(workflowData, null, 2));",
+                  "err": {
+                    "message": "AssertionError: expected { Object (adminAccessToken, adminRefreshToken, ...) } to have property 'subscriberEmail'",
+                    "estack": "AssertionError: expected { Object (adminAccessToken, adminRefreshToken, ...) } to have property 'subscriberEmail'\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/integration/three-api-workflow.cy.js:162:35)",
+                    "diff": null
+                  },
+                  "uuid": "7474199a-0552-4db2-8707-a0cd160a91ff",
+                  "parentUUID": "482539a3-87d0-466d-8c41-d88d039909ae",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7e9904b5-28a4-4ea1-8ee3-c1844b7f5dfa",
+                "5955c784-5f97-4c7c-aa0c-620111f2189f",
+                "3590085c-723c-4360-a882-39252aa65000"
+              ],
+              "failures": [
+                "7474199a-0552-4db2-8707-a0cd160a91ff"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1820,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "e34de8d6-f880-4017-9744-61ae74aec33c",
+              "title": "Error Handling Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Should handle subscriber creation without authentication",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Error Handling Tests Should handle subscriber creation without authentication",
+                  "timedOut": null,
+                  "duration": 79,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "makeRequest({\n  method: 'POST',\n  url: 'https://stage.apis.pococare.com/beneficiary/api/v1/beneficiary/create-insurance-subscriber',\n  body: testData.subscriber\n}).then(response => {\n  expect(response.status).to.be.oneOf([401, 403]);\n});",
+                  "err": {},
+                  "uuid": "9f59de24-d74b-43b9-bd8d-3fdbba7775b7",
+                  "parentUUID": "e34de8d6-f880-4017-9744-61ae74aec33c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should handle invalid subscriber data",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Error Handling Tests Should handle invalid subscriber data",
+                  "timedOut": null,
+                  "duration": 80,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "makeRequest({\n  method: 'POST',\n  url: 'https://stage.apis.pococare.com/beneficiary/api/v1/beneficiary/create-insurance-subscriber',\n  headers: {\n    'Cookie': testData.auth.headers.Cookie1,\n    'Content-Type': 'application/json'\n  },\n  body: {\n    \"companyId\": \"invalid-id\",\n    \"name\": \"\",\n    \"email\": \"invalid-email\"\n  }\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {},
+                  "uuid": "6c21c02b-7e85-4b4c-ab47-9a6397850193",
+                  "parentUUID": "e34de8d6-f880-4017-9744-61ae74aec33c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9f59de24-d74b-43b9-bd8d-3fdbba7775b7",
+                "6c21c02b-7e85-4b4c-ab47-9a6397850193"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 159,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a9a0289a-70c1-4a49-bc74-89a95f2178e0",
+              "title": "Performance Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Should complete entire workflow within acceptable time",
+                  "fullTitle": "3 API Linked Workflow - Auth & Subscriber Creation Performance Tests Should complete entire workflow within acceptable time",
+                  "timedOut": null,
+                  "duration": 41,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const startTime = Date.now();\ncy.then(() => {\n  const endTime = Date.now();\n  const totalTime = endTime - startTime;\n  expect(totalTime).to.be.lessThan(15000); // 15 seconds max\n  cy.log(`Total workflow time: ${totalTime}ms`);\n});",
+                  "err": {},
+                  "uuid": "9708a0ba-d69b-4c95-881e-a31faabed106",
+                  "parentUUID": "a9a0289a-70c1-4a49-bc74-89a95f2178e0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9708a0ba-d69b-4c95-881e-a31faabed106"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 41,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

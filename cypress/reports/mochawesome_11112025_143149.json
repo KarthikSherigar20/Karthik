@@ -1,0 +1,872 @@
+{
+  "stats": {
+    "suites": 11,
+    "tests": 26,
+    "passes": 3,
+    "pending": 0,
+    "failures": 23,
+    "start": "2025-11-11T09:01:42.484Z",
+    "end": "2025-11-11T09:01:49.856Z",
+    "duration": 7372,
+    "testsRegistered": 26,
+    "passPercent": 11.538461538461538,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6e98b16-5d5f-440f-bdf5-b44b62a9d0ea",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\beneficiary-find-by-email.cy.js",
+      "file": "cypress\\e2e\\api\\beneficiary-find-by-email.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c0480fca-32ae-480c-8204-b4adfe60b63a",
+          "title": "Beneficiary Find By Email API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "29875189-17b0-4b92-828a-82f7ed709f12",
+              "title": "Valid Email Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should find beneficiary with valid email",
+                  "fullTitle": "Beneficiary Find By Email API Valid Email Tests should find beneficiary with valid email",
+                  "timedOut": null,
+                  "duration": 457,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'POST',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  body: {\n    \"email\": \"karthik.s@pococare.com\"\n  },\n  failOnStatusCode: false\n}).then(response => {\n  console.log('Response Status:', response.status);\n  console.log('Response Body:', JSON.stringify(response.body, null, 2));\n  expect(response.status).to.be.oneOf([200, 404]);\n  if (response.status === 200) {\n    expect(response.body).to.have.property('email');\n  }\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 200, 404 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 200, 404 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:19:38)",
+                    "diff": "- 401\n+ [ 200, 404 ]\n"
+                  },
+                  "uuid": "3be62159-aaef-430e-a609-bb66616086b6",
+                  "parentUUID": "29875189-17b0-4b92-828a-82f7ed709f12",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle case insensitive email",
+                  "fullTitle": "Beneficiary Find By Email API Valid Email Tests should handle case insensitive email",
+                  "timedOut": null,
+                  "duration": 244,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'VALID@POCOCARE.COM'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([200, 404]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 200, 404 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 200, 404 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:33:38)",
+                    "diff": "- 401\n+ [ 200, 404 ]\n"
+                  },
+                  "uuid": "cc1bc60e-dff3-4dd8-a316-e013f01ac61c",
+                  "parentUUID": "29875189-17b0-4b92-828a-82f7ed709f12",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "3be62159-aaef-430e-a609-bb66616086b6",
+                "cc1bc60e-dff3-4dd8-a316-e013f01ac61c"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 701,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+              "title": "Invalid Email Format Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should reject invalid email: invalid-email",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: invalid-email",
+                  "timedOut": null,
+                  "duration": 197,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "25bd7e57-e3c2-470c-b789-e9032022b841",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject invalid email: @domain.com",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: @domain.com",
+                  "timedOut": null,
+                  "duration": 185,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "f19f506f-e5dc-454b-bca9-bd9537fcf159",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject invalid email: user@",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: user@",
+                  "timedOut": null,
+                  "duration": 227,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "3493d6b6-fded-460a-826d-2e8ed724c1f3",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject invalid email: user..name@domain.com",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: user..name@domain.com",
+                  "timedOut": null,
+                  "duration": 182,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "b2a8fc54-4955-4716-a71d-b925adde6e6a",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject invalid email: user@domain",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: user@domain",
+                  "timedOut": null,
+                  "duration": 206,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "46209992-c699-4e31-be16-b219ffd491bb",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject invalid email: user name@domain.com",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: user name@domain.com",
+                  "timedOut": null,
+                  "duration": 189,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "c47f54e6-2707-4a03-ba4f-b3dae1422787",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject invalid email: user@domain..com",
+                  "fullTitle": "Beneficiary Find By Email API Invalid Email Format Tests should reject invalid email: user@domain..com",
+                  "timedOut": null,
+                  "duration": 208,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:57:40)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "1de89af8-677c-44d2-9bda-da6eb1a4960b",
+                  "parentUUID": "00a0fdeb-d06b-438a-9dc2-caceb903037b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "25bd7e57-e3c2-470c-b789-e9032022b841",
+                "f19f506f-e5dc-454b-bca9-bd9537fcf159",
+                "3493d6b6-fded-460a-826d-2e8ed724c1f3",
+                "b2a8fc54-4955-4716-a71d-b925adde6e6a",
+                "46209992-c699-4e31-be16-b219ffd491bb",
+                "c47f54e6-2707-4a03-ba4f-b3dae1422787",
+                "1de89af8-677c-44d2-9bda-da6eb1a4960b"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 1394,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8a27536c-2d02-4e76-9772-1d75ef2159fc",
+              "title": "Missing/Empty Parameter Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle missing email parameter",
+                  "fullTitle": "Beneficiary Find By Email API Missing/Empty Parameter Tests should handle missing email parameter",
+                  "timedOut": null,
+                  "duration": 226,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n  expect(response.body).to.have.property('message');\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:70:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "61ade3b4-f378-4c34-84d5-6954b758745a",
+                  "parentUUID": "8a27536c-2d02-4e76-9772-1d75ef2159fc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle empty email parameter",
+                  "fullTitle": "Beneficiary Find By Email API Missing/Empty Parameter Tests should handle empty email parameter",
+                  "timedOut": null,
+                  "duration": 196,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: ''\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:82:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "0ee21450-65fa-491e-979c-d36f4f1e4758",
+                  "parentUUID": "8a27536c-2d02-4e76-9772-1d75ef2159fc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle null email parameter",
+                  "fullTitle": "Beneficiary Find By Email API Missing/Empty Parameter Tests should handle null email parameter",
+                  "timedOut": null,
+                  "duration": 230,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: null\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:93:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "3f9fc3e0-1f8c-4eb5-91d8-ca7de5d8c624",
+                  "parentUUID": "8a27536c-2d02-4e76-9772-1d75ef2159fc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "61ade3b4-f378-4c34-84d5-6954b758745a",
+                "0ee21450-65fa-491e-979c-d36f4f1e4758",
+                "3f9fc3e0-1f8c-4eb5-91d8-ca7de5d8c624"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 652,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "1c4104ad-a5ef-4eba-96bf-0cb3f3aa6db2",
+              "title": "Security Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle SQL injection in email",
+                  "fullTitle": "Beneficiary Find By Email API Security Tests should handle SQL injection in email",
+                  "timedOut": null,
+                  "duration": 209,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: testData.edgeCases.sqlInjection\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:106:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "d724c786-c7cd-4115-b249-ef182064ea9b",
+                  "parentUUID": "1c4104ad-a5ef-4eba-96bf-0cb3f3aa6db2",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle XSS payload in email",
+                  "fullTitle": "Beneficiary Find By Email API Security Tests should handle XSS payload in email",
+                  "timedOut": null,
+                  "duration": 190,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: testData.edgeCases.xssPayload\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:117:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "1c6b35f7-528a-4c05-937c-ccc8ec1b558c",
+                  "parentUUID": "1c4104ad-a5ef-4eba-96bf-0cb3f3aa6db2",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle special characters",
+                  "fullTitle": "Beneficiary Find By Email API Security Tests should handle special characters",
+                  "timedOut": null,
+                  "duration": 226,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: testData.edgeCases.specialChars\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:128:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "ec205940-ec94-43ab-9833-aba065ea8dd7",
+                  "parentUUID": "1c4104ad-a5ef-4eba-96bf-0cb3f3aa6db2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "d724c786-c7cd-4115-b249-ef182064ea9b",
+                "1c6b35f7-528a-4c05-937c-ccc8ec1b558c",
+                "ec205940-ec94-43ab-9833-aba065ea8dd7"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 625,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "ce46ab29-6edb-4b93-a51d-e8185aed01bf",
+              "title": "Boundary Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle very long email",
+                  "fullTitle": "Beneficiary Find By Email API Boundary Tests should handle very long email",
+                  "timedOut": null,
+                  "duration": 255,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const longEmail = 'a'.repeat(250) + '@domain.com';\ncy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: longEmail\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([400, 422]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 400, 422 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 400, 422 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:142:38)",
+                    "diff": "- 401\n+ [ 400, 422 ]\n"
+                  },
+                  "uuid": "c860cd00-dad8-4bb3-a42f-f9dda99ca601",
+                  "parentUUID": "ce46ab29-6edb-4b93-a51d-e8185aed01bf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle minimum valid email",
+                  "fullTitle": "Beneficiary Find By Email API Boundary Tests should handle minimum valid email",
+                  "timedOut": null,
+                  "duration": 288,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'a@b.co'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([200, 404, 400]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 200, 404, 400 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 200, 404, 400 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:153:38)",
+                    "diff": "- 401\n+ [ 200, 404, 400 ]\n"
+                  },
+                  "uuid": "11483f0e-0ed8-430a-b53a-155a0a28d878",
+                  "parentUUID": "ce46ab29-6edb-4b93-a51d-e8185aed01bf",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "c860cd00-dad8-4bb3-a42f-f9dda99ca601",
+                "11483f0e-0ed8-430a-b53a-155a0a28d878"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 543,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "6f7e1fc1-b84d-47bf-afd9-4d28d1509838",
+              "title": "HTTP Method Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should reject POST method",
+                  "fullTitle": "Beneficiary Find By Email API HTTP Method Tests should reject POST method",
+                  "timedOut": null,
+                  "duration": 245,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'POST',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  body: {\n    email: 'test@example.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(405);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to equal 405",
+                    "estack": "AssertionError: expected 401 to equal 405\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:166:35)",
+                    "diff": "- 401\n+ 405\n"
+                  },
+                  "uuid": "645e37cf-125f-4909-8284-8af662075b28",
+                  "parentUUID": "6f7e1fc1-b84d-47bf-afd9-4d28d1509838",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject PUT method",
+                  "fullTitle": "Beneficiary Find By Email API HTTP Method Tests should reject PUT method",
+                  "timedOut": null,
+                  "duration": 217,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'PUT',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  body: {\n    email: 'test@example.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(405);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to equal 405",
+                    "estack": "AssertionError: expected 401 to equal 405\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:177:35)",
+                    "diff": "- 401\n+ 405\n"
+                  },
+                  "uuid": "a89ada3c-7672-4a34-b9df-14e240b72a81",
+                  "parentUUID": "6f7e1fc1-b84d-47bf-afd9-4d28d1509838",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should reject DELETE method",
+                  "fullTitle": "Beneficiary Find By Email API HTTP Method Tests should reject DELETE method",
+                  "timedOut": null,
+                  "duration": 242,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'DELETE',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(405);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to equal 405",
+                    "estack": "AssertionError: expected 401 to equal 405\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:187:35)",
+                    "diff": "- 401\n+ 405\n"
+                  },
+                  "uuid": "3068ab06-64f2-4c4a-b58f-79abfe262522",
+                  "parentUUID": "6f7e1fc1-b84d-47bf-afd9-4d28d1509838",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "645e37cf-125f-4909-8284-8af662075b28",
+                "a89ada3c-7672-4a34-b9df-14e240b72a81",
+                "3068ab06-64f2-4c4a-b58f-79abfe262522"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 704,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "838f0851-a60f-48da-8ae7-dd4abb50a882",
+              "title": "Response Validation Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return proper content-type header",
+                  "fullTitle": "Beneficiary Find By Email API Response Validation Tests should return proper content-type header",
+                  "timedOut": null,
+                  "duration": 80,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'test@example.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.headers).to.have.property('content-type');\n  expect(response.headers['content-type']).to.include('application/json');\n});",
+                  "err": {},
+                  "uuid": "cd5dc279-06b1-4671-a693-c1f0ef6d929b",
+                  "parentUUID": "838f0851-a60f-48da-8ae7-dd4abb50a882",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should validate response structure on success",
+                  "fullTitle": "Beneficiary Find By Email API Response Validation Tests should validate response structure on success",
+                  "timedOut": null,
+                  "duration": 81,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'valid@pococare.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  if (response.status === 200) {\n    expect(response.body).to.be.an('object');\n    expect(response.body).to.have.property('email');\n    expect(response.body.email).to.be.a('string');\n  }\n});",
+                  "err": {},
+                  "uuid": "aae1b763-90e6-4499-b67a-ad32402a347f",
+                  "parentUUID": "838f0851-a60f-48da-8ae7-dd4abb50a882",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "cd5dc279-06b1-4671-a693-c1f0ef6d929b",
+                "aae1b763-90e6-4499-b67a-ad32402a347f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 161,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "975da61d-4ae3-4fdf-b39a-9091356de55f",
+              "title": "Performance Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should respond within acceptable time",
+                  "fullTitle": "Beneficiary Find By Email API Performance Tests should respond within acceptable time",
+                  "timedOut": null,
+                  "duration": 79,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const startTime = Date.now();\ncy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'test@example.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  const responseTime = Date.now() - startTime;\n  expect(responseTime).to.be.lessThan(5000);\n});",
+                  "err": {},
+                  "uuid": "3c83d0b6-ccc0-4376-a92a-49013be4895f",
+                  "parentUUID": "975da61d-4ae3-4fdf-b39a-9091356de55f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3c83d0b6-ccc0-4376-a92a-49013be4895f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 79,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "43f0f2f3-3d5f-41ea-b9bd-7ac9a632edfb",
+              "title": "Concurrent Request Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle multiple concurrent requests",
+                  "fullTitle": "Beneficiary Find By Email API Concurrent Request Tests should handle multiple concurrent requests",
+                  "timedOut": null,
+                  "duration": 229,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const requests = Array.from({\n  length: 5\n}, (_, i) => cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: `test${i}@example.com`\n  },\n  failOnStatusCode: false\n}));\nPromise.all(requests).then(responses => {\n  responses.forEach(response => {\n    expect(response.status).to.be.oneOf([200, 404, 400]);\n  });\n});",
+                  "err": {
+                    "message": "AssertionError: The following error originated from your test code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > expected 401 to be one of [ 200, 404, 400 ]\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.",
+                    "estack": "AssertionError: The following error originated from your test code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > expected 401 to be one of [ 200, 404, 400 ]\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n    at eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:249:40)\nat Array.forEach (<anonymous>)\n    at eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:248:18)",
+                    "diff": "- '401'\n+ '[ 200, 404, 400 ]'\n"
+                  },
+                  "uuid": "468697b0-d001-45c9-afaa-033a41af1c1b",
+                  "parentUUID": "43f0f2f3-3d5f-41ea-b9bd-7ac9a632edfb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "468697b0-d001-45c9-afaa-033a41af1c1b"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 229,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "010652ce-8cac-4831-bac0-9d4aa86411f6",
+              "title": "Unicode and Encoding Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should handle unicode characters in email",
+                  "fullTitle": "Beneficiary Find By Email API Unicode and Encoding Tests should handle unicode characters in email",
+                  "timedOut": null,
+                  "duration": 210,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'tëst@éxample.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([200, 404, 400]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 200, 404, 400 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 200, 404, 400 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:263:38)",
+                    "diff": "- 401\n+ [ 200, 404, 400 ]\n"
+                  },
+                  "uuid": "85530f04-a485-4eb3-914e-1cbf44327a03",
+                  "parentUUID": "010652ce-8cac-4831-bac0-9d4aa86411f6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should handle URL encoded email",
+                  "fullTitle": "Beneficiary Find By Email API Unicode and Encoding Tests should handle URL encoded email",
+                  "timedOut": null,
+                  "duration": 259,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.request({\n  method: 'GET',\n  url: `${Cypress.env('apiUrl')}${endpoint}`,\n  qs: {\n    email: 'test%40example.com'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.be.oneOf([200, 404, 400]);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 401 to be one of [ 200, 404, 400 ]",
+                    "estack": "AssertionError: expected 401 to be one of [ 200, 404, 400 ]\n    at Context.eval (webpack://cypress-api-automation/./cypress/e2e/api/beneficiary-find-by-email.cy.js:274:38)",
+                    "diff": "- 401\n+ [ 200, 404, 400 ]\n"
+                  },
+                  "uuid": "e5708b43-6754-476f-b4d9-79ab2b2c3e09",
+                  "parentUUID": "010652ce-8cac-4831-bac0-9d4aa86411f6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "85530f04-a485-4eb3-914e-1cbf44327a03",
+                "e5708b43-6754-476f-b4d9-79ab2b2c3e09"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 469,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

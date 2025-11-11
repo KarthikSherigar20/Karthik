@@ -1,0 +1,84 @@
+{
+  "users": {
+    "valid": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "SecurePass123"
+    },
+    "invalid": {
+      "name": "",
+      "email": "invalid-email",
+      "password": "123"
+    }
+  },
+  "auth": {
+    "login": {
+      "email": "karthik.s@pococare.com",
+      "password": "Karthik@1477"
+    },
+    "invalid": {
+      "email": "wronguser@example.com",
+      "password": "wrongpass"
+    },
+    "headers": {
+      "Cookie": "adminAccessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmZmNzkyMWU4NzIyMTI0OGU5N2YwZDMiLCJlbWFpbCI6ImthcnRoaWsuc0Bwb2NvY2FyZS5jb20iLCJjb3VudHJ5Q29kZSI6OTEsIm1vYmlsZSI6OTAxOTgwMzgzNywiZnVsbG5hbWUiOiJLYXJ0aGlrIiwiY2xpZW50UGxhdGZvcm0iOiJQT0NPX0FETUlOX1BPUlRBTCIsInVzZXJSb2xlIjoiRVhURVJOQUxfQURNSU4iLCJjb21wYW55SWQiOiI2NTc1ZjMyMTg3NmUwNGJhMDFhMDcyM2QiLCJjb21wYW55TmFtZSI6IlBvY29jYXJlIiwiaXAiOiI6OmZmZmY6MTAuMTAuMS4yNDkiLCJob3N0Ijoic3RhZ2UuYXBpcy5wb2NvY2FyZS5jb20iLCJ1c2VyQWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTQyLjAuMC4wIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE3NjI4NjQwNDksImV4cCI6MTc2NTQ1NjA0OSwiYXVkIjoiaHR0cHM6Ly9wb2NvY2FyZS5jb20iLCJpc3MiOiJQb3NpdGl2ZSBDb21tdW5pY2F0aW9ucyBQdnQuIEx0ZC4ifQ.5SrTjS3ilyd4f5JbRPdiRA_pEtGTdniYV2AhVnHO65g;adminRefreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmZmNzkyMWU4NzIyMTI0OGU5N2YwZDMiLCJlbWFpbCI6ImthcnRoaWsuc0Bwb2NvY2FyZS5jb20iLCJjb3VudHJ5Q29kZSI6OTEsIm1vYmlsZSI6OTAxOTgwMzgzNywiZnVsbG5hbWUiOiJLYXJ0aGlrIiwiY2xpZW50UGxhdGZvcm0iOiJQT0NPX0FETUlOX1BPUlRBTCIsInVzZXJSb2xlIjoiRVhURVJOQUxfQURNSU4iLCJjb21wYW55SWQiOiI2NTc1ZjMyMTg3NmUwNGJhMDFhMDcyM2QiLCJjb21wYW55TmFtZSI6IlBvY29jYXJlIiwiaXAiOiI6OmZmZmY6MTAuMTAuMS4yNDkiLCJob3N0Ijoic3RhZ2UuYXBpcy5wb2NvY2FyZS5jb20iLCJ1c2VyQWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTQyLjAuMC4wIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE3NjI4NjQwNDksImV4cCI6MTc3MDY0MDA0OSwiYXVkIjoiaHR0cHM6Ly9wb2NvY2FyZS5jb20iLCJpc3MiOiJQb3NpdGl2ZSBDb21tdW5pY2F0aW9ucyBQdnQuIEx0ZC4ifQ.64nV-Mv3bm5XJ9KmMqe0Nu62bGC8yD0KpzZKD0TkfNs",
+      "Cookie1": "adminAccessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM5YWJhNGRjZWNmNzkwY2I1NmJmMmMiLCJlbWFpbCI6ImthcnRoaWsuc0Bwb2NvY2FyZS5jb20iLCJjb3VudHJ5Q29kZSI6OTEsIm1vYmlsZSI6OTAxOTgwMzgzNywiZnVsbG5hbWUiOiJLYXJ0aGlrIiwiY2xpZW50UGxhdGZvcm0iOiJQT0NPX0FETUlOX1BPUlRBTCIsInVzZXJSb2xlIjoiUE9DT19FTVBMT1lFRV9BRE1JTiIsImlwIjoiOjpmZmZmOjEwLjEwLjEuMjQ5IiwiaG9zdCI6InN0YWdlLmFwaXMucG9jb2NhcmUuY29tIiwidXNlckFnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzE0Mi4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiaWF0IjoxNzYyODY0MDQ5LCJleHAiOjE3NjU0NTYwNDksImF1ZCI6Imh0dHBzOi8vcG9jb2NhcmUuY29tIiwiaXNzIjoiUG9zaXRpdmUgQ29tbXVuaWNhdGlvbnMgUHZ0LiBMdGQuIn0.jVVcvtwy6HhAHitHBEYA4bsER635UEEv6qtDGHDaHUU;adminRefreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWM5YWJhNGRjZWNmNzkwY2I1NmJmMmMiLCJlbWFpbCI6ImthcnRoaWsuc0Bwb2NvY2FyZS5jb20iLCJjb3VudHJ5Q29kZSI6OTEsIm1vYmlsZSI6OTAxOTgwMzgzNywiZnVsbG5hbWUiOiJLYXJ0aGlrIiwiY2xpZW50UGxhdGZvcm0iOiJQT0NPX0FETUlOX1BPUlRBTCIsInVzZXJSb2xlIjoiUE9DT19FTVBMT1lFRV9BRE1JTiIsImlwIjoiOjpmZmZmOjEwLjEwLjEuMjQ5IiwiaG9zdCI6InN0YWdlLmFwaXMucG9jb2NhcmUuY29tIiwidXNlckFnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzE0Mi4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiaWF0IjoxNzYyODY0MDQ5LCJleHAiOjE3NzA2NDAwNDksImF1ZCI6Imh0dHBzOi8vcG9jb2NhcmUuY29tIiwiaXNzIjoiUG9zaXRpdmUgQ29tbXVuaWNhdGlvbnMgUHZ0LiBMdGQuIn0.nAv2mrCZmazRMLFHeOlsePrs1Wo_UkVjbGxLySzl3Cg"
+    }
+  },
+  "subscriber": {
+    "companyId": "6575f321876e04ba01a0723d",
+    "name": "Test Subscriber",
+    "email": "frobq7@extraku.net",
+    "mobileNo": {
+      "countryCode": 91,
+      "number": 6666666686
+    },
+    "addBeneficiaryAllowed": true,
+    "numberOfBeneficiariesAllowed": 0
+  },
+  "beneficiary": {
+    "validRequests": [
+      {
+        "email": "test8989@gmail.com"
+      },
+      {
+        "email": "valid@pococare.com"
+      },
+      {
+        "email": "user.test@example.com"
+      }
+    ],
+    "invalidRequests": [
+      {
+        "email": "invalid-email"
+      },
+      {
+        "email": "@domain.com"
+      },
+      {
+        "email": "user@"
+      },
+      {
+        "email": ""
+      },
+      {},
+      {
+        "email": null
+      }
+    ]
+  },
+  "edgeCases": {
+    "largeString": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "sqlInjection": "'; DROP TABLE users; --",
+    "xssPayload": "<script>alert('xss')</script>",
+    "specialChars": "!@#$%^&*()_+-=[]{}|;':\",.<>?",
+    "longEmail": "verylongemailaddressthatexceedsnormallimitsverylongemailaddressthatexceedsnormallimits@domain.com",
+    "unicodeEmail": "tëst@éxample.com",
+    "encodedEmail": "test%40example.com"
+  },
+  "lastRun": {
+    "timestamp": "2025-11-11T12:27:28.384Z",
+    "api1UserId": "success",
+    "api2UserId": "success"
+  }
+}
