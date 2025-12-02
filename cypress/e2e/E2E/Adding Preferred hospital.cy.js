@@ -15,7 +15,7 @@ describe('Preferred hospital',()=>{
         cy.visit(selectUrl);  //Mention urlname: Dev or Stage or Prod
         
         const P1 = new Elements();
-        P1.loginbtn();
+        // P1.loginbtn();
         P1.email(firstRow[0]); // Assuming email is in the first column
         P1.sendotp();
         cy.wait(3500);

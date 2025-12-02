@@ -1,10 +1,10 @@
 class Elements{
     //Login
 
-    lo="Login";
-    em="input[id='email']";
+    lo="input[type='email']";
+    em="input[type='email']";
     ph="input[placeholder='Phone Number']";
-    se="button[type='submit']";
+    se="Get OTP";
     ve="Verify";
     ch="span[class='chakra-checkbox__label css-6x44c9']";
 
@@ -77,13 +77,13 @@ class Elements{
 
     //Login
     loginbtn(){
-        cy.contains(this.lo).click();
+        cy.get(this.lo).click().scrollIntoView().should('be.visible');
     }
     email(ema){
         cy.get(this.em).type(ema);
     }
     sendotp(){
-        cy.get(this.se).click();
+        cy.contains(this.se).click();
     }
     verify(){
         cy.contains(this.ve).click();
