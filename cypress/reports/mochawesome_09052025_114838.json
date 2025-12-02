@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-05T06:17:55.961Z",
+    "end": "2025-09-05T06:18:38.900Z",
+    "duration": 42939,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9a4bdfa1-927c-4483-bf32-a80232fd65ad",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-dropdown.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-dropdown.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "94cfbadb-08f9-4764-bc23-88512fda8266",
+          "title": "Dropdown",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "dropdown",
+              "fullTitle": "Dropdown dropdown",
+              "timedOut": null,
+              "duration": 41010,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('select[style=\"border: 1px solid black;\"]').find('option').then($options => {\n  const dropdown = [];\n  // Extract the text of each option\n  $options.each((index, option) => {\n    dropdown.push(option.innerText);\n  });\n  // Iterate through the dropdown options and select each one\n  dropdown.forEach(drop => {\n    cy.log('Selecting value: ', drop);\n    cy.get('select[style=\"border: 1px solid black;\"]').select(drop).should('have.value', drop); // Assert selected value\n    cy.wait(500);\n    cy.contains('No data Found').scrollIntoView().should('be.visible');\n    cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).scrollIntoView().click();\n    cy.contains('benName', {\n      timeout: 30000\n    }).scrollIntoView().should('be.visible');\n    cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).scrollIntoView().click();\n    cy.contains('No data Found', {\n      timeout: 30000\n    }).scrollIntoView().should('be.visible');\n  });\n});\nconst dropdownValues = [];\ncy.get('.CustomSelect_select_border__lWd7w').select('Select Company');\ncy.wait(500);\ncy.get('.CustomSelect_select_border__lWd7w').find('option').each($ec => {\n  dropdownValues.push($ec.text()); // Collect all dropdown values\n}).then(() => {\n  // Iterate over the collected values\n  dropdownValues.forEach(value => {\n    cy.log('Selecting value: ', value);\n    cy.get('.CustomSelect_select_border__lWd7w').select(value).should('have.value', value); // Select the current value\n    cy.wait(500);\n    // cy.contains('No data Found').scrollIntoView().should('be.visible');\n    cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).scrollIntoView().click();\n    cy.contains(/benName|No data Found/, {\n      timeout: 30000\n    }).scrollIntoView().should('be.visible');\n    // cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).scrollIntoView().click();\n    // cy.contains('No data Found', { timeout: 30000 }).scrollIntoView().should('be.visible');\n    cy.wait(1000);\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10100ms: expected '<select.CustomSelect_select_border__lWd7w>' to have value 'Select Company', but the value was ''",
+                "estack": "AssertionError: Timed out retrying after 10100ms: expected '<select.CustomSelect_select_border__lWd7w>' to have value 'Select Company', but the value was ''\n    at eval (webpack:///./cypress/e2e/Integrations/Search ben/Searchben-dropdown.cy.js:58:25)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Integrations/Search ben/Searchben-dropdown.cy.js:55:31)",
+                "diff": "+ 'Select Company'\n"
+              },
+              "uuid": "f47dbedf-6f47-4187-8289-727b3b0c8c1c",
+              "parentUUID": "94cfbadb-08f9-4764-bc23-88512fda8266",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f47dbedf-6f47-4187-8289-727b3b0c8c1c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 41010,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

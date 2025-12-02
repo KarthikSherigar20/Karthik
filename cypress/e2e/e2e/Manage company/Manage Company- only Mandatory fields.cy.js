@@ -15,7 +15,7 @@ describe('Manage Company- only Mandatory fields', () => {
 
   it('Manage Company', () => {
     // Click on the Manage Company icon
-    cy.get('[class="chakra-icon css-6ey7w3"]').eq(8).scrollIntoView().click();
+    cy.get('[class="chakra-icon css-6ey7w3"]').eq(7).scrollIntoView().click();
 
     // Assert that the Manage Company page is loaded
     cy.get('body').should('contain', 'Manage Company');

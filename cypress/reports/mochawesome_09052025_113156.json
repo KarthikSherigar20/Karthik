@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-05T06:01:40.237Z",
+    "end": "2025-09-05T06:01:56.768Z",
+    "duration": 16531,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6c3042a1-b6cb-4fd2-9d69-38919f07ae0c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Searchradius.cy.js",
+      "file": "cypress\\e2e\\e2e\\Searchradius.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3d052ffd-4d20-49e2-ae27-d72bce01b0d3",
+          "title": "Searchradius",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Searchradius",
+              "fullTitle": "Searchradius Searchradius",
+              "timedOut": null,
+              "duration": 14765,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(7).scrollIntoView().click();\ncy.get('body').should('contain', 'Beneficiary Having No Hospital Dashboard Details').scrollIntoView();\ncy.get('select[id=\"hospital-select\"]').select('Pococare');\ncy.get('input[type=\"number\"]').type('5');\ncy.contains('Search').click();\nfunction BenID() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('BenID')) {\n      expect(bodyText).to.include('BenID');\n    } else {\n      cy.wait(1000);\n      BenID();\n    }\n  });\n}\nBenID();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Beneficiary Having No Hospital Dashboard Details'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Beneficiary Having No Hospital Dashboard Details'\n    at Context.eval (webpack:///./cypress/e2e/e2e/Searchradius.cy.js:12:23)",
+                "diff": null
+              },
+              "uuid": "0d0e0eda-5716-42dc-9793-b2578c75a23f",
+              "parentUUID": "3d052ffd-4d20-49e2-ae27-d72bce01b0d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0d0e0eda-5716-42dc-9793-b2578c75a23f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14765,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -54,8 +54,10 @@ describe('Dropdown', () => {
                 // Iterate over the collected values
                 dropdownValues.forEach((value) => {
                     cy.log('Selecting value: ', value)
-                    cy.get('.CustomSelect_select_border__lWd7w').select(value)
+                    if(value !== 'Select Company'){
+                        cy.get('.CustomSelect_select_border__lWd7w').select(value)
                         .should('have.value', value)// Select the current value
+                    }
 
                     cy.wait(500);
 

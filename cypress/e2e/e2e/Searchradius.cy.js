@@ -7,7 +7,7 @@ describe('Searchradius', () => {
     })
 
     it('Searchradius', () => {
-        cy.get('[class="chakra-icon css-6ey7w3"]').eq(7).scrollIntoView().click();
+        cy.get('[class="chakra-icon css-6ey7w3"]').eq(6).scrollIntoView().click();
 
         cy.get('body').should('contain', 'Beneficiary Having No Hospital Dashboard Details').scrollIntoView();
 

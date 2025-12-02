@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-05T06:15:50.387Z",
+    "end": "2025-09-05T06:16:13.330Z",
+    "duration": 22943,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c6ff5f3c-52c9-42e3-b42a-debb1df4f2f2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Dashboard-SelectCompany.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Dashboard-SelectCompany.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f4509da-0695-4b94-b3bc-bfee85a272df",
+          "title": "Dashboard-SelectCompany",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should click on SVG icon, wait, and log dropdown details",
+              "fullTitle": "Dashboard-SelectCompany should click on SVG icon, wait, and log dropdown details",
+              "timedOut": null,
+              "duration": 20900,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// cy.visit('/your-page-url'); // Replace with your page URL\n// Step 1: Click on the SVG icon\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(0).click();\n// Step 2: Wait for 1 second (not recommended but included as per request)\ncy.wait(1000);\nconst dropdownValues = [];\ncy.contains('option', 'Select Company').click({\n  force: true\n});\ncy.get('.CustomSelect_select_border__lWd7w').find('option').each($ec => {\n  dropdownValues.push($ec.text()); // Collect all dropdown values\n}).then(() => {\n  // Iterate over the collected values\n  dropdownValues.forEach(value => {\n    cy.get('.CustomSelect_select_border__lWd7w').select(value); // Select the current value\n    cy.get('.CustomSelect_select_border__lWd7w').should('have.value', value); // Assert the value\n    cy.wait(500);\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<select.CustomSelect_select_border__lWd7w>' to have value 'Select Company', but the value was ''",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<select.CustomSelect_select_border__lWd7w>' to have value 'Select Company', but the value was ''\n    at eval (webpack:///./cypress/e2e/Integrations/Dashboard-SelectCompany.cy.js:33:65)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Integrations/Dashboard-SelectCompany.cy.js:31:31)",
+                "diff": "+ 'Select Company'\n"
+              },
+              "uuid": "2f51c5c8-bb0c-4632-b886-6050e82d30d1",
+              "parentUUID": "9f4509da-0695-4b94-b3bc-bfee85a272df",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2f51c5c8-bb0c-4632-b886-6050e82d30d1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 20900,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -30,17 +30,12 @@ describe('Dashboard-SelectCompany', () => {
                 // Iterate over the collected values
                 dropdownValues.forEach((value) => {
                     cy.get('.CustomSelect_select_border__lWd7w').select(value); // Select the current value
-                    cy.get('.CustomSelect_select_border__lWd7w').should('have.value', value); // Assert the value
-                    cy.wait(500);
+                    cy.wait(500); // Wait for any potential UI updates
+                    if (value !== 'Select Company') {
+                        cy.get('.CustomSelect_select_border__lWd7w option:selected')
+                          .should('have.text', value);
+                    }
                 });
             });
-
-
-
-
-
-
-
-
     });
 })

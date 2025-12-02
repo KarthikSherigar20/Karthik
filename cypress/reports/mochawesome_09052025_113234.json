@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-05T06:02:17.688Z",
+    "end": "2025-09-05T06:02:34.058Z",
+    "duration": 16370,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ca0cdc9-8bda-4665-a1e3-1c1f0daf0633",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Whatsapp.cy.js",
+      "file": "cypress\\e2e\\e2e\\Whatsapp.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c7b7cc0-be50-4126-ab88-d2e6118de943",
+          "title": "Whatsapp",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Whatsapp",
+              "fullTitle": "Whatsapp Whatsapp",
+              "timedOut": null,
+              "duration": 14812,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(4).scrollIntoView().click();\ncy.contains('Create Job').scrollIntoView().click();\ncy.get('.custominput_input__AQGtC').type('Test');\ncy.contains('Save Job').click();\ncy.contains('pending').click();\ncy.get('select[class=\"chakra-select css-161pkch\"]').select('WA_ADD_EC_1');\ncy.contains('Select Ben').click();\nconst mo = _EmailNo.default.Mobno;\ncy.get('[placeholder=\"Enter PhoneNumber\"]').scrollIntoView().type(mo);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.wait(1000);\nfunction addall() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Add All Ben To Job')) {\n      cy.contains('Add All Ben To Job').click();\n    } else {\n      cy.wait(1000);\n      addall();\n    }\n  });\n}\naddall();\ncy.wait(5000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Clear All Invalid Ben')) {\n    cy.wait(1000);\n    cy.contains('Clear All Invalid Ben').scrollIntoView().click();\n  } else {\n    cy.log('There is no Clear All invalid ben button');\n  }\n});\ncy.wait(3000);\nfunction Send() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Send Wa Message')) {\n      cy.contains('Send Wa Message').click();\n    } else {\n      cy.wait(1000);\n      Send();\n    }\n  });\n}\nSend();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal('message sent to all beneficiaries');\n});\ncy.contains('Send Wa Message').should('be.disabled');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.custominput_input__AQGtC`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.custominput_input__AQGtC`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Whatsapp.cy.js:15:11)",
+                "diff": null
+              },
+              "uuid": "5ba9face-bed9-4665-bc86-8b4ea73d64d8",
+              "parentUUID": "2c7b7cc0-be50-4126-ab88-d2e6118de943",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5ba9face-bed9-4665-bc86-8b4ea73d64d8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14812,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

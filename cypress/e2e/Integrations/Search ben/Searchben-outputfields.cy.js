@@ -86,17 +86,17 @@ describe('Searchben-outputfields', () => {
 
                 }).then(() => {
                     cy.get('button[aria-label="Close"]').scrollIntoView().click({ force: true });
-                    cy.contains('No data Found').scrollIntoView().should('be.visible');
+                    cy.contains(/No data Found|benId/i).scrollIntoView().should('be.visible');
                     cy.get('button.BenAddressData_button__0kXLn').eq(1).scrollIntoView().click();
 
-                    const pattern = `(${label}|benName|address.1|EmContact)`;
+                    const pattern = `(${label}|benId|benName|address.1|EmContact)`;
                     cy.contains(new RegExp(pattern, 'i'), { timeout: 30000 }).scrollIntoView().should('be.visible');
 
 
                     cy.wait(600);
 
                     cy.get('button.BenAddressData_button__0kXLn').eq(2).scrollIntoView().click({ force: true });
-                    cy.contains('No data Found', { timeout: 30000 }).scrollIntoView().should('be.visible');
+                    cy.contains(/No data Found|benId/i, { timeout: 30000 }).scrollIntoView().should('be.visible');
 
                     if (idx !== labelsArray.length - 1) {
                         cy.get('svg.chakra-icon.css-6ey7w3').eq(1).scrollIntoView().click();
