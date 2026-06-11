@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:02:58.972Z",
+    "end": "2026-06-11T10:03:15.881Z",
+    "duration": 16909,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ba412e67-975c-4758-8271-1dd0f577af74",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\Names.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\Names.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "30e9132b-b931-4ad3-9188-f6df0ac3dd4b",
+          "title": "Names",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Names",
+              "fullTitle": "Names Names",
+              "timedOut": null,
+              "duration": 15341,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\nconst names = ['Ambulance Provider', 'Name', 'Address Line 1', 'City', 'State', 'Country', 'PinCode', 'Contact Number', 'Contact Email'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Ambulance Provider'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Ambulance Provider'\n    at eval (webpack:///./cypress/e2e/Smoke/Ambulance/Names.cy.js:17:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Ambulance/Names.cy.js:16:14)",
+                "diff": null
+              },
+              "uuid": "1f5c8c2b-9309-42b3-a677-a8b0e9f8de6f",
+              "parentUUID": "30e9132b-b931-4ad3-9188-f6df0ac3dd4b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1f5c8c2b-9309-42b3-a677-a8b0e9f8de6f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15341,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

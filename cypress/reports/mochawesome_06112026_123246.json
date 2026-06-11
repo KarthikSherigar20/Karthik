@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-11T07:02:30.261Z",
+    "end": "2026-06-11T07:02:46.389Z",
+    "duration": 16128,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "470d9a66-4262-4c18-8eb8-511640b386c9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-calender.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-calender.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f507a86b-0a4e-41d2-a12d-0f032bb4570a",
+          "title": "Searchben-calender",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Searchben-calender",
+              "fullTitle": "Searchben-calender Searchben-calender",
+              "timedOut": null,
+              "duration": 13831,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\nconst today = new Date().toISOString().split('T')[0]; // \"YYYY-MM-DD\"\nconst weekAgo = new Date(Date.now() - 15 * 86400000).toISOString().split('T')[0];\ncy.contains('p', 'Filter By CreatedDate').parent().find('input[type=\"date\"]').eq(0).type(weekAgo); // From 7 days ago\ncy.contains('p', 'Filter By CreatedDate').parent().find('input[type=\"date\"]').eq(1).type(today); // To today\ncy.wait(500);\ncy.contains('No data Found').should('be.visible');\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 30000\n}).should('be.visible');\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\ncy.contains('No data Found', {\n  timeout: 30000\n}).should('be.visible');\ncy.contains('p', 'Filter By UpdatedDate').parent().find('input[type=\"date\"]').eq(0).type(weekAgo);\ncy.contains('p', 'Filter By UpdatedDate').parent().find('input[type=\"date\"]').eq(1).type(today);\ncy.wait(500);\ncy.contains('No data Found').should('be.visible');\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 30000\n}).should('be.visible');\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\ncy.contains('No data Found', {\n  timeout: 30000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "e98e610e-e334-4eef-bcb9-3bfa0fc63b6d",
+              "parentUUID": "f507a86b-0a4e-41d2-a12d-0f032bb4570a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e98e610e-e334-4eef-bcb9-3bfa0fc63b6d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13831,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

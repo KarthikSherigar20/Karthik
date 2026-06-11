@@ -6,15 +6,16 @@ const path = require('path');
 const { verifyDownloadTasks } = require('cy-verify-downloads');
 
 module.exports = defineConfig({
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports/json",
+    overwrite: false,
+    html: false,
+    json: true,
+    timestamp: "yyyy-mm-dd_HH-MM-ss"
+  },
+
   e2e: {
-    reporter: "mochawesome",
-    reporterOptions: {
-      reportDir: "cypress/reports",
-      overwrite: false,
-      html: true,
-      json: true,
-      timestamp: "mmddyyyy_HHMMss",
-    },
     chromeWebSecurity: false,
     downloadsFolder: path.join(__dirname, "cypress/downloads"),
     setupNodeEvents(on, config) {
@@ -37,11 +38,10 @@ module.exports = defineConfig({
         verifyDownloadTasks,
         countFilesInDownloads() {
           const downloadsFolder = "cypress/downloads";
-          if (!fs.existsSync(downloadsFolder)) return 0; // If folder doesn't exist, return 0
+          if (!fs.existsSync(downloadsFolder)) return 0;
 
           const files = fs.readdirSync(downloadsFolder);
           return files.length;
-          // Return count of files
         },
         countBulkQrFiles() {
           const downloadsFolder = "cypress/downloads";
@@ -49,48 +49,46 @@ module.exports = defineConfig({
 
           const files = fs.readdirSync(downloadsFolder);
           const bulkQrFiles = files.filter(file => file.startsWith("Bulk_QR_Codes"));
-          return bulkQrFiles.length; // Return count of Bulk_QR_Codes files
+          return bulkQrFiles.length;
         },
         listFilesInDownloads() {
           const downloadsFolder = "cypress/downloads";
-          if (!fs.existsSync(downloadsFolder)) return []; // Return empty array if folder doesn't exist
+          if (!fs.existsSync(downloadsFolder)) return [];
 
           const files = fs.readdirSync(downloadsFolder);
-          return files; // Return list of filenames
+          return files;
         },
         getLatestFileInDownloads() {
           const downloadsFolder = "cypress/downloads";
-          if (!fs.existsSync(downloadsFolder)) return null; // If folder doesn't exist, return null
+          if (!fs.existsSync(downloadsFolder)) return null;
 
           const files = fs.readdirSync(downloadsFolder)
             .map(file => ({
               name: file,
-              time: fs.statSync(path.join(downloadsFolder, file)).mtime.getTime() // Get modification time
+              time: fs.statSync(path.join(downloadsFolder, file)).mtime.getTime()
             }))
-            .sort((a, b) => b.time - a.time); // Sort by time (latest first)
+            .sort((a, b) => b.time - a.time);
 
-          return files.length > 0 ? files[0].name : null; // Return the most recent file's name
+          return files.length > 0 ? files[0].name : null;
         },
         getLatestFile() {
           const downloadsFolder = "cypress/downloads";
           if (!fs.existsSync(downloadsFolder)) return null;
 
           const files = fs.readdirSync(downloadsFolder)
-            .filter(file => file.startsWith("Bulk_QR_Codes")) // Only Bulk_QR_Codes files
+            .filter(file => file.startsWith("Bulk_QR_Codes"))
             .map(file => ({
               name: file,
               time: fs.statSync(`${downloadsFolder}/${file}`).mtime.getTime()
             }))
-            .sort((a, b) => b.time - a.time); // Sort by latest timestamp
+            .sort((a, b) => b.time - a.time);
 
           return files.length > 0 ? files[0].name : null;
         },
         isFileExist(filePath) {
           return fs.existsSync(filePath);
         }
-
-
-      })
+      });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
         if (browser.name === 'chrome') {
@@ -98,11 +96,7 @@ module.exports = defineConfig({
         }
         return launchOptions;
       });
-      // implement node event listeners here
     },
-    //   watchForFileChanges: false,
-    // // chromeWebSecurity: false,
-    //   experimentalSessionAndOrigin: true,
     defaultCommandTimeout: 10000,
     downloads: 'cypress/downloads',
   },

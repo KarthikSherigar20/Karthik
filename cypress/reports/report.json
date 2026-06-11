@@ -1,0 +1,2472 @@
+{
+  "stats": {
+    "suites": 38,
+    "tests": 43,
+    "passes": 12,
+    "pending": 0,
+    "failures": 31,
+    "testsRegistered": 43,
+    "passPercent": 27.906976744186046,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2026-06-11T09:45:18.109Z",
+    "end": "2026-06-11T10:07:40.137Z",
+    "duration": 1342028
+  },
+  "results": [
+    {
+      "uuid": "e355a4fc-375d-4315-90d3-3303f7e52c5d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Dashboard-SelectCompany.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Dashboard-SelectCompany.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "408cb924-d78c-44d3-9c2c-f3bbd35fe93a",
+          "title": "Dashboard-SelectCompany",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should click on SVG icon, wait, and log dropdown details",
+              "fullTitle": "Dashboard-SelectCompany should click on SVG icon, wait, and log dropdown details",
+              "timedOut": null,
+              "duration": 19116,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// cy.visit('/your-page-url'); // Replace with your page URL\n// Step 1: Click on the SVG icon\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(0).click();\n// Step 2: Wait for 1 second (not recommended but included as per request)\ncy.wait(1000);\n// const dropdownValues = [];\n// cy.contains('option', 'Select Company').click({ force: true });\n// cy.get('.CustomSelect_select_border__lWd7w')\n//     .find('option')\n//     .each(($ec) => {\n//         dropdownValues.push($ec.text()); // Collect all dropdown values\n//     })\n//     .then(() => {\n//         // Iterate over the collected values\n//         dropdownValues.forEach((value) => {\n//             cy.get('.CustomSelect_select_border__lWd7w').select(value); // Select the current value\n//             cy.wait(500); // Wait for any potential UI updates\n//             if (value !== 'Select Company') {\n//                 cy.get('.CustomSelect_select_border__lWd7w option:selected')\n//                   .should('have.text', value);\n//             }\n//         });\n//     });\nlet listCompanies = [];\n// Step 1: Click on Select Company input to open dropdown\ncy.get('input[placeholder=\"Select Company\"]').click();\ncy.log('✓ Step 1: Clicked on Select Company input');\n// Step 2: Wait for Chakra select options to appear\ncy.get('[role=\"listbox\"]', {\n  timeout: 8000\n}).should('exist');\ncy.wait(800);\ncy.log('✓ Step 2: Dropdown options visible');\n// Step 3: Extract all companies from visible dropdown options\ncy.get('[role=\"listbox\"] [role=\"option\"]').each($option => {\n  const companyName = $option.text().trim();\n  if (companyName && companyName.length > 0) {\n    listCompanies.push(companyName);\n  }\n}).then(() => {\n  cy.log(`✓ Step 3: Extracted ${listCompanies.length} companies`);\n  listCompanies.forEach((company, idx) => {\n    cy.log(`  ${idx + 1}. ${company}`);\n  });\n});\n// Step 4: Click outside to close dropdown, then clear input\ncy.get('body').click();\ncy.wait(300);\ncy.get('input[placeholder=\"Select Company\"]').clear().then(() => {\n  cy.log('✓ Step 4: Cleared input field');\n});\n// Step 5: Iterate through each company\ncy.then(() => {\n  listCompanies.forEach((company, index) => {\n    cy.log(`\\n--- Testing Company ${index + 1}/${listCompanies.length}: ${company} ---`);\n    // Click to open dropdown\n    cy.get('input[placeholder=\"Select Company\"]').click();\n    cy.wait(500);\n    // Select the company from dropdown\n    cy.get('[role=\"listbox\"] [role=\"option\"]').contains(company).click();\n    cy.wait(800);\n    // Step 6: Verify company text is in input field\n    cy.get('input[placeholder=\"Select Company\"]').should('have.value', company).then(() => {\n      cy.log(`✓ Verified: \"${company}\" is selected in input field`);\n    });\n  });\n  cy.log(`\\n✓ All ${listCompanies.length} companies tested successfully`);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 8000ms: Expected to find element: `[role=\"listbox\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 8000ms: Expected to find element: `[role=\"listbox\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Integrations/Dashboard-SelectCompany.cy.js:50:13)",
+                "diff": null
+              },
+              "uuid": "c448df75-cd08-428c-813c-5660ccaa1e4f",
+              "parentUUID": "408cb924-d78c-44d3-9c2c-f3bbd35fe93a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c448df75-cd08-428c-813c-5660ccaa1e4f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19116,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d56c0061-5bfb-4681-8b50-41d8d2a9d2f0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Bulkqrgenerator.cy.js",
+      "file": "cypress\\e2e\\e2e\\Bulkqrgenerator.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4a4626f7-ff9c-4885-8634-429a1e31f76c",
+          "title": "BulkQrGenerator",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Bulk Qr - download and validate filename timestamp",
+              "fullTitle": "BulkQrGenerator Bulk Qr - download and validate filename timestamp",
+              "timedOut": null,
+              "duration": 15657,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg.chakra-icon.css-6ey7w3').eq(0).scrollIntoView().click();\ncy.wait(500);\ncy.get('body').should('contain', 'Bulk Qr Generate');\ncy.contains('Bulk Qr Generate').click();\nconst checkAndDownloadQR = () => {\n  cy.contains('NotDownloaded QR Count:').invoke('text').then(text => {\n    const match = text.match(/\\d+/);\n    const count = match ? parseInt(match[0], 10) : 0;\n    cy.log('Extracted Count:', count);\n    if (count > 0) {\n      cy.get('input.chakra-input.css-1cjy4zv').eq(1).clear().type('1');\n      cy.contains('Download Excel').click();\n      cy.wait(5000); // wait for file to download\n      cy.task(\"countFilesInDownloads\").then(countF => {\n        cy.log(\"Total files in downloads folder:\", countF);\n        if (countF > 0) {\n          cy.task(\"getLatestFile\").then(latestFile => {\n            cy.log(\"Latest file found:\", latestFile);\n            // Extract date and time up to minutes from the filename\n            const match = latestFile.match(/(\\d{2}_\\d{2}_\\d{4}_\\s\\d{2}_\\d{2})/);\n            const fileDateTime = match ? match[1] : null;\n            cy.log(\"Extracted date-time from filename:\", fileDateTime);\n            // Get current system date-time in same format\n            const getFormattedDateTime = () => {\n              const now = new Date();\n              const pad = n => n.toString().padStart(2, '0');\n              const day = pad(now.getDate());\n              const month = pad(now.getMonth() + 1);\n              const year = now.getFullYear();\n              const hours = pad(now.getHours());\n              const minutes = pad(now.getMinutes());\n              return `${day}_${month}_${year}_ ${hours}_${minutes}`;\n            };\n            const systemDateTime = getFormattedDateTime();\n            cy.log(\"Current system date-time:\", systemDateTime);\n            // Compare\n            if (fileDateTime === systemDateTime) {\n              cy.log(\"✅ File timestamp matches current system time (up to minutes)\");\n            } else {\n              cy.log(\"❌ Mismatch: fileDateTime = \" + fileDateTime + \", systemDateTime = \" + systemDateTime);\n            }\n          });\n        } else {\n          cy.log(\"❌ No file present - File not downloaded\");\n        }\n      });\n    } else {\n      cy.log('No QR codes available for download. Generating now...');\n      cy.wait(500);\n      cy.get('input[class=\"chakra-input css-1cjy4zv\"]').eq(0).clear().type(5);\n      cy.contains('Generate Documents').click();\n      cy.wait(3000); // Give it some time to generate\n      // 🔁 Retry\n      checkAndDownloadQR();\n    }\n  });\n};\n// ✅ Initial call\ncheckAndDownloadQR();",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10000ms: `cy.clear()` failed because this element is not visible:\n\n`<input type=\"date\" class=\"chakra-input css-1cjy4zv\" value=\"\">`\n\nThis element `<input.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r12:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 10000ms: `cy.clear()` failed because this element is not visible:\n\n`<input type=\"date\" class=\"chakra-input css-1cjy4zv\" value=\"\">`\n\nThis element `<input.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r12:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at runVisibilityCheck (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:144957:58)\n    at Object.isStrictlyVisible (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:144971:10)\n    at runAllChecks (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:113271:26)\n    at retryActionability (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:113339:16)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/e2e/Bulkqrgenerator.cy.js:24:71)",
+                "diff": null
+              },
+              "uuid": "ca45f3b3-a34c-41a2-868b-7128c1e87d7d",
+              "parentUUID": "4a4626f7-ff9c-4885-8634-429a1e31f76c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ca45f3b3-a34c-41a2-868b-7128c1e87d7d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15657,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "0f1b859b-c353-42cf-966c-5f888f8199db",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Searchradius.cy.js",
+      "file": "cypress\\e2e\\e2e\\Searchradius.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4cdafefb-123b-4761-86e1-cbd0cc8b7d70",
+          "title": "Searchradius",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Searchradius",
+              "fullTitle": "Searchradius Searchradius",
+              "timedOut": null,
+              "duration": 14955,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(6).scrollIntoView().click();\ncy.get('body').should('contain', 'Beneficiary Having No Hospital Dashboard Details').scrollIntoView();\ncy.get('select[id=\"hospital-select\"]').select('Pococare');\ncy.get('input[type=\"number\"]').type('5');\ncy.contains('Search').click();\nfunction BenID() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('BenID')) {\n      expect(bodyText).to.include('BenID');\n    } else {\n      cy.wait(1000);\n      BenID();\n    }\n  });\n}\nBenID();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[id=\"hospital-select\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[id=\"hospital-select\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Searchradius.cy.js:14:11)",
+                "diff": null
+              },
+              "uuid": "ee12cb6b-7e64-45f7-bd1b-bd76c15d2ada",
+              "parentUUID": "4cdafefb-123b-4761-86e1-cbd0cc8b7d70",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ee12cb6b-7e64-45f7-bd1b-bd76c15d2ada"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14955,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7301c7e6-009d-4bec-be50-f89403b10ad5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Sendemail.cy.js",
+      "file": "cypress\\e2e\\e2e\\Sendemail.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6709084e-fce3-4793-a6b0-67f1a2b53e0c",
+          "title": "Sendemail",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sendemail",
+              "fullTitle": "Sendemail Sendemail",
+              "timedOut": null,
+              "duration": 16135,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(5).scrollIntoView().click();\ncy.get('body').should('contain', 'Send Email');\ncy.contains('Create Job').scrollIntoView().click();\ncy.get('input[type=\"text\"]').type('Test');\ncy.get('button[type=\"button\"]').eq(2).click();\ncy.contains('New').click();\ncy.contains('Add Beneficiary').click();\nconst email = _EmailNo.default.Email;\ncy.get('input[placeholder=\"Enter email\"]').type(email);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\nfunction addall() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Add All Ben To Job')) {\n      cy.contains('Add All Ben To Job').click();\n    } else {\n      cy.wait(1000);\n      addall();\n    }\n  });\n}\naddall();\ncy.wait(2000);\nconst buttons = ['Send Email', 'Send To Subscriber'];\nbuttons.forEach(button => {\n  cy.contains(button).should('be.disabled');\n});\ncy.contains('option', 'Select Template').click({\n  force: true\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').select('Activated and non activated welcome');\nbuttons.forEach(bu => {\n  cy.contains(bu).should('not.be.disabled');\n});\ncy.contains('Send Email').click();\ncy.wait(1000);\nbuttons.forEach(button => {\n  cy.contains(button).should('be.disabled');\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is `disabled`:\n\n`<button disabled=\"\" type=\"button\" class=\"chakra-button css-h211ee\">Add Ben...</button>`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 10050ms: `cy.click()` failed because this element is `disabled`:\n\n`<button disabled=\"\" type=\"button\" class=\"chakra-button css-h211ee\">Add Ben...</button>`\n\nFix this problem, or use `{force: true}` to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at Object.isNotDisabled (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:144923:58)\n    at runAllChecks (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:113250:26)\n    at retryActionability (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:113339:16)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/e2e/Sendemail.cy.js:24:39)",
+                "diff": null
+              },
+              "uuid": "a29ab868-9443-4123-94a3-a6cb3fba124f",
+              "parentUUID": "6709084e-fce3-4793-a6b0-67f1a2b53e0c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a29ab868-9443-4123-94a3-a6cb3fba124f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16135,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "fad42e27-f495-4098-ad3f-52f0eba80329",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Whatsapp.cy.js",
+      "file": "cypress\\e2e\\e2e\\Whatsapp.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "db5c4d75-0ec3-49bd-ae21-0ee1cbd20f9b",
+          "title": "Whatsapp",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Whatsapp",
+              "fullTitle": "Whatsapp Whatsapp",
+              "timedOut": null,
+              "duration": 15165,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(4).scrollIntoView().click();\ncy.contains('Create Job').scrollIntoView().click();\ncy.get('.custominput_input__AQGtC').type('Test');\ncy.contains('Save Job').click();\ncy.contains('pending').click();\ncy.get('select[class=\"chakra-select css-161pkch\"]').select('WA_ADD_EC_1');\ncy.contains('Select Ben').click();\nconst mo = _EmailNo.default.Mobno;\ncy.get('[placeholder=\"Enter PhoneNumber\"]').scrollIntoView().type(mo);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.wait(1000);\nfunction addall() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Add All Ben To Job')) {\n      cy.contains('Add All Ben To Job').click();\n    } else {\n      cy.wait(1000);\n      addall();\n    }\n  });\n}\naddall();\ncy.wait(5000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Clear All Invalid Ben')) {\n    cy.wait(1000);\n    cy.contains('Clear All Invalid Ben').scrollIntoView().click();\n  } else {\n    cy.log('There is no Clear All invalid ben button');\n  }\n});\ncy.wait(3000);\nfunction Send() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Send Wa Message')) {\n      cy.contains('Send Wa Message').click();\n    } else {\n      cy.wait(1000);\n      Send();\n    }\n  });\n}\nSend();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.equal('message sent to all beneficiaries');\n});\ncy.contains('Send Wa Message').should('be.disabled');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.custominput_input__AQGtC`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.custominput_input__AQGtC`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Whatsapp.cy.js:15:11)",
+                "diff": null
+              },
+              "uuid": "5ed8fb34-95ca-460d-936c-edd2afcda1ff",
+              "parentUUID": "db5c4d75-0ec3-49bd-ae21-0ee1cbd20f9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5ed8fb34-95ca-460d-936c-edd2afcda1ff"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15165,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "886ad5e4-aea6-4597-8cbf-f3fde66b26c5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\printingQR.cy.js",
+      "file": "cypress\\e2e\\e2e\\printingQR.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aab9a740-00f4-4b6f-8662-6aaca21b9cae",
+          "title": "QRP",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "QR",
+              "fullTitle": "QRP QR",
+              "timedOut": null,
+              "duration": 16892,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(3).scrollIntoView().click();\ncy.contains('Create Job').click();\ncy.get('input[placeholder=\"Job Name\"]').type('test');\ncy.get('textarea[placeholder=\"Description\"]').type('description');\ncy.get('button[type=\"button\"]').eq(3).click({\n  force: true\n});\nconst date = new Date();\n// Format the date and time\nconst formattedDate = date.toLocaleString('en-GB', {\n  day: '2-digit',\n  // Two-digit day (e.g., 30)\n  month: '2-digit',\n  // Two-digit month (e.g., 01)\n  year: 'numeric',\n  // Full year (e.g., 2025)\n  hour: '2-digit',\n  // Two-digit hour (e.g., 03)\n  minute: '2-digit',\n  // Two-digit minute (e.g., 28)\n  hour12: true // Use 12-hour format (e.g., 03:28 PM)\n});\ncy.log('Formatted Date: ', formattedDate);\ncy.contains(formattedDate).nextAll().eq(1).then(da => {\n  const text = da.text();\n  expect(text).to.contain('New');\n});\ncy.contains(formattedDate).click();\n// cy.contains('New').click();\ncy.contains('Add Records').click();\ncy.contains('option', 'Select Company').click({\n  force: true\n});\ncy.get('select[class=\"CustomSelect_select_border__lWd7w\"]').select('Pococare');\ncy.contains('button', 'Search').scrollIntoView().click();\nfunction checkAndClickButton() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Add All Ben To Job')) {\n      // Use `.includes()` instead of `.contains()`\n      cy.contains('button', 'Add All Ben To Job').click();\n    } else {\n      cy.wait(1000);\n      checkAndClickButton(); // Recursively call the function\n    }\n  });\n}\n// Call the function initially\ncheckAndClickButton();\nfunction submit() {\n  cy.get('body').then($bodyText => {\n    const bodyText = $bodyText.text();\n    if (bodyText.includes('Submit')) {\n      cy.contains('Submit').click();\n    } else {\n      cy.wait(1000);\n      submit();\n    }\n  });\n}\nsubmit();\ncy.get('button[class=\"chakra-button css-41aesz\"]').click();\ncy.get('body').should('contain', 'Print QR');\ncy.contains('Print QR').click();\ncy.get('body').should('contain', 'Print QR Codes');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Select Company' within the selector: 'option' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Select Company' within the selector: 'option' but never did.\n    at Context.eval (webpack:///./cypress/e2e/e2e/printingQR.cy.js:45:11)",
+                "diff": null
+              },
+              "uuid": "aca112c3-a573-4c98-995d-c5d3e73cce11",
+              "parentUUID": "aab9a740-00f4-4b6f-8662-6aaca21b9cae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "aca112c3-a573-4c98-995d-c5d3e73cce11"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16892,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "eefda033-1215-43a3-bda2-08affc76c6af",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Bulk qr gen.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Bulk qr gen.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fc0e454e-9722-491e-b91a-c5668629b1d2",
+          "title": "Bulk qr gen",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Bulk qr gen",
+              "fullTitle": "Bulk qr gen Bulk qr gen",
+              "timedOut": null,
+              "duration": 15058,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Bulk Qr Generate').click();\nlet texts = ['Bulk-Qr Generator', 'Generate QR and export them to Excel', 'Total QR Count: ', 'Activated QR Count: ', 'Downloaded QR Count: ', 'NotDownloaded QR Count: ', 'Number of Documents', 'Generate Documents', 'Download Excel'];\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  texts.forEach(text => {\n    expect(bodyText).to.include(text);\n  });\n});\nlet buttons = ['Generate Documents', 'Download Excel'];\nbuttons.forEach(bu => {\n  cy.contains(bu).should('be.visible').and('not.be.disabled');\n});\ncy.get('input[class=\"chakra-input css-1cjy4zv\"]').eq(0).should('be.visible').and('not.be.disabled');\ncy.get('input[class=\"chakra-input css-1cjy4zv\"]').eq(1).should('be.visible').and('not.be.disabled');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<input.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r12:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<input.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r12:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Bulk qr gen.cy.js:30:64)",
+                "diff": null
+              },
+              "uuid": "e906f34f-bc8b-49fa-bafb-c2f6a4d2c292",
+              "parentUUID": "fc0e454e-9722-491e-b91a-c5668629b1d2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e906f34f-bc8b-49fa-bafb-c2f6a4d2c292"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15058,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "1517650f-5509-40ca-96a6-d9d4313da804",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Home page.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Home page.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26e5c5c6-d3a4-4992-84c7-95f0486d2b71",
+          "title": "Homepage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Homepage Buttons",
+              "timedOut": null,
+              "duration": 12842,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(0).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Dashboard');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Get Ben Data By Filter Data');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Manage User Data');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(3).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Task Name');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(4).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Create Job');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(5).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Send Email');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(6).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Whatsapp Job List');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(7).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Beneficiary Having No Hospital Dashboard Details');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Manage Company');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Ambulance Provider');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(10).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Bulk WhatsApp Template');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(11).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Admin Login');\n});",
+              "err": {
+                "message": "AssertionError: expected 'You need to enable JavaScript to run this app.Identify Users To AddAdd UsersUpdate UsersDelete Users In BulkIdentify Users To DeleteSearch & ManageIdentify The Users To Add In BulkIdentify Users To Add Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsbdc3fdb8-a631-4a0d-8666-e0b7f7036e0cIDENTIFY_ADD15/05/2026, 10:51 am6/6100%COMPLETEDCheck StatusDownloada0f88183-69df-42bf-b6bf-037839814008IDENTIFY_ADD13/05/2026, 10:16 am6/6100%COMPLETEDCheck StatusDownload6ff5a605-86b7-4a0f-9a62-393afd22dae5IDENTIFY_ADD12/05/2026, 02:27 pm2/3 (1 failed)100%COMPLETEDCheck StatusDownloadc43c22cc-f7e3-496f-9808-92ce548bb8a8IDENTIFY_ADD11/05/2026, 00:11 pm6/6100%COMPLETEDCheck StatusDownload455db202-b298-4aad-8738-0af88fe6543cIDENTIFY_ADD11/05/2026, 00:08 pm6/6100%COMPLETEDCheck StatusDownload4703f40d-50a8-48c4-9d8c-2e70c80c941bIDENTIFY_ADD11/05/2026, 00:07 pm6/6100%COMPLETEDCheck StatusDownload2d1396b1-b432-448d-a49d-169cd596aaf7IDENTIFY_ADD11/05/2026, 00:04 pm6/6100%COMPLETEDCheck StatusDownloadb3157885-cc5d-4af9-945f-8b26f90644e4IDENTIFY_ADD11/05/2026, 11:55 am6/6100%COMPLETEDCheck StatusDownload5f9e1a3b-de41-4026-90b5-f2d60df5fe72IDENTIFY_ADD11/05/2026, 11:54 am6/6100%COMPLETEDCheck StatusDownload1e5a4216-f761-4916-82d7-531eab173e82IDENTIFY_ADD11/05/2026, 11:53 am4/4100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextAdd Multiple UsersAdd Users Download TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActions0794f3c5-78cb-4ca7-9c00-973a816a73dcCREATE11/06/2026, 10:19 am3/4 (1 failed)100%COMPLETEDCheck StatusDownloadee61b328-09f7-4346-a628-6342afc39217CREATE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownloadd1b51a5a-3af3-4630-96b2-c8f3aa4146beCREATE09/06/2026, 03:11 pm1/1100%COMPLETEDCheck StatusDownload85641bd7-2e53-4207-b8e6-658b3edcf659CREATE09/06/2026, 03:10 pm1/1100%COMPLETEDCheck StatusDownloadd151c85e-ae4e-483a-b34d-51872e08313cCREATE09/06/2026, 03:08 pm1/1100%COMPLETEDCheck StatusDownload4780484b-6076-4b22-927f-20bc6be924e3CREATE09/06/2026, 03:04 pm1/1100%COMPLETEDCheck StatusDownload28ed9411-0da5-420d-a1b4-4524e49863f5CREATE09/06/2026, 03:04 pm0/1 (1 failed)100%FAILEDCheck StatusDownloadeca4e747-a2a0-44bc-8656-f52e5c355364CREATE09/06/2026, 03:03 pm0/1 (1 failed)100%FAILEDCheck StatusDownload7d3e6ee8-bc0a-43fc-a138-e27cb4c2b1ecCREATE03/06/2026, 11:48 am1/1100%COMPLETEDCheck StatusDownload591770da-07ea-4c56-9231-5f91f546c8f4CREATE26/05/2026, 03:52 pm1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 9NextUpdate UsersUpdate Users Update TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsaf192632-bddf-4896-856a-a62058f3d3edUPDATE09/06/2026, 03:06 pm1/1100%COMPLETEDCheck StatusDownloadf8d78074-25b9-4ab0-8606-e7880ae4f14dUPDATE26/05/2026, 04:00 pm1/1100%COMPLETEDCheck StatusDownload8841b85e-2774-4bdd-8f86-75bb8bf7c82bUPDATE26/05/2026, 03:59 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade308d079-3f36-4852-a78a-88532c3988e9UPDATE26/05/2026, 03:57 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade8e46e77-d3a3-4dad-b7c0-794587a1d151UPDATE19/05/2026, 10:58 am1/1100%COMPLETEDCheck StatusDownload4923f13d-89d0-4810-b0f7-703de2fffc66UPDATE19/05/2026, 10:57 am0/1 (1 failed)100%FAILEDCheck StatusDownload181e76e0-3a2b-4704-8d37-77c391facab9UPDATE15/05/2026, 03:41 pm2/2100%COMPLETEDCheck StatusDownloadbc493ba9-f93d-457b-9fe2-3eceb21de1aeUPDATE15/05/2026, 03:40 pm0/2 (2 failed)100%FAILEDCheck StatusDownload02b21f89-5abe-468c-8a13-2191155c9398UPDATE13/05/2026, 09:42 am1/1100%COMPLETEDCheck StatusDownloada3ec6e51-1405-4d0b-9a7b-16d281f04c0aUPDATE13/05/2026, 09:41 am1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextDelete Users In BulkDelete Users Bulk Delete TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsdf4e92e1-a48d-4795-a3ec-1e5f21c85cd3DELETE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownload689eef7b-8fe1-44a7-8530-01cf6152b8f2DELETE26/05/2026, 03:56 pm1/1100%COMPLETEDCheck StatusDownload6b020f62-0cb0-4420-97a7-883a6adfbae0DELETE15/05/2026, 03:47 pm3/6 (3 failed)100%COMPLETEDCheck StatusDownload07172dee-fd4f-4864-9b07-001ebf33832dDELETE12/05/2026, 10:12 am1/1100%COMPLETEDCheck StatusDownload9a7fa2ee-f6f4-48e6-aada-53ad5569431dDELETE12/05/2026, 10:11 am0/1 (1 failed)100%FAILEDCheck StatusDownload9f0f092a-3192-440c-ae7e-e90ca6f7075cDELETE12/05/2026, 10:10 am0/1 (1 failed)100%FAILEDCheck StatusDownloadIdentify The Users To Delete In BulkIdentify Users To Delete Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsc20bef9b-60eb-488b-a4f4-595ef85be2daIDENTIFY_DELETE15/05/2026, 03:45 pm2/2100%COMPLETEDCheck StatusDownloada8a0316f-42e9-4fde-9236-5414ea48fd88IDENTIFY_DELETE12/05/2026, 10:09 am5/5100%COMPLETEDCheck StatusDownload65c479e3-f14c-4093-82d2-6d865daf1c18IDENTIFY_DELETE12/05/2026, 10:08 am5/5100%COMPLETEDCheck StatusDownloadb7162a07-10f0-4032-92a6-14b880a4080dIDENTIFY_DELETE12/05/2026, 10:06 am4/4100%COMPLETEDCheck StatusDownloadfb6693d3-3626-4fc3-b56a-e2b06870ea5cIDENTIFY_DELETE12/05/2026, 10:02 am1/1100%COMPLETEDCheck StatusDownloadDelete UsersSearch By BeneficiarySearch By SubscriberBeneficiary IdEmailNamePhone NumberClear FiltersSearchManage VIP Customer:Search by SubscriberSubscriber EmailSubscriber IDSearchGrant VIP StatusRevoke VIP Status' to include 'Manage User Data'",
+                "estack": "AssertionError: expected 'You need to enable JavaScript to run this app.Identify Users To AddAdd UsersUpdate UsersDelete Users In BulkIdentify Users To DeleteSearch & ManageIdentify The Users To Add In BulkIdentify Users To Add Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsbdc3fdb8-a631-4a0d-8666-e0b7f7036e0cIDENTIFY_ADD15/05/2026, 10:51 am6/6100%COMPLETEDCheck StatusDownloada0f88183-69df-42bf-b6bf-037839814008IDENTIFY_ADD13/05/2026, 10:16 am6/6100%COMPLETEDCheck StatusDownload6ff5a605-86b7-4a0f-9a62-393afd22dae5IDENTIFY_ADD12/05/2026, 02:27 pm2/3 (1 failed)100%COMPLETEDCheck StatusDownloadc43c22cc-f7e3-496f-9808-92ce548bb8a8IDENTIFY_ADD11/05/2026, 00:11 pm6/6100%COMPLETEDCheck StatusDownload455db202-b298-4aad-8738-0af88fe6543cIDENTIFY_ADD11/05/2026, 00:08 pm6/6100%COMPLETEDCheck StatusDownload4703f40d-50a8-48c4-9d8c-2e70c80c941bIDENTIFY_ADD11/05/2026, 00:07 pm6/6100%COMPLETEDCheck StatusDownload2d1396b1-b432-448d-a49d-169cd596aaf7IDENTIFY_ADD11/05/2026, 00:04 pm6/6100%COMPLETEDCheck StatusDownloadb3157885-cc5d-4af9-945f-8b26f90644e4IDENTIFY_ADD11/05/2026, 11:55 am6/6100%COMPLETEDCheck StatusDownload5f9e1a3b-de41-4026-90b5-f2d60df5fe72IDENTIFY_ADD11/05/2026, 11:54 am6/6100%COMPLETEDCheck StatusDownload1e5a4216-f761-4916-82d7-531eab173e82IDENTIFY_ADD11/05/2026, 11:53 am4/4100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextAdd Multiple UsersAdd Users Download TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActions0794f3c5-78cb-4ca7-9c00-973a816a73dcCREATE11/06/2026, 10:19 am3/4 (1 failed)100%COMPLETEDCheck StatusDownloadee61b328-09f7-4346-a628-6342afc39217CREATE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownloadd1b51a5a-3af3-4630-96b2-c8f3aa4146beCREATE09/06/2026, 03:11 pm1/1100%COMPLETEDCheck StatusDownload85641bd7-2e53-4207-b8e6-658b3edcf659CREATE09/06/2026, 03:10 pm1/1100%COMPLETEDCheck StatusDownloadd151c85e-ae4e-483a-b34d-51872e08313cCREATE09/06/2026, 03:08 pm1/1100%COMPLETEDCheck StatusDownload4780484b-6076-4b22-927f-20bc6be924e3CREATE09/06/2026, 03:04 pm1/1100%COMPLETEDCheck StatusDownload28ed9411-0da5-420d-a1b4-4524e49863f5CREATE09/06/2026, 03:04 pm0/1 (1 failed)100%FAILEDCheck StatusDownloadeca4e747-a2a0-44bc-8656-f52e5c355364CREATE09/06/2026, 03:03 pm0/1 (1 failed)100%FAILEDCheck StatusDownload7d3e6ee8-bc0a-43fc-a138-e27cb4c2b1ecCREATE03/06/2026, 11:48 am1/1100%COMPLETEDCheck StatusDownload591770da-07ea-4c56-9231-5f91f546c8f4CREATE26/05/2026, 03:52 pm1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 9NextUpdate UsersUpdate Users Update TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsaf192632-bddf-4896-856a-a62058f3d3edUPDATE09/06/2026, 03:06 pm1/1100%COMPLETEDCheck StatusDownloadf8d78074-25b9-4ab0-8606-e7880ae4f14dUPDATE26/05/2026, 04:00 pm1/1100%COMPLETEDCheck StatusDownload8841b85e-2774-4bdd-8f86-75bb8bf7c82bUPDATE26/05/2026, 03:59 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade308d079-3f36-4852-a78a-88532c3988e9UPDATE26/05/2026, 03:57 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade8e46e77-d3a3-4dad-b7c0-794587a1d151UPDATE19/05/2026, 10:58 am1/1100%COMPLETEDCheck StatusDownload4923f13d-89d0-4810-b0f7-703de2fffc66UPDATE19/05/2026, 10:57 am0/1 (1 failed)100%FAILEDCheck StatusDownload181e76e0-3a2b-4704-8d37-77c391facab9UPDATE15/05/2026, 03:41 pm2/2100%COMPLETEDCheck StatusDownloadbc493ba9-f93d-457b-9fe2-3eceb21de1aeUPDATE15/05/2026, 03:40 pm0/2 (2 failed)100%FAILEDCheck StatusDownload02b21f89-5abe-468c-8a13-2191155c9398UPDATE13/05/2026, 09:42 am1/1100%COMPLETEDCheck StatusDownloada3ec6e51-1405-4d0b-9a7b-16d281f04c0aUPDATE13/05/2026, 09:41 am1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextDelete Users In BulkDelete Users Bulk Delete TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsdf4e92e1-a48d-4795-a3ec-1e5f21c85cd3DELETE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownload689eef7b-8fe1-44a7-8530-01cf6152b8f2DELETE26/05/2026, 03:56 pm1/1100%COMPLETEDCheck StatusDownload6b020f62-0cb0-4420-97a7-883a6adfbae0DELETE15/05/2026, 03:47 pm3/6 (3 failed)100%COMPLETEDCheck StatusDownload07172dee-fd4f-4864-9b07-001ebf33832dDELETE12/05/2026, 10:12 am1/1100%COMPLETEDCheck StatusDownload9a7fa2ee-f6f4-48e6-aada-53ad5569431dDELETE12/05/2026, 10:11 am0/1 (1 failed)100%FAILEDCheck StatusDownload9f0f092a-3192-440c-ae7e-e90ca6f7075cDELETE12/05/2026, 10:10 am0/1 (1 failed)100%FAILEDCheck StatusDownloadIdentify The Users To Delete In BulkIdentify Users To Delete Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsc20bef9b-60eb-488b-a4f4-595ef85be2daIDENTIFY_DELETE15/05/2026, 03:45 pm2/2100%COMPLETEDCheck StatusDownloada8a0316f-42e9-4fde-9236-5414ea48fd88IDENTIFY_DELETE12/05/2026, 10:09 am5/5100%COMPLETEDCheck StatusDownload65c479e3-f14c-4093-82d2-6d865daf1c18IDENTIFY_DELETE12/05/2026, 10:08 am5/5100%COMPLETEDCheck StatusDownloadb7162a07-10f0-4032-92a6-14b880a4080dIDENTIFY_DELETE12/05/2026, 10:06 am4/4100%COMPLETEDCheck StatusDownloadfb6693d3-3626-4fc3-b56a-e2b06870ea5cIDENTIFY_DELETE12/05/2026, 10:02 am1/1100%COMPLETEDCheck StatusDownloadDelete UsersSearch By BeneficiarySearch By SubscriberBeneficiary IdEmailNamePhone NumberClear FiltersSearchManage VIP Customer:Search by SubscriberSubscriber EmailSubscriber IDSearchGrant VIP StatusRevoke VIP Status' to include 'Manage User Data'\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Home page.cy.js:31:32)",
+                "diff": null
+              },
+              "uuid": "91d35a4a-f920-412a-adf2-e8a16f967589",
+              "parentUUID": "26e5c5c6-d3a4-4992-84c7-95f0486d2b71",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "91d35a4a-f920-412a-adf2-e8a16f967589"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12842,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "a86a16ef-9b16-4061-8b32-c3542fa810e5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Logout.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Logout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f2092225-c9d4-498f-b70e-4082a08adc7b",
+          "title": "Logout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logout",
+              "fullTitle": "Logout Logout",
+              "timedOut": null,
+              "duration": 15620,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(11).click();\ncy.wait(500);\nconst names = ['Login with Microsoft ', 'Admin Login'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Login with Microsoft '",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Login with Microsoft '\n    at eval (webpack:///./cypress/e2e/Smoke/Logout.cy.js:17:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Logout.cy.js:16:14)",
+                "diff": null
+              },
+              "uuid": "d1ca368e-84e3-45f8-ae26-d10b5872e2e1",
+              "parentUUID": "f2092225-c9d4-498f-b70e-4082a08adc7b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d1ca368e-84e3-45f8-ae26-d10b5872e2e1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15620,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ba61a938-1497-4aef-8075-e01b363e89dc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-calender.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-calender.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b9d38095-a26c-461a-baf9-aca85836d63d",
+          "title": "Searchben-calender",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Searchben-calender",
+              "fullTitle": "Searchben-calender Searchben-calender",
+              "timedOut": null,
+              "duration": 8934,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\nconst today = new Date().toISOString().split('T')[0]; // \"YYYY-MM-DD\"\nconst weekAgo = new Date(Date.now() - 15 * 86400000).toISOString().split('T')[0];\ncy.contains('p', 'Filter By CreatedDate').parent().find('input[type=\"date\"]').eq(0).type(weekAgo); // From 7 days ago\ncy.contains('p', 'Filter By CreatedDate').parent().find('input[type=\"date\"]').eq(1).type(today); // To today\ncy.wait(500);\ncy.contains('No data Found').should('be.visible');\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 30000\n}).should('be.visible');\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\ncy.contains('No data Found', {\n  timeout: 30000\n}).should('be.visible');\ncy.contains('p', 'Filter By UpdatedDate').parent().find('input[type=\"date\"]').eq(0).type(weekAgo);\ncy.contains('p', 'Filter By UpdatedDate').parent().find('input[type=\"date\"]').eq(1).type(today);\ncy.wait(500);\ncy.contains('No data Found').should('be.visible');\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 30000\n}).should('be.visible');\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\ncy.contains('No data Found', {\n  timeout: 30000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "436f3a8e-7c55-4c65-91fc-2894fbeae088",
+              "parentUUID": "b9d38095-a26c-461a-baf9-aca85836d63d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "436f3a8e-7c55-4c65-91fc-2894fbeae088"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8934,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b8f10f53-82c0-4d66-b39c-9854fe780853",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-checkbox.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-checkbox.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aafb5be6-bd47-4a19-befc-22a6b413c08f",
+          "title": "Checkbox",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checkbox",
+              "fullTitle": "Checkbox Checkbox",
+              "timedOut": null,
+              "duration": 100022,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\nconst chec = 'input[class=\"checkbox_inputStyle__Rjg8M\"]';\ncy.get(chec).each((check, index) => {\n  // Scroll into view and click to check\n  cy.wrap(check).scrollIntoView().then($checkbox => {\n    if ($checkbox.is(':checked')) {\n      cy.wait(1000);\n      cy.get(chec).eq(index).click();\n      cy.wait(500);\n      // Assert that the checkbox is checked\n      cy.get(chec).eq(index).should('not.be.checked');\n      cy.contains('No data Found').scrollIntoView().should('be.visible');\n      cy.wait(500);\n      cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n      cy.contains('benName', {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible'); // waits 30 seconds\n      cy.wait(500);\n      // Re-query the checkbox (breaking the chain)\n      cy.get(chec).eq(index).scrollIntoView().click();\n      // Assert that the checkbox is unchecked\n      cy.get(chec).eq(index).should('be.checked');\n      cy.contains('benName').scrollIntoView().should('be.visible');\n      cy.wait(500);\n      cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n      cy.contains('No data Found', {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible'); // waits 30 seconds\n    } else {\n      cy.get(chec).eq(index).click();\n      // Assert that the checkbox is checked\n      cy.get(chec).eq(index).should('be.checked');\n      cy.contains('No data Found').scrollIntoView().should('be.visible');\n      cy.wait(500);\n      cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n      cy.contains('benName', {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible'); // waits 30 seconds\n      // Re-query the checkbox (breaking the chain)\n      cy.get(chec).eq(index).click();\n      // Assert that the checkbox is unchecked\n      cy.get(chec).eq(index).should('not.be.checked');\n      cy.contains('benName').scrollIntoView().should('be.visible');\n      cy.wait(500);\n      cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n      cy.contains('No data Found', {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible'); // waits 30 seconds\n    }\n  });\n});",
+              "err": {},
+              "uuid": "38f2fa1f-482f-46a1-bb99-1ea41d5ef828",
+              "parentUUID": "aafb5be6-bd47-4a19-befc-22a6b413c08f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "38f2fa1f-482f-46a1-bb99-1ea41d5ef828"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 100022,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b2de634b-f820-40d1-9c4c-e36897db7949",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-dropdown.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-dropdown.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "346d0421-fbc1-4db3-8d66-99bdbc1504c9",
+          "title": "Dropdown",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "dropdown",
+              "fullTitle": "Dropdown dropdown",
+              "timedOut": null,
+              "duration": 232584,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('select[style=\"border: 1px solid black;\"]').find('option').then($options => {\n  const dropdown = [];\n  // Extract the text of each option\n  $options.each((index, option) => {\n    dropdown.push(option.innerText);\n  });\n  // Iterate through the dropdown options and select each one\n  dropdown.forEach(drop => {\n    cy.log('Selecting value: ', drop);\n    cy.get('select[style=\"border: 1px solid black;\"]').select(drop).should('have.value', drop); // Assert selected value\n    cy.wait(500);\n    cy.contains('No data Found').scrollIntoView().should('be.visible');\n    cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).scrollIntoView().click();\n    cy.contains('benName', {\n      timeout: 30000\n    }).scrollIntoView().should('be.visible');\n    cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).scrollIntoView().click();\n    cy.contains('No data Found', {\n      timeout: 30000\n    }).scrollIntoView().should('be.visible');\n  });\n});\ncy.wait(1000);\ncy.reload();\nlet listCompanies = [];\nlet clickedCompaniesCount = 0;\n// Step 1: Verify list is empty initially\nexpect(listCompanies).to.have.length(0);\ncy.log('✓ listCompanies initialized as empty array');\n// Step 2: Open dropdown\ncy.get('button[id*=\"menu-button\"]', {\n  timeout: 5000\n}).first().click({\n  force: true\n});\ncy.log('✓ Dropdown opened');\n// Step 3: Wait for dropdown to be visible\ncy.get('[role=\"menu\"]', {\n  timeout: 5000\n}).should('be.visible');\ncy.log('✓ Dropdown menu visible');\n// Step 4: Extract all companies and push to array\ncy.get('[role=\"menu\"] [role=\"menuitem\"]').each($menuitem => {\n  const companyName = $menuitem.text().trim();\n  if (companyName) {\n    listCompanies.push(companyName);\n  }\n}).then(() => {\n  cy.log(`✓ Extracted ${listCompanies.length} companies to array`);\n  // Print first 50 company names\n  listCompanies.slice(0, 50).forEach((company, index) => {\n    cy.log(`${index + 1}. ${company}`);\n  });\n  // Step 5: Iterate through all companies\n  listCompanies.forEach((company, index) => {\n    cy.log(`\\n--- Testing Company ${index + 1}/${listCompanies.length}: ${company} ---`);\n    // Open dropdown\n    cy.get('button[id*=\"menu-button\"]').first().scrollIntoView().click({\n      force: true\n    });\n    cy.get('[role=\"menu\"]').should('be.visible');\n    // Select company\n    cy.get('[role=\"menu\"] [role=\"menuitem\"]').contains(company).click({\n      force: true\n    });\n    cy.wait(800);\n    // Search\n    cy.contains('button', 'Search').click({\n      force: true\n    });\n    cy.wait(1200);\n    // Check if data found or not\n    cy.get('body').then($body => {\n      if ($body.text().includes('No data Found')) {\n        cy.log('No data found - skipping Clear Filter');\n      } else {\n        cy.contains('benName').should('be.visible');\n        cy.contains('button', 'Clear Filter').click({\n          force: true\n        });\n        cy.wait(800);\n        cy.contains('No data Found', {\n          timeout: 30000\n        }).should('be.visible');\n      }\n    });\n    clickedCompaniesCount++;\n    cy.log(`✓ ${company} tested`);\n  });\n  cy.log(`\\n✓ All ${listCompanies.length} companies tested successfully`);\n  cy.log(`Total companies clicked: ${clickedCompaniesCount}`);\n  expect(clickedCompaniesCount).to.equal(listCompanies.length);\n  cy.log(`✓ Verification passed: Clicked count matches array length`);\n});",
+              "err": {},
+              "uuid": "4570450e-1612-4be7-bbf0-901e38aab143",
+              "parentUUID": "346d0421-fbc1-4db3-8d66-99bdbc1504c9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4570450e-1612-4be7-bbf0-901e38aab143"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 232584,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5fc0e22f-fcd5-4383-80b6-2de910f9a7fd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-outputfields.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-outputfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1aaf306f-4ce2-4cc3-b7c4-a320f50dc6b3",
+          "title": "Searchben-outputfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checks checkboxes one by one excluding ignored and already-checked",
+              "fullTitle": "Searchben-outputfields checks checkboxes one by one excluding ignored and already-checked",
+              "timedOut": null,
+              "duration": 309541,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ignoreCheckboxes = [\"personalInfo\", \"address\", \"preferredHospital\", \"emergencyContacts\", \"insurancePolicies\", \"company\", \"subscriberDetails\"].map(i => i.toLowerCase());\ncy.get('svg.chakra-icon.css-6ey7w3').eq(1).scrollIntoView().click();\ncy.get('button.BenAddressData_button__0kXLn').eq(0).scrollIntoView().click();\nexpandAllSections();\nuncheckAll();\ncy.get('div.react-checkbox-tree.rct-icons-fa4 label').then($labels => {\n  const checkboxLabels = [];\n  $labels.each((index, label) => {\n    const labelText = Cypress.$(label).text().trim().toLowerCase();\n    if (!ignoreCheckboxes.includes(labelText) && !alreadyChecked.includes(labelText)) {\n      checkboxLabels.push(labelText);\n    }\n  });\n  cy.wrap(checkboxLabels).each((label, idx, labelsArray) => {\n    cy.get('div.react-checkbox-tree.rct-icons-fa4 label').filter((_, el) => {\n      return Cypress.$(el).text().trim().toLowerCase() === label;\n    }).then($filtered => {\n      if ($filtered.length === 0) {\n        notFoundCheckboxes.push(label);\n        cy.log(`Checkbox label not found: ${label}`);\n        return;\n      }\n      // Check if an index is provided in the 'label' parameter\n      const parts = label.split('@');\n      let targetIndex = 0; // Default to the first matching element\n      if (parts.length > 1 && !isNaN(parseInt(parts[1]))) {\n        label = parts[0].trim(); // Extract the actual label\n        targetIndex = parseInt(parts[1].trim());\n      }\n      if (targetIndex >= $filtered.length) {\n        cy.log(`Checkbox index out of bounds for label \"${label}\". Found ${$filtered.length} matching checkboxes.`);\n        return;\n      }\n      const $label = $filtered.eq(targetIndex); // Select the element at the specified index\n      cy.wrap($label).scrollIntoView().click({\n        force: true\n      }).then(() => {\n        alreadyChecked.push(label); // Note: We're pushing the original label (without index)\n      });\n      cy.wait(500);\n    }).then(() => {\n      cy.get('button[aria-label=\"Close\"]').scrollIntoView().click({\n        force: true\n      });\n      cy.contains(/No data Found|benId/i).scrollIntoView().should('be.visible');\n      cy.get('button.BenAddressData_button__0kXLn').eq(1).scrollIntoView().click();\n      const pattern = `(${label}|benId|benName|address.1|EmContact)`;\n      cy.contains(new RegExp(pattern, 'i'), {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible');\n      cy.wait(600);\n      cy.get('button.BenAddressData_button__0kXLn').eq(2).scrollIntoView().click({\n        force: true\n      });\n      cy.contains(/No data Found|benId/i, {\n        timeout: 30000\n      }).scrollIntoView().should('be.visible');\n      if (idx !== labelsArray.length - 1) {\n        cy.get('svg.chakra-icon.css-6ey7w3').eq(1).scrollIntoView().click();\n        cy.get('button.BenAddressData_button__0kXLn').eq(0).scrollIntoView().click();\n        expandAllSections();\n        uncheckAll();\n      }\n    });\n  }).then(() => {\n    if (notFoundCheckboxes.length > 0) {\n      cy.log('Checkboxes not found:', [...new Set(notFoundCheckboxes)].join(', '));\n      // Optional: uncomment next line if you want to fail the test for missing checkboxes\n      // throw new Error(`Checkboxes not found: ${[...new Set(notFoundCheckboxes)].join(', ')}`);\n    }\n  });\n});",
+              "err": {},
+              "uuid": "a3254714-9f7f-4201-ba88-4612dd05511f",
+              "parentUUID": "1aaf306f-4ce2-4cc3-b7c4-a320f50dc6b3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a3254714-9f7f-4201-ba88-4612dd05511f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 309541,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d457f9aa-7218-4611-9abb-d96b1bf3cc63",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-textfields.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-textfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4075d92e-dcf1-466b-b6ee-7e51b112a601",
+          "title": "textfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "textfields",
+              "fullTitle": "textfields textfields",
+              "timedOut": null,
+              "duration": 26057,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.contains('Search By Beneficiary').should('be.visible').click();\ncy.wait(500);\ncy.contains('Select a company').should('be.visible').click();\ncy.wait(500);\ncy.get('input[placeholder=\"Search companies...\"]').type('Pococare');\ncy.wait(500);\ncy.get('button[role=\"menuitem\"]').click();\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 20000\n}).should('be.visible');\ncy.wait(500);\nconst requiredHeaders = ['benId', 'email', 'benName', 'benMobile', 'subscriberId'];\nconst headerIndexes = {};\nconst rowData = [];\ncy.get('thead th').each(($th, index) => {\n  const headerText = $th.text().trim();\n  if (requiredHeaders.includes(headerText)) {\n    headerIndexes[headerText] = index;\n  }\n}).then(() => {\n  cy.get('tbody tr').first().within(() => {\n    requiredHeaders.forEach(header => {\n      const index = headerIndexes[header];\n      cy.get('td').eq(index).invoke('text').then(text => {\n        rowData.push(text.trim());\n      });\n    });\n  });\n}).then(() => {\n  cy.log('Row Data:', JSON.stringify(rowData));\n  expect(rowData[0]).to.match(/^[a-f0-9]{24}$/);\n  expect(rowData[1]).to.include('@');\n  cy.reload();\n  cy.wait(1000);\n  // All dependent actions should go here!\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter benId\"]').scrollIntoView().type(rowData[0]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter email\"]').scrollIntoView().type(rowData[1]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter name\"]').scrollIntoView().type(rowData[2]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter PhoneNumber\"]').scrollIntoView().type(rowData[3]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter city\"]').scrollIntoView().type('Bangalore');\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter pinCode\"]').scrollIntoView().type('560103');\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter subscriberId\"]').scrollIntoView().type(rowData[4]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter subscriberEmail\"]').scrollIntoView().type(rowData[1]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n});",
+              "err": {},
+              "uuid": "5275a0ea-c347-468a-9f17-3cab16bd396f",
+              "parentUUID": "4075d92e-dcf1-466b-b6ee-7e51b112a601",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5275a0ea-c347-468a-9f17-3cab16bd396f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26057,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "edcb7b97-415e-4c17-8180-f485e0738fda",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Manage company\\Manage Company- only Mandatory fields.cy.js",
+      "file": "cypress\\e2e\\e2e\\Manage company\\Manage Company- only Mandatory fields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75c3ee41-183d-4873-8865-dbcf02372c2b",
+          "title": "Manage Company- only Mandatory fields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Manage Company",
+              "fullTitle": "Manage Company- only Mandatory fields Manage Company",
+              "timedOut": null,
+              "duration": 17719,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Click on the Manage Company icon\ncy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(7).scrollIntoView().click();\n// Assert that the Manage Company page is loaded\ncy.get('body').should('contain', 'Manage Company');\n// Define the subscription types to test\nconst types = [];\ncy.get('#subscriptionType option').each($option => {\n  const optionText = $option.text().trim();\n  if (optionText !== 'Select Type') {\n    types.push(optionText);\n  }\n}).then(() => {\n  // Print the array once it's fully populated\n  cy.log('Subscription Types:', types.join(', '));\n});\n// Loop through each subscription type\ncy.wrap(types).each(type => {\n  // Ensure the company name input exists\n  cy.get('#companyName', {\n    timeout: 10000\n  }).should('exist');\n  // Clear and type the company name\n  cy.get('#companyName').clear().scrollIntoView().type(`Test Company_${type}`);\n  // Select the subscription type\n  cy.get('#subscriptionType').select(type);\n  // Click the submit button\n  cy.get('button[class=\"chakra-button css-h211ee\"]').click();\n  cy.wait(1000);\n  cy.reload();\n  let today = new Date();\n  let systemDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;\n  cy.contains(`Test Company_${type}`).nextAll().eq(1).should('contain', systemDate);\n  cy.wait(1000);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<td>' to contain '11-06-2026'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<td>' to contain '11-06-2026'\n    at Context.eval (webpack:///./cypress/e2e/e2e/Manage company/Manage Company- only Mandatory fields.cy.js:57:58)",
+                "diff": null
+              },
+              "uuid": "b065c379-7757-4a55-8c5c-2dfa14c7e269",
+              "parentUUID": "75c3ee41-183d-4873-8865-dbcf02372c2b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b065c379-7757-4a55-8c5c-2dfa14c7e269"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17719,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "9f037eda-feca-4f4c-9d1b-9ce25fa8870b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Manage company\\Manage Company-Every fields.cy.js",
+      "file": "cypress\\e2e\\e2e\\Manage company\\Manage Company-Every fields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "84b48c58-3263-4a55-9bf6-9dcd1d95bbeb",
+          "title": "Manage Company-Every fields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Manage Company1",
+              "fullTitle": "Manage Company-Every fields Manage Company1",
+              "timedOut": null,
+              "duration": 19084,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Click on the Manage Company icon\ncy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(7).scrollIntoView().click();\n// Assert that the Manage Company page is loaded\ncy.get('body').should('contain', 'Manage Company');\n// Define the subscription types to test\nconst types = [];\ncy.get('#subscriptionType option').each($option => {\n  const optionText = $option.text().trim();\n  if (optionText !== 'Select Type') {\n    types.push(optionText);\n  }\n}).then(() => {\n  // Print the array once it's fully populated\n  cy.log('Subscription Types:', types.join(', '));\n});\n// Loop through each subscription type\ncy.wrap(types).each(type => {\n  // Ensure the company name input exists\n  cy.get('#companyName', {\n    timeout: 10000\n  }).should('exist');\n  // Clear and type the company name\n  cy.get('#companyName').clear().scrollIntoView().type(`Test Company_${type}`);\n  // Select the subscription type\n  cy.get('#subscriptionType').select(type);\n  cy.get('input[placeholder=\"Enter Logo URL\"]').type('www.google.com/abcd');\n  cy.get('input[placeholder=\"Enter Web Context\"]').type(`Test Company_${type}`);\n  cy.get('#emailPattern').type(`Test Company_${type}.com`);\n  // Click the submit button\n  cy.get('button[class=\"chakra-button css-h211ee\"]').click();\n  cy.wait(1000);\n  cy.reload();\n  let today = new Date();\n  let systemDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;\n  cy.contains(`Test Company_${type}`).nextAll().eq(1).should('contain', systemDate);\n  cy.wait(1000);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<td>' to contain '11-06-2026'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<td>' to contain '11-06-2026'\n    at Context.eval (webpack:///./cypress/e2e/e2e/Manage company/Manage Company-Every fields.cy.js:54:58)",
+                "diff": null
+              },
+              "uuid": "4dfa9976-8a98-4a52-8f39-9a3ef7991a72",
+              "parentUUID": "84b48c58-3263-4a55-9bf6-9dcd1d95bbeb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4dfa9976-8a98-4a52-8f39-9a3ef7991a72"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19084,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "fe0e7aa3-f280-4a4a-b208-b2f523b318da",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Ambulance\\Ambulance with email adress.cy.js",
+      "file": "cypress\\e2e\\e2e\\Ambulance\\Ambulance with email adress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "627943ac-f25c-4bed-acc9-35bebe764251",
+          "title": "Ambulance with email adress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulanceprovider",
+              "fullTitle": "Ambulance with email adress Ambulanceprovider",
+              "timedOut": null,
+              "duration": 16335,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Test_Provider')) {\n    cy.contains('Test_Provider').parent().find('button').contains('Del').click();\n  }\n  cy.get('body').should('not.contain', 'Test_Provider');\n});\ncy.wait(500);\ncy.get('input[placeholder=\"Enter service name\"]').type('Test_Provider');\ncy.get('input[placeholder=\"Enter address line 1\"]').type('Abcd 1244 gjfhe');\ncy.get('input[placeholder=\"Enter city\"]').type('Bangalore');\ncy.get('input[placeholder=\"Enter state\"]').type('Karnataka');\ncy.get('input[placeholder=\"Enter country\"]').type('India');\ncy.get('#pinCode').type('560103');\ncy.get('input[placeholder=\"Enter contact number\"]').scrollIntoView().type('8888888865');\ncy.get('input[placeholder=\"Enter contact email\"]').type('abd@gmail.com');\ncy.contains('Next').click();\ncy.wait(1500);\ncy.get('body').should('contain', 'Test_Provider');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Enter service name\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Enter service name\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance with email adress.cy.js:51:11)",
+                "diff": null
+              },
+              "uuid": "4eafa6fe-59fc-4c69-9fca-569541498f79",
+              "parentUUID": "627943ac-f25c-4bed-acc9-35bebe764251",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ambulance RateCard",
+              "fullTitle": "Ambulance with email adress Ambulance RateCard",
+              "timedOut": null,
+              "duration": 14360,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance RateCard').click();\ncy.get('body').should('contain', 'Ambulance Provider Rate Card');\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\nconst Type = []; // Ensure this is defined before usage\nconst vehicleNames = ['EECO/Bolero', 'Tempo/Tata Winger', 'ALS-Tempo/Tata Winger', 'BLS-Tempo/Tata Winger'];\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).find('option').each($options => {\n  const optionText = $options.text().trim();\n  if (optionText !== 'Select Ambulance Type') {\n    Type.push(optionText);\n  }\n}).then(() => {\n  cy.log('Ambulance types: ', Type.join(' , '));\n});\ncy.wrap(Type).each((Types, index) => {\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\n  cy.wait(500);\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).select(Types);\n  cy.wait(500);\n  const vehicle = vehicleNames[index % vehicleNames.length];\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter vehicle type (e.g., EECO/Bolero)\"]').type(vehicle);\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').type('0-5');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').type('700');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(1).type('5-10');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(1).type('800');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(2).type('10-15');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(2).type('1200');\n  cy.wait(500);\n  cy.contains('Create').click();\n  cy.wait(500);\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Test_Provider`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: Timed out retrying after 10000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Test_Provider`\n\nhttps://on.cypress.io/select\n    at getOptions (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:114180:72)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at retryOptions (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:114212:70)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance with email adress.cy.js:83:66)",
+                "diff": null
+              },
+              "uuid": "e594ac43-b603-4c6d-93ae-dd13175bb1f1",
+              "parentUUID": "627943ac-f25c-4bed-acc9-35bebe764251",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adding ambulance cities",
+              "fullTitle": "Ambulance with email adress Adding ambulance cities",
+              "timedOut": null,
+              "duration": 14548,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\nconst cities = ['amravati', 'imphal', 'visakhapatnam', 'vijayawada', 'ghaziabad'];\nconst State = ['Andhra Pradesh', 'Manipur', 'Andhra Pradesh', 'Andhra Pradesh', 'Uttar Pradesh'];\ncities.forEach((city, index) => {\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g Bangalore\"]').each($input => {\n    cy.wrap($input).invoke('val').then(text => {\n      if (!text) {\n        // If the field is empty\n        cy.wrap($input).type(city);\n      }\n    });\n  });\n  cy.wait(500);\n  cy.get('div[class=\" css-1jqq78o-placeholder\"]').click({\n    force: true\n  });\n  cy.contains(State[index]).click();\n  if (index < cities.length - 1) {\n    cy.contains('Add City').click();\n  }\n});\ncy.get('button[class=\"chakra-button css-1t8s8ud\"]').eq(1).click();\ncy.wait(500);\ncy.reload();\ncy.wait(500);\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\ncy.wait(1500);\nState.forEach((st, index) => {\n  cy.get('body').should('contain', st);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance with email adress.cy.js:147:11)",
+                "diff": null
+              },
+              "uuid": "b62f4094-f172-4c07-85fa-f2042d48cad6",
+              "parentUUID": "627943ac-f25c-4bed-acc9-35bebe764251",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4eafa6fe-59fc-4c69-9fca-569541498f79",
+            "e594ac43-b603-4c6d-93ae-dd13175bb1f1",
+            "b62f4094-f172-4c07-85fa-f2042d48cad6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 45243,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "76d697c9-878e-4fee-bdcf-029da581dcd8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Ambulance\\Ambulance without email adress.cy.js",
+      "file": "cypress\\e2e\\e2e\\Ambulance\\Ambulance without email adress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "89b692de-f521-4a00-a053-2ced60643dc6",
+          "title": "Ambulance without email adress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulanceprovider",
+              "fullTitle": "Ambulance without email adress Ambulanceprovider",
+              "timedOut": null,
+              "duration": 16293,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Test_Provider')) {\n    cy.contains('Test_Provider').parent().find('button').contains('Del').click();\n  }\n  cy.get('body').should('not.contain', 'Test_Provider');\n});\ncy.wait(500);\ncy.get('input[placeholder=\"Enter service name\"]').type('Test_Provider');\ncy.get('input[placeholder=\"Enter address line 1\"]').type('Abcd 1244 gjfhe');\ncy.get('input[placeholder=\"Enter city\"]').type('Bangalore');\ncy.get('input[placeholder=\"Enter state\"]').type('Karnataka');\ncy.get('input[placeholder=\"Enter country\"]').type('India');\ncy.get('#pinCode').type('560103');\ncy.get('input[placeholder=\"Enter contact number\"]').scrollIntoView().type('8888888865');\ncy.contains('Next').click();\ncy.wait(1500);\ncy.get('body').should('contain', 'Test_Provider');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Enter service name\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Enter service name\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance without email adress.cy.js:51:7)",
+                "diff": null
+              },
+              "uuid": "5da0ed0d-12bc-4285-a6fd-6f77b7ccad6c",
+              "parentUUID": "89b692de-f521-4a00-a053-2ced60643dc6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ambulance RateCard",
+              "fullTitle": "Ambulance without email adress Ambulance RateCard",
+              "timedOut": null,
+              "duration": 14736,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance RateCard').click();\ncy.get('body').should('contain', 'Ambulance Provider Rate Card');\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\nconst Type = []; // Ensure this is defined before usage\nconst vehicleNames = ['EECO/Bolero', 'Tempo/Tata Winger', 'ALS-Tempo/Tata Winger', 'BLS-Tempo/Tata Winger'];\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).find('option').each($options => {\n  const optionText = $options.text().trim();\n  if (optionText !== 'Select Ambulance Type') {\n    Type.push(optionText);\n  }\n}).then(() => {\n  cy.log('Ambulance types: ', Type.join(' , '));\n});\ncy.wrap(Type).each((Types, index) => {\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\n  cy.wait(500);\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).select(Types);\n  cy.wait(500);\n  const vehicle = vehicleNames[index % vehicleNames.length];\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter vehicle type (e.g., EECO/Bolero)\"]').type(vehicle);\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').type('0-5');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').type('700');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(1).type('5-10');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(1).type('800');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(2).type('10-15');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(2).type('1200');\n  cy.wait(500);\n  cy.contains('Create').click();\n  cy.wait(500);\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Test_Provider`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: Timed out retrying after 10000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Test_Provider`\n\nhttps://on.cypress.io/select\n    at getOptions (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:114180:72)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at retryOptions (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:114212:70)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance without email adress.cy.js:81:62)",
+                "diff": null
+              },
+              "uuid": "14e93295-362b-4631-92b7-815cf84ec96d",
+              "parentUUID": "89b692de-f521-4a00-a053-2ced60643dc6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adding ambulance cities",
+              "fullTitle": "Ambulance without email adress Adding ambulance cities",
+              "timedOut": null,
+              "duration": 19133,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\nconst cities = ['amravati', 'imphal', 'visakhapatnam', 'vijayawada', 'ghaziabad'];\nconst State = ['Andhra Pradesh', 'Manipur', 'Andhra Pradesh', 'Andhra Pradesh', 'Uttar Pradesh'];\ncities.forEach((city, index) => {\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g Bangalore\"]').each($input => {\n    cy.wrap($input).invoke('val').then(text => {\n      if (!text) {\n        // If the field is empty\n        cy.wrap($input).type(city);\n      }\n    });\n  });\n  cy.wait(500);\n  cy.get('div[class=\" css-1jqq78o-placeholder\"]').click({\n    force: true\n  });\n  cy.contains(State[index]).click();\n  if (index < cities.length - 1) {\n    cy.contains('Add City').click();\n  }\n});\ncy.get('button[class=\"chakra-button css-1t8s8ud\"]').eq(1).click();\ncy.wait(500);\ncy.reload();\ncy.wait(500);\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\ncy.wait(1500);\nState.forEach((st, index) => {\n  cy.get('body').should('contain', st);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance without email adress.cy.js:145:7)",
+                "diff": null
+              },
+              "uuid": "5fdbce82-8197-4b53-bf5e-4a6708a29068",
+              "parentUUID": "89b692de-f521-4a00-a053-2ced60643dc6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5da0ed0d-12bc-4285-a6fd-6f77b7ccad6c",
+            "14e93295-362b-4631-92b7-815cf84ec96d",
+            "5fdbce82-8197-4b53-bf5e-4a6708a29068"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 50162,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "9cfcd983-d229-4a1c-80c3-d8228fe3ed49",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Manage user data\\ManageuserData.cy.js",
+      "file": "cypress\\e2e\\e2e\\Manage user data\\ManageuserData.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6627e61c-3067-4cad-b0ba-fceaa6eba31a",
+          "title": "Adding,updating,deleting",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Adding users through excel",
+              "fullTitle": "Adding,updating,deleting Adding users through excel",
+              "timedOut": null,
+              "duration": 15419,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).scrollIntoView().click();\ncy.wait(500);\ncy.contains('Manage User Data').scrollIntoView().should('be.visible');\nconst download = Cypress.config('downloads');\n// cy.task('listFilesInDownloads',download).then((fileNames)=>{\n//     cy.log('filename',fileNames);\n//     expect(fileNames).to.include('createUser Tempate V2.xlsx');\n// })\nconst downloadsFolder = Cypress.config('downloads');\n// const fileName = 'createUser Tempate V2.xlsx';\n// const filePath = `${downloadsFolder}/${fileName}`;\n// cy.get('input[type=\"file\"]').eq(0).attachFile(filePath);\n// cy.wait(500);\n// cy.get('select[class=\"chakra-select css-161pkch\"]').select('Test');\n// cy.contains('Add Users').scrollIntoView().click();\n// cy.task('listFilesInDownloads', download).then((fileNames) => {\n//     expect(\n//       fileNames.some(file => \n//         file.toLowerCase() === 'add_user_modified_excel.xlsx'.toLowerCase()\n//       )\n//     ).to.be.true;\n//   });\nconst fileName1 = 'UpdateUser Template v2.xlsx';\nconst filePath1 = `${downloadsFolder}/${fileName1}`;\ncy.get('input[type=\"file\"]').eq(1).attachFile(filePath1);\ncy.wait(500);\ncy.get('[class=\"chakra-button css-5r0ehc\"]').eq(1).scrollIntoView().click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Manage User Data' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Manage User Data' but never did.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Manage user data/ManageuserData.cy.js:16:11)",
+                "diff": null
+              },
+              "uuid": "eb85f933-4156-4510-ad1b-05f7ec64289e",
+              "parentUUID": "6627e61c-3067-4cad-b0ba-fceaa6eba31a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "eb85f933-4156-4510-ad1b-05f7ec64289e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15419,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "f77ff0a1-524c-449a-b9f2-3313a5a6133a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\Ambulancecity.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\Ambulancecity.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "465743b0-d19c-48af-9ded-436e9d18a6ec",
+          "title": "ambulancecity",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulancecity",
+              "fullTitle": "ambulancecity Ambulancecity",
+              "timedOut": null,
+              "duration": 15467,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.contains('Ambulance City').click();\nconst names = ['Ambulance Cities', 'Select Provider', 'City', 'State', 'Remove', 'Add'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').should('not.be.disabled').should('exist');\ncy.contains('Remove All Cities').should('exist').and('be.disabled');\ncy.contains('Add City').should('exist').and('not.be.disabled');\ncy.contains('Add').should('exist').and('not.be.disabled');\nconst loc = ['input[placeholder=\"e.g Bangalore\"]', 'div[class=\" css-hlgwow\"]', 'button[class=\"chakra-button css-dna3k\"]'];\nloc.forEach(lo => {\n  cy.get(lo).should('exist').and('not.be.disabled');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Ambulance/Ambulancecity.cy.js:14:11)",
+                "diff": null
+              },
+              "uuid": "45d50223-cff9-4fb7-88fd-5a426874685d",
+              "parentUUID": "465743b0-d19c-48af-9ded-436e9d18a6ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "45d50223-cff9-4fb7-88fd-5a426874685d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15467,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ba412e67-975c-4758-8271-1dd0f577af74",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\Names.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\Names.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "30e9132b-b931-4ad3-9188-f6df0ac3dd4b",
+          "title": "Names",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Names",
+              "fullTitle": "Names Names",
+              "timedOut": null,
+              "duration": 15341,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\nconst names = ['Ambulance Provider', 'Name', 'Address Line 1', 'City', 'State', 'Country', 'PinCode', 'Contact Number', 'Contact Email'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Ambulance Provider'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Ambulance Provider'\n    at eval (webpack:///./cypress/e2e/Smoke/Ambulance/Names.cy.js:17:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Ambulance/Names.cy.js:16:14)",
+                "diff": null
+              },
+              "uuid": "1f5c8c2b-9309-42b3-a677-a8b0e9f8de6f",
+              "parentUUID": "30e9132b-b931-4ad3-9188-f6df0ac3dd4b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1f5c8c2b-9309-42b3-a677-a8b0e9f8de6f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15341,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b9408767-dfa1-4a8d-b46e-bcc51a4d28b6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\ambulanceratecard.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\ambulanceratecard.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "016b4876-c605-4f17-92cc-3f135fd6a965",
+          "title": "ratecard",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "ratecard",
+              "fullTitle": "ratecard ratecard",
+              "timedOut": null,
+              "duration": 16118,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.contains('Ambulance RateCard').click();\ncy.wait(500);\nconst names = ['Ambulance Provider Rate Card', 'Select Provider', 'Ambulance Type', 'Vehicle Type'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});\nconst providers = [];\nconst AmbulanceType = [];\n// Populate the `providers` array with options' text\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).find('option').each(option => {\n  providers.push(option.text());\n}).then(() => {\n  // Log the populated providers array\n  cy.log('Providers:', providers.join(', '));\n  // Populate the `AmbulanceType` array with options' text\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).find('option').each(option => {\n    AmbulanceType.push(option.text());\n  }).then(() => {\n    cy.log('Ambulance Types:', AmbulanceType.join(', '));\n    // Iterate over the filtered `providers` array\n    providers.filter(pro => pro !== 'Select Provider') // Exclude the default option\n    .forEach(pro => {\n      // Select each provider\n      cy.log('Selecting provider:', pro);\n      cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select(pro).should('contain', pro); // Use `.have.value` for better accuracy\n      // Iterate over the filtered `AmbulanceType` array for each provider\n      AmbulanceType.filter(type => type !== 'Select Ambulance Type') // Exclude the default option\n      .forEach(type => {\n        cy.log('Selecting ambulance type:', type);\n        cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).select(type).should('contain', type); // Use `.have.value` for better accuracy\n      });\n    });\n  });\n});\n// Check for either \"Update\" or \"Create\" button\ncy.contains(/Update|Create/i).should('not.be.disabled').and('be.visible');\n// Assert buttons in the list\ncy.contains('Add Rate Card').should('not.be.disabled').and('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Ambulance Provider Rate Card'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Ambulance Provider Rate Card'\n    at eval (webpack:///./cypress/e2e/Smoke/Ambulance/ambulanceratecard.cy.js:21:21)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Ambulance/ambulanceratecard.cy.js:20:10)",
+                "diff": null
+              },
+              "uuid": "ad305c2b-d415-4da0-8c30-6badc4966eec",
+              "parentUUID": "016b4876-c605-4f17-92cc-3f135fd6a965",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ad305c2b-d415-4da0-8c30-6badc4966eec"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16118,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "9d4be56b-2308-452d-8205-8b667156b186",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\textfields&buttons.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\textfields&buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b74e52b5-7177-48a7-8dfa-b37875474d5d",
+          "title": "textfields&buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "textfields&buttons",
+              "fullTitle": "textfields&buttons textfields&buttons",
+              "timedOut": null,
+              "duration": 15364,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.get('input[class=\"chakra-input css-1cjy4zv\"]').then(elements => {\n  const ele = elements.slice(0, 8);\n  cy.wrap(ele).each(el => {\n    cy.wrap(el).scrollIntoView().should('be.visible').and('not.be.disabled');\n    cy.wait(500);\n    cy.get('button[type=\"button\"]').then(but => {\n      const bu = but.slice(0, 6);\n      cy.wrap(bu).each(b => {\n        cy.wrap(b).scrollIntoView().should('be.visible').and('not.be.disabled');\n      });\n    });\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<input#field-:r4r:.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input#field-:r4r:.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<input#field-:r4r:.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input#field-:r4r:.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Ambulance/textfields&buttons.cy.js:18:20)",
+                "diff": null
+              },
+              "uuid": "85dacd28-7047-4f2e-92bd-67916ea7a4a3",
+              "parentUUID": "b74e52b5-7177-48a7-8dfa-b37875474d5d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "85dacd28-7047-4f2e-92bd-67916ea7a4a3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15364,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "fc973818-f067-4979-965e-85a60cdc4fde",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Dashboard\\Ticketdashboard.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Dashboard\\Ticketdashboard.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "07f1693a-cd2d-4fb9-90c4-915adcfd8a17",
+          "title": "Dashboard",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ticket dashboard",
+              "fullTitle": "Dashboard Ticket dashboard",
+              "timedOut": null,
+              "duration": 4713,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Ticket Dashboard Details').click();\nconst expectedTexts = ['Company Name', 'Ticket Status', 'Count', 'Date Filter'];\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expectedTexts.forEach(text => {\n    expect(bodyText).to.contain(text);\n  });\n});",
+              "err": {},
+              "uuid": "4e61cf9e-7ac4-4182-9007-9adb938d11ee",
+              "parentUUID": "07f1693a-cd2d-4fb9-90c4-915adcfd8a17",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ben dashboard",
+              "fullTitle": "Dashboard Ben dashboard",
+              "timedOut": null,
+              "duration": 13985,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const dropdownValues = [];\ncy.contains('option', 'Select Company').should('be.visible').and('not.be.disabled').click({\n  force: true\n});\ncy.get('.CustomSelect_select_border__lWd7w').find('option').each($ec => {\n  const text = $ec.text().trim(); // remove leading/trailing spaces\n  if (text !== 'Select Company') {\n    dropdownValues.push(text);\n  }\n}).then(() => {\n  cy.log('Dropdown count (excluding \"Select Company\"): ' + dropdownValues.length);\n  cy.log('Dropdown values: ' + JSON.stringify(dropdownValues));\n});\nconst texts = ['totalSubscriber', 'totalBeneficiary', 'activatedBeneficiary', 'notActivatedBeneficiary', 'validNumber', 'notValidNumber', 'qrDispatched', 'qrNotDispatched', 'S.No', 'relationship', 'totalUser', 'activatedUser', 'notActivatedUser', 'address', 'basicDetails', 'emergencyContact', 'insurancePolicies', 'medicalInfo', 'preferredHospital', 'qrDispatched', 'qrNotDispatched', 'validNumber', 'notValidNumber'];\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  texts.forEach(text => {\n    expect(bodyText, `${text} should be present on the page`).to.include(text);\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Select Company' within the selector: 'option' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Select Company' within the selector: 'option' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Dashboard/Ticketdashboard.cy.js:28:48)",
+                "diff": null
+              },
+              "uuid": "505711a5-7166-48a1-95c2-dd17144b76d3",
+              "parentUUID": "07f1693a-cd2d-4fb9-90c4-915adcfd8a17",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e61cf9e-7ac4-4182-9007-9adb938d11ee"
+          ],
+          "failures": [
+            "505711a5-7166-48a1-95c2-dd17144b76d3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18698,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ff0367bf-eb80-432a-8567-38c15dde7c03",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Manage\\Buttons.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Manage\\Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "65cf148a-5a4b-4f60-b9c0-9498cc83af6f",
+          "title": "Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Buttons Buttons",
+              "timedOut": null,
+              "duration": 16366,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\nconst buttons = ['button[type=\"button\"]', 'button[type=\"submit\"]'];\nbuttons.forEach(button => {\n  cy.get(button).each(b => {\n    cy.wrap(b).scrollIntoView().should('be.visible').and('not.be.disabled');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<button.chakra-button.css-l7xuv7>' not to be 'disabled'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<button.chakra-button.css-l7xuv7>' not to be 'disabled'\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Manage/Buttons.cy.js:18:65)",
+                "diff": null
+              },
+              "uuid": "f1ee41bd-d8f9-4728-8185-0f0e34d1f910",
+              "parentUUID": "65cf148a-5a4b-4f60-b9c0-9498cc83af6f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f1ee41bd-d8f9-4728-8185-0f0e34d1f910"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16366,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "dc03c831-a248-41c7-aed3-bbf810233c08",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Manage\\File,dropdown,links.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Manage\\File,dropdown,links.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f9349b1e-1b05-4d28-a852-efe1897fc5b6",
+          "title": "F,D,L",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "F,D,L",
+              "fullTitle": "F,D,L F,D,L",
+              "timedOut": null,
+              "duration": 15550,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\nconst links = ['div[class=\"css-1ugipnq\"]', 'div[class=\"css-1h2sv0j\"]'];\nlinks.forEach(link => {\n  cy.get(link).each(l => {\n    cy.wrap(l).scrollIntoView().should('be.visible').and('not.be.disabled');\n  });\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').should('be.visible').and('not.be.disabled');\ncy.wait(500);\ncy.get('input[class=\"chakra-input css-10on6wl\"]').each(F => {\n  cy.wrap(F).scrollIntoView().should('be.visible').and('not.be.disabled');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `div[class=\"css-1ugipnq\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `div[class=\"css-1ugipnq\"]`, but never found it.\n    at eval (webpack:///./cypress/e2e/Smoke/Manage/File,dropdown,links.cy.js:17:15)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Manage/File,dropdown,links.cy.js:16:14)",
+                "diff": null
+              },
+              "uuid": "acada5e5-b5a7-4f07-b5ce-72ca94c4a2ee",
+              "parentUUID": "f9349b1e-1b05-4d28-a852-efe1897fc5b6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "acada5e5-b5a7-4f07-b5ce-72ca94c4a2ee"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15550,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "875d74be-3df1-454b-bd5b-986bf3feb1d6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Manage\\Textfields,Checkbox.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Manage\\Textfields,Checkbox.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0b11d95a-821f-44ee-914d-beaf21342e52",
+          "title": "TF,CB",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TF,CB",
+              "fullTitle": "TF,CB TF,CB",
+              "timedOut": null,
+              "duration": 15399,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\ncy.get('input[class=\"chakra-input css-1cjy4zv\"]').each(t => {\n  cy.wrap(t).scrollIntoView().should('be.enabled').and('be.visible');\n});\ncy.wait(500);\ncy.get('span[class=\"chakra-checkbox__control css-1ydjfm6\"]').each(c => {\n  cy.wrap(c).scrollIntoView().should('be.visible').and('not.be.disabled');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<input.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<input.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Manage/Textfields,Checkbox.cy.js:15:61)",
+                "diff": null
+              },
+              "uuid": "3e8ce3a2-0aac-49d0-b3be-6690469e2cb2",
+              "parentUUID": "0b11d95a-821f-44ee-914d-beaf21342e52",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3e8ce3a2-0aac-49d0-b3be-6690469e2cb2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15399,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "07c8fb9a-19bc-44b9-9b33-15b7ce2f816b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\PrintQR\\QR.cy.js",
+      "file": "cypress\\e2e\\Smoke\\PrintQR\\QR.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "63d813e5-0507-4e78-8378-439e6f823ebb",
+          "title": "Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "QR",
+              "fullTitle": "Buttons QR",
+              "timedOut": null,
+              "duration": 5323,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(3).click();\ncy.wait(500);\ncy.get('button[type=\"button\"]').should('be.visible').and('not.be.disabled');\nconst names = ['Task Name', 'Agent Id', 'Created At', 'Updated At', 'Status'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {},
+              "uuid": "5817156a-8595-4f7a-ba22-8948c62b30ec",
+              "parentUUID": "63d813e5-0507-4e78-8378-439e6f823ebb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5817156a-8595-4f7a-ba22-8948c62b30ec"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5323,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "080539a4-f870-436d-ad63-b74442ed41f6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Managecompany\\TF&DD&B.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Managecompany\\TF&DD&B.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2e65c7de-5b47-4ed0-be57-3ca645f172ba",
+          "title": "TF&DD&B",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "O",
+              "fullTitle": "TF&DD&B O",
+              "timedOut": null,
+              "duration": 15377,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\nconst buttons = ['input[class=\"chakra-input css-1cjy4zv\"]', 'select[class=\"chakra-select css-161pkch\"]', 'button[type=\"button\"]'];\nbuttons.forEach(button => {\n  cy.get(button).each(bu => {\n    cy.wrap(bu).should('be.visible').and('not.be.disabled');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<input#field-:r4m:.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input#field-:r4m:.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<input#field-:r4m:.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input#field-:r4m:.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Managecompany/TF&DD&B.cy.js:18:28)",
+                "diff": null
+              },
+              "uuid": "51ef2a1d-e2af-470e-8001-fb4638e9d254",
+              "parentUUID": "2e65c7de-5b47-4ed0-be57-3ca645f172ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "51ef2a1d-e2af-470e-8001-fb4638e9d254"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15377,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "60ca6619-fa6d-471b-b3ab-70c28b8289bf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Managecompany\\names.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Managecompany\\names.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b154a381-ad24-46a3-b11b-201889d0d381",
+          "title": "names",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "names",
+              "fullTitle": "names names",
+              "timedOut": null,
+              "duration": 15487,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\nconst names = ['Manage Company', 'Company Name', 'Subscription Type', 'Logo URL', 'Web Context', 'Email Pattern', 'Sl.No', 'Company Name', 'Subscription Type', 'Date of Partnership'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Manage Company'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Manage Company'\n    at eval (webpack:///./cypress/e2e/Smoke/Managecompany/names.cy.js:18:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Managecompany/names.cy.js:17:14)",
+                "diff": null
+              },
+              "uuid": "36ac4e89-0cb4-4f81-81ee-daeb37f6ca28",
+              "parentUUID": "b154a381-ad24-46a3-b11b-201889d0d381",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "36ac4e89-0cb4-4f81-81ee-daeb37f6ca28"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15487,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "80ca7352-d390-4937-9461-84b24d6ed838",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Calender&dropdown.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Calender&dropdown.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bec3e72b-f94c-445d-a1ae-ab8ce0888d08",
+          "title": "C&D",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "C&D",
+              "fullTitle": "C&D C&D",
+              "timedOut": null,
+              "duration": 5823,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('input[type=\"date\"]').each(da => {\n  cy.wrap(da).scrollIntoView().should('be.enabled').and('be.visible');\n});\ncy.wait(500);\ncy.get('select[style=\"border: 1px solid black;\"]').scrollIntoView().should('be.enabled').and('be.visible');",
+              "err": {},
+              "uuid": "9c9151af-0c72-4c49-9ae2-f8dfdfef02c8",
+              "parentUUID": "bec3e72b-f94c-445d-a1ae-ab8ce0888d08",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9c9151af-0c72-4c49-9ae2-f8dfdfef02c8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5823,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "74400a1c-709a-484b-8fd8-18fb4211d252",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Checkbox.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Checkbox.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a144cbb8-6415-46ea-b9b2-e14719b61c99",
+          "title": "Checkbox",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checkbox",
+              "fullTitle": "Checkbox Checkbox",
+              "timedOut": null,
+              "duration": 5971,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('input[class=\"checkbox_inputStyle__Rjg8M\"]').each(check => {\n  cy.wrap(check).scrollIntoView().should('be.enabled').and('be.visible');\n});",
+              "err": {},
+              "uuid": "97b58268-d5bb-4b80-90f0-6311ebd1f45c",
+              "parentUUID": "a144cbb8-6415-46ea-b9b2-e14719b61c99",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "97b58268-d5bb-4b80-90f0-6311ebd1f45c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5971,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d2401ecc-7ec5-49bc-af99-895d12ff8ff8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Buttons.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a720df1e-c098-43fd-adb2-16a2805aaec5",
+          "title": "Search Ben-Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Search Ben-Buttons",
+              "fullTitle": "Search Ben-Buttons Search Ben-Buttons",
+              "timedOut": null,
+              "duration": 5246,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').each(button => {\n  cy.wrap(button).scrollIntoView().should('be.enabled').and('be.visible');\n});\n// cy.get('button[class=\"customButton_button__Ol41S BenAddressData_button__0kXLn\"]')\n// .scrollIntoView().should('be.enabled').and('be.visible');",
+              "err": {},
+              "uuid": "30d25603-df19-47d9-ab87-e4682525104d",
+              "parentUUID": "a720df1e-c098-43fd-adb2-16a2805aaec5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "30d25603-df19-47d9-ab87-e4682525104d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5246,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "027c1aa2-3617-48f0-a3a5-eab92de63bb2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Texfields.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Search Ben-Texfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "90fd517e-09be-4299-ad84-2c8aa945e799",
+          "title": "Search Ben-Textfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Search Ben-Textfields",
+              "fullTitle": "Search Ben-Textfields Search Ben-Textfields",
+              "timedOut": null,
+              "duration": 5483,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('input[class=\"custominput_input__AQGtC \"]').each(input => {\n  cy.wrap(input).scrollIntoView().should('be.enabled').and('be.visible');\n});",
+              "err": {},
+              "uuid": "4e4c5f4c-86b2-40be-97c8-d9d537f82e7b",
+              "parentUUID": "90fd517e-09be-4299-ad84-2c8aa945e799",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e4c5f4c-86b2-40be-97c8-d9d537f82e7b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5483,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "da2c634e-99bd-425c-9208-cad057046ce4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Searchradius\\Sr.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Searchradius\\Sr.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e676a654-865e-4735-982b-0180e1c441ad",
+          "title": "SR",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "sr",
+              "fullTitle": "SR sr",
+              "timedOut": null,
+              "duration": 15397,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(7).click();\ncy.wait(500);\ncy.get('body').should('contain', 'Beneficiary Having No Hospital Dashboard Details');\ncy.get('select[id=\"hospital-select\"]').should('be.visible').and('not.be.disabled');\ncy.get('input[type=\"number\"]').should('be.visible').and('not.be.disabled');\nconst buttons = ['button[class=\"benificiary_searchButton__ctiGl\"]', 'button[class=\"benificiary_clearButton__p2Yag\"]'];\nbuttons.forEach(button => {\n  cy.get(button).should('be.visible').and('not.be.disabled');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Beneficiary Having No Hospital Dashboard Details'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Beneficiary Having No Hospital Dashboard Details'\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Searchradius/Sr.cy.js:14:23)",
+                "diff": null
+              },
+              "uuid": "ed9a43c4-0fc5-4000-ba8c-052eb80000b5",
+              "parentUUID": "e676a654-865e-4735-982b-0180e1c441ad",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ed9a43c4-0fc5-4000-ba8c-052eb80000b5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15397,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "597d7245-e953-43d3-8d03-c2784c788ca3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SendEmail\\Email.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SendEmail\\Email.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c5072713-619f-4ddb-80f5-98ddf85528d0",
+          "title": "Email",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Email",
+              "fullTitle": "Email Email",
+              "timedOut": null,
+              "duration": 5849,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(5).click();\ncy.wait(500);\ncy.get('button[class=\"chakra-button css-h211ee\"]').should('be.visible').and('not.be.disabled');\ncy.wait(500);\nconst names = ['JOB NAME', 'AGENT', 'CREATED AT', 'UPDATED AT', 'STATUS'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {},
+              "uuid": "3ba33933-2f35-4ce3-9f2c-2d4b7eb3f280",
+              "parentUUID": "c5072713-619f-4ddb-80f5-98ddf85528d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3ba33933-2f35-4ce3-9f2c-2d4b7eb3f280"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5849,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7e559030-d83b-444c-b3f6-895563c41ebb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Wa\\response.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Wa\\response.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1debdf61-2a4a-4240-837e-0762d8056b48",
+          "title": "res",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "res",
+              "fullTitle": "res res",
+              "timedOut": null,
+              "duration": 15265,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(6).click();\ncy.wait(500);\nconst names = ['Whatsapp Job List', 'jobName', 'agentData', 'createdAt', 'updatedAt', 'status'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Whatsapp Job List'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Whatsapp Job List'\n    at eval (webpack:///./cypress/e2e/Smoke/Wa/response.cy.js:18:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Wa/response.cy.js:17:14)",
+                "diff": null
+              },
+              "uuid": "4181eae3-31bf-4daf-b095-52c42c76a9c6",
+              "parentUUID": "1debdf61-2a4a-4240-837e-0762d8056b48",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4181eae3-31bf-4daf-b095-52c42c76a9c6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15265,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "21642219-5bac-44c3-8203-590109be18a2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Wa\\wa.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Wa\\wa.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3df283f9-ff99-43bc-8b31-10f034a0746a",
+          "title": "wa",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "wa",
+              "fullTitle": "wa wa",
+              "timedOut": null,
+              "duration": 16029,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(4).click();\ncy.wait(500);\ncy.contains('Create Job').should('be.visible').and('not.be.disabled');\ncy.wait(500);\nconst names = ['jobName', 'agentData', 'createdAt', 'updatedAt', 'templateName', 'status'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'jobName'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'jobName'\n    at eval (webpack:///./cypress/e2e/Smoke/Wa/wa.cy.js:21:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Wa/wa.cy.js:20:14)",
+                "diff": null
+              },
+              "uuid": "9fc4320e-b876-46c0-a2a3-e0707ea5f1ea",
+              "parentUUID": "3df283f9-ff99-43bc-8b31-10f034a0746a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9fc4320e-b876-46c0-a2a3-e0707ea5f1ea"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16029,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

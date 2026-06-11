@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T09:47:36.378Z",
+    "end": "2026-06-11T09:47:50.840Z",
+    "duration": 14462,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1517650f-5509-40ca-96a6-d9d4313da804",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Home page.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Home page.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26e5c5c6-d3a4-4992-84c7-95f0486d2b71",
+          "title": "Homepage",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Homepage Buttons",
+              "timedOut": null,
+              "duration": 12842,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(0).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Dashboard');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Get Ben Data By Filter Data');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(2).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Manage User Data');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(3).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Task Name');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(4).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Create Job');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(5).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Send Email');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(6).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Whatsapp Job List');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(7).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Beneficiary Having No Hospital Dashboard Details');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Manage Company');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Ambulance Provider');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(10).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Bulk WhatsApp Template');\n});\ncy.wait(500);\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(11).click();\ncy.wait(500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Admin Login');\n});",
+              "err": {
+                "message": "AssertionError: expected 'You need to enable JavaScript to run this app.Identify Users To AddAdd UsersUpdate UsersDelete Users In BulkIdentify Users To DeleteSearch & ManageIdentify The Users To Add In BulkIdentify Users To Add Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsbdc3fdb8-a631-4a0d-8666-e0b7f7036e0cIDENTIFY_ADD15/05/2026, 10:51 am6/6100%COMPLETEDCheck StatusDownloada0f88183-69df-42bf-b6bf-037839814008IDENTIFY_ADD13/05/2026, 10:16 am6/6100%COMPLETEDCheck StatusDownload6ff5a605-86b7-4a0f-9a62-393afd22dae5IDENTIFY_ADD12/05/2026, 02:27 pm2/3 (1 failed)100%COMPLETEDCheck StatusDownloadc43c22cc-f7e3-496f-9808-92ce548bb8a8IDENTIFY_ADD11/05/2026, 00:11 pm6/6100%COMPLETEDCheck StatusDownload455db202-b298-4aad-8738-0af88fe6543cIDENTIFY_ADD11/05/2026, 00:08 pm6/6100%COMPLETEDCheck StatusDownload4703f40d-50a8-48c4-9d8c-2e70c80c941bIDENTIFY_ADD11/05/2026, 00:07 pm6/6100%COMPLETEDCheck StatusDownload2d1396b1-b432-448d-a49d-169cd596aaf7IDENTIFY_ADD11/05/2026, 00:04 pm6/6100%COMPLETEDCheck StatusDownloadb3157885-cc5d-4af9-945f-8b26f90644e4IDENTIFY_ADD11/05/2026, 11:55 am6/6100%COMPLETEDCheck StatusDownload5f9e1a3b-de41-4026-90b5-f2d60df5fe72IDENTIFY_ADD11/05/2026, 11:54 am6/6100%COMPLETEDCheck StatusDownload1e5a4216-f761-4916-82d7-531eab173e82IDENTIFY_ADD11/05/2026, 11:53 am4/4100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextAdd Multiple UsersAdd Users Download TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActions0794f3c5-78cb-4ca7-9c00-973a816a73dcCREATE11/06/2026, 10:19 am3/4 (1 failed)100%COMPLETEDCheck StatusDownloadee61b328-09f7-4346-a628-6342afc39217CREATE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownloadd1b51a5a-3af3-4630-96b2-c8f3aa4146beCREATE09/06/2026, 03:11 pm1/1100%COMPLETEDCheck StatusDownload85641bd7-2e53-4207-b8e6-658b3edcf659CREATE09/06/2026, 03:10 pm1/1100%COMPLETEDCheck StatusDownloadd151c85e-ae4e-483a-b34d-51872e08313cCREATE09/06/2026, 03:08 pm1/1100%COMPLETEDCheck StatusDownload4780484b-6076-4b22-927f-20bc6be924e3CREATE09/06/2026, 03:04 pm1/1100%COMPLETEDCheck StatusDownload28ed9411-0da5-420d-a1b4-4524e49863f5CREATE09/06/2026, 03:04 pm0/1 (1 failed)100%FAILEDCheck StatusDownloadeca4e747-a2a0-44bc-8656-f52e5c355364CREATE09/06/2026, 03:03 pm0/1 (1 failed)100%FAILEDCheck StatusDownload7d3e6ee8-bc0a-43fc-a138-e27cb4c2b1ecCREATE03/06/2026, 11:48 am1/1100%COMPLETEDCheck StatusDownload591770da-07ea-4c56-9231-5f91f546c8f4CREATE26/05/2026, 03:52 pm1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 9NextUpdate UsersUpdate Users Update TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsaf192632-bddf-4896-856a-a62058f3d3edUPDATE09/06/2026, 03:06 pm1/1100%COMPLETEDCheck StatusDownloadf8d78074-25b9-4ab0-8606-e7880ae4f14dUPDATE26/05/2026, 04:00 pm1/1100%COMPLETEDCheck StatusDownload8841b85e-2774-4bdd-8f86-75bb8bf7c82bUPDATE26/05/2026, 03:59 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade308d079-3f36-4852-a78a-88532c3988e9UPDATE26/05/2026, 03:57 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade8e46e77-d3a3-4dad-b7c0-794587a1d151UPDATE19/05/2026, 10:58 am1/1100%COMPLETEDCheck StatusDownload4923f13d-89d0-4810-b0f7-703de2fffc66UPDATE19/05/2026, 10:57 am0/1 (1 failed)100%FAILEDCheck StatusDownload181e76e0-3a2b-4704-8d37-77c391facab9UPDATE15/05/2026, 03:41 pm2/2100%COMPLETEDCheck StatusDownloadbc493ba9-f93d-457b-9fe2-3eceb21de1aeUPDATE15/05/2026, 03:40 pm0/2 (2 failed)100%FAILEDCheck StatusDownload02b21f89-5abe-468c-8a13-2191155c9398UPDATE13/05/2026, 09:42 am1/1100%COMPLETEDCheck StatusDownloada3ec6e51-1405-4d0b-9a7b-16d281f04c0aUPDATE13/05/2026, 09:41 am1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextDelete Users In BulkDelete Users Bulk Delete TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsdf4e92e1-a48d-4795-a3ec-1e5f21c85cd3DELETE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownload689eef7b-8fe1-44a7-8530-01cf6152b8f2DELETE26/05/2026, 03:56 pm1/1100%COMPLETEDCheck StatusDownload6b020f62-0cb0-4420-97a7-883a6adfbae0DELETE15/05/2026, 03:47 pm3/6 (3 failed)100%COMPLETEDCheck StatusDownload07172dee-fd4f-4864-9b07-001ebf33832dDELETE12/05/2026, 10:12 am1/1100%COMPLETEDCheck StatusDownload9a7fa2ee-f6f4-48e6-aada-53ad5569431dDELETE12/05/2026, 10:11 am0/1 (1 failed)100%FAILEDCheck StatusDownload9f0f092a-3192-440c-ae7e-e90ca6f7075cDELETE12/05/2026, 10:10 am0/1 (1 failed)100%FAILEDCheck StatusDownloadIdentify The Users To Delete In BulkIdentify Users To Delete Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsc20bef9b-60eb-488b-a4f4-595ef85be2daIDENTIFY_DELETE15/05/2026, 03:45 pm2/2100%COMPLETEDCheck StatusDownloada8a0316f-42e9-4fde-9236-5414ea48fd88IDENTIFY_DELETE12/05/2026, 10:09 am5/5100%COMPLETEDCheck StatusDownload65c479e3-f14c-4093-82d2-6d865daf1c18IDENTIFY_DELETE12/05/2026, 10:08 am5/5100%COMPLETEDCheck StatusDownloadb7162a07-10f0-4032-92a6-14b880a4080dIDENTIFY_DELETE12/05/2026, 10:06 am4/4100%COMPLETEDCheck StatusDownloadfb6693d3-3626-4fc3-b56a-e2b06870ea5cIDENTIFY_DELETE12/05/2026, 10:02 am1/1100%COMPLETEDCheck StatusDownloadDelete UsersSearch By BeneficiarySearch By SubscriberBeneficiary IdEmailNamePhone NumberClear FiltersSearchManage VIP Customer:Search by SubscriberSubscriber EmailSubscriber IDSearchGrant VIP StatusRevoke VIP Status' to include 'Manage User Data'",
+                "estack": "AssertionError: expected 'You need to enable JavaScript to run this app.Identify Users To AddAdd UsersUpdate UsersDelete Users In BulkIdentify Users To DeleteSearch & ManageIdentify The Users To Add In BulkIdentify Users To Add Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsbdc3fdb8-a631-4a0d-8666-e0b7f7036e0cIDENTIFY_ADD15/05/2026, 10:51 am6/6100%COMPLETEDCheck StatusDownloada0f88183-69df-42bf-b6bf-037839814008IDENTIFY_ADD13/05/2026, 10:16 am6/6100%COMPLETEDCheck StatusDownload6ff5a605-86b7-4a0f-9a62-393afd22dae5IDENTIFY_ADD12/05/2026, 02:27 pm2/3 (1 failed)100%COMPLETEDCheck StatusDownloadc43c22cc-f7e3-496f-9808-92ce548bb8a8IDENTIFY_ADD11/05/2026, 00:11 pm6/6100%COMPLETEDCheck StatusDownload455db202-b298-4aad-8738-0af88fe6543cIDENTIFY_ADD11/05/2026, 00:08 pm6/6100%COMPLETEDCheck StatusDownload4703f40d-50a8-48c4-9d8c-2e70c80c941bIDENTIFY_ADD11/05/2026, 00:07 pm6/6100%COMPLETEDCheck StatusDownload2d1396b1-b432-448d-a49d-169cd596aaf7IDENTIFY_ADD11/05/2026, 00:04 pm6/6100%COMPLETEDCheck StatusDownloadb3157885-cc5d-4af9-945f-8b26f90644e4IDENTIFY_ADD11/05/2026, 11:55 am6/6100%COMPLETEDCheck StatusDownload5f9e1a3b-de41-4026-90b5-f2d60df5fe72IDENTIFY_ADD11/05/2026, 11:54 am6/6100%COMPLETEDCheck StatusDownload1e5a4216-f761-4916-82d7-531eab173e82IDENTIFY_ADD11/05/2026, 11:53 am4/4100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextAdd Multiple UsersAdd Users Download TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActions0794f3c5-78cb-4ca7-9c00-973a816a73dcCREATE11/06/2026, 10:19 am3/4 (1 failed)100%COMPLETEDCheck StatusDownloadee61b328-09f7-4346-a628-6342afc39217CREATE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownloadd1b51a5a-3af3-4630-96b2-c8f3aa4146beCREATE09/06/2026, 03:11 pm1/1100%COMPLETEDCheck StatusDownload85641bd7-2e53-4207-b8e6-658b3edcf659CREATE09/06/2026, 03:10 pm1/1100%COMPLETEDCheck StatusDownloadd151c85e-ae4e-483a-b34d-51872e08313cCREATE09/06/2026, 03:08 pm1/1100%COMPLETEDCheck StatusDownload4780484b-6076-4b22-927f-20bc6be924e3CREATE09/06/2026, 03:04 pm1/1100%COMPLETEDCheck StatusDownload28ed9411-0da5-420d-a1b4-4524e49863f5CREATE09/06/2026, 03:04 pm0/1 (1 failed)100%FAILEDCheck StatusDownloadeca4e747-a2a0-44bc-8656-f52e5c355364CREATE09/06/2026, 03:03 pm0/1 (1 failed)100%FAILEDCheck StatusDownload7d3e6ee8-bc0a-43fc-a138-e27cb4c2b1ecCREATE03/06/2026, 11:48 am1/1100%COMPLETEDCheck StatusDownload591770da-07ea-4c56-9231-5f91f546c8f4CREATE26/05/2026, 03:52 pm1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 9NextUpdate UsersUpdate Users Update TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsaf192632-bddf-4896-856a-a62058f3d3edUPDATE09/06/2026, 03:06 pm1/1100%COMPLETEDCheck StatusDownloadf8d78074-25b9-4ab0-8606-e7880ae4f14dUPDATE26/05/2026, 04:00 pm1/1100%COMPLETEDCheck StatusDownload8841b85e-2774-4bdd-8f86-75bb8bf7c82bUPDATE26/05/2026, 03:59 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade308d079-3f36-4852-a78a-88532c3988e9UPDATE26/05/2026, 03:57 pm0/1 (1 failed)100%FAILEDCheck StatusDownloade8e46e77-d3a3-4dad-b7c0-794587a1d151UPDATE19/05/2026, 10:58 am1/1100%COMPLETEDCheck StatusDownload4923f13d-89d0-4810-b0f7-703de2fffc66UPDATE19/05/2026, 10:57 am0/1 (1 failed)100%FAILEDCheck StatusDownload181e76e0-3a2b-4704-8d37-77c391facab9UPDATE15/05/2026, 03:41 pm2/2100%COMPLETEDCheck StatusDownloadbc493ba9-f93d-457b-9fe2-3eceb21de1aeUPDATE15/05/2026, 03:40 pm0/2 (2 failed)100%FAILEDCheck StatusDownload02b21f89-5abe-468c-8a13-2191155c9398UPDATE13/05/2026, 09:42 am1/1100%COMPLETEDCheck StatusDownloada3ec6e51-1405-4d0b-9a7b-16d281f04c0aUPDATE13/05/2026, 09:41 am1/1100%COMPLETEDCheck StatusDownloadPrevPage 1 of 2NextDelete Users In BulkDelete Users Bulk Delete TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsdf4e92e1-a48d-4795-a3ec-1e5f21c85cd3DELETE09/06/2026, 05:33 pm1/1100%COMPLETEDCheck StatusDownload689eef7b-8fe1-44a7-8530-01cf6152b8f2DELETE26/05/2026, 03:56 pm1/1100%COMPLETEDCheck StatusDownload6b020f62-0cb0-4420-97a7-883a6adfbae0DELETE15/05/2026, 03:47 pm3/6 (3 failed)100%COMPLETEDCheck StatusDownload07172dee-fd4f-4864-9b07-001ebf33832dDELETE12/05/2026, 10:12 am1/1100%COMPLETEDCheck StatusDownload9a7fa2ee-f6f4-48e6-aada-53ad5569431dDELETE12/05/2026, 10:11 am0/1 (1 failed)100%FAILEDCheck StatusDownload9f0f092a-3192-440c-ae7e-e90ca6f7075cDELETE12/05/2026, 10:10 am0/1 (1 failed)100%FAILEDCheck StatusDownloadIdentify The Users To Delete In BulkIdentify Users To Delete Bulk Identify TemplateSubmitted Jobs — Check & Download ResultsRefreshJob IDActionCreated AtProgressActionsc20bef9b-60eb-488b-a4f4-595ef85be2daIDENTIFY_DELETE15/05/2026, 03:45 pm2/2100%COMPLETEDCheck StatusDownloada8a0316f-42e9-4fde-9236-5414ea48fd88IDENTIFY_DELETE12/05/2026, 10:09 am5/5100%COMPLETEDCheck StatusDownload65c479e3-f14c-4093-82d2-6d865daf1c18IDENTIFY_DELETE12/05/2026, 10:08 am5/5100%COMPLETEDCheck StatusDownloadb7162a07-10f0-4032-92a6-14b880a4080dIDENTIFY_DELETE12/05/2026, 10:06 am4/4100%COMPLETEDCheck StatusDownloadfb6693d3-3626-4fc3-b56a-e2b06870ea5cIDENTIFY_DELETE12/05/2026, 10:02 am1/1100%COMPLETEDCheck StatusDownloadDelete UsersSearch By BeneficiarySearch By SubscriberBeneficiary IdEmailNamePhone NumberClear FiltersSearchManage VIP Customer:Search by SubscriberSubscriber EmailSubscriber IDSearchGrant VIP StatusRevoke VIP Status' to include 'Manage User Data'\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Home page.cy.js:31:32)",
+                "diff": null
+              },
+              "uuid": "91d35a4a-f920-412a-adf2-e8a16f967589",
+              "parentUUID": "26e5c5c6-d3a4-4992-84c7-95f0486d2b71",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "91d35a4a-f920-412a-adf2-e8a16f967589"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12842,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

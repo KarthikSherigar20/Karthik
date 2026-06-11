@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:07:22.647Z",
+    "end": "2026-06-11T10:07:40.137Z",
+    "duration": 17490,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "21642219-5bac-44c3-8203-590109be18a2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Wa\\wa.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Wa\\wa.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3df283f9-ff99-43bc-8b31-10f034a0746a",
+          "title": "wa",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "wa",
+              "fullTitle": "wa wa",
+              "timedOut": null,
+              "duration": 16029,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(4).click();\ncy.wait(500);\ncy.contains('Create Job').should('be.visible').and('not.be.disabled');\ncy.wait(500);\nconst names = ['jobName', 'agentData', 'createdAt', 'updatedAt', 'templateName', 'status'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'jobName'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'jobName'\n    at eval (webpack:///./cypress/e2e/Smoke/Wa/wa.cy.js:21:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Wa/wa.cy.js:20:14)",
+                "diff": null
+              },
+              "uuid": "9fc4320e-b876-46c0-a2a3-e0707ea5f1ea",
+              "parentUUID": "3df283f9-ff99-43bc-8b31-10f034a0746a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9fc4320e-b876-46c0-a2a3-e0707ea5f1ea"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16029,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

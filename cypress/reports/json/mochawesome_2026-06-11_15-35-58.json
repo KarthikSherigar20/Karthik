@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:05:41.761Z",
+    "end": "2026-06-11T10:05:58.843Z",
+    "duration": 17082,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "60ca6619-fa6d-471b-b3ab-70c28b8289bf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Managecompany\\names.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Managecompany\\names.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b154a381-ad24-46a3-b11b-201889d0d381",
+          "title": "names",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "names",
+              "fullTitle": "names names",
+              "timedOut": null,
+              "duration": 15487,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\nconst names = ['Manage Company', 'Company Name', 'Subscription Type', 'Logo URL', 'Web Context', 'Email Pattern', 'Sl.No', 'Company Name', 'Subscription Type', 'Date of Partnership'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Manage Company'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Manage Company'\n    at eval (webpack:///./cypress/e2e/Smoke/Managecompany/names.cy.js:18:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Managecompany/names.cy.js:17:14)",
+                "diff": null
+              },
+              "uuid": "36ac4e89-0cb4-4f81-81ee-daeb37f6ca28",
+              "parentUUID": "b154a381-ad24-46a3-b11b-201889d0d381",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "36ac4e89-0cb4-4f81-81ee-daeb37f6ca28"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15487,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

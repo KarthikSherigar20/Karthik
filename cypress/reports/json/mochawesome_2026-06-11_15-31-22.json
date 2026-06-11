@@ -1,0 +1,156 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2026-06-11T10:00:34.737Z",
+    "end": "2026-06-11T10:01:22.336Z",
+    "duration": 47599,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fe0e7aa3-f280-4a4a-b208-b2f523b318da",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Ambulance\\Ambulance with email adress.cy.js",
+      "file": "cypress\\e2e\\e2e\\Ambulance\\Ambulance with email adress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "627943ac-f25c-4bed-acc9-35bebe764251",
+          "title": "Ambulance with email adress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulanceprovider",
+              "fullTitle": "Ambulance with email adress Ambulanceprovider",
+              "timedOut": null,
+              "duration": 16335,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Test_Provider')) {\n    cy.contains('Test_Provider').parent().find('button').contains('Del').click();\n  }\n  cy.get('body').should('not.contain', 'Test_Provider');\n});\ncy.wait(500);\ncy.get('input[placeholder=\"Enter service name\"]').type('Test_Provider');\ncy.get('input[placeholder=\"Enter address line 1\"]').type('Abcd 1244 gjfhe');\ncy.get('input[placeholder=\"Enter city\"]').type('Bangalore');\ncy.get('input[placeholder=\"Enter state\"]').type('Karnataka');\ncy.get('input[placeholder=\"Enter country\"]').type('India');\ncy.get('#pinCode').type('560103');\ncy.get('input[placeholder=\"Enter contact number\"]').scrollIntoView().type('8888888865');\ncy.get('input[placeholder=\"Enter contact email\"]').type('abd@gmail.com');\ncy.contains('Next').click();\ncy.wait(1500);\ncy.get('body').should('contain', 'Test_Provider');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Enter service name\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[placeholder=\"Enter service name\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance with email adress.cy.js:51:11)",
+                "diff": null
+              },
+              "uuid": "4eafa6fe-59fc-4c69-9fca-569541498f79",
+              "parentUUID": "627943ac-f25c-4bed-acc9-35bebe764251",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ambulance RateCard",
+              "fullTitle": "Ambulance with email adress Ambulance RateCard",
+              "timedOut": null,
+              "duration": 14360,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance RateCard').click();\ncy.get('body').should('contain', 'Ambulance Provider Rate Card');\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\nconst Type = []; // Ensure this is defined before usage\nconst vehicleNames = ['EECO/Bolero', 'Tempo/Tata Winger', 'ALS-Tempo/Tata Winger', 'BLS-Tempo/Tata Winger'];\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).find('option').each($options => {\n  const optionText = $options.text().trim();\n  if (optionText !== 'Select Ambulance Type') {\n    Type.push(optionText);\n  }\n}).then(() => {\n  cy.log('Ambulance types: ', Type.join(' , '));\n});\ncy.wrap(Type).each((Types, index) => {\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).select('Test_Provider');\n  cy.wait(500);\n  cy.get('select[class=\"chakra-select css-161pkch\"]').eq(1).select(Types);\n  cy.wait(500);\n  const vehicle = vehicleNames[index % vehicleNames.length];\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter vehicle type (e.g., EECO/Bolero)\"]').type(vehicle);\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').type('0-5');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').type('700');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(1).type('5-10');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(1).type('800');\n  cy.wait(500);\n  cy.contains('Add Rate Card').scrollIntoView().click();\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g., 0-5 km\"]').eq(2).type('10-15');\n  cy.wait(500);\n  cy.get('input[placeholder=\"Enter price\"]').eq(2).type('1200');\n  cy.wait(500);\n  cy.contains('Create').click();\n  cy.wait(500);\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 10000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Test_Provider`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: Timed out retrying after 10000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Test_Provider`\n\nhttps://on.cypress.io/select\n    at getOptions (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:114180:72)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at retryOptions (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:114212:70)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://ops.stage.pococare.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance with email adress.cy.js:83:66)",
+                "diff": null
+              },
+              "uuid": "e594ac43-b603-4c6d-93ae-dd13175bb1f1",
+              "parentUUID": "627943ac-f25c-4bed-acc9-35bebe764251",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adding ambulance cities",
+              "fullTitle": "Ambulance with email adress Adding ambulance cities",
+              "timedOut": null,
+              "duration": 14548,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(8).scrollIntoView().click();\ncy.get('body').should('contain', 'Ambulance Provider').scrollIntoView();\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\nconst cities = ['amravati', 'imphal', 'visakhapatnam', 'vijayawada', 'ghaziabad'];\nconst State = ['Andhra Pradesh', 'Manipur', 'Andhra Pradesh', 'Andhra Pradesh', 'Uttar Pradesh'];\ncities.forEach((city, index) => {\n  cy.wait(500);\n  cy.get('input[placeholder=\"e.g Bangalore\"]').each($input => {\n    cy.wrap($input).invoke('val').then(text => {\n      if (!text) {\n        // If the field is empty\n        cy.wrap($input).type(city);\n      }\n    });\n  });\n  cy.wait(500);\n  cy.get('div[class=\" css-1jqq78o-placeholder\"]').click({\n    force: true\n  });\n  cy.contains(State[index]).click();\n  if (index < cities.length - 1) {\n    cy.contains('Add City').click();\n  }\n});\ncy.get('button[class=\"chakra-button css-1t8s8ud\"]').eq(1).click();\ncy.wait(500);\ncy.reload();\ncy.wait(500);\ncy.contains('Ambulance City').click();\ncy.wait(500);\ncy.get('select[class=\"chakra-select css-161pkch\"]').eq(2).select('Test_Provider');\ncy.wait(1500);\nState.forEach((st, index) => {\n  cy.get('body').should('contain', st);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.\n    at Context.eval (webpack:///./cypress/e2e/e2e/Ambulance/Ambulance with email adress.cy.js:147:11)",
+                "diff": null
+              },
+              "uuid": "b62f4094-f172-4c07-85fa-f2042d48cad6",
+              "parentUUID": "627943ac-f25c-4bed-acc9-35bebe764251",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4eafa6fe-59fc-4c69-9fca-569541498f79",
+            "e594ac43-b603-4c6d-93ae-dd13175bb1f1",
+            "b62f4094-f172-4c07-85fa-f2042d48cad6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 45243,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

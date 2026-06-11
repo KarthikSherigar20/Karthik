@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:02:40.141Z",
+    "end": "2026-06-11T10:02:57.224Z",
+    "duration": 17083,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f77ff0a1-524c-449a-b9f2-3313a5a6133a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Ambulance\\Ambulancecity.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Ambulance\\Ambulancecity.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "465743b0-d19c-48af-9ded-436e9d18a6ec",
+          "title": "ambulancecity",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulancecity",
+              "fullTitle": "ambulancecity Ambulancecity",
+              "timedOut": null,
+              "duration": 15467,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(9).click();\ncy.wait(500);\ncy.contains('Ambulance City').click();\nconst names = ['Ambulance Cities', 'Select Provider', 'City', 'State', 'Remove', 'Add'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});\ncy.get('select[class=\"chakra-select css-161pkch\"]').should('not.be.disabled').should('exist');\ncy.contains('Remove All Cities').should('exist').and('be.disabled');\ncy.contains('Add City').should('exist').and('not.be.disabled');\ncy.contains('Add').should('exist').and('not.be.disabled');\nconst loc = ['input[placeholder=\"e.g Bangalore\"]', 'div[class=\" css-hlgwow\"]', 'button[class=\"chakra-button css-dna3k\"]'];\nloc.forEach(lo => {\n  cy.get(lo).should('exist').and('not.be.disabled');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Ambulance City' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Ambulance/Ambulancecity.cy.js:14:11)",
+                "diff": null
+              },
+              "uuid": "45d50223-cff9-4fb7-88fd-5a426874685d",
+              "parentUUID": "465743b0-d19c-48af-9ded-436e9d18a6ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "45d50223-cff9-4fb7-88fd-5a426874685d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15467,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:05:23.135Z",
+    "end": "2026-06-11T10:05:40.010Z",
+    "duration": 16875,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "080539a4-f870-436d-ad63-b74442ed41f6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Managecompany\\TF&DD&B.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Managecompany\\TF&DD&B.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2e65c7de-5b47-4ed0-be57-3ca645f172ba",
+          "title": "TF&DD&B",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "O",
+              "fullTitle": "TF&DD&B O",
+              "timedOut": null,
+              "duration": 15377,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(8).click();\ncy.wait(500);\nconst buttons = ['input[class=\"chakra-input css-1cjy4zv\"]', 'select[class=\"chakra-select css-161pkch\"]', 'button[type=\"button\"]'];\nbuttons.forEach(button => {\n  cy.get(button).each(bu => {\n    cy.wrap(bu).should('be.visible').and('not.be.disabled');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<input#field-:r4m:.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input#field-:r4m:.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<input#field-:r4m:.chakra-input.css-1cjy4zv>' to be 'visible'\n\nThis element `<input#field-:r4m:.chakra-input.css-1cjy4zv>` is not visible because its parent `<div#tabs-:r4j:--tabpanel-1.chakra-tabs__tab-panel.css-a5mhaz>` has CSS property: `display: none`\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Managecompany/TF&DD&B.cy.js:18:28)",
+                "diff": null
+              },
+              "uuid": "51ef2a1d-e2af-470e-8001-fb4638e9d254",
+              "parentUUID": "2e65c7de-5b47-4ed0-be57-3ca645f172ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "51ef2a1d-e2af-470e-8001-fb4638e9d254"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15377,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

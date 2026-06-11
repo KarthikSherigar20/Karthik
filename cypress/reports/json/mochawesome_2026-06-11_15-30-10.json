@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T09:59:50.759Z",
+    "end": "2026-06-11T10:00:10.459Z",
+    "duration": 19700,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "edcb7b97-415e-4c17-8180-f485e0738fda",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e\\Manage company\\Manage Company- only Mandatory fields.cy.js",
+      "file": "cypress\\e2e\\e2e\\Manage company\\Manage Company- only Mandatory fields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75c3ee41-183d-4873-8865-dbcf02372c2b",
+          "title": "Manage Company- only Mandatory fields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Manage Company",
+              "fullTitle": "Manage Company- only Mandatory fields Manage Company",
+              "timedOut": null,
+              "duration": 17719,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Click on the Manage Company icon\ncy.get('[class=\"chakra-icon css-6ey7w3\"]').eq(7).scrollIntoView().click();\n// Assert that the Manage Company page is loaded\ncy.get('body').should('contain', 'Manage Company');\n// Define the subscription types to test\nconst types = [];\ncy.get('#subscriptionType option').each($option => {\n  const optionText = $option.text().trim();\n  if (optionText !== 'Select Type') {\n    types.push(optionText);\n  }\n}).then(() => {\n  // Print the array once it's fully populated\n  cy.log('Subscription Types:', types.join(', '));\n});\n// Loop through each subscription type\ncy.wrap(types).each(type => {\n  // Ensure the company name input exists\n  cy.get('#companyName', {\n    timeout: 10000\n  }).should('exist');\n  // Clear and type the company name\n  cy.get('#companyName').clear().scrollIntoView().type(`Test Company_${type}`);\n  // Select the subscription type\n  cy.get('#subscriptionType').select(type);\n  // Click the submit button\n  cy.get('button[class=\"chakra-button css-h211ee\"]').click();\n  cy.wait(1000);\n  cy.reload();\n  let today = new Date();\n  let systemDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;\n  cy.contains(`Test Company_${type}`).nextAll().eq(1).should('contain', systemDate);\n  cy.wait(1000);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<td>' to contain '11-06-2026'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<td>' to contain '11-06-2026'\n    at Context.eval (webpack:///./cypress/e2e/e2e/Manage company/Manage Company- only Mandatory fields.cy.js:57:58)",
+                "diff": null
+              },
+              "uuid": "b065c379-7757-4a55-8c5c-2dfa14c7e269",
+              "parentUUID": "75c3ee41-183d-4873-8865-dbcf02372c2b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b065c379-7757-4a55-8c5c-2dfa14c7e269"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17719,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

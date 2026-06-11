@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-11T09:59:20.854Z",
+    "end": "2026-06-11T09:59:48.942Z",
+    "duration": 28088,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d457f9aa-7218-4611-9abb-d96b1bf3cc63",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Search ben\\Searchben-textfields.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Search ben\\Searchben-textfields.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4075d92e-dcf1-466b-b6ee-7e51b112a601",
+          "title": "textfields",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "textfields",
+              "fullTitle": "textfields textfields",
+              "timedOut": null,
+              "duration": 26057,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.contains('Search By Beneficiary').should('be.visible').click();\ncy.wait(500);\ncy.contains('Select a company').should('be.visible').click();\ncy.wait(500);\ncy.get('input[placeholder=\"Search companies...\"]').type('Pococare');\ncy.wait(500);\ncy.get('button[role=\"menuitem\"]').click();\ncy.wait(500);\ncy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\ncy.contains('benName', {\n  timeout: 20000\n}).should('be.visible');\ncy.wait(500);\nconst requiredHeaders = ['benId', 'email', 'benName', 'benMobile', 'subscriberId'];\nconst headerIndexes = {};\nconst rowData = [];\ncy.get('thead th').each(($th, index) => {\n  const headerText = $th.text().trim();\n  if (requiredHeaders.includes(headerText)) {\n    headerIndexes[headerText] = index;\n  }\n}).then(() => {\n  cy.get('tbody tr').first().within(() => {\n    requiredHeaders.forEach(header => {\n      const index = headerIndexes[header];\n      cy.get('td').eq(index).invoke('text').then(text => {\n        rowData.push(text.trim());\n      });\n    });\n  });\n}).then(() => {\n  cy.log('Row Data:', JSON.stringify(rowData));\n  expect(rowData[0]).to.match(/^[a-f0-9]{24}$/);\n  expect(rowData[1]).to.include('@');\n  cy.reload();\n  cy.wait(1000);\n  // All dependent actions should go here!\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter benId\"]').scrollIntoView().type(rowData[0]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter email\"]').scrollIntoView().type(rowData[1]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter name\"]').scrollIntoView().type(rowData[2]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter PhoneNumber\"]').scrollIntoView().type(rowData[3]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter city\"]').scrollIntoView().type('Bangalore');\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter pinCode\"]').scrollIntoView().type('560103');\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter subscriberId\"]').scrollIntoView().type(rowData[4]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.get('input[placeholder=\"Enter subscriberEmail\"]').scrollIntoView().type(rowData[1]);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(1).click();\n  cy.contains('benName', {\n    timeout: 20000\n  }).should('be.visible');\n  cy.wait(500);\n  cy.get('button[class=\"BenAddressData_button__0kXLn\"]').eq(2).click();\n  cy.contains('No data Found', {\n    timeout: 20000\n  }).should('be.visible');\n});",
+              "err": {},
+              "uuid": "5275a0ea-c347-468a-9f17-3cab16bd396f",
+              "parentUUID": "4075d92e-dcf1-466b-b6ee-7e51b112a601",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5275a0ea-c347-468a-9f17-3cab16bd396f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26057,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

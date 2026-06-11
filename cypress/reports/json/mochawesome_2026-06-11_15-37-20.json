@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:07:04.145Z",
+    "end": "2026-06-11T10:07:20.869Z",
+    "duration": 16724,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7e559030-d83b-444c-b3f6-895563c41ebb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\Wa\\response.cy.js",
+      "file": "cypress\\e2e\\Smoke\\Wa\\response.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1debdf61-2a4a-4240-837e-0762d8056b48",
+          "title": "res",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "res",
+              "fullTitle": "res res",
+              "timedOut": null,
+              "duration": 15265,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(6).click();\ncy.wait(500);\nconst names = ['Whatsapp Job List', 'jobName', 'agentData', 'createdAt', 'updatedAt', 'status'];\nnames.forEach(name => {\n  cy.get('body').should('contain', name);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Whatsapp Job List'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body.chakra-ui-light>' to contain 'Whatsapp Job List'\n    at eval (webpack:///./cypress/e2e/Smoke/Wa/response.cy.js:18:27)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack:///./cypress/e2e/Smoke/Wa/response.cy.js:17:14)",
+                "diff": null
+              },
+              "uuid": "4181eae3-31bf-4daf-b095-52c42c76a9c6",
+              "parentUUID": "1debdf61-2a4a-4240-837e-0762d8056b48",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4181eae3-31bf-4daf-b095-52c42c76a9c6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15265,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

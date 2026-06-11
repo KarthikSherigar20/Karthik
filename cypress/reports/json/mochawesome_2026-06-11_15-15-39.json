@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T09:45:18.109Z",
+    "end": "2026-06-11T09:45:39.375Z",
+    "duration": 21266,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e355a4fc-375d-4315-90d3-3303f7e52c5d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Integrations\\Dashboard-SelectCompany.cy.js",
+      "file": "cypress\\e2e\\Integrations\\Dashboard-SelectCompany.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "408cb924-d78c-44d3-9c2c-f3bbd35fe93a",
+          "title": "Dashboard-SelectCompany",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should click on SVG icon, wait, and log dropdown details",
+              "fullTitle": "Dashboard-SelectCompany should click on SVG icon, wait, and log dropdown details",
+              "timedOut": null,
+              "duration": 19116,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// cy.visit('/your-page-url'); // Replace with your page URL\n// Step 1: Click on the SVG icon\ncy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(0).click();\n// Step 2: Wait for 1 second (not recommended but included as per request)\ncy.wait(1000);\n// const dropdownValues = [];\n// cy.contains('option', 'Select Company').click({ force: true });\n// cy.get('.CustomSelect_select_border__lWd7w')\n//     .find('option')\n//     .each(($ec) => {\n//         dropdownValues.push($ec.text()); // Collect all dropdown values\n//     })\n//     .then(() => {\n//         // Iterate over the collected values\n//         dropdownValues.forEach((value) => {\n//             cy.get('.CustomSelect_select_border__lWd7w').select(value); // Select the current value\n//             cy.wait(500); // Wait for any potential UI updates\n//             if (value !== 'Select Company') {\n//                 cy.get('.CustomSelect_select_border__lWd7w option:selected')\n//                   .should('have.text', value);\n//             }\n//         });\n//     });\nlet listCompanies = [];\n// Step 1: Click on Select Company input to open dropdown\ncy.get('input[placeholder=\"Select Company\"]').click();\ncy.log('✓ Step 1: Clicked on Select Company input');\n// Step 2: Wait for Chakra select options to appear\ncy.get('[role=\"listbox\"]', {\n  timeout: 8000\n}).should('exist');\ncy.wait(800);\ncy.log('✓ Step 2: Dropdown options visible');\n// Step 3: Extract all companies from visible dropdown options\ncy.get('[role=\"listbox\"] [role=\"option\"]').each($option => {\n  const companyName = $option.text().trim();\n  if (companyName && companyName.length > 0) {\n    listCompanies.push(companyName);\n  }\n}).then(() => {\n  cy.log(`✓ Step 3: Extracted ${listCompanies.length} companies`);\n  listCompanies.forEach((company, idx) => {\n    cy.log(`  ${idx + 1}. ${company}`);\n  });\n});\n// Step 4: Click outside to close dropdown, then clear input\ncy.get('body').click();\ncy.wait(300);\ncy.get('input[placeholder=\"Select Company\"]').clear().then(() => {\n  cy.log('✓ Step 4: Cleared input field');\n});\n// Step 5: Iterate through each company\ncy.then(() => {\n  listCompanies.forEach((company, index) => {\n    cy.log(`\\n--- Testing Company ${index + 1}/${listCompanies.length}: ${company} ---`);\n    // Click to open dropdown\n    cy.get('input[placeholder=\"Select Company\"]').click();\n    cy.wait(500);\n    // Select the company from dropdown\n    cy.get('[role=\"listbox\"] [role=\"option\"]').contains(company).click();\n    cy.wait(800);\n    // Step 6: Verify company text is in input field\n    cy.get('input[placeholder=\"Select Company\"]').should('have.value', company).then(() => {\n      cy.log(`✓ Verified: \"${company}\" is selected in input field`);\n    });\n  });\n  cy.log(`\\n✓ All ${listCompanies.length} companies tested successfully`);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 8000ms: Expected to find element: `[role=\"listbox\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 8000ms: Expected to find element: `[role=\"listbox\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Integrations/Dashboard-SelectCompany.cy.js:50:13)",
+                "diff": null
+              },
+              "uuid": "c448df75-cd08-428c-813c-5660ccaa1e4f",
+              "parentUUID": "408cb924-d78c-44d3-9c2c-f3bbd35fe93a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c448df75-cd08-428c-813c-5660ccaa1e4f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19116,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

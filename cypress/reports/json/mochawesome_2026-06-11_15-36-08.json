@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-11T10:06:00.679Z",
+    "end": "2026-06-11T10:06:08.007Z",
+    "duration": 7328,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "80ca7352-d390-4937-9461-84b24d6ed838",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Smoke\\SearchBen\\Calender&dropdown.cy.js",
+      "file": "cypress\\e2e\\Smoke\\SearchBen\\Calender&dropdown.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bec3e72b-f94c-445d-a1ae-ab8ce0888d08",
+          "title": "C&D",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "C&D",
+              "fullTitle": "C&D C&D",
+              "timedOut": null,
+              "duration": 5823,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[class=\"chakra-icon css-6ey7w3\"]').eq(1).click();\ncy.wait(500);\ncy.get('input[type=\"date\"]').each(da => {\n  cy.wrap(da).scrollIntoView().should('be.enabled').and('be.visible');\n});\ncy.wait(500);\ncy.get('select[style=\"border: 1px solid black;\"]').scrollIntoView().should('be.enabled').and('be.visible');",
+              "err": {},
+              "uuid": "9c9151af-0c72-4c49-9ae2-f8dfdfef02c8",
+              "parentUUID": "bec3e72b-f94c-445d-a1ae-ab8ce0888d08",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9c9151af-0c72-4c49-9ae2-f8dfdfef02c8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5823,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
