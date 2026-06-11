@@ -15,7 +15,7 @@ describe('Login',()=>{
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('Login to your Pococare account now!');
+            expect(bodyText).to.contain('Corporate Login' && 'Customer Login');
         })
     })
 })

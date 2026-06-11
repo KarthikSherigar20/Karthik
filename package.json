@@ -11,7 +11,9 @@
     "node-xlsx": "^0.23.0"
   },
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "report": "mochawesome-merge cypress/reports/json/*.json > cypress/reports/report.json && node generate-report.js",
+    "clean-report": "rmdir /s /q cypress\\reports\\json"
   },
   "dependencies": {
     "convert": "^5.0.0",

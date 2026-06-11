@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:35:10.519Z",
+    "end": "2026-06-11T10:35:24.907Z",
+    "duration": 14388,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a672713f-34e7-4cc7-baec-98084b758777",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\privacypolicy1.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\privacypolicy1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2b6d2b59-4485-4f38-b7eb-b0fe92a500a3",
+          "title": "T&C",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking T&C page",
+              "fullTitle": "T&C Checking T&C page",
+              "timedOut": null,
+              "duration": 12881,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\privacypolicy1.cy.js\\\\T&C -- Checking T&C page (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('terms and conditions').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('terms and conditions').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');\n});\ncy.wait(2000);\ncy.contains('Privacy Policy').click();\ncy.wait(2000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('PRIVACY POLICY');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/privacypolicy1.cy.js:10:44)",
+                "diff": null
+              },
+              "uuid": "edec4a5d-4b84-49fb-b08a-f26f9bef0cbf",
+              "parentUUID": "2b6d2b59-4485-4f38-b7eb-b0fe92a500a3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "edec4a5d-4b84-49fb-b08a-f26f9bef0cbf"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12881,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

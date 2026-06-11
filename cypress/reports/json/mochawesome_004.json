@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:34:23.147Z",
+    "end": "2026-06-11T10:34:37.720Z",
+    "duration": 14573,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ca98fa18-ddc1-444e-8517-e91799036273",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\contactusnow2.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\contactusnow2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "34072a14-449e-4ef6-8f44-8900a474c401",
+          "title": "contact us now",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checking CUN page",
+              "fullTitle": "contact us now checking CUN page",
+              "timedOut": null,
+              "duration": 13157,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\contactusnow2.cy.js\\\\contact us now -- checking CUN page (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\nconst name = 'Contact us Now';\ncy.contains(name).should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains(name).click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Send Message');\n  let name = 'input[placeholder=\"Name\"]';\n  cy.get(name).scrollIntoView().should('be.visible').should('not.be.disabled').type('aaaaaaaaaaaaa').should('have.value', 'aaaaaaaaaaaaa');\n  cy.wait(1000);\n  cy.get(name).clear();\n  cy.wait(1000);\n  let email = 'input[placeholder=\"Email\"]';\n  cy.get(email).scrollIntoView().should('be.visible').should('not.be.disabled').type('aaaaaaaaaaaaa').should('have.value', 'aaaaaaaaaaaaa');\n  cy.wait(1000);\n  cy.get(email).clear();\n  cy.wait(1000);\n  let Pnumber = 'input[placeholder=\"Phone Number\"]';\n  cy.get(Pnumber).scrollIntoView().should('be.visible').should('not.be.disabled').type('9999999999').should('have.value', '9999999999');\n  cy.wait(1000);\n  cy.get(Pnumber).clear();\n  cy.wait(1000);\n  let Subject = 'input[placeholder=\"Subject\"]';\n  cy.get(Subject).scrollIntoView().should('be.visible').should('not.be.disabled').type('aaaaaaaaaaaaa').should('have.value', 'aaaaaaaaaaaaa');\n  cy.wait(1000);\n  cy.get(Subject).clear();\n  cy.wait(1000);\n  let message = 'textarea[placeholder=\"message\"]';\n  cy.get(message).scrollIntoView().should('be.visible').should('not.be.disabled').type('aaaaaaaaaaaaa').should('have.value', 'aaaaaaaaaaaaa');\n  cy.wait(1000);\n  cy.get(message).clear();\n  cy.wait(1000);\n  cy.contains('Send Message').scrollIntoView().should('be.visible').should('not.be.disabled');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Contact us Now' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Contact us Now' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/contactusnow2.cy.js:12:26)",
+                "diff": null
+              },
+              "uuid": "9aee0615-875a-4e7a-bf0a-7f4be32eac4d",
+              "parentUUID": "34072a14-449e-4ef6-8f44-8900a474c401",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9aee0615-875a-4e7a-bf0a-7f4be32eac4d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 13157,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

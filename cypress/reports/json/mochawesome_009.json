@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:35:26.486Z",
+    "end": "2026-06-11T10:35:40.352Z",
+    "duration": 13866,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1d1ebb61-a649-4fb5-b569-b99f98fbaf95",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\T&C.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\T&C.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "39e00428-4a41-4cc6-b47a-dc86c41382bb",
+          "title": "T&C",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking T&C page",
+              "fullTitle": "T&C Checking T&C page",
+              "timedOut": null,
+              "duration": 12510,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\T&C.cy.js\\\\T&C -- Checking T&C page (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('terms and conditions').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('terms and conditions').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/T&C.cy.js:10:44)",
+                "diff": null
+              },
+              "uuid": "062ab5e3-10b8-44a5-af0d-f12ded7f1634",
+              "parentUUID": "39e00428-4a41-4cc6-b47a-dc86c41382bb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "062ab5e3-10b8-44a5-af0d-f12ded7f1634"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12510,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

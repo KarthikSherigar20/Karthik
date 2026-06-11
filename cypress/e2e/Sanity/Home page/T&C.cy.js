@@ -7,13 +7,15 @@ describe('T&C',()=>{
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        cy.contains('terms and conditions').should('be.visible').scrollIntoView();
+        cy.contains('"Terms & Conditions"').should('be.visible').scrollIntoView();
         cy.wait(1500);
-        cy.contains('terms and conditions').click();
+        cy.contains('"Terms & Conditions"')
+        .should('have.attr', 'href')
+        .then((href) => {
+          cy.visit(href);
+        });
         cy.wait(1500);
-        cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');
-        })
+        cy.get('body')
+        .should('contain', 'ANNEXURE A: TERMS OF USE');
     })
 })

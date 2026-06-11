@@ -1,6 +1,6 @@
 import url from '../../../fixtures/urls.json';
 
-describe('contact us now',()=>{
+describe('Contact Us',()=>{
     it('checking CUN page',()=>{
         const selectedEnvironments=url.selectedEnvironment;
         const selectUrl=url.environments[selectedEnvironments];
@@ -8,25 +8,25 @@ describe('contact us now',()=>{
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        const name='Contact us Now';
+        const name='Contact Us';
         cy.contains(name).should('be.visible').scrollIntoView();
         cy.wait(1500);
         cy.contains(name).click();
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('Send Message');
-            cy.get('input[placeholder="Name"]').should('be.visible').should('not.be.disabled');
+            expect(bodyText).to.contain('Submit');
+            cy.get('input[placeholder="Full Name*"]').should('be.visible').should('not.be.disabled');
             cy.wait(1000);
-            cy.get('input[placeholder="Email"]').should('be.visible').should('not.be.disabled');
+            cy.get('input[placeholder="Email*"]').should('be.visible').should('not.be.disabled');
             cy.wait(1000);
             cy.get('input[placeholder="Phone Number"]').should('be.visible').should('not.be.disabled');
             cy.wait(1000);
-            cy.get('input[placeholder="Subject"]').should('be.visible').should('not.be.disabled');
+            cy.get('input[placeholder="Please select a subject"]').should('be.visible').should('not.be.disabled');
             cy.wait(1000);
-            cy.get('textarea[placeholder="message"]').should('be.visible').should('not.be.disabled');
+            cy.get('textarea[placeholder="Message"]').should('be.visible').should('not.be.disabled');
             cy.wait(1000);
-            cy.contains('Send Message').should('be.visible').should('not.be.disabled');
+            cy.contains('Submit').should('be.visible').should('not.be.disabled');
         })
     })
 })

@@ -4,13 +4,13 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = defineConfig({
-  reporter: "cypress-mochawesome-reporter",
-
-  // pageLoadTimeout: 180000,
-  // watchForFileChanges: false,
-
-  video: false,
-
+reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports/json",
+    overwrite: false,
+    html: false,
+    json: true
+  },
   e2e: {
     setupNodeEvents(on, config) {
       require("cypress-mochawesome-reporter/plugin")(on);

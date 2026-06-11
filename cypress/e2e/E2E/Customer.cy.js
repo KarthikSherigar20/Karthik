@@ -1,46 +1,50 @@
 import Elements from "../../Objects/Elements";
 const url = require('../../fixtures/urls.json');
 
-describe('Customer login', () => {
-    before(() => {
-        cy.parseXlsx('cypress/Excels/Insurance information.xlsx').then((jsonData) => {
-            const rowLength = Cypress.$(jsonData[0].data).length;
-            cy.log(rowLength);
-            const firstRow = jsonData[0].data[1]; // Assuming the login details are in the first row 
+describe('Customer E2E', () => {
+  let elements;
 
-            const selectedEnvironment = url.selectedEnvironment;
-            const selectUrl = url.environments[selectedEnvironment];
+  before(() => {
+    cy.parseXlsx('cypress/Excels/Insurance information.xlsx').then((jsonData) => {
+      const loginEmail = jsonData[0].data[1][0];
+      const baseUrl = url.environments[url.selectedEnvironment];
 
-            cy.visit(selectUrl);  //Mention urlname: Dev or Stage or Prod
-
-            const P1 = new Elements();
-            // P1.loginbtn();
-            P1.email(firstRow[0]); // Assuming email is in the first column
-            P1.sendotp();
-            cy.wait(3500);
-            P1.PTA();
-            cy.wait(1000);
-            P1.OTP();
-            cy.wait(1000);
-            P1.verify();
-        });
+      cy.visit(baseUrl);
+      elements = new Elements();
+      elements.email(loginEmail);
+      elements.sendotp();
+      cy.get('input[aria-label="Please enter OTP character 1"]').should('be.visible');
+      elements.PTA();
+      elements.OTP();
+      cy.contains('Verify').should('be.visible').click();
     });
-    it('E@E', () => {
-        const P1 = new Elements();
-        P1.Addben();
-        cy.wait(1500);
-        cy.get('input#chakra-input css-1cjy4zv').type('Test');
-        cy.wait(500);
-        cy.get('select[id="field-:r1a:"]').select('Others');
-        cy.wait(500);
-        cy.get('input[placeholder="00000-00000"]').type('8888885896');
-        cy.wait(500);
-        cy.get('#field-:r1c:').type('Bangalore');
-        cy.wait(500);
-        cy.get('#field-:r1d:').type('560103');
-        cy.wait(500);
+  });
 
+  it('should add beneficiary with valid details', () => {
+    cy.get('svg.DashBoard_floatingbutton__JYFh9', { timeout: 10000 })
+      .should('be.visible')
+      .click();
 
-    })
+    cy.get('input.chakra-input').eq(0)
+      .should('be.visible')
+      .type('Test');
 
-})
+    cy.get('select.chakra-select')
+      .should('be.visible')
+      .select('Others');
+
+    cy.get('input[placeholder="00000-00000"]')
+      .should('be.visible')
+      .type('8888885896');
+
+    cy.get('input.chakra-input').eq(1)
+      .should('be.visible')
+      .type('Bangalore');
+
+    cy.get('input.chakra-input').eq(2)
+      .should('be.visible')
+      .type('560103');
+
+    cy.contains('button', 'Add').should('be.visible').click();
+  });
+});
