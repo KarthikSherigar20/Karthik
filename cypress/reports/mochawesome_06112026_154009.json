@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:10:08.364Z",
+    "end": "2026-06-11T10:10:09.363Z",
+    "duration": 999,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a1bc81ea-3697-452f-8d4d-3355b902b722",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ed3c4fd5-2f91-4514-a7be-6d123d5e0be7",
+          "title": "Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Buttons Buttons",
+              "timedOut": null,
+              "duration": 929,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Buttons.cy.js\\\\Buttons -- Buttons -- before all hook (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('button[class=\"button undefined ticketFilter_button__QAw0v\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Tickets').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Logout').should('be.visible').should('not.be.disabled');\ncy.wait(1500);",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://adminapp.dev.pococare.com/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Buttons`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://adminapp.dev.pococare.com/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Buttons`\n    at <unknown> (http://localhost:58184/__cypress/runner/cypress_runner.js:131491:76)\n    at visitFailedByErr (http://localhost:58184/__cypress/runner/cypress_runner.js:130906:12)\n    at <unknown> (http://localhost:58184/__cypress/runner/cypress_runner.js:131474:13)\n    at tryCatcher (http://localhost:58184/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:58184/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:58184/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:58184/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:58184/__cypress/runner/cypress_runner.js:1697:18)\n    at _drainQueueStep (http://localhost:58184/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:58184/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:58184/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:58184/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at login (webpack:///./cypress/support/login.js:13:5)\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home Page/Buttons.cy.js:6:18)",
+                "diff": null
+              },
+              "uuid": "4473422e-3c9d-4fb4-a282-95abc6e24450",
+              "parentUUID": "ed3c4fd5-2f91-4514-a7be-6d123d5e0be7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4473422e-3c9d-4fb4-a282-95abc6e24450"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 929,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

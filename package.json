@@ -2,12 +2,14 @@
   "devDependencies": {
     "cypress": "^13.13.0",
     "cypress-mochawesome-reporter": "^3.8.2",
-    "mochawesome": "^7.1.3",
+    "mochawesome": "^7.1.4",
     "mochawesome-merge": "^4.4.1",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.3.2"
   },
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "report": "mochawesome-merge cypress/reports/json/*.json > cypress/reports/report.json && node generate-report.js",
+    "clean-report": "rmdir /s /q cypress\\reports\\json"
   },
   "dependencies": {
     "mongodb": "^6.8.0"

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:10:13.776Z",
+    "end": "2026-06-11T10:10:14.508Z",
+    "duration": 732,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "48901914-d12f-42b5-8f46-f2cedf4f80a7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home Page\\Ticketstatus.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home Page\\Ticketstatus.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9ee17e2c-43c9-4ec2-9ce5-30fd010ffad5",
+          "title": "Ticketstatus",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ticketstatus",
+              "fullTitle": "Ticketstatus Ticketstatus",
+              "timedOut": null,
+              "duration": 674,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Ticketstatus.cy.js\\\\Ticketstatus -- Ticketstatus -- before all hook (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('span[class=\"ant-select-selection-placeholder\"]').eq(0).click({\n  force: true\n});\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(0).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('New');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(1).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('Work In Progress');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(2).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('Cancelled');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(3).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('Completed');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(4).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('TestDemo');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(5).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('Customer Test');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(6).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('Internal Test');\n});\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).click();\ncy.wait(1000);\ncy.get('div[class=\"ant-select-item-option-content\"]').eq(7).click();\ncy.wait(1000);\ncy.get('span[class=\"ant-select-selection-item\"]').eq(0).invoke('text').then(text => {\n  expect(text.trim()).to.include('GeneralEnquiry');\n});",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://adminapp.dev.pococare.com/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Ticketstatus`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://adminapp.dev.pococare.com/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Ticketstatus`\n    at <unknown> (http://localhost:58184/__cypress/runner/cypress_runner.js:131491:76)\n    at visitFailedByErr (http://localhost:58184/__cypress/runner/cypress_runner.js:130906:12)\n    at <unknown> (http://localhost:58184/__cypress/runner/cypress_runner.js:131474:13)\n    at tryCatcher (http://localhost:58184/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:58184/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:58184/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:58184/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:58184/__cypress/runner/cypress_runner.js:1697:18)\n    at _drainQueueStep (http://localhost:58184/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:58184/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:58184/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:58184/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at login (webpack:///./cypress/support/login.js:13:5)\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home Page/Ticketstatus.cy.js:6:18)",
+                "diff": null
+              },
+              "uuid": "c5ca6816-b6b3-4c60-91c5-e69e14bee280",
+              "parentUUID": "9ee17e2c-43c9-4ec2-9ce5-30fd010ffad5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c5ca6816-b6b3-4c60-91c5-e69e14bee280"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 674,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

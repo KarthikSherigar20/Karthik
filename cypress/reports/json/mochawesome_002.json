@@ -1,80 +1,22 @@
 {
   "stats": {
-    "suites": 3,
-    "tests": 3,
-    "passes": 1,
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
     "pending": 0,
-    "failures": 2,
-    "testsRegistered": 3,
-    "passPercent": 33.333333333333336,
+    "failures": 1,
+    "start": "2026-06-11T10:21:53.100Z",
+    "end": "2026-06-11T10:22:10.534Z",
+    "duration": 17434,
+    "testsRegistered": 1,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
-    "hasSkipped": false,
-    "start": "2026-06-11T10:21:18.175Z",
-    "end": "2026-06-11T10:22:10.534Z",
-    "duration": 52359
+    "hasSkipped": false
   },
   "results": [
-    {
-      "uuid": "622278aa-3115-4111-b245-5a00e9ed9f22",
-      "title": "",
-      "fullFile": "cypress\\e2e\\Sanity\\Home Page\\Logout.cy.js",
-      "file": "cypress\\e2e\\Sanity\\Home Page\\Logout.cy.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [],
-      "suites": [
-        {
-          "uuid": "5bacb081-1c26-4621-9a0e-e6bb727733c9",
-          "title": "Logout",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Logout",
-              "fullTitle": "Logout Logout",
-              "timedOut": null,
-              "duration": 6589,
-              "state": "passed",
-              "speed": "medium",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.get('body').should('contain', 'Logout').should('be.visible').should('not.be.disabled');\ncy.wait(1000);\ncy.contains('Logout').click();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText.includes('Admin Login'));\n  expect(bodyText.includes('Login with Microsoft'));\n});",
-              "err": {},
-              "uuid": "defc4ac9-6394-407c-942a-d09adea6c97b",
-              "parentUUID": "5bacb081-1c26-4621-9a0e-e6bb727733c9",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "defc4ac9-6394-407c-942a-d09adea6c97b"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 6589,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        }
-      ],
-      "passes": [],
-      "failures": [],
-      "pending": [],
-      "skipped": [],
-      "duration": 0,
-      "root": true,
-      "rootEmpty": true,
-      "_timeout": 2000
-    },
     {
       "uuid": "bbff75ba-7164-43f7-ac97-38d2ae3039c0",
       "title": "",
@@ -123,68 +65,6 @@
           "pending": [],
           "skipped": [],
           "duration": 16034,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        }
-      ],
-      "passes": [],
-      "failures": [],
-      "pending": [],
-      "skipped": [],
-      "duration": 0,
-      "root": true,
-      "rootEmpty": true,
-      "_timeout": 2000
-    },
-    {
-      "uuid": "f6e4bd98-ef2e-4fff-b19e-1ea16093b65d",
-      "title": "",
-      "fullFile": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
-      "file": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [],
-      "suites": [
-        {
-          "uuid": "dbffb2c7-4473-49f5-bb29-0fd5d4e278cf",
-          "title": "Buttons",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Buttons",
-              "fullTitle": "Buttons Buttons",
-              "timedOut": null,
-              "duration": 21076,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Buttons.cy.js\\\\Buttons -- Buttons (failed).png\"\n    ]\n  ]\n}",
-              "code": "cy.get('div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('button[class=\"button undefined ticketFilter_button__QAw0v\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Tickets').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Logout').should('be.visible').should('not.be.disabled');\ncy.wait(1500);",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]`, but never found it.",
-                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home Page/Buttons.cy.js:13:106)",
-                "diff": null
-              },
-              "uuid": "bf85fdad-e55f-4cf2-9fd2-aec602d952cd",
-              "parentUUID": "dbffb2c7-4473-49f5-bb29-0fd5d4e278cf",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [],
-          "failures": [
-            "bf85fdad-e55f-4cf2-9fd2-aec602d952cd"
-          ],
-          "pending": [],
-          "skipped": [],
-          "duration": 21076,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

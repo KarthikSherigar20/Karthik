@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-11T10:21:18.175Z",
+    "end": "2026-06-11T10:21:41.124Z",
+    "duration": 22949,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6e4bd98-ef2e-4fff-b19e-1ea16093b65d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home Page\\Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dbffb2c7-4473-49f5-bb29-0fd5d4e278cf",
+          "title": "Buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Buttons",
+              "fullTitle": "Buttons Buttons",
+              "timedOut": null,
+              "duration": 21076,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Buttons.cy.js\\\\Buttons -- Buttons (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('span[class=\"ant-select-selection-search\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('button[class=\"button undefined ticketFilter_button__QAw0v\"]').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(0).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('div[class=\"ant-col css-zg0ahe\"]').eq(1).should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Tickets').should('be.visible').should('not.be.disabled');\ncy.wait(1500);\ncy.get('body').should('contain', 'Logout').should('be.visible').should('not.be.disabled');\ncy.wait(1500);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `div[class=\"ant-picker ant-picker-range ant-picker-outlined css-zg0ahe sc-aYaIB jefQnB\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home Page/Buttons.cy.js:13:106)",
+                "diff": null
+              },
+              "uuid": "bf85fdad-e55f-4cf2-9fd2-aec602d952cd",
+              "parentUUID": "dbffb2c7-4473-49f5-bb29-0fd5d4e278cf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bf85fdad-e55f-4cf2-9fd2-aec602d952cd"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21076,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
