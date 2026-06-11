@@ -9,12 +9,20 @@ describe('textfields', () => {
     it('textfields', () => {
         cy.get('svg[class="chakra-icon css-6ey7w3"]').eq(1).click();
         cy.wait(500);
+        cy.contains('Search By Beneficiary').should('be.visible').click();
+        cy.wait(500);
+        cy.contains('Select a company').should('be.visible').click();
+        cy.wait(500);
+        cy.get('input[placeholder="Search companies..."]').type('Pococare');
+        cy.wait(500);
+        cy.get('button[role="menuitem"]').click();
+        cy.wait(500);
         cy.get('button[class="BenAddressData_button__0kXLn"]').eq(1).click();
         cy.contains('benName', { timeout: 20000 }).should('be.visible');
 
         cy.wait(500);
 
-        const requiredHeaders = ['benId', 'email', 'benName', 'benMobile'];
+        const requiredHeaders = ['benId', 'email', 'benName', 'benMobile', 'subscriberId'];
         const headerIndexes = {};
         const rowData = [];
 
@@ -36,6 +44,9 @@ describe('textfields', () => {
             cy.log('Row Data:', JSON.stringify(rowData));
             expect(rowData[0]).to.match(/^[a-f0-9]{24}$/);
             expect(rowData[1]).to.include('@');
+
+            cy.reload();
+            cy.wait(1000);
 
             // All dependent actions should go here!
             cy.get('button[class="BenAddressData_button__0kXLn"]').eq(2).click();
@@ -87,6 +98,24 @@ describe('textfields', () => {
             cy.contains('No data Found', { timeout: 20000 }).should('be.visible');
 
             cy.get('input[placeholder="Enter pinCode"]').scrollIntoView().type('560103');
+            cy.get('button[class="BenAddressData_button__0kXLn"]').eq(1).click();
+
+            cy.contains('benName', { timeout: 20000 }).should('be.visible');
+            cy.wait(500);
+
+            cy.get('button[class="BenAddressData_button__0kXLn"]').eq(2).click();
+            cy.contains('No data Found', { timeout: 20000 }).should('be.visible');
+
+            cy.get('input[placeholder="Enter subscriberId"]').scrollIntoView().type(rowData[4]);
+            cy.get('button[class="BenAddressData_button__0kXLn"]').eq(1).click();
+
+            cy.contains('benName', { timeout: 20000 }).should('be.visible');
+            cy.wait(500);
+
+            cy.get('button[class="BenAddressData_button__0kXLn"]').eq(2).click();
+            cy.contains('No data Found', { timeout: 20000 }).should('be.visible');
+
+            cy.get('input[placeholder="Enter subscriberEmail"]').scrollIntoView().type(rowData[1]);
             cy.get('button[class="BenAddressData_button__0kXLn"]').eq(1).click();
 
             cy.contains('benName', { timeout: 20000 }).should('be.visible');
