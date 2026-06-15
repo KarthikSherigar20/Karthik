@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2026-06-11T10:35:26.486Z",
-    "end": "2026-06-11T10:35:40.352Z",
-    "duration": 13866,
+    "start": "2026-06-12T05:20:41.443Z",
+    "end": "2026-06-12T05:21:13.649Z",
+    "duration": 32206,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,41 +18,41 @@
   },
   "results": [
     {
-      "uuid": "1d1ebb61-a649-4fb5-b569-b99f98fbaf95",
+      "uuid": "6d55a057-9f7a-48ab-a2c2-c19ed88fd43f",
       "title": "",
-      "fullFile": "cypress\\e2e\\Sanity\\Home page\\T&C.cy.js",
-      "file": "cypress\\e2e\\Sanity\\Home page\\T&C.cy.js",
+      "fullFile": "cypress\\e2e\\DataFlow\\Address\\Addresslabel_Work.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Address\\Addresslabel_Work.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "39e00428-4a41-4cc6-b47a-dc86c41382bb",
-          "title": "T&C",
+          "uuid": "b52563f4-19b1-47a0-9eaf-afc8076a8997",
+          "title": "Addresslabel_Work",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Checking T&C page",
-              "fullTitle": "T&C Checking T&C page",
+              "title": "Age",
+              "fullTitle": "Addresslabel_Work Age",
               "timedOut": null,
-              "duration": 12510,
+              "duration": 30746,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\T&C.cy.js\\\\T&C -- Checking T&C page (failed).png\"\n    ]\n  ]\n}",
-              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('terms and conditions').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('terms and conditions').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');\n});",
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\DataFlow\\\\Address\\\\Addresslabel_Work.cy.js\\\\Addresslabel_Work -- Age (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\n// cy.wait(1500);\n// cy.contains('Login').click();\n// cy.wait(1500);\ncy.get('input[placeholder=\"Email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.contains('Get OTP').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Address').click();\ncy.wait(1000);\ncy.contains('Add Another Address').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Address').click();\n    cy.wait(1000);\n    cy.contains('Add New').click();\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).scrollIntoView().select('Work');\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).scrollIntoView().should('have.value', 'Work');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
               "err": {
-                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.",
-                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/T&C.cy.js:10:44)",
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[class=\"chakra-select css-161pkch\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[class=\"chakra-select css-161pkch\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/Address/Addresslabel_Work.cy.js:42:19)",
                 "diff": null
               },
-              "uuid": "062ab5e3-10b8-44a5-af0d-f12ded7f1634",
-              "parentUUID": "39e00428-4a41-4cc6-b47a-dc86c41382bb",
+              "uuid": "c2a3a12d-d2ce-4575-8f79-96bd901aa717",
+              "parentUUID": "b52563f4-19b1-47a0-9eaf-afc8076a8997",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "062ab5e3-10b8-44a5-af0d-f12ded7f1634"
+            "c2a3a12d-d2ce-4575-8f79-96bd901aa717"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 12510,
+          "duration": 30746,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

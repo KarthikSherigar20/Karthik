@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T05:29:28.948Z",
+    "end": "2026-06-12T05:29:44.472Z",
+    "duration": 15524,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ec354bf6-d93f-40dd-af8d-46051d5c6a0a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Emergency Contact\\Relationship_Spouse.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Emergency Contact\\Relationship_Spouse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "590ddba9-df80-4f76-a9cc-559be4219323",
+          "title": "Relationship_Spouse",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Relationship_Spouse",
+              "fullTitle": "Relationship_Spouse Relationship_Spouse",
+              "timedOut": null,
+              "duration": 14268,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\DataFlow\\\\Emergency Contact\\\\Relationship_Spouse.cy.js\\\\Relationship_Spouse -- Relationship_Spouse (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Emergency Contact').click();\ncy.wait(1000);\ncy.contains('Add Another Contact').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Contact').click();\n    cy.wait(1000);\n    let relation = 'select[class=\"chakra-select css-161pkch\"]';\n    cy.get(relation).eq(1).select('Spouse');\n    cy.wait(1000);\n    cy.get(relation).eq(1).should('have.value', 'Spouse');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[id=\"email\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[id=\"email\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/Emergency Contact/Relationship_Spouse.cy.js:14:11)",
+                "diff": null
+              },
+              "uuid": "9aefaee6-15bf-4059-afe9-860978832d96",
+              "parentUUID": "590ddba9-df80-4f76-a9cc-559be4219323",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9aefaee6-15bf-4059-afe9-860978832d96"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14268,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

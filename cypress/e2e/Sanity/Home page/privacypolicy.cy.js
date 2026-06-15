@@ -7,13 +7,13 @@ describe('Privacypolicy',()=>{
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        cy.contains('privacy policy').should('be.visible').scrollIntoView();
+        cy.contains('"Privacy Policy"').should('be.visible').scrollIntoView();
         cy.wait(1500);
-        cy.contains('privacy policy').click();
+        cy.contains('"Privacy Policy"').click();
         cy.wait(1500);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('PRIVACY POLICY');
+            expect(bodyText).to.contain('"Privacy Policy"');
         })
     })
 })

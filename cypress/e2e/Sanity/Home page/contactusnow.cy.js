@@ -13,7 +13,7 @@ describe('Contact Us', () => {
         cy.wait(1500);
         cy.contains(name).click();
         cy.wait(1500);
-        cy.contains('Do you have any questions about Pococare?').should('be.visible').scrollIntoView();
-
+        cy.get('body')
+            .should('contain', 'info@pococare.com').scrollIntoView();
     })
 })

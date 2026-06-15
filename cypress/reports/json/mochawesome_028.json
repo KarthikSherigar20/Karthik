@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T05:28:00.454Z",
+    "end": "2026-06-12T05:28:16.534Z",
+    "duration": 16080,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "967111bd-1b0f-49b9-8101-063dbf9978f0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Emergency Contact\\Relationship_Mother-In-Law.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Emergency Contact\\Relationship_Mother-In-Law.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b05a88bb-a11f-442d-9357-7d8109db1d01",
+          "title": "Relationship_Mother-In-Law",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Relationship_Mother-In-Law",
+              "fullTitle": "Relationship_Mother-In-Law Relationship_Mother-In-Law",
+              "timedOut": null,
+              "duration": 14605,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\DataFlow\\\\Emergency Contact\\\\Relationship_Mother-In-Law.cy.js\\\\Relationship_Mother-In-Law -- Relationship_Mother-In-Law (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.contains('Login').click();\ncy.wait(1500);\ncy.get('input[id=\"email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.get('button[type=\"submit\"]').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Emergency Contact').click();\ncy.wait(1000);\ncy.contains('Add Another Contact').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Contact').click();\n    cy.wait(1000);\n    let relation = 'select[class=\"chakra-select css-161pkch\"]';\n    cy.get(relation).eq(1).select('Mother-In-Law');\n    cy.wait(1000);\n    cy.get(relation).eq(1).should('have.value', 'Mother-In-Law');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[id=\"email\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[id=\"email\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/Emergency Contact/Relationship_Mother-In-Law.cy.js:14:11)",
+                "diff": null
+              },
+              "uuid": "2e3cff3c-631d-4862-ba70-2e1da2af09f2",
+              "parentUUID": "b05a88bb-a11f-442d-9357-7d8109db1d01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2e3cff3c-631d-4862-ba70-2e1da2af09f2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14605,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

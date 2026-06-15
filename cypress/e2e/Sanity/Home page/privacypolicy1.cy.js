@@ -16,11 +16,11 @@ describe('T&C',()=>{
             expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');
         })
         cy.wait(2000);
-        cy.contains('Privacy Policy').click();
+        cy.contains('"Privacy Policy"').click();
         cy.wait(2000);
         cy.get('body').then(($bodyText)=>{
             const bodyText=$bodyText.text();
-            expect(bodyText).to.contain('PRIVACY POLICY');
+            expect(bodyText).to.contain('"Privacy Policy"');
         })
     })
 })

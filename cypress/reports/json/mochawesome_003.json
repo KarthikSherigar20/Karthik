@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2026-06-11T10:34:07.267Z",
-    "end": "2026-06-11T10:34:21.248Z",
-    "duration": 13981,
+    "start": "2026-06-12T05:17:48.216Z",
+    "end": "2026-06-12T05:18:15.501Z",
+    "duration": 27285,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,41 +18,41 @@
   },
   "results": [
     {
-      "uuid": "d47e9475-68aa-4614-befa-4979ec41a71d",
+      "uuid": "2d034e5a-27ff-4ce2-84b4-d044c86828b1",
       "title": "",
-      "fullFile": "cypress\\e2e\\Sanity\\Home page\\contactusnow1.cy.js",
-      "file": "cypress\\e2e\\Sanity\\Home page\\contactusnow1.cy.js",
+      "fullFile": "cypress\\e2e\\E2E\\Adding Preferred hospital.cy.js",
+      "file": "cypress\\e2e\\E2E\\Adding Preferred hospital.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "c34f6121-1f79-4663-abac-e8c04d7cc726",
-          "title": "contact us now",
+          "uuid": "1a48e6d0-bbb8-4b88-96e3-d0fbd2599fb4",
+          "title": "Preferred hospital",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "checking CUN page",
-              "fullTitle": "contact us now checking CUN page",
+              "title": "Preferred hospital",
+              "fullTitle": "Preferred hospital Preferred hospital",
               "timedOut": null,
-              "duration": 12555,
+              "duration": 25699,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\contactusnow1.cy.js\\\\contact us now -- checking CUN page (failed).png\"\n    ]\n  ]\n}",
-              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\nconst name = 'Contact us Now';\ncy.contains(name).should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains(name).click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Send Message');\n  cy.get('input[placeholder=\"Name\"]').should('be.visible').should('not.be.disabled');\n  cy.wait(1000);\n  cy.get('input[placeholder=\"Email\"]').should('be.visible').should('not.be.disabled');\n  cy.wait(1000);\n  cy.get('input[placeholder=\"Phone Number\"]').should('be.visible').should('not.be.disabled');\n  cy.wait(1000);\n  cy.get('input[placeholder=\"Subject\"]').should('be.visible').should('not.be.disabled');\n  cy.wait(1000);\n  cy.get('textarea[placeholder=\"message\"]').should('be.visible').should('not.be.disabled');\n  cy.wait(1000);\n  cy.contains('Send Message').should('be.visible').should('not.be.disabled');\n});",
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\E2E\\\\Adding Preferred hospital.cy.js\\\\Preferred hospital -- Preferred hospital -- before all hook (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.parseXlsx('cypress/Excels/Preferred hospital.xlsx').then(jsonData => {\n  const rowLength = Cypress.$(jsonData[0].data).length;\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    // Adding ben\n    const P1 = new _Elements.default();\n    cy.wait(1500);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      if (bodyText.includes('Add Preferred Hospital')) {\n        P1.preferredhospital();\n      } else {\n        cy.get('div[class=\"ProfilePreferredHospital_editIcon__qIa1L css-0\"]').click();\n      }\n      cy.wait(1500);\n      P1.Addhospital();\n      cy.wait(1500);\n      P1.Cityname(value[2]);\n      cy.wait(1500);\n      P1.Hospitalname(value[3]);\n      cy.wait(5000);\n      P1.savehospital();\n      cy.wait(1500);\n    });\n  }\n  //validation\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    const P1 = new _Elements.default();\n    cy.wait(2000);\n    cy.contains('Preferred Hospital').scrollIntoView().should('be.visible');\n    cy.wait(2000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      const Text = value[3];\n      const partialText = Text.charAt(0).toUpperCase() + Text.slice(1).toLowerCase();\n      expect(bodyText).to.include(partialText);\n    });\n  }\n});",
               "err": {
-                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Contact us Now' but never did.",
-                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Contact us Now' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/contactusnow1.cy.js:12:26)",
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'TEST1' but never did.\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Preferred hospital`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'TEST1' but never did.\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Preferred hospital`\n    at Context.eval (webpack:///./cypress/e2e/E2E/Adding Preferred hospital.cy.js:30:11)",
                 "diff": null
               },
-              "uuid": "efa2877c-f1c1-4002-85ae-771b8c86c40a",
-              "parentUUID": "c34f6121-1f79-4663-abac-e8c04d7cc726",
+              "uuid": "9c79571e-1abc-436e-ac24-b48e8d0b5cd4",
+              "parentUUID": "1a48e6d0-bbb8-4b88-96e3-d0fbd2599fb4",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "efa2877c-f1c1-4002-85ae-771b8c86c40a"
+            "9c79571e-1abc-436e-ac24-b48e8d0b5cd4"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 12555,
+          "duration": 25699,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

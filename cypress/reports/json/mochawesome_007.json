@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2026-06-11T10:34:54.555Z",
-    "end": "2026-06-11T10:35:08.887Z",
-    "duration": 14332,
+    "start": "2026-06-12T05:19:32.655Z",
+    "end": "2026-06-12T05:20:05.249Z",
+    "duration": 32594,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,41 +18,41 @@
   },
   "results": [
     {
-      "uuid": "af99bedb-043b-484b-a87e-6adf82f29e5f",
+      "uuid": "76c7838b-9b3d-4fa2-a8cb-2c2dd474f25c",
       "title": "",
-      "fullFile": "cypress\\e2e\\Sanity\\Home page\\privacypolicy.cy.js",
-      "file": "cypress\\e2e\\Sanity\\Home page\\privacypolicy.cy.js",
+      "fullFile": "cypress\\e2e\\DataFlow\\Address\\Addresslabel_Home.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Address\\Addresslabel_Home.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "08a3acf2-bdb7-41fa-9f86-82d9bafc6bbe",
-          "title": "Privacypolicy",
+          "uuid": "3151e668-d313-425d-918a-e013fa955e77",
+          "title": "Addresslabel_Home",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "checking P&P page ",
-              "fullTitle": "Privacypolicy checking P&P page ",
+              "title": "Age",
+              "fullTitle": "Addresslabel_Home Age",
               "timedOut": null,
-              "duration": 12562,
+              "duration": 31114,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\privacypolicy.cy.js\\\\Privacypolicy -- checking P&P page (failed).png\"\n    ]\n  ]\n}",
-              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('privacy policy').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('privacy policy').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('PRIVACY POLICY');\n});",
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\DataFlow\\\\Address\\\\Addresslabel_Home.cy.js\\\\Addresslabel_Home -- Age (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\n// cy.wait(1500);\n// cy.contains('Login').click();\n// cy.wait(1500);\ncy.get('input[placeholder=\"Email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.contains('Get OTP').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Address').click();\ncy.wait(1000);\ncy.contains('Add Another Address').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Address').click();\n    cy.wait(1000);\n    cy.contains('Add New').click();\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).scrollIntoView().select('Home');\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).scrollIntoView().should('have.value', 'Home');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
               "err": {
-                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'privacy policy' but never did.",
-                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'privacy policy' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/privacypolicy.cy.js:10:38)",
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[class=\"chakra-select css-161pkch\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[class=\"chakra-select css-161pkch\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/Address/Addresslabel_Home.cy.js:42:19)",
                 "diff": null
               },
-              "uuid": "e8136183-b109-4fec-9b99-da7f462285d0",
-              "parentUUID": "08a3acf2-bdb7-41fa-9f86-82d9bafc6bbe",
+              "uuid": "3365d4ef-a77a-42f6-bc30-42f12632f81c",
+              "parentUUID": "3151e668-d313-425d-918a-e013fa955e77",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "e8136183-b109-4fec-9b99-da7f462285d0"
+            "3365d4ef-a77a-42f6-bc30-42f12632f81c"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 12562,
+          "duration": 31114,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

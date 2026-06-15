@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 1,
-    "start": "2026-06-11T10:35:10.519Z",
-    "end": "2026-06-11T10:35:24.907Z",
-    "duration": 14388,
+    "start": "2026-06-12T05:20:07.023Z",
+    "end": "2026-06-12T05:20:39.496Z",
+    "duration": 32473,
     "testsRegistered": 1,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,41 +18,41 @@
   },
   "results": [
     {
-      "uuid": "a672713f-34e7-4cc7-baec-98084b758777",
+      "uuid": "24dc2c28-d23b-4498-b61d-c3724c6d4cec",
       "title": "",
-      "fullFile": "cypress\\e2e\\Sanity\\Home page\\privacypolicy1.cy.js",
-      "file": "cypress\\e2e\\Sanity\\Home page\\privacypolicy1.cy.js",
+      "fullFile": "cypress\\e2e\\DataFlow\\Address\\Addresslabel_Others.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Address\\Addresslabel_Others.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "2b6d2b59-4485-4f38-b7eb-b0fe92a500a3",
-          "title": "T&C",
+          "uuid": "5c22dda1-4ccb-4819-a092-0f81b263c745",
+          "title": "Addresslabel_Others",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "Checking T&C page",
-              "fullTitle": "T&C Checking T&C page",
+              "title": "Age",
+              "fullTitle": "Addresslabel_Others Age",
               "timedOut": null,
-              "duration": 12881,
+              "duration": 30890,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
-              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\privacypolicy1.cy.js\\\\T&C -- Checking T&C page (failed).png\"\n    ]\n  ]\n}",
-              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('terms and conditions').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('terms and conditions').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('ANNEXURE A: TERMS OF USE');\n});\ncy.wait(2000);\ncy.contains('Privacy Policy').click();\ncy.wait(2000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('PRIVACY POLICY');\n});",
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\DataFlow\\\\Address\\\\Addresslabel_Others.cy.js\\\\Addresslabel_Others -- Age (failed).png\"\n    ]\n  ]\n}",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\n// cy.wait(1500);\n// cy.contains('Login').click();\n// cy.wait(1500);\ncy.get('input[placeholder=\"Email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.contains('Get OTP').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1000);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Address').click();\ncy.wait(1000);\ncy.contains('Add Another Address').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Address').click();\n    cy.wait(1000);\n    cy.contains('Add New').click();\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).scrollIntoView().select('Others');\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-161pkch\"]').eq(0).scrollIntoView().should('have.value', 'others');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
               "err": {
-                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.",
-                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'terms and conditions' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Sanity/Home page/privacypolicy1.cy.js:10:44)",
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[class=\"chakra-select css-161pkch\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `select[class=\"chakra-select css-161pkch\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/Address/Addresslabel_Others.cy.js:42:19)",
                 "diff": null
               },
-              "uuid": "edec4a5d-4b84-49fb-b08a-f26f9bef0cbf",
-              "parentUUID": "2b6d2b59-4485-4f38-b7eb-b0fe92a500a3",
+              "uuid": "690bad70-a32b-4a62-8c01-e3cd0f19a7cd",
+              "parentUUID": "5c22dda1-4ccb-4819-a092-0f81b263c745",
               "isHook": false,
               "skipped": false
             }
@@ -60,11 +60,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "edec4a5d-4b84-49fb-b08a-f26f9bef0cbf"
+            "690bad70-a32b-4a62-8c01-e3cd0f19a7cd"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 12881,
+          "duration": 30890,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
