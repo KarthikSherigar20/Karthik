@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:21:29.079Z",
+    "end": "2026-06-12T06:21:55.665Z",
+    "duration": 26586,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "690afdcb-e56d-4b05-9409-7b8bebf4b4c9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\03_Pickup Patient.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\03_Pickup Patient.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ca1bbd6e-371a-4d9e-8e3c-6bc684c2e3c4",
+          "title": "Pickup Patient",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Pickup Patient",
+              "fullTitle": "Pickup Patient Pickup Patient",
+              "timedOut": null,
+              "duration": 24581,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\03_Pickup Patient.cy.js\\\\Pickup Patient -- Pickup Patient (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(7).scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(2000);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(2000);\n    cy.contains('Start Emergency').click();\n    cy.wait(2000);\n    cy.contains('Pickup Patient').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Success');\n  } else {\n    cy.wait(2000);\n    cy.contains('Pickup Patient').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Success');\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/3rd Page/03_Pickup Patient.cy.js:26:11)",
+                "diff": null
+              },
+              "uuid": "dabd5f21-028b-490e-b9cc-07c4612378f3",
+              "parentUUID": "ca1bbd6e-371a-4d9e-8e3c-6bc684c2e3c4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "dabd5f21-028b-490e-b9cc-07c4612378f3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24581,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

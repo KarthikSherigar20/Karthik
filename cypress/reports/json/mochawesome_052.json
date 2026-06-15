@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-12T06:22:02.211Z",
+    "end": "2026-06-12T06:22:09.234Z",
+    "duration": 7023,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa3a751c-b52a-4f4f-820c-f157a2d96091",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Ticket\\ADDPOC.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Ticket\\ADDPOC.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7bd4dbd4-af76-41fe-8923-369c27ca6927",
+          "title": "Add Poc",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Poc",
+              "fullTitle": "Add Poc Add Poc",
+              "timedOut": null,
+              "duration": 5330,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.get('button[class=\"button undefined selectPoc_btn__tud4A\"]').scrollIntoView().should('be.visible').should('not.be.disabled');\n    cy.get('label[title=\"POC Name\"],label[title=\"POC Mobile\"],input[placeholder=\"POC Name\"],input[placeholder=\"POC Mobile\"]').should('not.exist');\n    cy.get('button[class=\"button undefined selectPoc_btn__tud4A\"]').click();\n    cy.get('label[title=\"POC Name\"]').should('be.visible');\n    cy.get('label[title=\"POC Mobile\"]').should('be.visible');\n    cy.get('input[placeholder=\"POC Name\"]').should('be.visible').should('not.be.disabled');\n    cy.get('input[placeholder=\"POC Mobile\"]').should('be.visible').should('not.be.disabled');\n    cy.contains('Close').click();\n    cy.get('label[title=\"POC Name\"],label[title=\"POC Mobile\"],input[placeholder=\"POC Name\"],input[placeholder=\"POC Mobile\"]').should('not.exist');\n  }\n});",
+              "err": {},
+              "uuid": "8bed2e80-f1cc-4af7-a62c-ac8bc014bb44",
+              "parentUUID": "7bd4dbd4-af76-41fe-8923-369c27ca6927",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8bed2e80-f1cc-4af7-a62c-ac8bc014bb44"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5330,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

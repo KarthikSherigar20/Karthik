@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:28:48.354Z",
+    "end": "2026-06-12T06:29:18.039Z",
+    "duration": 29685,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0748ae21-8352-47e7-9fd5-c94c3bd7635c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Paymentlink-Doctor1.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Paymentlink-Doctor1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0bd722ca-84ba-4b55-b884-70b367fdd571",
+          "title": "Paymentlink-Doctor1",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Paymentlink-Doctor1",
+              "fullTitle": "Paymentlink-Doctor1 Paymentlink-Doctor1",
+              "timedOut": null,
+              "duration": 28059,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\Paymentlink-Doctor1.cy.js\\\\Paymentlink-Doctor1 -- Paymentlink-Doctor1 (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(8).scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(2000);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(2000);\n    cy.contains('Start Emergency').click();\n    cy.wait(2000);\n    cy.contains('Send PaymentLink For Doctor-Consult').should('be.visible').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Doctor-Consultation');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(0).should('have.value', 'Emergency');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(1).should('have.value', '500');\n    cy.wait(1500);\n    cy.get('div[class=\"ant-flex css-zg0ahe ant-flex-align-stretch ant-flex-vertical\"]').should('not.be.disabled').should('be.visible');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('not.be.disabled').type(_Number.default.Pat);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('have.value', _Number.default.Pat);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).clear().should('not.have.value');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(3).should('not.be.disabled').type(_Number.default.Pate);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(3).should('have.value', _Number.default.Pate);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(3).clear().should('not.have.value');\n    cy.wait(1500);\n    cy.contains('Send Payment Link').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('svg[data-icon=\"close\"]').click();\n  } else {\n    cy.contains('Work in progress').click();\n    cy.wait(1500);\n    cy.contains('Send PaymentLink For Doctor-Consult').should('be.visible').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Doctor-Consultation');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(0).should('have.value', 'Emergency');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(1).should('have.value', '500');\n    cy.wait(1500);\n    cy.get('div[class=\"ant-flex css-zg0ahe ant-flex-align-stretch ant-flex-vertical\"]').should('not.be.disabled').should('be.visible');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('not.be.disabled').type(_Number.default.Pat);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('have.value', _Number.default.Pat);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).clear().should('not.have.value');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(3).should('not.be.disabled').type(_Number.default.Pate);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(3).should('have.value', _Number.default.Pate);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(3).clear().should('not.have.value');\n    cy.wait(1500);\n    cy.contains('Send Payment Link').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('svg[data-icon=\"close\"]').click();\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/3rd Page/Paymentlink-Doctor1.cy.js:27:11)",
+                "diff": null
+              },
+              "uuid": "29c33128-6317-4ca6-8b3e-774366c4bac4",
+              "parentUUID": "0bd722ca-84ba-4b55-b884-70b367fdd571",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "29c33128-6317-4ca6-8b3e-774366c4bac4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 28059,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

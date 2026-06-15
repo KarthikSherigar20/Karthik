@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:26:19.041Z",
+    "end": "2026-06-12T06:26:47.509Z",
+    "duration": 28468,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d26b756c-4fc6-46c3-a394-63cbd2253485",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Condition-Others.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Condition-Others.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "20a0727b-565a-40e7-95f1-1768081e094e",
+          "title": "Assement results-Condition-Others.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Others.cy",
+              "fullTitle": "Assement results-Condition-Others.cy Assement results-Condition-Others.cy",
+              "timedOut": null,
+              "duration": 26655,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\Condition-Others.cy.js\\\\Assement results-Condition-Others.cy -- Assement results-Condition-Others.cy (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(7).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[placeholder=\"Enter Others\"]').type('Need urjent');\n    cy.wait(1500);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.contains('Start Emergency').click();\n    cy.wait(1500);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1500);\n    cy.get('p[class=\"text assessmentResult_ans__WOIlg\"]').eq(1).invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Need urjent'.toLowerCase());\n    });\n    cy.wait(1000);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1000);\n    cy.contains('Emergency Resolved').scrollIntoView().click();\n    cy.wait(2000);\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Start Emergency' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Start Emergency' but never did.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/3rd Page/Condition-Others.cy.js:29:19)",
+                "diff": null
+              },
+              "uuid": "35d6b88d-ff6b-4a25-aa72-8dff58d8526a",
+              "parentUUID": "20a0727b-565a-40e7-95f1-1768081e094e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "35d6b88d-ff6b-4a25-aa72-8dff58d8526a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 26655,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

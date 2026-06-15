@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:11:52.133Z",
+    "end": "2026-06-12T06:12:02.137Z",
+    "duration": 10004,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3ffd0f6-16d7-48d9-87a7-9dafcbadbf10",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Condition-Breathing Difficulty.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Condition-Breathing Difficulty.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "90445c27-0727-4b1a-88f3-2784ff46b709",
+          "title": "Assement results-Condition-Breathing Difficulty.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Breathing Difficulty.cy",
+              "fullTitle": "Assement results-Condition-Breathing Difficulty.cy Assement results-Condition-Breathing Difficulty.cy",
+              "timedOut": null,
+              "duration": 8107,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Condition-Breathing Difficulty.cy.js\\\\Assement results-Condition-Breathing Difficulty.cy -- Assement results-Condition-Breathing Difficulty.cy (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(2).click();\n    cy.wait(1500);\n    cy.get('div[class=\"container patientcondition_conditionWrap__PlYFu\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('body').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Breathing Difficulty'.toLowerCase());\n    });\n  }\n});",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 3 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 3 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:113156:70)\n    at wrapped (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:137994:19)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/support/login.js:24:4)",
+                "diff": null
+              },
+              "uuid": "c01181c2-15da-465f-a4b4-791c4d27a1a8",
+              "parentUUID": "90445c27-0727-4b1a-88f3-2784ff46b709",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c01181c2-15da-465f-a4b4-791c4d27a1a8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8107,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

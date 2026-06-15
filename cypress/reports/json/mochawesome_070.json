@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:25:04.065Z",
+    "end": "2026-06-12T06:25:30.783Z",
+    "duration": 26718,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0e10e647-0681-4e73-ba36-1bd2decfbb63",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\Meeting link3.cy.js",
+      "file": "cypress\\e2e\\Negative\\Meeting link3.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "85f03066-c1d1-481f-a618-24bcbfcfa72b",
+          "title": "Meeting link-invalid pat number",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Meeting link-invalid pat number",
+              "fullTitle": "Meeting link-invalid pat number Meeting link-invalid pat number",
+              "timedOut": null,
+              "duration": 24797,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Meeting link3.cy.js\\\\Meeting link-invalid pat number -- Meeting link-invalid pat number (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(7).scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(2000);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(2000);\n    cy.contains('Start Emergency').click();\n    cy.wait(2000);\n    cy.get('input[class=\"doctorConsult_input__iF2im\"]').eq(0).type(_Number.default.Doc);\n    cy.wait(2000);\n    cy.get('input[class=\"doctorConsult_input__iF2im\"]').eq(1).type('925658659');\n    cy.wait(2000);\n    cy.contains('Send Meeting Link').click();\n    cy.wait(2000);\n    cy.on('window:alert', alerttext => {\n      expect(alerttext).to.equal('Please Provide Valid Patient Numbers');\n    });\n  } else {\n    cy.wait(2000);\n    cy.get('input[class=\"doctorConsult_input__iF2im\"]').eq(0).type(_Number.default.Doc);\n    cy.wait(2000);\n    cy.get('input[class=\"doctorConsult_input__iF2im\"]').eq(1).type('925658659');\n    cy.wait(2000);\n    cy.contains('Send Meeting Link').click();\n    cy.wait(2000);\n    cy.on('window:alert', alerttext => {\n      expect(alerttext).to.equal('Please Provide Valid Patient Numbers');\n    });\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Negative/Meeting link3.cy.js:27:11)",
+                "diff": null
+              },
+              "uuid": "d7327360-e92a-45dd-b256-183807e7b67a",
+              "parentUUID": "85f03066-c1d1-481f-a618-24bcbfcfa72b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d7327360-e92a-45dd-b256-183807e7b67a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24797,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

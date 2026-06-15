@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:18:18.073Z",
+    "end": "2026-06-12T06:18:30.140Z",
+    "duration": 12067,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "475dd408-8257-4745-a119-095ec4cbbc22",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Test Demo.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Test Demo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e0f74e93-38b2-447b-8f5c-940b4a92021a",
+          "title": "Test Demo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Demo",
+              "fullTitle": "Test Demo Test Demo",
+              "timedOut": null,
+              "duration": 10697,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Test Demo.cy.js\\\\Test Demo -- Test Demo (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('No').click();\n    cy.wait(2000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes(\"Relieved and happy to know that it is not a medical emergency, is there anything I could assist you with ?\")).to.be.true;\n      cy.wait(1500);\n    });\n    cy.get('button[class=\"button undefined selectOption_btn__MUg8+\"]').should('exist').should('be.visible');\n  }\n});",
+              "err": {
+                "message": "AssertionError: expected false to be true",
+                "estack": "AssertionError: expected false to be true\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/1st page/Test Demo.cy.js:24:152)",
+                "diff": null
+              },
+              "uuid": "f4f4d671-e738-481f-92e7-8f6ba690adef",
+              "parentUUID": "e0f74e93-38b2-447b-8f5c-940b4a92021a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f4f4d671-e738-481f-92e7-8f6ba690adef"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10697,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

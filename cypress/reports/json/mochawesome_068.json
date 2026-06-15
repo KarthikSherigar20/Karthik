@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:24:58.173Z",
+    "end": "2026-06-12T06:25:10.476Z",
+    "duration": 12303,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d403e1a0-c7ac-4f96-8dc4-c5e70a002fb4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Condition-Accident,Bleeding.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Condition-Accident,Bleeding.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dfafa2c5-6172-4003-b539-abc92f6f28f7",
+          "title": "Assement results-Condition-Accident,Bleeding.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Accident,Bleeding.cy",
+              "fullTitle": "Assement results-Condition-Accident,Bleeding.cy Assement results-Condition-Accident,Bleeding.cy",
+              "timedOut": null,
+              "duration": 10186,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\Condition-Accident,Bleeding.cy.js\\\\Assement results-Condition-Accident,Bleeding.cy -- Assement results-Condition-Accident,Bleeding.cy (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(7).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(1).click();\n    cy.wait(1500);\n    cy.get('div[class=\"container patientcondition_conditionWrap__PlYFu\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.contains('Start Emergency').click();\n    cy.wait(1500);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1500);\n    cy.get('p[class=\"text assessmentResult_ans__WOIlg\"]').eq(0).invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Accident'.toLowerCase());\n      expect(text.toLowerCase()).to.include('Bleeding'.toLowerCase());\n    });\n    cy.wait(1000);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1000);\n    cy.contains('Emergency Resolved').scrollIntoView().click();\n    cy.wait(2000);\n  }\n});",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 3 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 3 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:113156:70)\n    at wrapped (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:137994:19)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/support/login.js:24:4)",
+                "diff": null
+              },
+              "uuid": "e2cf4022-b117-4502-9d24-46cb94df07ea",
+              "parentUUID": "dfafa2c5-6172-4003-b539-abc92f6f28f7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e2cf4022-b117-4502-9d24-46cb94df07ea"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10186,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

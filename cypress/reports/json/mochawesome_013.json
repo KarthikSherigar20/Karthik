@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:13:02.480Z",
+    "end": "2026-06-12T06:13:22.504Z",
+    "duration": 20024,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6a0bc4ed-9dbf-4afe-a8c7-77d1dc9af416",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Doctorconsultation-yes.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Doctorconsultation-yes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf862f04-6e2e-4249-92a7-b9f33322e248",
+          "title": "Doctorconsultation-yes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Doctorconsultation-yes",
+              "fullTitle": "Doctorconsultation-yes Doctorconsultation-yes",
+              "timedOut": null,
+              "duration": 18301,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Doctorconsultation-yes.cy.js\\\\Doctorconsultation-yes -- Doctorconsultation-yes (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[name=\"isDoctorConsultationRequired\"]').eq(0).scrollIntoView().should('be.disabled');\n    cy.wait(2000);\n    cy.get('input[name=\"isAmbulanceRequired\"]').eq(1).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"isDoctorConsultationRequired\"]').eq(0).scrollIntoView().should('be.visible');\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<input.radioButton_radio__Dmg-B>' to be 'disabled'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<input.radioButton_radio__Dmg-B>' to be 'disabled'\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/1st page/Doctorconsultation-yes.cy.js:19:84)",
+                "diff": null
+              },
+              "uuid": "a2776874-a940-4bda-b66a-d88752a38705",
+              "parentUUID": "cf862f04-6e2e-4249-92a7-b9f33322e248",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a2776874-a940-4bda-b66a-d88752a38705"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18301,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

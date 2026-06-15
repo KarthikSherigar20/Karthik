@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:15:26.663Z",
+    "end": "2026-06-12T06:15:46.256Z",
+    "duration": 19593,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d5579d19-2bdc-4516-9430-3a9f685da290",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Help.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Help.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8f3802a8-e3d9-4692-8cbb-82f76a569c4c",
+          "title": "Help",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Help",
+              "fullTitle": "Help Help",
+              "timedOut": null,
+              "duration": 18230,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Help.cy.js\\\\Help -- Help (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('Help').scrollIntoView().should('not.be.disabled').click();\n    cy.wait(1500);\n    cy.get('input[value=\"additionalHelp\"]').should('be.checked');\n    cy.wait(1500);\n    cy.get('input[value=\"additionalHelp\"]').click();\n    cy.wait(1500);\n    cy.get('input[value=\"additionalHelp\"]').should('not.be.checked');\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Help' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Help' but never did.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/1st page/Help.cy.js:19:11)",
+                "diff": null
+              },
+              "uuid": "e3067bd3-90bd-467d-b30d-41f8253d2070",
+              "parentUUID": "8f3802a8-e3d9-4692-8cbb-82f76a569c4c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e3067bd3-90bd-467d-b30d-41f8253d2070"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18230,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

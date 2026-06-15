@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:14:18.452Z",
+    "end": "2026-06-12T06:14:44.169Z",
+    "duration": 25717,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1db58f52-0799-4f93-abcb-47333f1841a9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\GE-ID-ER.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\GE-ID-ER.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e17f0a16-a6b9-4c08-90d4-c71b805a9a7d",
+          "title": "GE-ID-ER",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GE-ID-ER",
+              "fullTitle": "GE-ID-ER GE-ID-ER",
+              "timedOut": null,
+              "duration": 24205,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\GE-ID-ER.cy.js\\\\GE-ID-ER -- GE-ID-ER (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').prevAll().eq(2).invoke('text').then(text => {\n      const storedText = text;\n      cy.log('storedText', storedText);\n      cy.wait(1500);\n      cy.contains('New').click();\n      cy.wait(1500);\n      cy.contains('No').click();\n      cy.wait(1500);\n      cy.get('body').should('not.contain', 'Insurance details');\n      cy.wait(1500);\n      cy.get('body').should('not.contain', 'Nearest Hospital');\n      cy.wait(1500);\n      cy.contains('General Enquiry').scrollIntoView().click();\n      cy.wait(1500);\n      cy.get('body').should('contain', 'Insurance details');\n      cy.wait(1500);\n      cy.get('body').should('contain', 'Nearest Hospital');\n      cy.wait(1500);\n      cy.get('body').should('not.contain', 'Resolve Emergency');\n      cy.wait(1500);\n      cy.contains('Insurance details').click();\n      cy.wait(1500);\n      cy.get('body').should('contain', 'Resolve Emergency');\n      cy.wait(1500);\n      cy.contains('Resolve Emergency').scrollIntoView().click();\n      cy.wait(2000);\n      cy.contains(storedText).nextAll().eq(2).should('have.text', 'GeneralEnquiry');\n    });\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'General Enquiry' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'General Enquiry' but never did.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/1st page/GE-ID-ER.cy.js:29:23)",
+                "diff": null
+              },
+              "uuid": "2255578c-47b8-466d-8097-ad7e3194f8f1",
+              "parentUUID": "e17f0a16-a6b9-4c08-90d4-c71b805a9a7d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2255578c-47b8-466d-8097-ad7e3194f8f1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24205,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

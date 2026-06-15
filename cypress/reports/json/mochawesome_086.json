@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-12T06:28:21.967Z",
+    "end": "2026-06-12T06:28:34.604Z",
+    "duration": 12637,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9dbd6284-f385-46a2-b2e7-91749c0b812b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\Notes.cy.js",
+      "file": "cypress\\e2e\\Negative\\Notes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "626380a2-1ca5-47f8-9d8a-79b29f924d8b",
+          "title": "Notes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Notes",
+              "fullTitle": "Notes Notes",
+              "timedOut": null,
+              "duration": 11168,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.contains('Comment').click();\n    cy.wait(1500);\n    cy.get('button[class=\"button undefined agentNotes_button__weDMB\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Please Enter the Notes');\n  }\n});",
+              "err": {},
+              "uuid": "f8de4645-968e-493a-a107-bc2cffdd39ea",
+              "parentUUID": "626380a2-1ca5-47f8-9d8a-79b29f924d8b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f8de4645-968e-493a-a107-bc2cffdd39ea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11168,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

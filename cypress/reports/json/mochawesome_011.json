@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:12:27.899Z",
+    "end": "2026-06-12T06:12:38.000Z",
+    "duration": 10101,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "beb79dbc-1b06-48ac-919b-6970d63112df",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Condition-Severe Pain.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Condition-Severe Pain.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b66166f0-837a-4af5-a891-413cb5a30163",
+          "title": "Assement results-Condition-Severe Pain.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Condition-Severe Pain.cy",
+              "fullTitle": "Assement results-Condition-Severe Pain.cy Assement results-Condition-Severe Pain.cy",
+              "timedOut": null,
+              "duration": 7975,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Condition-Severe Pain.cy.js\\\\Assement results-Condition-Severe Pain.cy -- Assement results-Condition-Severe Pain.cy (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-item-option-content\"]').eq(4).click();\n    cy.wait(1500);\n    cy.get('div[class=\"ant-select-selector\"]').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('span[aria-live=\"polite\"]').invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Severe Pain'.toLowerCase());\n    });\n  }\n});",
+              "err": {
+                "message": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 3 elements.\n\nhttps://on.cypress.io/scrollintoview",
+                "estack": "CypressError: `cy.scrollIntoView()` can only be used to scroll to 1 element, you tried to scroll to 3 elements.\n\nhttps://on.cypress.io/scrollintoview\n    at Context.scrollIntoView (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:113156:70)\n    at wrapped (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:137994:19)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/support/login.js:24:4)",
+                "diff": null
+              },
+              "uuid": "f35b8a3d-2533-4831-ac48-072da185afed",
+              "parentUUID": "b66166f0-837a-4af5-a891-413cb5a30163",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f35b8a3d-2533-4831-ac48-072da185afed"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7975,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

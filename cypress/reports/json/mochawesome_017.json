@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:14:05.398Z",
+    "end": "2026-06-12T06:14:16.791Z",
+    "duration": 11393,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "388edd1b-94ad-402a-ac0e-3738e0f6a6a6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\EmergencyButton.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\EmergencyButton.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4fd0c6a-c5b5-49e1-b2c8-6527ecb19f5d",
+          "title": "EmergencyButton",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "EmergencyButton",
+              "fullTitle": "EmergencyButton EmergencyButton",
+              "timedOut": null,
+              "duration": 9731,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\EmergencyButton.cy.js\\\\EmergencyButton -- EmergencyButton -- before all hook (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('p[class=\"text ticketBasicDetails_value__wibkg\"]').eq(1).should('contain', 'Emergency Button');\n  }\n});",
+              "err": {
+                "message": "AssertionError: expected 'You need to enable JavaScript to run this app.Live CallsTicketsLogoutTicket Number: 2576Call DetailsCall from Phone:91XXXXX951Caller Type:BeneficiarySource of Call:QR Code ScanClient Of:PococareCampusId:N/ASubscriberMobile:91XXXXX951SubscriberName:KarthikAmbulance Service Count:18Doctor Consultation Count:19isGMC:NoPOC:Poc N/APoc N/AAddress:48/1, AS Char St, Mamulpet, Sultanpete, Bengaluru, Karnataka 560002, India,Bengaluru Urban,Karnataka,560002,IndiaOperationAssessmentCompleted :1/3Emergency CheckHi,this is  from Pococare. Is there a medical emergency?YesMaybeNoUnderstood. I will still assist you. Please let me know how we can help you today.Select OptionMay I understand how I can assist you today?Insurance/Hospital QueryDemo callAmbulance BookingTest CallPococare general enquirySelect PatientPlease help me with the patient’s name so that I can proceed.KarthikRavi SherigarIf not found: \"I am not able to locate the patient in our system. May I have the patient\\'s mobile number so that I can search in our database?\"Find BeneficiaryBy Mobile NumberBy Company Name & Beneficiary NameEmergency ResolvedComment\"serviceWorker\"in navigator&&navigator.serviceWorker.register(\"/firebase-messaging-sw.js\").then(e=>{console.log(\"SW registered: \",e)}).catch(e=>{console.log(\"SW registration failed: \",e)})' to include 'General Enquiry'\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `EmergencyButton`",
+                "estack": "AssertionError: expected 'You need to enable JavaScript to run this app.Live CallsTicketsLogoutTicket Number: 2576Call DetailsCall from Phone:91XXXXX951Caller Type:BeneficiarySource of Call:QR Code ScanClient Of:PococareCampusId:N/ASubscriberMobile:91XXXXX951SubscriberName:KarthikAmbulance Service Count:18Doctor Consultation Count:19isGMC:NoPOC:Poc N/APoc N/AAddress:48/1, AS Char St, Mamulpet, Sultanpete, Bengaluru, Karnataka 560002, India,Bengaluru Urban,Karnataka,560002,IndiaOperationAssessmentCompleted :1/3Emergency CheckHi,this is  from Pococare. Is there a medical emergency?YesMaybeNoUnderstood. I will still assist you. Please let me know how we can help you today.Select OptionMay I understand how I can assist you today?Insurance/Hospital QueryDemo callAmbulance BookingTest CallPococare general enquirySelect PatientPlease help me with the patient’s name so that I can proceed.KarthikRavi SherigarIf not found: \"I am not able to locate the patient in our system. May I have the patient\\'s mobile number so that I can search in our database?\"Find BeneficiaryBy Mobile NumberBy Company Name & Beneficiary NameEmergency ResolvedComment\"serviceWorker\"in navigator&&navigator.serviceWorker.register(\"/firebase-messaging-sw.js\").then(e=>{console.log(\"SW registered: \",e)}).catch(e=>{console.log(\"SW registration failed: \",e)})' to include 'General Enquiry'\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `EmergencyButton`\n    at Context.eval (webpack:///./cypress/support/login2-eb.js:66:34)",
+                "diff": null
+              },
+              "uuid": "efda5a30-31d6-4b4d-882d-e6ab3f4b8b05",
+              "parentUUID": "e4fd0c6a-c5b5-49e1-b2c8-6527ecb19f5d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "efda5a30-31d6-4b4d-882d-e6ab3f4b8b05"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9731,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

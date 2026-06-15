@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:23:09.189Z",
+    "end": "2026-06-12T06:23:35.591Z",
+    "duration": 26402,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "485ddc95-faa8-4839-b93e-2d91ee4893e2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\Location2.cy.js",
+      "file": "cypress\\e2e\\Negative\\Location2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dd424188-e29f-493c-a94f-241e74027c13",
+          "title": "Location",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Location",
+              "fullTitle": "Location Location",
+              "timedOut": null,
+              "duration": 24879,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Location2.cy.js\\\\Location -- Location (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(8).scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Add New Location').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[placeholder=\"Flat No/Door No\"]').type('7-2-201');\n    cy.wait(2000);\n    cy.contains('Save Changes').click();\n    cy.wait(1500);\n    cy.on('window:alert', alerttext => {\n      expect(alerttext).to.equal('Please Select the Ambulance & lift field || enter the AddressLine 1');\n    });\n    cy.get('span[aria-label=\"close\"]').click();\n    cy.wait(2000);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(2000);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(2000);\n    cy.contains('Start Emergency').click();\n    cy.wait(2000);\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Add New Location' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Add New Location' but never did.\n    at Context.eval (webpack:///./cypress/e2e/Negative/Location2.cy.js:26:11)",
+                "diff": null
+              },
+              "uuid": "2fafe385-8948-46c0-94b2-780b3677e5dc",
+              "parentUUID": "dd424188-e29f-493c-a94f-241e74027c13",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2fafe385-8948-46c0-94b2-780b3677e5dc"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24879,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

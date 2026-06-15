@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:20:21.644Z",
+    "end": "2026-06-12T06:20:44.510Z",
+    "duration": 22866,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f808d222-965d-49c0-a0af-e32887f04f95",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\AddPOC.cy.js",
+      "file": "cypress\\e2e\\Negative\\AddPOC.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c7d47fc-b744-4ede-aa7d-58094ceb4f29",
+          "title": "Add Poc - Errormsg",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Poc - Errormsg",
+              "fullTitle": "Add Poc - Errormsg Add Poc - Errormsg",
+              "timedOut": null,
+              "duration": 20892,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\AddPOC.cy.js\\\\Add Poc - Errormsg -- Add Poc - Errormsg (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('body').should('contain', 'Please Select Poc or Enter Poc Details');\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<body>' to contain 'Please Select Poc or Enter Poc Details'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<body>' to contain 'Please Select Poc or Enter Poc Details'\n    at Context.eval (webpack:///./cypress/e2e/Negative/AddPOC.cy.js:21:23)",
+                "diff": null
+              },
+              "uuid": "d4fff0a8-7590-4546-ad58-7cc6afa1f2a1",
+              "parentUUID": "8c7d47fc-b744-4ede-aa7d-58094ceb4f29",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d4fff0a8-7590-4546-ad58-7cc6afa1f2a1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 20892,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

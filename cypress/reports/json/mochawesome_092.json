@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:29:24.260Z",
+    "end": "2026-06-12T06:29:50.424Z",
+    "duration": 26164,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "57d07ad4-d584-44c4-95be-c0e93b09f6f1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\Pickup Location.cy.js",
+      "file": "cypress\\e2e\\Negative\\Pickup Location.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4c2c2b72-337c-418f-a546-2a4faab012d4",
+          "title": "pickup location",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "pickup location",
+              "fullTitle": "pickup location pickup location",
+              "timedOut": null,
+              "duration": 24860,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Pickup Location.cy.js\\\\pickup location -- pickup location (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(8).scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(2000);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(2000);\n    cy.contains('Start Emergency').click();\n    cy.wait(2000);\n    cy.contains('Pickup Location').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Success');\n    cy.wait(2000);\n    cy.contains('Pickup Location').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Already Ambulance arrived pickup location');\n  } else {\n    cy.contains('Pickup Location').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Success');\n    cy.wait(2000);\n    cy.contains('Pickup Location').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Already Ambulance arrived pickup location');\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Negative/Pickup Location.cy.js:26:11)",
+                "diff": null
+              },
+              "uuid": "fe0b83f6-fc85-404b-b31d-cfff9c452487",
+              "parentUUID": "4c2c2b72-337c-418f-a546-2a4faab012d4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fe0b83f6-fc85-404b-b31d-cfff9c452487"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24860,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

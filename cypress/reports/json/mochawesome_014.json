@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:13:24.086Z",
+    "end": "2026-06-12T06:13:36.178Z",
+    "duration": 12092,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d8405b8a-9715-41ee-877d-308bf4c1af62",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Emergency-May.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Emergency-May.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bdc7d60f-27bd-4dfa-9662-1b0b618abeae",
+          "title": "Emergency-May",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Emergency-May",
+              "fullTitle": "Emergency-May Emergency-May",
+              "timedOut": null,
+              "duration": 10534,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Emergency-May.cy.js\\\\Emergency-May -- Emergency-May (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.contains('Maybe').click();\n    cy.wait(2000);\n    cy.get('body').then($bodyText => {\n      const bodyText = $bodyText.text();\n      expect(bodyText.includes(\"We will assume it's an emergency, capture necessary details, and arrange for a doctor's consultation. Post that, you can decide whether you need an ambulance or not. ok?\")).to.be.true;\n    });\n  }\n});",
+              "err": {
+                "message": "AssertionError: expected false to be true",
+                "estack": "AssertionError: expected false to be true\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/1st page/Emergency-May.cy.js:25:215)",
+                "diff": null
+              },
+              "uuid": "042ad4dd-6ae4-48c7-9b43-b764d819b2b8",
+              "parentUUID": "bdc7d60f-27bd-4dfa-9662-1b0b618abeae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "042ad4dd-6ae4-48c7-9b43-b764d819b2b8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10534,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

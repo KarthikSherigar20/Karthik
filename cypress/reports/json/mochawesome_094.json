@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:29:50.203Z",
+    "end": "2026-06-12T06:30:21.613Z",
+    "duration": 31410,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6ab5317e-ed88-4572-bfad-256d4a93a4a7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Paymentlink-Doctor3.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Paymentlink-Doctor3.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6781b79f-5af5-4313-9fc9-5e8150d96e0a",
+          "title": "Paymentlink-Doctor2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Paymentlink-Doctor2",
+              "fullTitle": "Paymentlink-Doctor2 Paymentlink-Doctor2",
+              "timedOut": null,
+              "duration": 29591,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\Paymentlink-Doctor3.cy.js\\\\Paymentlink-Doctor2 -- Paymentlink-Doctor2 (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(8).scrollIntoView().click();\n    cy.wait(2000);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(2000);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(2000);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(2000);\n    cy.contains('Start Emergency').click();\n    cy.wait(2000);\n    cy.contains('Send PaymentLink For Doctor-Consult').should('be.visible').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Doctor-Consultation');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(0).should('have.value', 'Emergency');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(1).should('have.value', '500');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('not.be.disabled').type(_Number.default.Pat);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('have.value', _Number.default.Pat);\n    cy.wait(1500);\n    cy.contains('Send Payment Link').click();\n    cy.wait(1500);\n    cy.get('svg[data-icon=\"close\"]').should('not.be.visible');\n    cy.wait(1500);\n    cy.contains('Resend PaymentLink').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.contains('Send New PaymentLink').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.contains('Comment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('body').invoke('text').then(text => {\n      expect(text).to.include('PaymentLink Send for doctor-consultation');\n    });\n  } else {\n    cy.contains('Work in progress').click();\n    cy.wait(1500);\n    cy.contains('Send PaymentLink For Doctor-Consult').should('be.visible').click();\n    cy.get('body').should('contain', 'Doctor-Consultation');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(0).should('have.value', 'Emergency');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(1).should('have.value', '500');\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('not.be.disabled').type(_Number.default.Pat);\n    cy.wait(1500);\n    cy.get('input[class=\"ant-input css-zg0ahe\"]').eq(2).should('have.value', _Number.default.Pat);\n    cy.wait(1500);\n    cy.contains('Send Payment Link').click();\n    cy.wait(1500);\n    cy.get('svg[data-icon=\"close\"]').should('not.be.visible');\n    cy.wait(1500);\n    cy.contains('Resend PaymentLink').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.contains('Send New PaymentLink').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.contains('Comment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('body').invoke('text').then(text => {\n      expect(text).to.include('PaymentLink Send for doctor-consultation');\n    });\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/3rd Page/Paymentlink-Doctor3.cy.js:27:11)",
+                "diff": null
+              },
+              "uuid": "f06d6eb0-b44d-4656-85d7-ab0c4dc9d89a",
+              "parentUUID": "6781b79f-5af5-4313-9fc9-5e8150d96e0a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f06d6eb0-b44d-4656-85d7-ab0c4dc9d89a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 29591,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

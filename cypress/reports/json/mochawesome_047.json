@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:21:42.844Z",
+    "end": "2026-06-12T06:21:52.088Z",
+    "duration": 9244,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d21724e4-59a1-4436-b2e6-2b6410200d1b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\Ambulancedispatched.cy.js",
+      "file": "cypress\\e2e\\Negative\\Ambulancedispatched.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "76a67b22-9f3e-4206-8d13-15174c9c625f",
+          "title": "Ambulance Dispatched",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ambulance Dispatched",
+              "fullTitle": "Ambulance Dispatched Ambulance Dispatched",
+              "timedOut": null,
+              "duration": 7888,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\Ambulancedispatched.cy.js\\\\Ambulance Dispatched -- Ambulance Dispatched (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(600);\n    cy.get('div[class=\"container selectPatient_container__02wpR\"]').find('input[name=\"radio\"]').first().click();\n    cy.wait(600);\n    cy.get('div.container.selectPoc_wrapper__MBvMf', {\n      timeout: 5000\n    }).then($div => {\n      if ($div.find('input[name=\"radio\"]').length > 0) {\n        cy.wrap($div).find('input[name=\"radio\"]').click();\n      } else {\n        // cy.log('Radio input not found — skipping click');\n        cy.get('div[class=\"container ticketBasicDetails_cardWrapper__Zq72v\"]').find('p[class=\"text phoneNumber_value__Ktlo5\"]').eq(1).invoke('text').then(mob => {\n          const mo = mob.trim();\n          cy.wait(500);\n          cy.contains('Add Poc').scrollIntoView().click();\n          cy.wait(500);\n          cy.get('input[placeholder=\"POC Name\"]').type('POC');\n          cy.get('input[placeholder=\"POC Mobile\"]').type(mo);\n        });\n      }\n    });\n    cy.wait(600);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(600);\n    cy.get('div[class=\"backgroundWrapper_backgroundWrapper__o39ed pickupLocation_background__0UPLQ\"]').find('div[class=\"addressCard_card__z5GWw\"]').first().click();\n    cy.wait(600);\n    cy.contains('Select Drop Location', {\n      timeout: 10000\n    }).scrollIntoView().should('be.visible');\n    cy.get('div[class=\"container nearByHospital_addressCard__ORdPs\"]').find('div[class=\"addressCard_card_flex__6BZvF\"]').first().click();\n    cy.wait(600);\n    cy.contains('Start Emergency').click();\n    cy.wait(600);\n    cy.wait(2000);\n    cy.contains('Ambulance Dispatched').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Success');\n    cy.wait(2000);\n    cy.contains('Ambulance Dispatched').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Already Ambulance dispatched');\n  } else {\n    cy.contains('Ambulance Dispatched').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Success');\n    cy.wait(2000);\n    cy.contains('Ambulance Dispatched').click();\n    cy.wait(1500);\n    cy.get('body').should('contain', 'Already Ambulance dispatched');\n  }\n});",
+              "err": {
+                "message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click",
+                "estack": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click\n    at mouseAction (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:112038:68)\n    at Context.click (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:112205:14)\n    at wrapped (https://pocoadmin.stage.pococare.com/__cypress/runner/cypress_runner.js:137994:19)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/support/login1.js:24:4)",
+                "diff": null
+              },
+              "uuid": "290d6906-4b2d-4147-8cb5-9f35d571eb8c",
+              "parentUUID": "76a67b22-9f3e-4206-8d13-15174c9c625f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "290d6906-4b2d-4147-8cb5-9f35d571eb8c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7888,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

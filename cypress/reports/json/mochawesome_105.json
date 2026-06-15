@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:32:47.929Z",
+    "end": "2026-06-12T06:33:08.693Z",
+    "duration": 20764,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ed8ea610-93a2-4027-99fc-f6f0275eb709",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Wheelchair.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Wheelchair.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4406a083-0264-4b9f-96de-c5543d399f21",
+          "title": "Assement results-Wheelchair",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assement results-Wheelchair",
+              "fullTitle": "Assement results-Wheelchair Assement results-Wheelchair",
+              "timedOut": null,
+              "duration": 19568,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\Wheelchair.cy.js\\\\Assement results-Wheelchair -- Assement results-Wheelchair (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(7).scrollIntoView().click();\n    cy.wait(1500);\n    cy.contains('Wheelchair').scrollIntoView().click();\n    cy.wait(1500);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.contains('Start Emergency').click();\n    cy.wait(1500);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1500);\n    cy.get('p[class=\"text assessmentResult_ans__WOIlg\"]').eq(2).invoke('text').then(text => {\n      expect(text.toLowerCase()).to.include('Wheelchair'.toLowerCase());\n    });\n    cy.wait(1000);\n    cy.get('img[class=\"icon undefined\"]').eq(5).click();\n    cy.wait(1000);\n    cy.contains('Emergency Resolved').scrollIntoView().click();\n    cy.wait(2000);\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Wheelchair' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Wheelchair' but never did.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/3rd Page/Wheelchair.cy.js:21:19)",
+                "diff": null
+              },
+              "uuid": "4a014f60-f550-4c44-a7c3-4afe76eb9474",
+              "parentUUID": "4406a083-0264-4b9f-96de-c5543d399f21",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4a014f60-f550-4c44-a7c3-4afe76eb9474"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19568,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

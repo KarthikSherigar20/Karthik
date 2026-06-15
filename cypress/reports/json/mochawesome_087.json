@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:28:18.026Z",
+    "end": "2026-06-12T06:28:46.319Z",
+    "duration": 28293,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "11e9e063-d639-4ccd-8d3e-a0d62c8b63a1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\3rd Page\\Paymentlink-Ambulance1.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\3rd Page\\Paymentlink-Ambulance1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f9fd394a-5b7c-43bc-8f18-ba0e9463feba",
+          "title": "Paymentlink-Doctor1",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Paymentlink-Doctor1",
+              "fullTitle": "Paymentlink-Doctor1 Paymentlink-Doctor1",
+              "timedOut": null,
+              "duration": 26201,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\3rd Page\\\\Paymentlink-Ambulance1.cy.js\\\\Paymentlink-Doctor1 -- Paymentlink-Doctor1 (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(1500);\n    cy.contains('New').click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(3).scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[class=\"radioButton_radio__Dmg-B\"]').eq(8).scrollIntoView().click();\n    cy.wait(1500);\n    cy.contains('Save Assessment').scrollIntoView().click();\n    cy.wait(1500);\n    cy.get('input[name=\"addressSelection\"]').eq(0).click();\n    cy.wait(1500);\n    cy.get('input[type=\"radio\"]').eq(0).click();\n    cy.wait(1500);\n    cy.contains('Start Emergency').click();\n    cy.wait(1500);\n    cy.contains('Send PaymentLink For Ambulance').should('be.visible').click();\n    cy.wait(1500);\n    cy.contains('Send Payment Link').should('be.visible');\n    cy.wait(1500);\n    cy.contains('Please Select Ambulance Provider').click({\n      force: true\n    });\n    cy.wait(1500);\n    cy.contains('Dial4242').should('be.visible').click();\n    cy.wait(1500);\n    cy.contains('Please Select Ambulance Type').click({\n      force: true\n    });\n    cy.wait(1500);\n    const wordsToCheck = ['BLS-EECO/Bolero', 'BLS-Tempo/Tata Winger', 'ALS (with paramedic)-Tempo/Tata Winger', 'ALS (with doctor/EMT)-Tempo/Tata Winger'];\n    wordsToCheck.forEach(word => {\n      cy.contains(word);\n    });\n  } else {\n    cy.contains('Work in progress').click();\n    cy.wait(1500);\n    cy.contains('Send PaymentLink For Ambulance').should('be.visible').click();\n    cy.wait(1500);\n    cy.contains('Send Payment Link').should('be.visible');\n    cy.wait(1500);\n    cy.contains('Please Select Ambulance Provider').click({\n      force: true\n    });\n    cy.wait(1500);\n    cy.contains('Dial4242').should('be.visible').click();\n    cy.wait(1500);\n    cy.contains('Please Select Ambulance Type').click({\n      force: true\n    });\n    cy.wait(1500);\n    const wordsToCheck = ['BLS-EECO/Bolero', 'BLS-Tempo/Tata Winger', 'ALS (with paramedic)-Tempo/Tata Winger', 'ALS (with doctor/EMT)-Tempo/Tata Winger'];\n    wordsToCheck.forEach(word => {\n      cy.contains(word);\n    });\n    cy.wait(1500);\n    cy.contains('Please Select Ambulance Type').click({\n      force: true\n    });\n    cy.wait(1500);\n    wordsToCheck.forEach(word => {\n      cy.contains('Please Select Ambulance Type').click({\n        force: true\n      });\n      cy.wait(1500);\n      cy.contains(word).click({\n        force: true\n      });\n      cy.wait(1500);\n      cy.get('input[placeholder=\"₹ Ambulance Fare\"]').should('have.value');\n      cy.wait(1500);\n    });\n  }\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `input[name=\"addressSelection\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/3rd Page/Paymentlink-Ambulance1.cy.js:27:19)",
+                "diff": null
+              },
+              "uuid": "2b321cd5-ef9a-4145-83ed-44d91d0545a7",
+              "parentUUID": "f9fd394a-5b7c-43bc-8f18-ba0e9463feba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2b321cd5-ef9a-4145-83ed-44d91d0545a7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 26201,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

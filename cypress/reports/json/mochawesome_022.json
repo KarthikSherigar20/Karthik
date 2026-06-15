@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-06-12T06:15:47.877Z",
+    "end": "2026-06-12T06:15:56.382Z",
+    "duration": 8505,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7f17b1f3-b3a3-4fd4-9a09-cdd0fcf8d471",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\1st page\\Insurance details.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\1st page\\Insurance details.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7783c577-4d38-41b9-9695-f36e2e7d273c",
+          "title": "Insurance details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Insurance details",
+              "fullTitle": "Insurance details Insurance details",
+              "timedOut": null,
+              "duration": 7152,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\1st page\\\\Insurance details.cy.js\\\\Insurance details -- Insurance details (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('New')) {\n    cy.wait(2000);\n    cy.contains('New').should('be.visible');\n    // Continue with the test steps on the original domain\n    cy.contains('New').click();\n    cy.contains('No').click();\n    cy.get('body').then($body => {\n      const bodyText = $body.text();\n      expect(bodyText.includes(\"Relieved and happy to know that it is not a medical emergency, is there anything I could assist you with ?\")).to.be.true;\n    });\n    cy.get('button[class=\"button undefined selectOption_btn__MUg8+\"]').eq(0).should('exist').and('be.enabled').click();\n    cy.get('button[class=\"button undefined selectOption_btn_option__UwXY7\"]').eq(0).should('exist').and('be.visible');\n  }\n});",
+              "err": {
+                "message": "AssertionError: expected false to be true",
+                "estack": "AssertionError: expected false to be true\n    at Context.eval (webpack:///./cypress/e2e/DataFlow/1st page/Insurance details.cy.js:28:152)",
+                "diff": null
+              },
+              "uuid": "bf6c974c-f28d-4f28-84e5-892fb98aa4e7",
+              "parentUUID": "7783c577-4d38-41b9-9695-f36e2e7d273c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bf6c974c-f28d-4f28-84e5-892fb98aa4e7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7152,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
