@@ -39,9 +39,9 @@ describe('Addresslabel_Work',()=>{
                 cy.wait(1000);
                 cy.contains('Add New').click();
                 cy.wait(1000);
-                cy.get('select[class="chakra-select css-161pkch"]').eq(0).scrollIntoView().select('Work');
+                cy.get('select[class="chakra-select css-hsxcm3"]').eq(0).scrollIntoView().select('Work');
                 cy.wait(1000);
-                cy.get('select[class="chakra-select css-161pkch"]').eq(0).scrollIntoView().should('have.value','Work');
+                cy.get('select[class="chakra-select css-hsxcm3"]').eq(0).scrollIntoView().should('have.value','Work');
                 cy.wait(1000);
                 cy.contains('Cancel').click();
             }

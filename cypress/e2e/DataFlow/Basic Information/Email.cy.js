@@ -2,7 +2,7 @@ import url from '../../../fixtures/urls.json';
 import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
-describe('View Profile', () => {
+describe('Email', () => {
     it('Email', () => {
         const selectedEnvironments = url.selectedEnvironment;
         const selectUrl = url.environments[selectedEnvironments];

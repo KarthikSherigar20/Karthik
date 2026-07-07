@@ -39,9 +39,9 @@ describe('Ambulance_YES', () => {
                 cy.wait(1000);
                 cy.contains('Add New').click();
                 cy.wait(1000);
-                cy.get('select[class="chakra-select css-161pkch"]').eq(1).scrollIntoView().select('Yes, ambulance reachable');
+                cy.get('select[class="chakra-select css-hsxcm3"]').eq(1).scrollIntoView().select('Yes, ambulance reachable');
                 cy.wait(1000);
-                cy.get('select[class="chakra-select css-161pkch"]').eq(1).scrollIntoView().should('have.value', 'Yes');
+                cy.get('select[class="chakra-select css-hsxcm3"]').eq(1).scrollIntoView().should('have.value', 'Yes');
                 cy.wait(1000);
                 cy.contains('Cancel').click();
             }
