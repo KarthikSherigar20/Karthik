@@ -8,11 +8,9 @@ describe('Otp is required',()=>{
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        cy.contains('Login').click();
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
-        cy.wait(1500);
-        cy.get('button[type="submit"]').click();
+        cy.contains('Get OTP').click();
         cy.wait(1500);
         cy.contains('Verify').click();
         cy.wait(1500);

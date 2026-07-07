@@ -8,13 +8,11 @@ describe('Textfields and button',()=>{
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        cy.contains('Login').click();
+        cy.get('input[placeholder="Email"]').should('not.be.disabled');
         cy.wait(1500);
-        cy.get('input[id="email"]').should('not.be.disabled');
+        cy.get('input[placeholder="Phone number"]').should('not.be.disabled');
         cy.wait(1500);
-        cy.get('input[placeholder="Phone Number"]').should('not.be.disabled');
-        cy.wait(1500);
-        cy.get('button[type="submit"]').should('be.disabled');
+        cy.contains('Get OTP').scrollIntoView().should('be.disabled');
         cy.wait(1500);
         cy.get('input[class="chakra-checkbox__input"]').should('be.checked');
     })

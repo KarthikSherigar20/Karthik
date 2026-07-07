@@ -1,26 +1,24 @@
 import url from '../../../fixtures/urls.json';
 import un from '../../../fixtures/UN&PASS.json';
 
-describe('Email&mobilno. and otp page',()=>{
-    it('Email&mobilno. and otp page',()=>{
-     const selectedEnvironment=url.selectedEnvironment;
-     const selectUrl=url.environments[selectedEnvironment];
+describe('Email&mobilno. and otp page', () => {
+    it('Email&mobilno. and otp page', () => {
+        const selectedEnvironment = url.selectedEnvironment;
+        const selectUrl = url.environments[selectedEnvironment];
 
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        cy.contains('Login').click();
-        cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
         // cy.wait(1500);
-        cy.get('input[placeholder="Phone Number"]').type(un.PhoneNo);
-        cy.wait(1500);
-        cy.get('button[type="submit"]').click();
+        // cy.get('input[placeholder="Phone Number"]').type(un.PhoneNo);
+        // cy.wait(1500);
+        cy.contains('Get OTP').click();
         cy.wait(1500);
         cy.get('body').contains('Enter OTP').should('exist');
         cy.wait(1500);
-        cy.get('body').contains("We've sent the OTP to your phone or email!").should('exist');
+        cy.get('body').contains("We've sent the OTP to your email.").should('exist');
         cy.wait(1500);
         cy.contains('Verify').should('not.be.disabled');
         cy.wait(30000);
@@ -28,7 +26,7 @@ describe('Email&mobilno. and otp page',()=>{
         cy.wait(1500);
         cy.contains('Not received OTP?').should('not.exist');
         cy.wait(1500);
-        cy.get('body').contains("OTP has been sent to your number").should('exist');
+        cy.get('body').contains("We've sent the OTP to your phone or email!").should('exist');
 
     })
 })

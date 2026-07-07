@@ -10,11 +10,9 @@ describe('Basic information',()=>{
         cy.visit(selectUrl);
         const P1=new Elements();
         cy.wait(1500);
-        cy.contains('Login').click();
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
-        cy.wait(1500);
-        cy.get('button[type="submit"]').click();
+        cy.contains('Get OTP').click();
         cy.wait(3500);
         P1.PTA();
         cy.wait(1000);
@@ -56,13 +54,13 @@ describe('Basic information',()=>{
             }else{
                 cy.get('button[class="clear-selected-button"]').click();
                 cy.wait(500);
-                cy.get('div[class="dropdown-heading-value"]').click();
+                cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
             cronic.forEach(condition => {
                 cy.contains(condition).scrollIntoView().should('be.visible').should('not.be.disabled').click();
                 cy.wait(500);
-                cy.get('div[class="dropdown-heading-value"]').click();
+                cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
                 cy.wait(500);
-                cy.get('button[class="clear-selected-button"]').click();
+                cy.get('button[class="clear-selected-button"]').scrollIntoView().click();
                 cy.wait(500);
                 if(cronic[8] !== condition){
                     cy.get('div[class="dropdown-heading-value"]').click();
@@ -83,9 +81,9 @@ describe('Basic information',()=>{
                     const trimmedCondition = condition.trim(); // Trim any leading or trailing whitespace
                     console.log('trimmedcond',trimmedCondition);
                     if (trimmedCondition) { // Check if condition is not empty after trimming
-                        cy.get('div[class="dropdown-heading-value"]').click();
-                        cy.contains(trimmedCondition, {matchCase:false}).click();
-                        cy.get('div[class="dropdown-heading-value"]').click();
+                        cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
+                        cy.contains(trimmedCondition, {matchCase:false}).scrollIntoView().click();
+                        cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
                     }
                 });
             }

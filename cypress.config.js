@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 const xlsx = require("node-xlsx").default;
 const fs = require("fs");
 const path = require("path");
+const pdf = require("pdf-parse");
 
 module.exports = defineConfig({
 reporter: "mochawesome",
@@ -25,6 +26,10 @@ reporter: "mochawesome",
               reject(e);
             }
           });
+        },
+        readPdf(filePath) {
+          const dataBuffer = fs.readFileSync(filePath);
+          return pdf(dataBuffer).then((data) => data.text);
         },
       });
     },

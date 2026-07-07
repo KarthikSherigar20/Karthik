@@ -10,11 +10,9 @@ describe('Basic information',()=>{
         cy.visit(selectUrl);
         const P1=new Elements();
         cy.wait(1500);
-        cy.contains('Login').click();
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
-        cy.wait(1500);
-        cy.get('button[type="submit"]').click();
+        cy.contains('Get OTP').click();
         cy.wait(3500);
         P1.PTA();
         cy.wait(1000);
@@ -57,7 +55,7 @@ describe('Basic information',()=>{
         
         cy.get('input[placeholder="Age"]').should('be.visible').should('not.be.disabled');
         cy.wait(1500);
-        cy.get('input[placeholder="Email"]').should('be.visible').should('not.be.disabled');
+        cy.get('input[placeholder="Email"]').should('be.visible').should('be.disabled');
         cy.wait(1500);
         cy.get('input[placeholder="Phone Number"]').should('be.visible').should('not.be.disabled');
         cy.wait(1500);

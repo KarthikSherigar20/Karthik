@@ -9,26 +9,24 @@ describe('Email and send OTP',()=>{
 
         cy.visit(selectUrl);
         cy.wait(1500);
-        cy.contains('Login').click();
-        cy.wait(1500);
-        cy.get('button[type="submit"]').should('be.disabled');
+        cy.contains('Get OTP').should('be.disabled');
         cy.wait(1500);
         cy.get('input[class="chakra-checkbox__input"]').should('be.checked');
         cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
-        cy.get('button[type="submit"]').should('not.be.disabled');
-        cy.wait(1500);
-        cy.get('input[class="chakra-checkbox__input"]').click({force:true});
-        cy.wait(1500);
-        cy.get('button[type="submit"]').should('be.disabled');
+        cy.contains('Get OTP').should('not.be.disabled');
         cy.wait(1500);
         cy.get('input[class="chakra-checkbox__input"]').click({force:true});
         cy.wait(1500);
-        cy.get('button[type="submit"]').should('not.be.disabled');
+        cy.contains('Get OTP').should('not.be.disabled');
         cy.wait(1500);
-        cy.get('input[id="email"]').clear();
+        cy.get('input[class="chakra-checkbox__input"]').click({force:true});
         cy.wait(1500);
-        cy.get('button[type="submit"]').should('be.disabled');
+        cy.contains('Get OTP').should('not.be.disabled');
+        cy.wait(1500);
+        cy.get('input[placeholder="Email"]').clear();
+        cy.wait(1500);
+        cy.contains('Get OTP').should('be.disabled');
     })
 })

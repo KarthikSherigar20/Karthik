@@ -20,7 +20,7 @@ describe('Contact Us', () => {
         cy.wait(1000);
         cy.get('input[placeholder="Phone Number"]').should('be.visible').should('not.be.disabled');
         cy.wait(1000);
-        cy.get('input[placeholder="Please select a subject"]').should('be.visible').should('not.be.disabled');
+        cy.get('select[class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form-style"]').should('be.visible').should('not.be.disabled');
         cy.wait(1000);
         cy.get('textarea[placeholder="Message"]').should('be.visible').should('not.be.disabled');
         cy.wait(1000);

@@ -10,11 +10,9 @@ describe('Basic information',()=>{
         cy.visit(selectUrl);
         const P1=new Elements();
         cy.wait(1500);
-        cy.contains('Login').click();
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
-        cy.wait(1500);
-        cy.get('button[type="submit"]').click();
+        cy.contains('Get OTP').click();
         cy.wait(3500);
         P1.PTA();
         cy.wait(1500);
@@ -52,7 +50,7 @@ describe('Basic information',()=>{
                 cy.wait(1500);
                 cy.contains('Add New').should('be.visible').should('not.be.disabled').click();
                 cy.wait(1500);
-                const adresslabel='select[class="chakra-select css-161pkch"]';
+                const adresslabel='select[class="chakra-select css-hsxcm3"]';
                 cy.get(adresslabel).eq(0).then((dropdown)=>{
                     let previouslyselectedoption=dropdown.val();
                 cy.get(adresslabel).eq(0).find('option').then((options)=>{
@@ -77,7 +75,7 @@ describe('Basic information',()=>{
                 cy.wait(1500);
                 cy.get('input[placeholder="State"]').should('be.visible').should('not.be.disabled');
                 cy.wait(1500)
-                const amb='select[class="chakra-select css-161pkch"]';
+                const amb='select[class="chakra-select css-hsxcm3"]';
                 cy.get(amb).eq(1).then((dropdown)=>{
                     let previouslyselectedoption=dropdown.val();
                 cy.get(amb).eq(1).find('option').then((options)=>{
@@ -90,7 +88,7 @@ describe('Basic information',()=>{
                 cy.get(amb).eq(1).select(previouslyselectedoption);
                 })
                 cy.wait(1500);
-                let lift='select[class="chakra-select css-161pkch"]';
+                let lift='select[class="chakra-select css-hsxcm3"]';
                 cy.get(lift).eq(2).then((dropdown)=>{
                     const previouslyselectedoption=dropdown.val();
                 cy.get(lift).eq(2).find('option').then((options)=>{

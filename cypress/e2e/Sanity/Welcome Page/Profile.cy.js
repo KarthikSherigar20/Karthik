@@ -2,18 +2,16 @@ import url from '../../../fixtures/urls.json';
 import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
-describe('View Profile',()=>{
+describe('Profile',()=>{
     it('Checking Viw Profile',()=>{
         const selectedEnvironments=url.selectedEnvironment;
         const selectUrl=url.environments[selectedEnvironments];
         cy.visit(selectUrl);
         const P1=new Elements();
         cy.wait(1500);
-        cy.contains('Login').click();
+        cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
-        cy.get('input[id="email"]').type(un.Un);
-        cy.wait(1500);
-        cy.get('button[type="submit"]').click();
+        cy.contains('Get OTP').click();
         cy.wait(3500);
         P1.PTA();
         cy.wait(1000);
@@ -34,7 +32,7 @@ describe('View Profile',()=>{
         cy.wait(1500);
         cy.get('button[class="chakra-menu__menuitem css-18esm8n"]').eq(1).should('not.be.disabled').should('be.visible').click();
         cy.wait(1500);
-        expect(bodyText).to.includes('Home');
+        expect(bodyText).to.includes('Basic Info');
     })
     })
 })

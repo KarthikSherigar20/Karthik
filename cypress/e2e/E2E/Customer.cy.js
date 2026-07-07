@@ -47,4 +47,18 @@ describe('Customer E2E', () => {
 
     cy.contains('button', 'Add').should('be.visible').click();
   });
+
+  it('should verify QR code manual PDF content', () => {
+    cy.get('a:contains("QR code manual")') // adjust selector to match your element
+      .should('have.attr', 'href')
+      .then((pdfUrl) => {
+        cy.request({ url: pdfUrl, encoding: 'binary' }).then((response) => {
+          cy.writeFile('cypress/downloads/qr-manual.pdf', response.body, 'binary');
+        });
+
+        cy.task('readPdf', 'cypress/downloads/qr-manual.pdf').then((text) => {
+          expect(text).to.include('Your expected text here'); // replace with actual text
+        });
+      });
+  });
 });
