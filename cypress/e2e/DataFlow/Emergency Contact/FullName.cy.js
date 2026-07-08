@@ -36,14 +36,62 @@ describe('FullName', () => {
 
             if ($btn.is(':disabled')) {
 
-                cy.get('.EmergencyContact_greenIcon__1IdCN')
+                P1.EmergencyNumbers();
+                cy.wait(500);
+
+                cy.get('svg[class="EmergencyContact_redIcon__xfuA3"]')
                     .eq(2)
                     .click();
 
-                cy.reload();
+                cy.wait(1000);
+                cy.get(`button[class="chakra-button css-18zw69y"]`).click();
+                cy.wait(1000);
+
+                // cy.reload();
 
                 cy.contains('Add Another Contact')
                     .should('not.be.disabled');
+
+                cy.wait(500);
+
+
+                cy.contains('Add Another Contact')
+                    .click();
+
+                cy.get('input[placeholder="Full Name"]')
+                    .type('Abcde')
+                    .should('have.value', 'Abcde');
+
+                cy.contains('Cancel').click();
+                cy.wait(500);
+
+                cy.contains('Add Another Contact')
+                    .click();
+                cy.get('@EfullName').then((EfullName) => {
+                    cy.log('Alias value = ' + EfullName);
+                    console.log('Alias value = ', EfullName);
+                    cy.get('input[placeholder="Full Name"]').clear().type(EfullName).should('have.value', EfullName);
+                });
+                cy.get('@Erelationship').then((Erelationship) => {
+                    cy.get('select[class="chakra-select css-161pkch"]').select(Erelationship).should('have.value', Erelationship);
+                });
+                cy.get('@EphoneNumber').then((EphoneNumber) => {
+                    cy.get('input[placeholder="Mobile Number"]').type(EphoneNumber).should('have.value', EphoneNumber);
+                });
+
+                cy.get('@EwhatsappNumber').then((whatsappNumber) => {
+
+                    if (whatsappNumber === null) {
+                        cy.log('Whatsapp field is not available');
+                    } else {
+                        cy.log('Whatsapp Number: ' + whatsappNumber);
+                        cy.get('input[placeholder="Whatsapp Number"]').type(whatsappNumber).should('have.value', whatsappNumber);
+                    }
+
+                });
+                cy.contains('Save').click();
+                cy.wait(500);
+                cy.contains('Add Another Contact').scrollIntoView().should('be.disabled');
             }
         });
 

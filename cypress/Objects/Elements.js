@@ -682,5 +682,53 @@ class Elements {
             cy.wait(1000);
         })
     }
+
+    EmergencyNumbers() {
+        cy.get('svg[class="EmergencyContact_greenIcon__1IdCN"]').eq(2).click();
+        cy.wait(500);
+        cy.get('.chakra-switch__thumb').then(($toggle) => {
+            if ($toggle.attr('data-checked') !== undefined) {
+
+                cy.get('input[placeholder="Full Name"]')
+                    .invoke('val')
+                    .then((value) => {
+                        cy.wrap(value).as('EfullName');
+                    })
+                cy.get('@EfullName').then((name) => {
+                    cy.log('Alias value = ' + name);
+                });
+                cy.get('select.chakra-select')
+                    .invoke('val').as('Erelationship');
+                cy.get('input[placeholder="Mobile Number"]')
+                    .invoke('val').as('EphoneNumber');
+                cy.get('body').then(($body) => {
+                    const whatsappField = $body.find('input[placeholder="Whatsapp Number"]');
+
+                    if (whatsappField.length > 0) {
+                        cy.wrap(whatsappField)
+                            .invoke('val')
+                            .as('EwhatsappNumber');
+                    } else {
+                        // Field is not visible/present
+                        cy.wrap(null).as('EwhatsappNumber');
+                    }
+                });
+            } else {
+                cy.get('input[placeholder="Full Name"]')
+                    .invoke('val')
+                    .then((value) => {
+                        cy.log('Captured Full Name: ' + value);
+                    })
+                    .as('EfullName');
+                cy.get('select.chakra-select')
+                    .invoke('val').as('Erelationship');
+                cy.get('input[placeholder="Mobile Number"]')
+                    .invoke('val').as('EphoneNumber');
+                cy.get('input[placeholder="Whatsapp Number"]')
+                    .invoke('val').as('EwhatsappNumber');
+            }
+        })
+        cy.contains('Cancel').click({ force: true });
+    }
 }
 export default Elements;

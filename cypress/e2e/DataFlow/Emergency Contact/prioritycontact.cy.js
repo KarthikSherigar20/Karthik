@@ -2,12 +2,12 @@ import url from '../../../fixtures/urls.json';
 import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
-describe('MobileNumber',()=>{
-    it('MobileNumber',()=>{
-        const selectedEnvironments=url.selectedEnvironment;
-        const selectUrl=url.environments[selectedEnvironments];
+describe('MobileNumber', () => {
+    it('MobileNumber', () => {
+        const selectedEnvironments = url.selectedEnvironment;
+        const selectUrl = url.environments[selectedEnvironments];
         cy.visit(selectUrl);
-        const P1=new Elements();
+        const P1 = new Elements();
         // cy.wait(1500);
         // cy.contains('Login').click();
         cy.wait(1500);
@@ -21,34 +21,47 @@ describe('MobileNumber',()=>{
         cy.wait(1000);
         cy.contains('Verify').click();
         cy.wait(1500);
-        cy.get('body').then(($bodyText)=>{
-            const bodyText=$bodyText.text();
-            if(bodyText.includes('Edit Profile')){
+        cy.get('body').then(($bodyText) => {
+            const bodyText = $bodyText.text();
+            if (bodyText.includes('Edit Profile')) {
                 cy.contains('Edit Profile').click();
-            }else{
-            cy.contains('Complete Profile').eq(0).click();
+            } else {
+                cy.contains('Complete Profile').eq(0).click();
             }
         })
         cy.contains('Emergency Contact').click();
         cy.wait(1000);
-        cy.contains('Add Another Contact').then($button=>{
-            if($button.prop('disabled')){
-                cy.log('Maximum limit is reached');
-            }else{
-                cy.contains('Add Another Contact').click();
+        cy.contains('Add Another Contact').then(($btn) => {
+
+            if ($btn.is(':disabled')) {
+
+                cy.get('svg[class="EmergencyContact_redIcon__xfuA3"]')
+                    .eq(2)
+                    .click();
+
                 cy.wait(1000);
-                let relation='input[placeholder="Mobile Number"]';
-                cy.get(relation).type('9019803837')
+                cy.get(`button[class="chakra-button css-18zw69y"]`).click();
                 cy.wait(1000);
-                cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(0).click();
-                cy.wait(1000);
-                cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(1).click();
-                cy.wait(1000);
-                cy.get('input.chakra-switch__input').eq(1).should('be.checked');
-                cy.wait(1000);
-                cy.contains('Cancel').click();
+
+                // cy.reload();
+
+                cy.contains('Add Another Contact')
+                    .should('not.be.disabled');
             }
-        })
+        });
+        cy.contains('Add Another Contact').click();
+        cy.wait(1000);
+        let relation = 'input[placeholder="Mobile Number"]';
+        cy.get(relation).type('9019803837')
+        cy.wait(1000);
+        cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(0).click();
+        cy.wait(1000);
+        cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(1).click();
+        cy.wait(1000);
+        cy.get('input.chakra-switch__input').eq(1).should('be.checked');
+        cy.wait(1000);
+        cy.contains('Cancel').click();
 
     })
+
 })
