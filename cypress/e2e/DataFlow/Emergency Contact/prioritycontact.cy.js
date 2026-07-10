@@ -8,19 +8,7 @@ describe('MobileNumber', () => {
         const selectUrl = url.environments[selectedEnvironments];
         cy.visit(selectUrl);
         const P1 = new Elements();
-        // cy.wait(1500);
-        // cy.contains('Login').click();
-        cy.wait(1500);
-        cy.get('input[placeholder="Email"]').type(un.Un);
-        cy.wait(1500);
-        cy.contains('Get OTP').click();
-        cy.wait(3500);
-        P1.PTA();
-        cy.wait(1000);
-        P1.OTP();
-        cy.wait(1000);
-        cy.contains('Verify').click();
-        cy.wait(1500);
+        P1.login();
         cy.get('body').then(($bodyText) => {
             const bodyText = $bodyText.text();
             if (bodyText.includes('Edit Profile')) {

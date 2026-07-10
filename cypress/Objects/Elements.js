@@ -1,3 +1,5 @@
+import un from '../fixtures/UN&PASS.json';
+
 class Elements {
     //Login
 
@@ -683,7 +685,7 @@ class Elements {
         })
     }
 
-    EmergencyNumbers() {
+    EmergencyNumbersStoring() {
         cy.get('svg[class="EmergencyContact_greenIcon__1IdCN"]').eq(2).click();
         cy.wait(500);
         cy.get('.chakra-switch__thumb').then(($toggle) => {
@@ -697,10 +699,24 @@ class Elements {
                 cy.get('@EfullName').then((name) => {
                     cy.log('Alias value = ' + name);
                 });
-                cy.get('select.chakra-select')
-                    .invoke('val').as('Erelationship');
+                cy.get('select[class="chakra-select css-161pkch"]').eq(1)
+                    .invoke('val')
+                    .then((value) => {
+                        cy.log('Captured = ' + value);
+                        cy.wrap(value).as('Erelationship');
+                    });
+                cy.get('@Erelationship').then((value) => {
+                    cy.log('Retrieved = ' + value);
+                });
                 cy.get('input[placeholder="Mobile Number"]')
-                    .invoke('val').as('EphoneNumber');
+                    .invoke('val')
+                    .then((value) => {
+                        cy.log('Captured Mobile Number: ' + value);
+                        cy.wrap(value).as('EphoneNumber');
+                    });
+                cy.get('@EphoneNumber').then((phoneNumber) => {
+                    cy.log('Alias value = ' + phoneNumber);
+                });
                 cy.get('body').then(($body) => {
                     const whatsappField = $body.find('input[placeholder="Whatsapp Number"]');
 
@@ -717,18 +733,111 @@ class Elements {
                 cy.get('input[placeholder="Full Name"]')
                     .invoke('val')
                     .then((value) => {
-                        cy.log('Captured Full Name: ' + value);
+                        cy.wrap(value).as('EfullName');
                     })
-                    .as('EfullName');
-                cy.get('select.chakra-select')
-                    .invoke('val').as('Erelationship');
+                cy.get('@EfullName').then((name) => {
+                    cy.log('Alias value = ' + name);
+                });
+                cy.get('select[class="chakra-select css-161pkch"]').eq(1)
+                    .invoke('val')
+                    .then((value) => {
+                        cy.log('Captured = ' + value);
+                        cy.wrap(value).as('Erelationship');
+                    });
+                cy.get('@Erelationship').then((value) => {
+                    cy.log('Retrieved = ' + value);
+                });
                 cy.get('input[placeholder="Mobile Number"]')
-                    .invoke('val').as('EphoneNumber');
+                    .invoke('val')
+                    .then((value) => {
+                        cy.log('Captured Mobile Number: ' + value);
+                        cy.wrap(value).as('EphoneNumber');
+                    });
+                cy.get('@EphoneNumber').then((phoneNumber) => {
+                    cy.log('Alias value = ' + phoneNumber);
+                });
                 cy.get('input[placeholder="Whatsapp Number"]')
-                    .invoke('val').as('EwhatsappNumber');
+                    .invoke('val')
+                    .then((value) => {
+                        cy.log('Captured Whatsapp Number: ' + value);
+                        cy.wrap(value).as('EwhatsappNumber');
+                    });
+                cy.get('@EwhatsappNumber').then((whatsappNumber) => {
+                    cy.log('Alias value = ' + whatsappNumber);
+                });
             }
         })
         cy.contains('Cancel').click({ force: true });
+    }
+    EmergencyNumbersRetrieving() {
+        cy.contains('Add Another Contact')
+            .click();
+        cy.get('@EfullName').then((EfullName) => {
+            cy.log('Alias value = ' + EfullName);
+            console.log('Alias value = ', EfullName);
+            cy.get('input[placeholder="Full Name"]').clear().type(EfullName).should('have.value', EfullName);
+        });
+        cy.get('@Erelationship').then((Erelationship) => {
+            cy.log('Alias value = ' + Erelationship);
+            cy.get('select[class="chakra-select css-161pkch"]').eq(1).select(Erelationship);
+            cy.get('select[class="chakra-select css-161pkch"]').eq(1).should('have.value', Erelationship);
+        });
+        cy.get('@EphoneNumber').then((EphoneNumber) => {
+            cy.log('Alias value = ' + EphoneNumber);
+            cy.get('input[placeholder="Mobile Number"]')
+                .clear()
+                .type(EphoneNumber)
+                .invoke('val')
+                .then((value) => {
+                    expect(value.replace(/\D/g, '')).to.equal(EphoneNumber);
+                });
+        });
+
+        cy.get('@EwhatsappNumber').then((whatsappNumber) => {
+
+            if (whatsappNumber === null) {
+                cy.log('Whatsapp field is not available');
+                cy.wait(500);
+                cy.get('label[for="same-whatsappNumber"]').eq(0).click();
+            } else {
+                cy.log('Whatsapp Number: ' + whatsappNumber);
+                cy.get('input[placeholder="Whatsapp Number"]')
+                    .clear()
+                    .type(whatsappNumber)
+                    .invoke('val')
+                    .then((value) => {
+                        expect(value.replace(/\D/g, '')).to.equal(whatsappNumber);
+                    });
+            }
+
+        });
+        cy.contains('Save').click();
+        cy.wait(500);
+        cy.contains('Add Another Contact').scrollIntoView().should('be.disabled');
+    }
+    login() {
+        cy.wait(1500);
+        cy.get('input[placeholder="Email"]').type(un.Un);
+        cy.wait(1500);
+        cy.contains('Get OTP').click();
+        cy.wait(3500);
+        this.PTA();
+        cy.wait(1000);
+        this.OTP();
+        cy.wait(1000);
+        cy.contains('Verify').click();
+        cy.wait(2000);
+        cy.get('body').then(($bodyText) => {
+            const bodyText = $bodyText.text();
+            if (bodyText.includes('Welcome')) {
+                cy.contains('Welcome').should('be.visible');
+            } else if (attempt < 3) {
+                cy.log(`Login failed. Retrying... Attempt ${attempt + 1}`);
+                this.login(attempt + 1);
+            } else {
+                throw new Error('Login failed after 3 attempts');
+            }
+        });
     }
 }
 export default Elements;
