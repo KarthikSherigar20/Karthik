@@ -815,8 +815,9 @@ class Elements {
         cy.wait(500);
         cy.contains('Add Another Contact').scrollIntoView().should('be.disabled');
     }
-    login() {
+    login(attempt = 0) {
         cy.wait(1500);
+        cy.get('input[placeholder="Email"]').should('be.visible').and('not.be.disabled',{ timeout: 10000 });
         cy.get('input[placeholder="Email"]').type(un.Un);
         cy.wait(1500);
         cy.contains('Get OTP').click();
@@ -833,6 +834,7 @@ class Elements {
                 cy.contains('Welcome').should('be.visible');
             } else if (attempt < 3) {
                 cy.log(`Login failed. Retrying... Attempt ${attempt + 1}`);
+                cy.reload();
                 this.login(attempt + 1);
             } else {
                 throw new Error('Login failed after 3 attempts');

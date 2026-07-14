@@ -1,5 +1,4 @@
 import url from '../../../fixtures/urls.json';
-import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
 describe('cityype',()=>{
@@ -25,8 +24,10 @@ describe('cityype',()=>{
             }else{
                 cy.contains('Add Hospital').scrollIntoView().click();
                 cy.wait(1000);
+                cy.get('button[class="chakra-button css-1ycquqd"]').click();
+                cy.wait(500);
                 let city='input[placeholder="Enter City Name"]';
-                cy.get(city).type('Others');
+                cy.get(city).clear().type('Others');
                 cy.wait(1000);
                 cy.get(city).should('have.value','Others');
                 cy.wait(1000);

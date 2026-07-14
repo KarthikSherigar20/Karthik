@@ -15,17 +15,17 @@ describe('Adding beneficiaries', () => {
             cy.visit(selectUrl);  //Mention urlname: Dev or Stage or Prod
 
             const P1 = new Elements();
-            // P1.loginbtn();
+            // P1.email(firstRow[0]); // Assuming email is in the first column
+            // P1.sendotp();
+            // cy.wait(3500);
+            // P1.PTA();
             // cy.wait(1000);
-            P1.email(firstRow[0]); // Assuming email is in the first column
-            P1.sendotp();
-            cy.wait(3500);
-            P1.PTA();
-            cy.wait(1000);
-            P1.OTP();
-            cy.wait(1000);
-            P1.verify();
-            cy.wait(1500);
+            // P1.OTP();
+            // cy.wait(1000);
+            // P1.verify();
+            // cy.wait(1500);
+            P1.login();
+            cy.wait(500); // Call the login method from the Elements class
         });
     });
 

@@ -1,8 +1,7 @@
 import url from '../../../fixtures/urls.json';
-import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
-describe('MobileNumber', () => {
+describe('Priority contact', () => {
     it('MobileNumber', () => {
         const selectedEnvironments = url.selectedEnvironment;
         const selectUrl = url.environments[selectedEnvironments];
@@ -22,34 +21,81 @@ describe('MobileNumber', () => {
         cy.contains('Add Another Contact').then(($btn) => {
 
             if ($btn.is(':disabled')) {
-
+                P1.EmergencyNumbersStoring();
+                cy.wait(500);
                 cy.get('svg[class="EmergencyContact_redIcon__xfuA3"]')
                     .eq(2)
                     .click();
-
                 cy.wait(1000);
                 cy.get(`button[class="chakra-button css-18zw69y"]`).click();
                 cy.wait(1000);
-
-                // cy.reload();
-
+                cy.contains('Add Another Contact')
+                    .should('not.be.disabled');
+                cy.wait(500);
+                cy.contains('Add Another Contact').click();
+                cy.wait(1000);
+                let relation = 'input[placeholder="Mobile Number"]';
+                cy.get(relation).type('9019803837')
+                cy.wait(1000);
+                cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(0).click();
+                cy.wait(1000);
+                cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(1).click();
+                cy.wait(1000);
+                cy.get('input.chakra-switch__input').eq(1).should('be.checked');
+                cy.wait(1000);
+                cy.get('input[placeholder="Full Name"]').type('Test');
+                cy.wait(500);
+                let relation1 = 'select[class="chakra-select css-161pkch"]';
+                cy.get(relation1).eq(1).select('Brother');
+                cy.wait(500);
+                cy.contains('Save').click();
+                cy.wait(500);
+                cy.contains('Contact Successfully Added').should('be.visible');
+                cy.wait(500);
+                cy.contains('Primary').should('be.visible');
+                cy.wait(500);
+                cy.get('svg[class="EmergencyContact_redIcon__xfuA3"]')
+                    .eq(2)
+                    .click();
+                cy.wait(1000);
+                cy.get(`button[class="chakra-button css-18zw69y"]`).click();
+                cy.wait(1000);
+                cy.contains('Add Another Contact')
+                    .should('not.be.disabled');
+                cy.wait(500);
+                P1.EmergencyNumbersRetrieving();
+            } else {
+                cy.contains('Add Another Contact').click();
+                cy.wait(1000);
+                let relation = 'input[placeholder="Mobile Number"]';
+                cy.get(relation).type('9019803837')
+                cy.wait(1000);
+                cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(0).click();
+                cy.wait(1000);
+                cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(1).click();
+                cy.wait(1000);
+                cy.get('input.chakra-switch__input').eq(1).should('be.checked');
+                cy.wait(1000);
+                cy.get('input[placeholder="Full Name"]').type('Test');
+                cy.wait(500);
+                let relation1 = 'select[class="chakra-select css-161pkch"]';
+                cy.get(relation1).eq(1).select('Brother');
+                cy.wait(500);
+                cy.contains('Save').click();
+                cy.wait(500);
+                cy.contains('Contact Successfully Added').should('be.visible');
+                cy.wait(500);
+                cy.contains('Primary').should('be.visible');
+                cy.wait(500);
+                cy.get('svg[class="EmergencyContact_redIcon__xfuA3"]')
+                    .eq(2)
+                    .click();
+                cy.wait(1000);
+                cy.get(`button[class="chakra-button css-18zw69y"]`).click();
+                cy.wait(1000);
                 cy.contains('Add Another Contact')
                     .should('not.be.disabled');
             }
         });
-        cy.contains('Add Another Contact').click();
-        cy.wait(1000);
-        let relation = 'input[placeholder="Mobile Number"]';
-        cy.get(relation).type('9019803837')
-        cy.wait(1000);
-        cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(0).click();
-        cy.wait(1000);
-        cy.get('span[class="chakra-switch__track css-p27qcy"]').eq(1).click();
-        cy.wait(1000);
-        cy.get('input.chakra-switch__input').eq(1).should('be.checked');
-        cy.wait(1000);
-        cy.contains('Cancel').click();
-
     })
-
 })

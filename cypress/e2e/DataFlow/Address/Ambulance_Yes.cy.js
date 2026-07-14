@@ -1,5 +1,4 @@
 import url from '../../../fixtures/urls.json';
-import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
 describe('Ambulance_YES', () => {

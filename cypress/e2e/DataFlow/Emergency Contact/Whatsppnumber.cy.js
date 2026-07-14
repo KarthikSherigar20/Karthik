@@ -1,5 +1,4 @@
 import url from '../../../fixtures/urls.json';
-import un from '../../../fixtures/UN&PASS';
 import Elements from '../../../Objects/Elements';
 
 describe('MobileNumber', () => {
@@ -22,30 +21,37 @@ describe('MobileNumber', () => {
         cy.contains('Add Another Contact').then(($btn) => {
 
             if ($btn.is(':disabled')) {
-
+                P1.EmergencyNumbersStoring();
+                cy.wait(500);
                 cy.get('svg[class="EmergencyContact_redIcon__xfuA3"]')
                     .eq(2)
                     .click();
-
                 cy.wait(1000);
                 cy.get(`button[class="chakra-button css-18zw69y"]`).click();
                 cy.wait(1000);
-
-                // cy.reload();
-
                 cy.contains('Add Another Contact')
                     .should('not.be.disabled');
+                cy.wait(500);
+                cy.contains('Add Another Contact').click();
+                cy.wait(1000);
+                let relation = 'input[placeholder="Whatsapp Number"]';
+                cy.get(relation).type('9019803837')
+                cy.wait(1000);
+                cy.get(relation).should('have.value', '90198-03837');
+                cy.wait(1000);
+                cy.contains('Cancel').click();
+                cy.wait(500);
+                P1.EmergencyNumbersRetrieving();
+            } else {
+                cy.contains('Add Another Contact').click();
+                cy.wait(1000);
+                let relation = 'input[placeholder="Whatsapp Number"]';
+                cy.get(relation).type('9019803837')
+                cy.wait(1000);
+                cy.get(relation).should('have.value', '90198-03837');
+                cy.wait(1000);
+                cy.contains('Cancel').click();
             }
         });
-        cy.contains('Add Another Contact').click();
-        cy.wait(1000);
-        let relation = 'input[placeholder="Whatsapp Number"]';
-        cy.get(relation).type('9019803837')
-        cy.wait(1000);
-        cy.get(relation).should('have.value', '90198-03837');
-        cy.wait(1000);
-        cy.contains('Cancel').click();
-
     })
-
 })
