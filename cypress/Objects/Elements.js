@@ -25,15 +25,15 @@ class Elements {
     addr = "div[class='ProfileAddressDetails_editIcon__GcAKc css-0']";
     addanot = "Add Another Address";
     addne = "Add New";
-    lab = "select[class='chakra-select css-161pkch']";
+    lab = `select[class="chakra-select css-hsxcm3"]`;
     no = "input[placeholder='Flat No. / House No. / Building / Company / Apartment']";
     Are = "input[placeholder='Area, Street, Sector, Village']";
     Land = "input[placeholder='Landmark']";
     pin = "input[placeholder='Pincode']";
     Tow = "input[placeholder='Town / City']";
     St = "input[placeholder='State']";
-    amb = "select[class='chakra-select css-161pkch']";
-    lft = "select[class='chakra-select css-161pkch']";
+    amb = `select[class="chakra-select css-hsxcm3"]`;
+    lft = `select[class="chakra-select css-hsxcm3"]`;
     loc = "Locate On Map";
     save = "button[class='chakra-button css-f2hjvb']";
     propre = "Profile Preview";
@@ -205,7 +205,7 @@ class Elements {
         cy.contains(this.addhos).scrollIntoView().should('be.visible').click();
     }
     Cityname(cname) {
-        cy.get(this.cityn).type(cname);
+        cy.get(this.cityn).clear().type(cname);
     }
     Hospitalname(hname) {
         cy.get(this.hosname).type(hname);
