@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-29T11:42:55.578Z",
+    "end": "2026-07-29T11:43:08.448Z",
+    "duration": 12870,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b2799d14-cb5d-429c-befd-4b0e2b765330",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Customer login page\\logo.cy.js",
+      "file": "cypress\\e2e\\UI\\Customer login page\\logo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5f05279d-6492-455b-af86-ead87c63d4fa",
+          "title": "Pococare Header Logo Assertions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should assert logo presence, size, and position",
+              "fullTitle": "Pococare Header Logo Assertions should assert logo presence, size, and position",
+              "timedOut": null,
+              "duration": 11019,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const logoSelector = 'img[alt=\"Company Logo\"]';\ncy.get(logoSelector).first().as('mainLogo');\n// 1. Presence & visibility\ncy.get('@mainLogo').should('exist').and('be.visible');\n// 2. Size\ncy.get('@mainLogo').invoke('width').should('be.closeTo', 110.5, 2);\ncy.get('@mainLogo').invoke('height').then(h => {\n  cy.log(`Actual logo height: ${h}px`); // capture real value first run\n});\n// 3. Position - using actual measured top value\ncy.get('@mainLogo').then($logo => {\n  const rect = $logo[0].getBoundingClientRect();\n  cy.log(`top: ${rect.top}, left: ${rect.left}`);\n  expect(rect.top).to.be.closeTo(41.36, 5);\n  expect(rect.left).to.be.closeTo(41, 10); // update once you confirm actual left value\n});",
+              "err": {},
+              "uuid": "32fe719b-8095-4347-bacf-c89d03d946d5",
+              "parentUUID": "5f05279d-6492-455b-af86-ead87c63d4fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should assert logo presence, size, position, and brand color",
+              "fullTitle": "Pococare Header Logo Assertions should assert logo presence, size, position, and brand color",
+              "timedOut": null,
+              "duration": 392,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const logoSelector = 'img[alt=\"Company Logo\"]';\ncy.get(logoSelector).first().as('mainLogo').should('be.visible').and($img => {\n  expect($img[0].naturalWidth).to.be.greaterThan(0);\n});\n// 1. Natural image dimensions (intrinsic size)\ncy.get('@mainLogo').should($img => {\n  expect($img[0].naturalWidth).to.eq(234);\n  expect($img[0].naturalHeight).to.eq(94);\n});\n// 2. Rendered size and position on screen\ncy.get('@mainLogo').then($logo => {\n  const rect = $logo[0].getBoundingClientRect();\n  cy.log(`Rendered size: ${rect.width}x${rect.height}, position: top=${rect.top}, left=${rect.left}`);\n  expect(rect.width).to.be.closeTo(110.5, 2);\n  expect(rect.height).to.be.greaterThan(0);\n  expect(rect.top).to.be.closeTo(41.36, 5);\n});\n// 3. Brand color assertion via canvas pixel sampling\ncy.get('@mainLogo').then($img => {\n  const imgEl = $img[0];\n  const canvas = document.createElement('canvas');\n  canvas.width = imgEl.naturalWidth;\n  canvas.height = imgEl.naturalHeight;\n  const ctx = canvas.getContext('2d');\n  ctx.drawImage(imgEl, 0, 0);\n  // Confirmed brand pink at center point of the \"care\" text\n  const pinkPixel = ctx.getImageData(117, 47, 1, 1).data;\n  expect(pinkPixel[0]).to.be.closeTo(255, 5); // R\n  expect(pinkPixel[1]).to.be.closeTo(41, 10); // G\n  expect(pinkPixel[2]).to.be.closeTo(151, 10); // B\n  expect(pinkPixel[3]).to.eq(255); // fully opaque\n  // Background/corner should be white\n  const bgPixel = ctx.getImageData(5, 5, 1, 1).data;\n  expect(bgPixel[0]).to.eq(255);\n  expect(bgPixel[1]).to.eq(255);\n  expect(bgPixel[2]).to.eq(255);\n});",
+              "err": {},
+              "uuid": "25c6ce98-914c-4614-a86f-64b1e7329c28",
+              "parentUUID": "5f05279d-6492-455b-af86-ead87c63d4fa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "32fe719b-8095-4347-bacf-c89d03d946d5",
+            "25c6ce98-914c-4614-a86f-64b1e7329c28"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11411,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

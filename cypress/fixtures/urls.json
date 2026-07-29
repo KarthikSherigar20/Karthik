@@ -1,8 +1,8 @@
 {
-        "selectedEnvironment":"Stage",
-        "environments":{
-                "Dev":"https://aws.customerdev.pococare.com/customer/",
-                "Stage":"https://pococustomerapp.stage.pococare.com/customer",
-                "Prod":"https://pococare.com/"
+        "selectedEnvironment": "Stage",
+        "environments": {
+                "Dev": "https://aws.customerdev.pococare.com/customer/",
+                "Stage": "https://pococustomerapp.stage.pococare.com/customer",
+                "Prod": "https://pococare.com/"
         }
 }

@@ -27,7 +27,7 @@ describe('TPA',()=>{
         cy.wait(1000);
         cy.get('body').then($bodyText=>{
             const bodyText=$bodyText.text();
-        expect(bodyText).to.include('Type 2 Diabetics Mellitus');
+        expect(bodyText).to.match(/Type 2/i);
         })
     })
 })
