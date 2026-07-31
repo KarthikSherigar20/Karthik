@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-31T12:06:47.688Z",
+    "end": "2026-07-31T12:06:54.223Z",
+    "duration": 6535,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "246f6a1c-0528-442f-8c1b-3e26f49711b4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\ContactUS\\Header Navigation and Logo.cy.js",
+      "file": "cypress\\e2e\\UI\\ContactUS\\Header Navigation and Logo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4d31bde9-9396-4094-b69f-d67ca11ed645",
+          "title": "Header Navigation and Logo.cy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verifies the Header Logo size, position, and visibility",
+              "fullTitle": "Header Navigation and Logo.cy Verifies the Header Logo size, position, and visibility",
+              "timedOut": null,
+              "duration": 3606,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"/home/\"]') // matches whether href is relative or absolute\n.should('be.visible').and('have.css', 'display', 'inline-block').invoke('outerWidth').should('be.greaterThan', 50);\ncy.get('a[href*=\"/home/\"]').then($logo => {\n  const rect = $logo[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(-1);\n  expect(rect.left).to.be.greaterThan(-1);\n});",
+              "err": {},
+              "uuid": "dd1f4b4d-6d14-45fc-8bb8-0fbc1de01ec5",
+              "parentUUID": "4d31bde9-9396-4094-b69f-d67ca11ed645",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies Navigation Menu Items colors and fonts",
+              "fullTitle": "Header Navigation and Logo.cy Verifies Navigation Menu Items colors and fonts",
+              "timedOut": null,
+              "duration": 1516,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.hfe-nav-menu-icon, .elementor-menu-toggle').should('be.visible').click();\nconst expectedStyles = {\n  'About Us': {\n    color: 'rgb(0, 0, 0)',\n    fontSize: '18px',\n    fontWeight: '400'\n  },\n  'Request a demo': {\n    color: 'rgb(254, 29, 143)',\n    fontSize: '18px',\n    fontWeight: '400'\n  },\n  'Buy Subscription': {\n    color: 'rgb(0, 0, 0)',\n    fontSize: '18px',\n    fontWeight: '400'\n  },\n  'Career': {\n    color: 'rgb(0, 0, 0)',\n    fontSize: '18px',\n    fontWeight: '400'\n  },\n  'Blog': {\n    color: 'rgb(0, 0, 0)',\n    fontSize: '18px',\n    fontWeight: '400'\n  },\n  'Login': {\n    color: 'rgb(255, 255, 255)',\n    fontSize: '18px',\n    fontWeight: '400'\n  }\n};\nObject.entries(expectedStyles).forEach(([item, styles]) => {\n  cy.contains('a.hfe-menu-item, a', item).should('be.visible').and('have.css', 'color', styles.color).and('have.css', 'font-size', styles.fontSize).and('have.css', 'font-weight', styles.fontWeight);\n});",
+              "err": {},
+              "uuid": "0daf899b-425a-4ad5-8872-6fb508c5899b",
+              "parentUUID": "4d31bde9-9396-4094-b69f-d67ca11ed645",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dd1f4b4d-6d14-45fc-8bb8-0fbc1de01ec5",
+            "0daf899b-425a-4ad5-8872-6fb508c5899b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5122,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
