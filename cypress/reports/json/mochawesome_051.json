@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-04T06:01:35.730Z",
+    "end": "2026-08-04T06:01:42.960Z",
+    "duration": 7230,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "834814c1-a6b5-48a0-bcf7-b38af12687c8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Privacy policy\\FOOTER LIST COMPONENT.cy.js",
+      "file": "cypress\\e2e\\UI\\Privacy policy\\FOOTER LIST COMPONENT.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6530b1a7-8409-444b-848f-0e2ea276bbdb",
+          "title": "FOOTER LIST COMPONENT",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validates the Useful Links Footer Menu (using specific hrefs)",
+              "fullTitle": "FOOTER LIST COMPONENT Validates the Useful Links Footer Menu (using specific hrefs)",
+              "timedOut": null,
+              "duration": 4301,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const expectedLinks = [{\n  text: 'Contact Us',\n  href: '/contact-us/'\n}, {\n  text: 'Terms and Conditions',\n  href: '/terms&conditions/'\n}, {\n  text: 'Refund Policy',\n  href: '/Pococare_Refund_Policy.pdf'\n}, {\n  text: 'Privacy Policy',\n  href: '/privacyPolicy/'\n}];\nexpectedLinks.forEach(link => {\n  cy.get(`a[href*=\"${link.href}\"]`).should('exist').and('be.visible').and('contain.text', link.text);\n});",
+              "err": {},
+              "uuid": "a378bd8c-0ed4-47c2-ab29-3330bc581055",
+              "parentUUID": "6530b1a7-8409-444b-848f-0e2ea276bbdb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a378bd8c-0ed4-47c2-ab29-3330bc581055"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4301,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

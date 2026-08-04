@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-04T06:00:19.651Z",
+    "end": "2026-08-04T06:00:25.332Z",
+    "duration": 5681,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4562494b-415c-49f3-a717-3f88a83e9d90",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Menu Toggle (Hamburger Icon).cy.js",
+      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Menu Toggle (Hamburger Icon).cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1fd61d5c-a3d0-4463-bbf3-68abd69a1905",
+          "title": "Menu Toggle (Hamburger Icon)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verifies Menu Toggle Icon (hardened)",
+              "fullTitle": "Menu Toggle (Hamburger Icon) Verifies Menu Toggle Icon (hardened)",
+              "timedOut": null,
+              "duration": 2762,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.hfe-nav-menu-icon').eq(0).should('be.visible').and('have.css', 'color', 'rgb(254, 29, 143)').and('have.css', 'cursor', 'pointer').and('have.css', 'background-color', 'rgba(0, 0, 0, 0)');",
+              "err": {},
+              "uuid": "c0493d6d-0b27-40ce-9847-4a2635eb61df",
+              "parentUUID": "1fd61d5c-a3d0-4463-bbf3-68abd69a1905",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies Menu Toggle opens navigation on click",
+              "fullTitle": "Menu Toggle (Hamburger Icon) Verifies Menu Toggle opens navigation on click",
+              "timedOut": null,
+              "duration": 1596,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.hfe-nav-menu-icon').eq(0).click();\ncy.contains('a', 'About Us').should('be.visible');\ncy.contains('a', 'Request a demo').should('be.visible');",
+              "err": {},
+              "uuid": "dea8547c-9b1a-46fb-bbb7-d749aa2cfc58",
+              "parentUUID": "1fd61d5c-a3d0-4463-bbf3-68abd69a1905",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c0493d6d-0b27-40ce-9847-4a2635eb61df",
+            "dea8547c-9b1a-46fb-bbb7-d749aa2cfc58"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4358,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

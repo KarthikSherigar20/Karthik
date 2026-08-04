@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-04T06:00:26.798Z",
+    "end": "2026-08-04T06:00:35.050Z",
+    "duration": 8252,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b5916814-ab56-4b21-8f35-11db25b02f2a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Onboarding Process Table.cy.js",
+      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Onboarding Process Table.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "718aee68-2026-41b8-bac5-1d8bbebdc2c8",
+          "title": "Onboarding Process Table",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify table structure, size, position",
+              "fullTitle": "Onboarding Process Table should verify table structure, size, position",
+              "timedOut": null,
+              "duration": 2795,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('table', 'Steps').should('exist').and('be.visible').then($table => {\n  const rect = $table[0].getBoundingClientRect();\n  expect(rect.width).to.be.greaterThan(200);\n});",
+              "err": {},
+              "uuid": "9398c19f-ef1c-49be-89c6-0ea688e5743e",
+              "parentUUID": "718aee68-2026-41b8-bac5-1d8bbebdc2c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify \"Steps\" header cell font-weight",
+              "fullTitle": "Onboarding Process Table should verify \"Steps\" header cell font-weight",
+              "timedOut": null,
+              "duration": 1872,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('td', 'Steps').should('be.visible');\ncy.contains('td', 'Steps').should('have.css', 'font-weight');",
+              "err": {},
+              "uuid": "874fcd2c-27a4-4e35-bf4c-95af1cb5d1a4",
+              "parentUUID": "718aee68-2026-41b8-bac5-1d8bbebdc2c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify \"Description\" header cell is visible",
+              "fullTitle": "Onboarding Process Table should verify \"Description\" header cell is visible",
+              "timedOut": null,
+              "duration": 1160,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('td', 'Description').should('be.visible');",
+              "err": {},
+              "uuid": "7e1e8328-5ca6-482d-a07f-af727c44d244",
+              "parentUUID": "718aee68-2026-41b8-bac5-1d8bbebdc2c8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify first row data \"Subscriber Registration\"",
+              "fullTitle": "Onboarding Process Table should verify first row data \"Subscriber Registration\"",
+              "timedOut": null,
+              "duration": 1093,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('td', 'Subscriber Registration').should('be.visible');",
+              "err": {},
+              "uuid": "61242f2d-13b2-4c2e-829b-ab2f25b0c6b5",
+              "parentUUID": "718aee68-2026-41b8-bac5-1d8bbebdc2c8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9398c19f-ef1c-49be-89c6-0ea688e5743e",
+            "874fcd2c-27a4-4e35-bf4c-95af1cb5d1a4",
+            "7e1e8328-5ca6-482d-a07f-af727c44d244",
+            "61242f2d-13b2-4c2e-829b-ab2f25b0c6b5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6920,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
