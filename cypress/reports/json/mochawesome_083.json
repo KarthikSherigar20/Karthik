@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-20T10:38:34.778Z",
+    "end": "2026-08-20T10:38:50.777Z",
+    "duration": 15999,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e471665e-8edf-43ad-b56a-4b989dee5d92",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\MENU TOGGLE BUTTON.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\MENU TOGGLE BUTTON.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "63fbacb7-1951-4731-86ce-05e08bb53021",
+          "title": "MENU TOGGLE BUTTON",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC02 - Menu Toggle Button: visibility, hover/focus/active state",
+              "fullTitle": "MENU TOGGLE BUTTON TC02 - Menu Toggle Button: visibility, hover/focus/active state",
+              "timedOut": null,
+              "duration": 13756,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.header_menu.hfe-nav-menu__align-left').as('menuWidget').should('be.visible');\n// The real clickable toggle is usually a nested <span> or <div class=\"elementor-menu-toggle\">\ncy.get('.elementor-menu-toggle, .hfe-nav-menu-icon, [class*=\"menu-toggle\"]').filter(':visible').first().as('menuBtn').should('be.visible');\ncy.get('@menuBtn').then($el => {\n  expect(['pointer', 'auto']).to.include(window.getComputedStyle($el[0]).cursor);\n});\n// Use trigger('focus') since this may not be a native focusable element\ncy.get('@menuBtn').trigger('focus');\ncy.get('@menuBtn').trigger('mouseover'); // hover state\ncy.get('@menuBtn').click(); // active/click state",
+              "err": {},
+              "uuid": "d231155e-7c83-492a-b8b4-18c2e551163e",
+              "parentUUID": "63fbacb7-1951-4731-86ce-05e08bb53021",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d231155e-7c83-492a-b8b4-18c2e551163e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13756,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

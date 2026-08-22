@@ -21,7 +21,7 @@ describe('TPA',()=>{
         let TPA='div[class="dropdown-heading-value"]';
         cy.get(TPA).click();
         cy.wait(1000);
-        cy.contains('Type 2 Diabetics Mellitus').click();
+        cy.contains(/Type 2 Diabe/i).click();
         cy.wait(1000);
         cy.get(TPA).click();
         cy.wait(1000);

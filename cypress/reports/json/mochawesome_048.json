@@ -1,13 +1,13 @@
 {
   "stats": {
-    "suites": 2,
+    "suites": 1,
     "tests": 1,
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-08-04T06:00:55.107Z",
-    "end": "2026-08-04T06:00:59.836Z",
-    "duration": 4729,
+    "start": "2026-08-20T10:27:09.019Z",
+    "end": "2026-08-20T10:27:29.616Z",
+    "duration": 20597,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,68 +18,49 @@
   },
   "results": [
     {
-      "uuid": "81a1b582-94ce-475b-a595-039d952490fe",
+      "uuid": "adfe660d-5203-45f4-a47c-eeba55aaa466",
       "title": "",
-      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Section Heading.cy.js",
-      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Section Heading.cy.js",
+      "fullFile": "cypress\\e2e\\DataFlow\\Medical Profile\\Asthma.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Medical Profile\\Asthma.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "84dcfc76-d5ad-441e-a933-66f3c79d10fe",
-          "title": "Section Heading",
+          "uuid": "1f235717-e45a-4d93-b6a2-e6e9fcf107ab",
+          "title": "TPA",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
-          "tests": [],
-          "suites": [
+          "tests": [
             {
-              "uuid": "342b5a62-ceea-4b56-a1fc-188267be43d1",
-              "title": "Annexure A Heading",
-              "fullFile": "",
-              "file": "",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "should assert heading style and location",
-                  "fullTitle": "Section Heading Annexure A Heading should assert heading style and location",
-                  "timedOut": null,
-                  "duration": 3097,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "cy.contains('ANNEXURE A: TERMS OF USE').should('be.visible').and('have.css', 'font-weight').and('match', /bold|700/);\ncy.contains('ANNEXURE A: TERMS OF USE').should('have.css', 'color');",
-                  "err": {},
-                  "uuid": "9c7a39e3-4b92-4ddf-9d17-d87a2cb12963",
-                  "parentUUID": "342b5a62-ceea-4b56-a1fc-188267be43d1",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [
-                "9c7a39e3-4b92-4ddf-9d17-d87a2cb12963"
-              ],
-              "failures": [],
-              "pending": [],
-              "skipped": [],
-              "duration": 3097,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 2000
+              "title": "TPA",
+              "fullTitle": "TPA TPA",
+              "timedOut": null,
+              "duration": 18998,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\nP1.login();\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Medical Profile').click();\ncy.wait(1000);\nlet TPA = 'div[class=\"dropdown-heading-value\"]';\ncy.get(TPA).click();\ncy.wait(1000);\ncy.contains('Asthma').click();\ncy.wait(1000);\ncy.get(TPA).click();\ncy.wait(1000);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.include('Asthma');\n});",
+              "err": {},
+              "uuid": "9cc9a741-0147-4082-b224-b1ebcc8241e5",
+              "parentUUID": "1f235717-e45a-4d93-b6a2-e6e9fcf107ab",
+              "isHook": false,
+              "skipped": false
             }
           ],
-          "passes": [],
+          "suites": [],
+          "passes": [
+            "9cc9a741-0147-4082-b224-b1ebcc8241e5"
+          ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 0,
+          "duration": 18998,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

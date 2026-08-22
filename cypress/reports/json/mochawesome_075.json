@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-20T10:37:10.338Z",
+    "end": "2026-08-20T10:37:16.997Z",
+    "duration": 6659,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d41e2d96-d44f-43c7-8c2a-e70e64cfbd5f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\Apple App Store Badge.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\Apple App Store Badge.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5b22022a-2b64-4665-9aee-2fe7e532f10e",
+          "title": "Apple App Store Badge",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC27 - Apple App Store badge: visibility, link, image",
+              "fullTitle": "Apple App Store Badge TC27 - Apple App Store badge: visibility, link, image",
+              "timedOut": null,
+              "duration": 5120,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"apps.apple.com\"]').as('appleBadge').should('exist').and('be.visible');\ncy.get('@appleBadge').should('have.attr', 'href').and('include', 'apps.apple.com/in/app/poco-emurgency');\ncy.get('@appleBadge').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.width).to.be.greaterThan(0).and.closeTo(68, 5);\n  expect(rect.height).to.be.greaterThan(0).and.closeTo(24, 5);\n  const style = window.getComputedStyle($el[0]);\n  expect(style.display).to.not.eq('none');\n  expect(style.opacity).to.not.eq('0');\n});\ncy.get('@appleBadge').find('img').then($imgs => {\n  if ($imgs.length) {\n    cy.wrap($imgs.first()).should('have.attr', 'src').and('not.be.empty');\n    cy.wrap($imgs.first()).should('have.attr', 'alt');\n  }\n});\ncy.get('@appleBadge').trigger('mouseover');",
+              "err": {},
+              "uuid": "1abd8cc5-46ef-4584-960e-85980ff8cf21",
+              "parentUUID": "5b22022a-2b64-4665-9aee-2fe7e532f10e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1abd8cc5-46ef-4584-960e-85980ff8cf21"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5120,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

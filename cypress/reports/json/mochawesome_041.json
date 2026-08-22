@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 4,
-    "tests": 4,
-    "passes": 4,
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-08-04T05:59:57.951Z",
-    "end": "2026-08-04T06:00:06.293Z",
-    "duration": 8342,
-    "testsRegistered": 4,
+    "start": "2026-08-20T10:24:25.333Z",
+    "end": "2026-08-20T10:24:52.837Z",
+    "duration": 27504,
+    "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,166 +18,49 @@
   },
   "results": [
     {
-      "uuid": "1ce4020b-b65e-48ff-b120-3e9de9d77d2c",
+      "uuid": "42d89a9a-127a-4650-bcf0-8576e6f16f53",
       "title": "",
-      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Footer Social Media Icons.cy.js",
-      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Footer Social Media Icons.cy.js",
+      "fullFile": "cypress\\e2e\\DataFlow\\Emergency Contact\\Whatsppnumber.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Emergency Contact\\Whatsppnumber.cy.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "0067b55a-3f7b-4b8b-81a5-744f4bffaddd",
-          "title": "Footer Social Media Icons: Facebook",
+          "uuid": "de519c1e-a25d-40a6-ae17-148a7a4670c4",
+          "title": "MobileNumber",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "should verify icon visibility, size, color, position",
-              "fullTitle": "Footer Social Media Icons: Facebook should verify icon visibility, size, color, position",
+              "title": "MobileNumber",
+              "fullTitle": "MobileNumber MobileNumber",
               "timedOut": null,
-              "duration": 2760,
+              "duration": 25995,
               "state": "passed",
-              "speed": "fast",
+              "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\nP1.login();\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Emergency Contact').click();\ncy.wait(1000);\ncy.contains('Add Another Contact').then($btn => {\n  if ($btn.is(':disabled')) {\n    P1.EmergencyNumbersStoring();\n    cy.wait(500);\n    cy.get('svg[class=\"EmergencyContact_redIcon__xfuA3\"]').eq(2).click();\n    cy.wait(1000);\n    cy.get(`button[class=\"chakra-button css-18zw69y\"]`).click();\n    cy.wait(1000);\n    cy.contains('Add Another Contact').should('not.be.disabled');\n    cy.wait(500);\n    cy.contains('Add Another Contact').click();\n    cy.wait(1000);\n    let relation = 'input[placeholder=\"Whatsapp Number\"]';\n    cy.get(relation).type('9019803837');\n    cy.wait(1000);\n    cy.get(relation).should('have.value', '90198-03837');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n    cy.wait(500);\n    P1.EmergencyNumbersRetrieving();\n  } else {\n    cy.contains('Add Another Contact').click();\n    cy.wait(1000);\n    let relation = 'input[placeholder=\"Whatsapp Number\"]';\n    cy.get(relation).type('9019803837');\n    cy.wait(1000);\n    cy.get(relation).should('have.value', '90198-03837');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
               "err": {},
-              "uuid": "b076cb98-5fd3-410f-b4dd-2b2a00fa270a",
-              "parentUUID": "0067b55a-3f7b-4b8b-81a5-744f4bffaddd",
+              "uuid": "d28d2f28-960b-479c-b55b-d53948a11d39",
+              "parentUUID": "de519c1e-a25d-40a6-ae17-148a7a4670c4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b076cb98-5fd3-410f-b4dd-2b2a00fa270a"
+            "d28d2f28-960b-479c-b55b-d53948a11d39"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2760,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "dbcab001-42fb-45b2-a122-d813dade1706",
-          "title": "Footer Social Media Icons: Twitter",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "should verify icon visibility, size, color, position",
-              "fullTitle": "Footer Social Media Icons: Twitter should verify icon visibility, size, color, position",
-              "timedOut": null,
-              "duration": 1578,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
-              "err": {},
-              "uuid": "b7b597ca-b6f5-4a9d-8ef4-dd6b95792c5c",
-              "parentUUID": "dbcab001-42fb-45b2-a122-d813dade1706",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "b7b597ca-b6f5-4a9d-8ef4-dd6b95792c5c"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 1578,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "2fa3e0cb-6568-4ba1-9831-74033351f021",
-          "title": "Footer Social Media Icons: Instagram",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "should verify icon visibility, size, color, position",
-              "fullTitle": "Footer Social Media Icons: Instagram should verify icon visibility, size, color, position",
-              "timedOut": null,
-              "duration": 1477,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
-              "err": {},
-              "uuid": "6cb99df8-7c55-4482-af81-a93a4469defd",
-              "parentUUID": "2fa3e0cb-6568-4ba1-9831-74033351f021",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "6cb99df8-7c55-4482-af81-a93a4469defd"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 1477,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "2caed2cc-808e-4bf4-97c4-e9077738dabc",
-          "title": "Footer Social Media Icons: Linkedin",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "should verify icon visibility, size, color, position",
-              "fullTitle": "Footer Social Media Icons: Linkedin should verify icon visibility, size, color, position",
-              "timedOut": null,
-              "duration": 1150,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
-              "err": {},
-              "uuid": "c0f6e140-b335-402a-91dd-7fe3eb518364",
-              "parentUUID": "2caed2cc-808e-4bf4-97c4-e9077738dabc",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "c0f6e140-b335-402a-91dd-7fe3eb518364"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 1150,
+          "duration": 25995,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

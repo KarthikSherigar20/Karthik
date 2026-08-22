@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-20T11:02:37.471Z",
+    "end": "2026-08-20T11:02:58.461Z",
+    "duration": 20990,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "86087530-fb77-49db-ab3e-d6808c8b85be",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Negative\\Emergency contacts\\Fullname.cy.js",
+      "file": "cypress\\e2e\\Negative\\Emergency contacts\\Fullname.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "45f1872c-6681-48db-9c86-b34f71a86ea3",
+          "title": "Emergency contacts",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Fullname",
+              "fullTitle": "Emergency contacts Fullname",
+              "timedOut": null,
+              "duration": 19323,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.parseXlsx('cypress/Excels/Negative/Emergency contacts/Full name.xlsx').then(jsonData => {\n  let rowLength = Cypress.$(jsonData[0].data).length;\n  console.log('row---1', rowLength);\n  cy.wait(1500);\n  const P1 = new _Elements.default();\n  for (let i = 1; i < rowLength; i++) {\n    const value = jsonData[0].data[i];\n    console.log('value', value);\n    cy.wait(1000);\n    P1.emergencycontacts();\n    if (value.length !== 0) {\n      cy.contains('Add Another Contact').then($btn => {\n        if ($btn.is(':disabled')) {\n          cy.log('Maximum limit is already reached');\n          P1.profilepreview();\n        } else {\n          cy.wait(1500);\n          P1.addanothercontact();\n          cy.wait(1500);\n          cy.get('body').then($bodyText => {\n            const bodyText = $bodyText.text();\n            if (!bodyText.includes(value[3])) {\n              if (value[3] !== null && value[3] !== undefined) {\n                P1.Funame(value[3]);\n              }\n              cy.wait(1500);\n              if (value[4] !== null && value[4] !== undefined) {\n                P1.Relationship(value[4]);\n              }\n              cy.wait(1500);\n              if (value[5] !== null && value[5] !== undefined) {\n                P1.Mobileno(value[5]);\n              }\n              cy.wait(1500);\n              if (value[3] !== null && value[3] !== undefined && value[4] !== null && value[4] !== undefined && value[5] !== null && value[5] !== undefined) {\n                P1.whatspp();\n                cy.wait(1500);\n                P1.savee();\n                cy.wait(1500);\n                P1.profilepreview();\n              }\n              if (value[3] === null || value[3] === undefined || value[4] === null || value[4] === undefined || value[5] === null || value[5] === undefined) {\n                cy.wait(2000);\n                P1.savee();\n                cy.wait(1500);\n                P1.checkErrormessage(value[3], value[4], value[5]);\n                cy.wait(1500);\n                cy.contains('Cancel').click();\n                P1.profilepreview();\n              }\n            } else {\n              cy.log(\"This contact is already present\");\n              cy.get('button[class=\"chakra-button css-ez23ye\"]').click();\n              P1.profilepreview();\n            }\n          });\n        }\n      });\n    }\n  }\n});",
+              "err": {},
+              "uuid": "12bef3b0-6926-48e1-ac2d-e0dd3c9536b8",
+              "parentUUID": "45f1872c-6681-48db-9c86-b34f71a86ea3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "12bef3b0-6926-48e1-ac2d-e0dd3c9536b8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19323,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

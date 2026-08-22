@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-20T11:05:10.348Z",
+    "end": "2026-08-20T11:05:29.453Z",
+    "duration": 19105,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6e8ad093-7fb5-4e67-97cf-a77e80ced8e2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Welcome Page\\Edit  Profile\\Address.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Welcome Page\\Edit  Profile\\Address.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fa8f4340-3409-4b1a-8bf3-6a1b0cd3968f",
+          "title": "Basic information",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking Basic information page",
+              "fullTitle": "Basic information Checking Basic information page",
+              "timedOut": null,
+              "duration": 17509,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironment = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironment];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\ncy.wait(1500);\ncy.get('input[placeholder=\"Email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.contains('Get OTP').click();\ncy.wait(3500);\nP1.PTA();\ncy.wait(1500);\nP1.OTP();\ncy.wait(1000);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.wait(1500);\ncy.contains('Address').should('be.visible').should('not.be.disabled').click();\ncy.wait(1500);\nconst cssLocator = 'path[d=\"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z\"]';\ncy.get(cssLocator).its('length').then(length => {\n  cy.log(`Number of elements matching the CSS locator: ${length}`);\n  if (length === 3) {\n    cy.contains('Add Another Address').should('not.be.visible').should('be.disabled');\n    cy.log('Already maximum limit of address is exceeded');\n  } else {\n    cy.contains('Add Another Address').should('be.visible').should('not.be.disabled').click();\n    cy.wait(1500);\n    cy.contains('Select From Existing Addresses').should('be.visible').should('not.be.disabled').click();\n    cy.wait(1500);\n    cy.contains('Save Address').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.contains('Select From Existing Addresses').should('be.visible').should('not.be.disabled').click();\n    cy.wait(1500);\n    cy.contains('Add New').should('be.visible').should('not.be.disabled').click();\n    cy.wait(1500);\n    const adresslabel = 'select[class=\"chakra-select css-hsxcm3\"]';\n    cy.get(adresslabel).eq(0).then(dropdown => {\n      let previouslyselectedoption = dropdown.val();\n      cy.get(adresslabel).eq(0).find('option').then(options => {\n        const actural = [...options].map(o => o.value);\n        for (let i = 0; i < actural.length; i++) {\n          cy.get(adresslabel).eq(0).select(actural[i]).should('have.value', actural[i]).should('not.be.disabled').should('be.visible');\n          cy.wait(500);\n        }\n      });\n      cy.get(adresslabel).eq(0).select(previouslyselectedoption);\n    });\n    cy.wait(1500);\n    cy.get('input[placeholder=\"Flat No. / House No. / Building / Company / Apartment\"]').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('input[placeholder=\"Area, Street, Sector, Village\"]').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('input[placeholder=\"Landmark\"]').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('input[placeholder=\"Pincode\"]').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('input[placeholder=\"Town / City\"]').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('input[placeholder=\"State\"]').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    const amb = 'select[class=\"chakra-select css-hsxcm3\"]';\n    cy.get(amb).eq(1).then(dropdown => {\n      let previouslyselectedoption = dropdown.val();\n      cy.get(amb).eq(1).find('option').then(options => {\n        const actual = [...options].map(o => o.value);\n        for (let i = 0; i < actual.length; i++) {\n          cy.get(amb).eq(1).select(actual[i]).should('have.value', actual[i]).should('be.visible').should('not.be.disabled');\n          cy.wait(1500);\n        }\n      });\n      cy.get(amb).eq(1).select(previouslyselectedoption);\n    });\n    cy.wait(1500);\n    let lift = 'select[class=\"chakra-select css-hsxcm3\"]';\n    cy.get(lift).eq(2).then(dropdown => {\n      const previouslyselectedoption = dropdown.val();\n      cy.get(lift).eq(2).find('option').then(options => {\n        const actual = [...options].map(o => o.value);\n        for (let i = 0; i < actual.length; i++) {\n          cy.get(lift).eq(2).select(actual[i]).should('have.value', actual[i]).should('be.visible').should('not.be.disabled');\n          cy.wait(1500);\n        }\n      });\n      cy.get(lift).eq(2).select(previouslyselectedoption);\n    });\n    cy.wait(1500);\n    cy.contains('Locate On Map').should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.contains('Cancel').scrollIntoView().should('be.visible').should('not.be.disabled');\n    cy.wait(1500);\n    cy.get('button[class=\"chakra-modal__close-btn css-1ik4h6n\"]').scrollIntoView().should('be.visible').should('not.be.disabled').click();\n  }\n});",
+              "err": {},
+              "uuid": "3adbb955-01a5-4118-9473-c7268c0605b3",
+              "parentUUID": "fa8f4340-3409-4b1a-8bf3-6a1b0cd3968f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3adbb955-01a5-4118-9473-c7268c0605b3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17509,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

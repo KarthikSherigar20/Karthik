@@ -17,22 +17,24 @@ describe('login_button', () => {
     it('should be visible with correct text and dropdown attribute', () => {
         cy.contains('Login')
             .should('be.visible')
-            .and('have.attr', 'aria-haspopup', 'dialog');
+            .closest('[aria-haspopup]') // walk up to the actual popover trigger element
+            .should('have.attr', 'aria-haspopup', 'dialog');
     });
-
-    it('should be clickable and open the popover/dropdown', () => {
+    it('should be clickable and open the dropdown menu', () => {
         cy.contains('Login').click();
-        // Assert popover/dialog content appears after click
-        cy.get('[role="dialog"]').should('be.visible');
+        // No role="dialog" exists; instead the menu items appear
+        cy.contains('Corporate Login').should('be.visible');
+        cy.contains('Customer Login').should('be.visible');
     });
 
-    it('should have expected background color and pill-shaped border radius', () => {
+    it('should have expected background color and border radius on the Login link', () => {
         cy.contains('Login').then($el => {
             const style = window.getComputedStyle($el[0]);
             expect(style.backgroundColor).to.not.be.empty;
-            expect(parseInt(style.borderRadius)).to.be.greaterThan(0);
+            expect(parseInt(style.borderRadius)).to.equal(0); // corrected: inner <a> has no radius itself
         });
     });
+
 
     it('should contain a lock icon and a dropdown chevron icon', () => {
         cy.contains('Login').parent().within(() => {

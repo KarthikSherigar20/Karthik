@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-20T10:48:31.713Z",
+    "end": "2026-08-20T10:48:36.048Z",
+    "duration": 4335,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c2eff5ca-e689-4c09-bbad-9e3d6a504ec8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Grievance Officer Contact Block.cy.js",
+      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Grievance Officer Contact Block.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ecf79c40-ac5e-4c18-8b98-f9892f6d0e0a",
+          "title": "Grievance Officer Contact Block",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify name and mailto link",
+              "fullTitle": "Grievance Officer Contact Block should verify name and mailto link",
+              "timedOut": null,
+              "duration": 2965,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Amitav Ash').should('be.visible');\ncy.get('a[href=\"mailto:amitav.a@pococare.com\"]').should('be.visible').and('have.attr', 'href', 'mailto:amitav.a@pococare.com');",
+              "err": {},
+              "uuid": "0b5eabb8-3557-4ead-9204-c0d5128846d5",
+              "parentUUID": "ecf79c40-ac5e-4c18-8b98-f9892f6d0e0a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0b5eabb8-3557-4ead-9204-c0d5128846d5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2965,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

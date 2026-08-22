@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-20T10:47:12.898Z",
+    "end": "2026-08-20T10:47:18.083Z",
+    "duration": 5185,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f55a8364-fbf2-4486-844f-d679308dd725",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Privacy policy\\EMAIL LINK (MAILTO) ELEMENT.cy.js",
+      "file": "cypress\\e2e\\UI\\Privacy policy\\EMAIL LINK (MAILTO) ELEMENT.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7679f130-5d3f-4164-a198-74b02d1243a0",
+          "title": "EMAIL LINK (MAILTO) ELEMENT",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validates the Contact Email Link",
+              "fullTitle": "EMAIL LINK (MAILTO) ELEMENT Validates the Contact Email Link",
+              "timedOut": null,
+              "duration": 3886,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Corrected locator based on the actual href attribute present on the page\ncy.get('a[href=\"mailto:info@pococare.com\"]').as('emailLink');\n// Presence & Visibility\ncy.get('@emailLink').should('exist').and('be.visible');\n// Content check\ncy.get('@emailLink').invoke('text').then(text => {\n  expect(text.trim()).to.equal('info@pococare.com');\n});\n// Box Model and Styles (Using the callback method to avoid subject chaining errors)\ncy.get('@emailLink').should($el => {\n  expect($el).to.have.css('display');\n  expect($el).to.have.css('padding');\n  expect($el).to.have.css('color');\n});",
+              "err": {},
+              "uuid": "a3a4274f-0067-4aee-b670-e289d9045ffe",
+              "parentUUID": "7679f130-5d3f-4164-a198-74b02d1243a0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a3a4274f-0067-4aee-b670-e289d9045ffe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3886,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

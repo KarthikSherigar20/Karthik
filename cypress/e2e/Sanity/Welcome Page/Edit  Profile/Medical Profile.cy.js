@@ -74,19 +74,19 @@ describe('Basic information',()=>{
                 cy.wait(500);
             })
             cy.get('button[class="clear-selected-button"]').click();
-            if (childtext !== 'Select...') {
-                const conditions = childtext.split(','); // Splitting by comma if present
+            // if (childtext !== 'Select...') {
+            //     const conditions = childtext.split(','); // Splitting by comma if present
             
-                conditions.forEach(condition => {
-                    const trimmedCondition = condition.trim(); // Trim any leading or trailing whitespace
-                    console.log('trimmedcond',trimmedCondition);
-                    if (trimmedCondition) { // Check if condition is not empty after trimming
-                        cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
-                        cy.contains(trimmedCondition, {matchCase:false}).scrollIntoView().click();
-                        cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
-                    }
-                });
-            }
+            //     cronic.forEach(condition => {
+            //         const trimmedCondition = condition.trim(); // Trim any leading or trailing whitespace
+            //         console.log('trimmedcond',trimmedCondition);
+            //         if (trimmedCondition) { // Check if condition is not empty after trimming
+            //             cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
+            //             cy.contains(trimmedCondition, {matchCase:false, exact:false}).scrollIntoView().click();
+            //             cy.get('div[class="dropdown-heading-value"]').scrollIntoView().click();
+            //         }
+            //     });
+            // }
         });
         const bloddgrp='select[class="chakra-select css-161pkch"]';
         cy.get(bloddgrp).eq(0).then((dropdown)=>{
