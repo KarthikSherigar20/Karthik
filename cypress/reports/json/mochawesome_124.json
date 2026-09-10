@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:51:21.112Z",
+    "end": "2026-09-08T10:51:28.152Z",
+    "duration": 7040,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "56270908-7d7f-4077-897c-e1c3d53660a7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\ContactUS\\Form Input Fields (Name, Email, Phone).cy.js",
+      "file": "cypress\\e2e\\UI\\ContactUS\\Form Input Fields (Name, Email, Phone).cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d22da485-6faa-42f9-b593-f824c19cbf5d",
+          "title": "Form Input Fields (Name, Email, Phone)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verifies the Full Name input field properties (hardened)",
+              "fullTitle": "Form Input Fields (Name, Email, Phone) Verifies the Full Name input field properties (hardened)",
+              "timedOut": null,
+              "duration": 2745,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[type=\"text\"]').eq(0).should('be.visible').and('have.class', 'wpcf7-validates-as-required').and('have.class', 'form-style').and('have.css', 'padding', '19px 0px').and('have.css', 'border-radius', '0px').and('have.css', 'color', 'rgb(0, 0, 0)').and('have.css', 'font-size', '16px');",
+              "err": {},
+              "uuid": "f01cf0cb-3006-4578-b3de-0e00dc1f30f7",
+              "parentUUID": "d22da485-6faa-42f9-b593-f824c19cbf5d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies the Email input field properties",
+              "fullTitle": "Form Input Fields (Name, Email, Phone) Verifies the Email input field properties",
+              "timedOut": null,
+              "duration": 1318,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[type=\"email\"]').should('be.visible').and('have.class', 'wpcf7-validates-as-required').and('have.class', 'wpcf7-validates-as-email').and('have.class', 'form-style').and('have.css', 'padding', '19px 0px').and('have.css', 'border-radius', '0px');",
+              "err": {},
+              "uuid": "63f05720-b78b-46b2-870a-ce8390c95843",
+              "parentUUID": "d22da485-6faa-42f9-b593-f824c19cbf5d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verifies the Phone Number input field properties (hardened)",
+              "fullTitle": "Form Input Fields (Name, Email, Phone) Verifies the Phone Number input field properties (hardened)",
+              "timedOut": null,
+              "duration": 1286,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[type=\"tel\"]').should('be.visible').and('have.class', 'wpcf7-validates-as-required').and('have.class', 'wpcf7-validates-as-tel').and('have.class', 'form-style').and('have.css', 'padding', '19px 0px').and('have.css', 'border-radius', '0px').and('have.css', 'color', 'rgb(0, 0, 0)').and('have.css', 'font-size', '16px');",
+              "err": {},
+              "uuid": "1665ddf0-2421-4295-9433-1857aaeb10f7",
+              "parentUUID": "d22da485-6faa-42f9-b593-f824c19cbf5d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f01cf0cb-3006-4578-b3de-0e00dc1f30f7",
+            "63f05720-b78b-46b2-870a-ce8390c95843",
+            "1665ddf0-2421-4295-9433-1857aaeb10f7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5349,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

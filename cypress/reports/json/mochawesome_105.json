@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:45:22.942Z",
+    "end": "2026-09-08T10:45:28.303Z",
+    "duration": 5361,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0728529d-2feb-46f7-ad28-89eb8b9dc582",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\SECOND PARAGRAPH.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\SECOND PARAGRAPH.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c3514a13-0833-400d-af31-2d22300e657f",
+          "title": "SECOND PARAGRAPH",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC05 - Secondary paragraph text and color",
+              "fullTitle": "SECOND PARAGRAPH TC05 - Secondary paragraph text and color",
+              "timedOut": null,
+              "duration": 3984,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('p, span, div', 'comparable to the US in the 1950s').should('be.visible').and('contain.text', 'fragmented emergency infrastructure');",
+              "err": {},
+              "uuid": "05cc49f0-c559-4f1b-895b-edcc25d535fa",
+              "parentUUID": "c3514a13-0833-400d-af31-2d22300e657f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "05cc49f0-c559-4f1b-895b-edcc25d535fa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3984,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

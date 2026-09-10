@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:45:29.835Z",
+    "end": "2026-09-08T10:45:41.869Z",
+    "duration": 12034,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b1102402-08bf-4834-9a3b-d494ec39bd48",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\SOCIAL ICON.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\SOCIAL ICON.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "65fbfd2b-f522-4e65-a044-7e3ba84efd23",
+          "title": "SOCIAL ICON",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC21 - Facebook social icon link",
+              "fullTitle": "SOCIAL ICON TC21 - Facebook social icon link",
+              "timedOut": null,
+              "duration": 4144,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('li, a', 'Facebook').should('be.visible');",
+              "err": {},
+              "uuid": "a68d3275-dc53-4cc5-90c0-ccba94c48590",
+              "parentUUID": "65fbfd2b-f522-4e65-a044-7e3ba84efd23",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC22 - Twitter social icon link",
+              "fullTitle": "SOCIAL ICON TC22 - Twitter social icon link",
+              "timedOut": null,
+              "duration": 2195,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('li, a', 'Twitter').should('be.visible');",
+              "err": {},
+              "uuid": "9ff411d9-e7b1-4a42-bdc0-4ca09d58278b",
+              "parentUUID": "65fbfd2b-f522-4e65-a044-7e3ba84efd23",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC23 - Instagram social icon link",
+              "fullTitle": "SOCIAL ICON TC23 - Instagram social icon link",
+              "timedOut": null,
+              "duration": 2143,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('li, a', 'Instagram').should('be.visible');",
+              "err": {},
+              "uuid": "af364466-55b8-4c34-a6ea-2e42d2510cf8",
+              "parentUUID": "65fbfd2b-f522-4e65-a044-7e3ba84efd23",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC24 - LinkedIn social icon link",
+              "fullTitle": "SOCIAL ICON TC24 - LinkedIn social icon link",
+              "timedOut": null,
+              "duration": 2108,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('li, a', 'Linkedin').should('be.visible');",
+              "err": {},
+              "uuid": "6306b770-ccfd-4f90-b3db-83ec498c52fa",
+              "parentUUID": "65fbfd2b-f522-4e65-a044-7e3ba84efd23",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a68d3275-dc53-4cc5-90c0-ccba94c48590",
+            "9ff411d9-e7b1-4a42-bdc0-4ca09d58278b",
+            "af364466-55b8-4c34-a6ea-2e42d2510cf8",
+            "6306b770-ccfd-4f90-b3db-83ec498c52fa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10590,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

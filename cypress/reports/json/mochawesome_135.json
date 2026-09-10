@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:52:27.660Z",
+    "end": "2026-09-08T10:52:38.647Z",
+    "duration": 10987,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "08c341d8-42ff-497d-9457-10ec7d632518",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Customer login page\\Links.cy.js",
+      "file": "cypress\\e2e\\UI\\Customer login page\\Links.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "099adabb-2e1f-4079-be78-94095f7d5b09",
+          "title": "Pococare Page - Links Assertions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should assert header navigation links exist, are visible, and have valid hrefs",
+              "fullTitle": "Pococare Page - Links Assertions should assert header navigation links exist, are visible, and have valid hrefs",
+              "timedOut": null,
+              "duration": 1177,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const headerLinks = ['About Us', 'Request a demo', 'Buy Subscription', 'Career', 'Blog'];\nheaderLinks.forEach(text => {\n  cy.contains('a', text).should('exist').and('be.visible').and('have.attr', 'href').and('not.be.empty');\n});",
+              "err": {},
+              "uuid": "fbe8e55e-003e-4804-9dac-571eecf9b2e9",
+              "parentUUID": "099adabb-2e1f-4079-be78-94095f7d5b09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should assert inline Terms & Privacy links near the signup form",
+              "fullTitle": "Pococare Page - Links Assertions should assert inline Terms & Privacy links near the signup form",
+              "timedOut": null,
+              "duration": 382,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('a', 'Terms & Conditions').should('exist').and('be.visible').and('have.attr', 'href');\ncy.contains('a', 'Privacy Policy').should('exist').and('be.visible').and('have.attr', 'href');",
+              "err": {},
+              "uuid": "80d76d92-5fc0-42d2-86c8-2a7f94e46cde",
+              "parentUUID": "099adabb-2e1f-4079-be78-94095f7d5b09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should assert footer links exist, are visible, and have valid hrefs",
+              "fullTitle": "Pococare Page - Links Assertions should assert footer links exist, are visible, and have valid hrefs",
+              "timedOut": null,
+              "duration": 293,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const footerLinks = ['Contact Us', 'Terms & Conditions', 'Privacy Policy', 'Refund Policy'];\nfooterLinks.forEach(text => {\n  cy.contains('footer a, a', text).last() // in case both inline and footer versions match, target footer instance\n  .should('exist').and('be.visible').and('have.attr', 'href').and('not.be.empty');\n});",
+              "err": {},
+              "uuid": "e14fdf56-b737-4fdb-af77-532c938c633c",
+              "parentUUID": "099adabb-2e1f-4079-be78-94095f7d5b09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should assert contact links use correct tel: and mailto: protocols",
+              "fullTitle": "Pococare Page - Links Assertions should assert contact links use correct tel: and mailto: protocols",
+              "timedOut": null,
+              "duration": 279,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('a', '+91 8056066766').should('exist').and('be.visible').and('have.attr', 'href').and('match', /^tel:/);\ncy.contains('a', 'info@pococare.com').should('exist').and('be.visible').and('have.attr', 'href').and('match', /^mailto:/);",
+              "err": {},
+              "uuid": "d4132ef1-167b-4cee-92a6-b7f6dfac0669",
+              "parentUUID": "099adabb-2e1f-4079-be78-94095f7d5b09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should assert every link on the page has a non-empty, valid href",
+              "fullTitle": "Pococare Page - Links Assertions should assert every link on the page has a non-empty, valid href",
+              "timedOut": null,
+              "duration": 303,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a').should('have.length.greaterThan', 0);\ncy.get('a').each($link => {\n  const href = $link.attr('href');\n  const text = $link.text().trim() || '(no text)';\n  // Skip links with no href (e.g., JS-only buttons styled as <a>)\n  if (href === undefined) {\n    cy.log(`SKIPPED (no href): \"${text}\"`);\n    return;\n  }\n  expect(href, `href for \"${text}\"`).to.not.be.empty;\n  cy.log(`Link \"${text}\" -> ${href}`);\n});",
+              "err": {},
+              "uuid": "a35eed1b-b645-4537-ba8c-ea4d888f9c4e",
+              "parentUUID": "099adabb-2e1f-4079-be78-94095f7d5b09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should assert internal links do not return broken HTTP status codes",
+              "fullTitle": "Pococare Page - Links Assertions should assert internal links do not return broken HTTP status codes",
+              "timedOut": null,
+              "duration": 6992,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a').then($links => {\n  const hrefs = [...new Set($links.map((i, el) => Cypress.$(el).attr('href')).get().filter(href => href && href.startsWith('http') && !href.startsWith('mailto:') && !href.startsWith('tel:')))];\n  hrefs.forEach(href => {\n    cy.request({\n      url: href,\n      failOnStatusCode: false\n    }).then(resp => {\n      cy.log(`${href} -> status ${resp.status}`);\n      expect(resp.status, `Status for ${href}`).to.be.lessThan(400);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "f7a316f6-b358-4bc4-a9c0-573813947936",
+              "parentUUID": "099adabb-2e1f-4079-be78-94095f7d5b09",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fbe8e55e-003e-4804-9dac-571eecf9b2e9",
+            "80d76d92-5fc0-42d2-86c8-2a7f94e46cde",
+            "e14fdf56-b737-4fdb-af77-532c938c633c",
+            "d4132ef1-167b-4cee-92a6-b7f6dfac0669",
+            "a35eed1b-b645-4537-ba8c-ea4d888f9c4e",
+            "f7a316f6-b358-4bc4-a9c0-573813947936"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9426,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

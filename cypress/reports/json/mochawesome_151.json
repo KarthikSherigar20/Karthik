@@ -1,0 +1,222 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:54:22.351Z",
+    "end": "2026-09-08T10:54:32.201Z",
+    "duration": 9850,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "95327c5e-33f7-4e27-b419-8bec30f86b51",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Footer Social Media Icons.cy.js",
+      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Footer Social Media Icons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1bd58265-160b-4c5d-b780-0a57e7bc039b",
+          "title": "Footer Social Media Icons: Facebook",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify icon visibility, size, color, position",
+              "fullTitle": "Footer Social Media Icons: Facebook should verify icon visibility, size, color, position",
+              "timedOut": null,
+              "duration": 3185,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
+              "err": {},
+              "uuid": "7cfe62bd-c437-4088-b42b-a15d1f7660df",
+              "parentUUID": "1bd58265-160b-4c5d-b780-0a57e7bc039b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7cfe62bd-c437-4088-b42b-a15d1f7660df"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3185,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "12f373e5-628f-40ce-affd-0aa2e5ad8456",
+          "title": "Footer Social Media Icons: Twitter",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify icon visibility, size, color, position",
+              "fullTitle": "Footer Social Media Icons: Twitter should verify icon visibility, size, color, position",
+              "timedOut": null,
+              "duration": 1631,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
+              "err": {},
+              "uuid": "b7131ef7-977a-48b2-8ec2-5626cee7d8e4",
+              "parentUUID": "12f373e5-628f-40ce-affd-0aa2e5ad8456",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b7131ef7-977a-48b2-8ec2-5626cee7d8e4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1631,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "753dcd4a-4403-4198-b7e0-e07844905299",
+          "title": "Footer Social Media Icons: Instagram",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify icon visibility, size, color, position",
+              "fullTitle": "Footer Social Media Icons: Instagram should verify icon visibility, size, color, position",
+              "timedOut": null,
+              "duration": 2032,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
+              "err": {},
+              "uuid": "cea8a6e3-2687-4bc4-91b1-afea0400fe54",
+              "parentUUID": "753dcd4a-4403-4198-b7e0-e07844905299",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cea8a6e3-2687-4bc4-91b1-afea0400fe54"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2032,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bef18fc7-5571-4b01-8208-befca5ef12c0",
+          "title": "Footer Social Media Icons: Linkedin",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify icon visibility, size, color, position",
+              "fullTitle": "Footer Social Media Icons: Linkedin should verify icon visibility, size, color, position",
+              "timedOut": null,
+              "duration": 1535,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('footer', social).should('exist').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.top).to.be.greaterThan(500); // footer area\n});",
+              "err": {},
+              "uuid": "b2940954-4f32-4f0c-98ac-8ed093afc41b",
+              "parentUUID": "bef18fc7-5571-4b01-8208-befca5ef12c0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b2940954-4f32-4f0c-98ac-8ed093afc41b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1535,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

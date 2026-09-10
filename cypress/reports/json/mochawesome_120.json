@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:50:33.262Z",
+    "end": "2026-09-08T10:50:55.931Z",
+    "duration": 22669,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "36eae0df-2e9d-41d8-9af2-bf1ea5e0d34f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\buysubscription\\toggle_navigation_button.cy.js",
+      "file": "cypress\\e2e\\UI\\buysubscription\\toggle_navigation_button.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cac46fdb-0497-4416-9ace-3ba286c2c360",
+          "title": "toggle_navigation_button",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be visible and enabled",
+              "fullTitle": "toggle_navigation_button should be visible and enabled",
+              "timedOut": null,
+              "duration": 5558,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button[aria-label=\"Toggle Navigation\"]').should('be.visible').and('not.be.disabled');",
+              "err": {},
+              "uuid": "38fd6265-2595-487c-b9d1-64711d598c41",
+              "parentUUID": "cac46fdb-0497-4416-9ace-3ba286c2c360",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have correct computed styles",
+              "fullTitle": "toggle_navigation_button should have correct computed styles",
+              "timedOut": null,
+              "duration": 4933,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button[aria-label=\"Toggle Navigation\"]').then($btn => {\n  const style = window.getComputedStyle($btn[0]);\n  expect(style.cursor).to.eq('pointer');\n  expect(style.display).to.not.eq('none');\n});",
+              "err": {},
+              "uuid": "e9b6e3e5-6acb-4d33-a3e4-461535dbcc42",
+              "parentUUID": "cac46fdb-0497-4416-9ace-3ba286c2c360",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should respond to hover state",
+              "fullTitle": "toggle_navigation_button should respond to hover state",
+              "timedOut": null,
+              "duration": 5381,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button[aria-label=\"Toggle Navigation\"]').trigger('mouseover');",
+              "err": {},
+              "uuid": "19e1ccbc-7225-458c-b8a5-a70e83a696bd",
+              "parentUUID": "cac46fdb-0497-4416-9ace-3ba286c2c360",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be clickable and toggle mobile menu open",
+              "fullTitle": "toggle_navigation_button should be clickable and toggle mobile menu open",
+              "timedOut": null,
+              "duration": 4935,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button[aria-label=\"Toggle Navigation\"]').click();\n// Assert mobile nav links become visible after click\ncy.contains('About Us').should('be.visible');",
+              "err": {},
+              "uuid": "3fc765e6-9570-4ba8-b22f-db03fe867402",
+              "parentUUID": "cac46fdb-0497-4416-9ace-3ba286c2c360",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "38fd6265-2595-487c-b9d1-64711d598c41",
+            "e9b6e3e5-6acb-4d33-a3e4-461535dbcc42",
+            "19e1ccbc-7225-458c-b8a5-a70e83a696bd",
+            "3fc765e6-9570-4ba8-b22f-db03fe867402"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20807,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,592 @@
+{
+  "stats": {
+    "suites": 14,
+    "tests": 13,
+    "passes": 13,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:55:29.234Z",
+    "end": "2026-09-08T10:55:52.074Z",
+    "duration": 22840,
+    "testsRegistered": 13,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "14efea0b-582c-4274-94c1-0cdab5e283a4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Sub-Headings.cy.js",
+      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Sub-Headings.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2e49ec02-0a4e-45c3-96b5-90ad584db49f",
+          "title": "Sub-Headings",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "03ec85ca-8f5a-410b-9c8a-7843d806a5db",
+              "title": "Sub-heading: GENERAL",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: GENERAL should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 3151,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "9ea294e0-1acf-4303-abbd-7e1e45b21b3d",
+                  "parentUUID": "03ec85ca-8f5a-410b-9c8a-7843d806a5db",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9ea294e0-1acf-4303-abbd-7e1e45b21b3d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3151,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "610d9cff-d815-4583-afde-2010f6062311",
+              "title": "Sub-heading: DEFINITION & INTERPRETATION",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: DEFINITION & INTERPRETATION should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 2229,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "1052984a-cf14-4f8f-a686-d45f49fa0f83",
+                  "parentUUID": "610d9cff-d815-4583-afde-2010f6062311",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1052984a-cf14-4f8f-a686-d45f49fa0f83"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2229,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "4cd71018-6750-4122-a085-9fe22c923f27",
+              "title": "Sub-heading: SERVICES",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: SERVICES should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1249,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "9822497a-5832-4f25-9217-d3d2d8f35c1c",
+                  "parentUUID": "4cd71018-6750-4122-a085-9fe22c923f27",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9822497a-5832-4f25-9217-d3d2d8f35c1c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1249,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "126bb97f-ee8c-49ad-8af6-4bac2207608d",
+              "title": "Sub-heading: USER REPRESENTATIONS AND WARRANTIES",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: USER REPRESENTATIONS AND WARRANTIES should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1168,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "e70ec7e8-d1a4-4406-b130-266a2fbb806e",
+                  "parentUUID": "126bb97f-ee8c-49ad-8af6-4bac2207608d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e70ec7e8-d1a4-4406-b130-266a2fbb806e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1168,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "394b6f34-cf77-4e79-96a1-614df498b13d",
+              "title": "Sub-heading: THIRD PARTY SERVICES",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: THIRD PARTY SERVICES should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1288,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "c749b42a-3b39-4a4c-a261-7b4c3ec6a121",
+                  "parentUUID": "394b6f34-cf77-4e79-96a1-614df498b13d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c749b42a-3b39-4a4c-a261-7b4c3ec6a121"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1288,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "34ffa871-a6bf-4496-8180-834d14c205a7",
+              "title": "Sub-heading: SUBSCRIPTION PLAN",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: SUBSCRIPTION PLAN should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1334,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "88a9c13b-ed37-4259-957e-4b496fa9e8c8",
+                  "parentUUID": "34ffa871-a6bf-4496-8180-834d14c205a7",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "88a9c13b-ed37-4259-957e-4b496fa9e8c8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1334,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8aa186b2-37aa-4cf8-ba81-61a653f4da46",
+              "title": "Sub-heading: SERVICE FEES",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: SERVICE FEES should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1594,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "3ab38d41-0dde-4926-8b4b-bab808a4f344",
+                  "parentUUID": "8aa186b2-37aa-4cf8-ba81-61a653f4da46",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3ab38d41-0dde-4926-8b4b-bab808a4f344"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1594,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "f0224ae6-77e2-46d3-a147-58c753af72c6",
+              "title": "Sub-heading: CONFIDENTIALITY",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: CONFIDENTIALITY should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1589,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "1bf4b72d-5708-47ea-b91c-8b0b7a518802",
+                  "parentUUID": "f0224ae6-77e2-46d3-a147-58c753af72c6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1bf4b72d-5708-47ea-b91c-8b0b7a518802"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1589,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "cbf11c38-60b0-40e2-a251-f51fccb33cea",
+              "title": "Sub-heading: FORCE MAJEURE",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: FORCE MAJEURE should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1260,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "1d98ca69-b3af-4f02-9145-4f016898a022",
+                  "parentUUID": "cbf11c38-60b0-40e2-a251-f51fccb33cea",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1d98ca69-b3af-4f02-9145-4f016898a022"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1260,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "f3036d47-3c69-4b7e-a7a9-39c5477483fa",
+              "title": "Sub-heading: TERMINATION",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: TERMINATION should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1609,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "ad383f27-8c77-489a-8985-21e19d8bbaf4",
+                  "parentUUID": "f3036d47-3c69-4b7e-a7a9-39c5477483fa",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ad383f27-8c77-489a-8985-21e19d8bbaf4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1609,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "298096c5-7ead-42cb-8156-33f5dd226e9b",
+              "title": "Sub-heading: INDEMNITY",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: INDEMNITY should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1542,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "42f2a99b-72e6-4fb4-8199-ada16ae00ce6",
+                  "parentUUID": "298096c5-7ead-42cb-8156-33f5dd226e9b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "42f2a99b-72e6-4fb4-8199-ada16ae00ce6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1542,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "a71553ee-767e-4aec-852e-a732d75dc110",
+              "title": "Sub-heading: LIMITATION OF LIABILITY AND DISCLAIMER",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: LIMITATION OF LIABILITY AND DISCLAIMER should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1555,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "a41665d4-e0bc-403e-9c2c-832fdf644d7b",
+                  "parentUUID": "a71553ee-767e-4aec-852e-a732d75dc110",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a41665d4-e0bc-403e-9c2c-832fdf644d7b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1555,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "ea725f7e-ba6a-4ecd-b6db-223d9a78e807",
+              "title": "Sub-heading: MISCELLANEOUS",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should verify visibility, color, font-size separately",
+                  "fullTitle": "Sub-Headings Sub-heading: MISCELLANEOUS should verify visibility, color, font-size separately",
+                  "timedOut": null,
+                  "duration": 1373,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains(heading).should('be.visible');\ncy.contains(heading).should('have.css', 'color', 'rgb(0, 0, 0)');\ncy.contains(heading).should('have.css', 'font-size'); // just check it exists, no value comparison needed unless you specify one",
+                  "err": {},
+                  "uuid": "68272fcf-3ad2-4b03-9b87-e0820bf64cb8",
+                  "parentUUID": "ea725f7e-ba6a-4ecd-b6db-223d9a78e807",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "68272fcf-3ad2-4b03-9b87-e0820bf64cb8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1373,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

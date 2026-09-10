@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T11:00:58.637Z",
+    "end": "2026-09-08T11:01:11.697Z",
+    "duration": 13060,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "605f0e39-a4e9-415c-9d20-c5b267f0b8cb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Login page\\otpisrequired.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Login page\\otpisrequired.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "83acdde2-34d9-4975-9233-8db750a6e67d",
+          "title": "Otp is required",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking OTP is required message",
+              "fullTitle": "Otp is required Checking OTP is required message",
+              "timedOut": null,
+              "duration": 11098,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.get('input[placeholder=\"Email\"]').type(_UNPASS.default.Un);\ncy.wait(1500);\ncy.contains('Get OTP').click();\ncy.wait(1500);\ncy.contains('Verify').click();\ncy.wait(1500);\ncy.get('body').contains('OTP is required').should('exist');\ncy.wait(1500);",
+              "err": {},
+              "uuid": "0c9c5ac2-41d1-4389-b4ff-3b84928a9648",
+              "parentUUID": "83acdde2-34d9-4975-9233-8db750a6e67d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0c9c5ac2-41d1-4389-b4ff-3b84928a9648"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11098,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

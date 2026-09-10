@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:53:31.693Z",
+    "end": "2026-09-08T10:53:36.336Z",
+    "duration": 4643,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f9bd157-2687-4bd6-b531-fac7cca2dd43",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Privacy policy\\IMAGE ICON LINK ELEMENT.cy.js",
+      "file": "cypress\\e2e\\UI\\Privacy policy\\IMAGE ICON LINK ELEMENT.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f9c0e27a-e44b-4557-8b54-22963a5ea905",
+          "title": "IMAGE/ICON LINK ELEMENT",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validates the Apple App Store Download Button",
+              "fullTitle": "IMAGE/ICON LINK ELEMENT Validates the Apple App Store Download Button",
+              "timedOut": null,
+              "duration": 3240,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a[href*=\"apps.apple.com/in/app/poco-emurgency\"]').as('appStoreBtn');\ncy.get('@appStoreBtn').find('img').as('appStoreImg');\ncy.get('@appStoreBtn').should('exist').and('be.visible');\ncy.get('@appStoreImg').should('be.visible');\ncy.get('@appStoreImg').should('have.attr', 'src').and('not.be.empty');\ncy.get('@appStoreImg').should('have.attr', 'alt');\ncy.get('@appStoreImg').invoke('outerWidth').should('be.closeTo', 68, 5);\ncy.get('@appStoreImg').invoke('outerHeight').should('be.closeTo', 23, 5);\n// Combine multiple CSS checks safely in one block\ncy.get('@appStoreImg').should($img => {\n  expect($img).to.have.css('box-shadow');\n  expect($img).to.have.css('border-style', 'none');\n});",
+              "err": {},
+              "uuid": "e5da088c-fe30-4b9b-ba98-a1fe80ab559a",
+              "parentUUID": "f9c0e27a-e44b-4557-8b54-22963a5ea905",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e5da088c-fe30-4b9b-ba98-a1fe80ab559a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3240,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

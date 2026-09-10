@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:51:48.840Z",
+    "end": "2026-09-08T10:51:51.290Z",
+    "duration": 2450,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7b5161a8-226e-4539-93cb-fd3dcc78e618",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Customer login page\\checkboxes.cy.js",
+      "file": "cypress\\e2e\\UI\\Customer login page\\checkboxes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "576ec45f-862e-41db-a730-01313bb8da90",
+          "title": "Checkboxes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should assert the terms checkbox exists and toggles correctly",
+              "fullTitle": "Checkboxes should assert the terms checkbox exists and toggles correctly",
+              "timedOut": null,
+              "duration": 1138,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[type=\"checkbox\"], [role=\"checkbox\"]').first().should('exist').and('be.visible').and('have.attr', 'checked'); // default checked state\ncy.get('input[type=\"checkbox\"], [role=\"checkbox\"]').first().click({\n  force: true\n}).should('not.have.attr', 'not.be.checked');",
+              "err": {},
+              "uuid": "43d7d7bf-9e24-44ea-bef9-365fdf52bfa2",
+              "parentUUID": "576ec45f-862e-41db-a730-01313bb8da90",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "43d7d7bf-9e24-44ea-bef9-365fdf52bfa2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1138,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

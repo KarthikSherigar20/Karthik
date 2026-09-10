@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:46:02.695Z",
+    "end": "2026-09-08T10:46:22.219Z",
+    "duration": 19524,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "561764d2-43a3-4dac-ad8f-66e71ab123c9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\buysubscription\\card_bullet_readiness.cy.js",
+      "file": "cypress\\e2e\\UI\\buysubscription\\card_bullet_readiness.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c7e57fd0-ad22-433b-be3b-2dae141d635e",
+          "title": "card_bullet_readiness",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be visible with full text",
+              "fullTitle": "card_bullet_readiness should be visible with full text",
+              "timedOut": null,
+              "duration": 5544,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Personalized Emergency Response Plan').should('be.visible');",
+              "err": {},
+              "uuid": "bd0e90e4-827e-4e59-906c-b72e3c9e4726",
+              "parentUUID": "c7e57fd0-ad22-433b-be3b-2dae141d635e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be visible with full text",
+              "fullTitle": "card_bullet_readiness should be visible with full text",
+              "timedOut": null,
+              "duration": 4205,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('24/7 Access to Medical Experts').should('be.visible');",
+              "err": {},
+              "uuid": "20216548-cd8f-434e-93cf-362a5974dd66",
+              "parentUUID": "c7e57fd0-ad22-433b-be3b-2dae141d635e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be visible with full text",
+              "fullTitle": "card_bullet_readiness should be visible with full text",
+              "timedOut": null,
+              "duration": 3847,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Family Member Inclusion').should('be.visible');",
+              "err": {},
+              "uuid": "15d64ada-45b9-4827-a1e5-2d6bd04d0528",
+              "parentUUID": "c7e57fd0-ad22-433b-be3b-2dae141d635e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should exist in DOM (may require scroll)",
+              "fullTitle": "card_bullet_readiness should exist in DOM (may require scroll)",
+              "timedOut": null,
+              "duration": 4024,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Emergency Contact Management').scrollIntoView().should('be.visible');",
+              "err": {},
+              "uuid": "0dc71145-4c87-4cfb-b703-40a2c809dae1",
+              "parentUUID": "c7e57fd0-ad22-433b-be3b-2dae141d635e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bd0e90e4-827e-4e59-906c-b72e3c9e4726",
+            "20216548-cd8f-434e-93cf-362a5974dd66",
+            "15d64ada-45b9-4827-a1e5-2d6bd04d0528",
+            "0dc71145-4c87-4cfb-b703-40a2c809dae1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17620,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

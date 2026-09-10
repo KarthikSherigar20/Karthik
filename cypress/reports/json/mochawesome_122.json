@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:51:06.383Z",
+    "end": "2026-09-08T10:51:10.424Z",
+    "duration": 4041,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1650ca12-6718-4c56-90e1-991f7246227d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\ContactUS\\Footer Elements and Social Icons.cy.js",
+      "file": "cypress\\e2e\\UI\\ContactUS\\Footer Elements and Social Icons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "33f763eb-b2c1-4d2e-926d-179ae82e89c4",
+          "title": "Footer Elements and Social Icons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verifies Footer Links and Social Media Icons",
+              "fullTitle": "Footer Elements and Social Icons Verifies Footer Links and Social Media Icons",
+              "timedOut": null,
+              "duration": 2679,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Check Social Media links\nconst socialLinks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin'];\nsocialLinks.forEach(network => {\n  cy.contains(network).should('be.visible').and('have.css', 'font-size');\n});\n// Check App Store Badges size and visibility\ncy.get('a[href*=\"play.google.com\"]').should('be.visible').and('have.css', 'display');\ncy.get('a[href*=\"apps.apple.com\"]').should('be.visible').and('have.css', 'display');",
+              "err": {},
+              "uuid": "441875d3-82e3-44a9-b19d-ccf314be2f11",
+              "parentUUID": "33f763eb-b2c1-4d2e-926d-179ae82e89c4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "441875d3-82e3-44a9-b19d-ccf314be2f11"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2679,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

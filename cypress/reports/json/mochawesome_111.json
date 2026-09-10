@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:46:48.743Z",
+    "end": "2026-09-08T10:46:59.848Z",
+    "duration": 11105,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "862c042a-144d-42e4-b873-96b2712893fa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\buysubscription\\card_title_readiness.cy.js",
+      "file": "cypress\\e2e\\UI\\buysubscription\\card_title_readiness.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d4c9ad30-b72e-423e-a93d-7e57275c6b2c",
+          "title": "card_title_readiness",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be visible with correct text",
+              "fullTitle": "card_title_readiness should be visible with correct text",
+              "timedOut": null,
+              "duration": 5329,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Readiness').should('be.visible');",
+              "err": {},
+              "uuid": "1613df92-a624-465a-826c-8607caebe166",
+              "parentUUID": "d4c9ad30-b72e-423e-a93d-7e57275c6b2c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have card background color distinct from page",
+              "fullTitle": "card_title_readiness should have card background color distinct from page",
+              "timedOut": null,
+              "duration": 4242,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Readiness').then($el => {\n  const style = window.getComputedStyle($el[0]);\n  expect(style.backgroundColor).to.exist;\n});",
+              "err": {},
+              "uuid": "bb21f8ea-e884-4d9e-bcb5-3c7f1e1b52a2",
+              "parentUUID": "d4c9ad30-b72e-423e-a93d-7e57275c6b2c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1613df92-a624-465a-826c-8607caebe166",
+            "bb21f8ea-e884-4d9e-bcb5-3c7f1e1b52a2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9571,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

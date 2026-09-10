@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:45:08.640Z",
+    "end": "2026-09-08T10:45:14.407Z",
+    "duration": 5767,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5188e8d3-454e-456a-a360-7e40456a0656",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\Our Founders-HEADING.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\Our Founders-HEADING.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c8b4f8b-9555-4783-a0c8-9408c043d375",
+          "title": "\"Our Founders\" HEADING",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC10 - \"Our Founders\" section heading",
+              "fullTitle": "\"Our Founders\" HEADING TC10 - \"Our Founders\" section heading",
+              "timedOut": null,
+              "duration": 4413,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.elementor-heading-title, [class*=\"heading\"]').contains('Founders').filter(':visible').should('be.visible').and('contain.text', 'Our').and('contain.text', 'Founders');",
+              "err": {},
+              "uuid": "07caceec-0461-46da-9997-944fc8cb2fd1",
+              "parentUUID": "9c8b4f8b-9555-4783-a0c8-9408c043d375",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "07caceec-0461-46da-9997-944fc8cb2fd1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4413,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:50:07.106Z",
+    "end": "2026-09-08T10:50:31.682Z",
+    "duration": 24576,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bd959890-da43-46f3-b846-a1dffa75edeb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\buysubscription\\register_button.cy.js",
+      "file": "cypress\\e2e\\UI\\buysubscription\\register_button.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "95ff3802-32bc-4827-bcb2-990632afd843",
+          "title": "register_button",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should exist and be visible",
+              "fullTitle": "register_button should exist and be visible",
+              "timedOut": null,
+              "duration": 5617,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Register').should('exist').and('be.visible');",
+              "err": {},
+              "uuid": "7cbb9f40-0511-4c3e-9acd-84f160bb81c3",
+              "parentUUID": "95ff3802-32bc-4827-bcb2-990632afd843",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be enabled by default",
+              "fullTitle": "register_button should be enabled by default",
+              "timedOut": null,
+              "duration": 4858,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Register').should('not.be.disabled');",
+              "err": {},
+              "uuid": "8edc8fbc-45c8-4c02-abd6-84a5b7b45715",
+              "parentUUID": "95ff3802-32bc-4827-bcb2-990632afd843",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have expected computed styles",
+              "fullTitle": "register_button should have expected computed styles",
+              "timedOut": null,
+              "duration": 3757,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Register').then($btn => {\n  const style = window.getComputedStyle($btn[0]);\n  expect(style.backgroundColor).to.equal('rgb(1, 167, 181)');\n  expect(style.color).to.equal('rgb(255, 255, 255)');\n  expect(style.borderRadius).to.equal('8px');\n  expect(style.fontWeight).to.equal('500');\n  expect(style.cursor).to.equal('pointer');\n});",
+              "err": {},
+              "uuid": "0e2d1cd0-514e-47b5-ba58-fa303427e4ab",
+              "parentUUID": "95ff3802-32bc-4827-bcb2-990632afd843",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should respond to hover and focus states",
+              "fullTitle": "register_button should respond to hover and focus states",
+              "timedOut": null,
+              "duration": 4259,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Register').trigger('mouseover');\ncy.contains('button', 'Register').focus().should('have.focus');",
+              "err": {},
+              "uuid": "1bef395e-0580-4b84-935d-a0a86a3cfe6d",
+              "parentUUID": "95ff3802-32bc-4827-bcb2-990632afd843",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should trigger an action on click",
+              "fullTitle": "register_button should trigger an action on click",
+              "timedOut": null,
+              "duration": 4167,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'Register').click();\n// Assert resulting navigation/modal - adjust based on actual behavior",
+              "err": {},
+              "uuid": "67fc6bc2-9c9e-44df-9889-d28de2e9900d",
+              "parentUUID": "95ff3802-32bc-4827-bcb2-990632afd843",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7cbb9f40-0511-4c3e-9acd-84f160bb81c3",
+            "8edc8fbc-45c8-4c02-abd6-84a5b7b45715",
+            "0e2d1cd0-514e-47b5-ba58-fa303427e4ab",
+            "1bef395e-0580-4b84-935d-a0a86a3cfe6d",
+            "67fc6bc2-9c9e-44df-9889-d28de2e9900d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22658,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

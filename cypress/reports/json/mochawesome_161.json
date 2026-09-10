@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:56:03.431Z",
+    "end": "2026-09-08T10:56:12.563Z",
+    "duration": 9132,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f61b0842-e212-4ebc-9c87-a4e46f993b4f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\Careers.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\Careers.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c4586b74-9a5f-461c-b8a7-3563982b99dc",
+          "title": "Career",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking Career page",
+              "fullTitle": "Career Checking Career page",
+              "timedOut": null,
+              "duration": 7749,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\nconst name = \"Career\";\ncy.contains(name).should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains(name).click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('Open Positions');\n});",
+              "err": {},
+              "uuid": "a6a63925-83d9-428f-a59a-c9db69641917",
+              "parentUUID": "c4586b74-9a5f-461c-b8a7-3563982b99dc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a6a63925-83d9-428f-a59a-c9db69641917"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7749,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

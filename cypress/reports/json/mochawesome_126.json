@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:51:37.465Z",
+    "end": "2026-09-08T10:51:40.168Z",
+    "duration": 2703,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e1fe48e6-ff48-4f3e-815b-11709e1106f1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Customer login page\\appdownloadimages.cy.js",
+      "file": "cypress\\e2e\\UI\\Customer login page\\appdownloadimages.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0304fb27-2909-4474-a10b-7ebd02febc9c",
+          "title": "Pococare Page - Links Assertions (Corrected)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify app store badges are wrapped in clickable links (or flag if not)",
+              "fullTitle": "Pococare Page - Links Assertions (Corrected) should verify app store badges are wrapped in clickable links (or flag if not)",
+              "timedOut": null,
+              "duration": 1254,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('img[alt=\"App Store\"]').then($img => {\n  const parentLink = $img.closest('a');\n  if (parentLink.length) {\n    cy.wrap(parentLink).should('have.attr', 'href').and('include', 'play.google.com');\n  } else {\n    cy.log('WARNING: \"App Store\" image is not wrapped in an <a> tag - not navigable');\n  }\n});\ncy.get('img[alt=\"Ios Store\"]').then($img => {\n  const parentLink = $img.closest('a');\n  if (parentLink.length) {\n    cy.wrap(parentLink).should('have.attr', 'href').and('include', 'apps.apple.com');\n  } else {\n    cy.log('WARNING: \"Ios Store\" image is not wrapped in an <a> tag - not navigable');\n  }\n});",
+              "err": {},
+              "uuid": "f60334ce-e881-49a4-b971-97e2d8c3738b",
+              "parentUUID": "0304fb27-2909-4474-a10b-7ebd02febc9c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f60334ce-e881-49a4-b971-97e2d8c3738b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1254,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

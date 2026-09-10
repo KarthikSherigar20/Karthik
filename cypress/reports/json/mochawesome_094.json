@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:43:52.426Z",
+    "end": "2026-09-08T10:44:04.858Z",
+    "duration": 12432,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8e1ce6d1-d98b-468b-a142-cb24e7b2b71c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\FOUNDER CARD 2.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\FOUNDER CARD 2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b3a777fd-3b61-40da-a163-63d06631b11c",
+          "title": "FOUNDER CARD 2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC15 - Founder card 2 name \"Amitav Ash\"",
+              "fullTitle": "FOUNDER CARD 2 TC15 - Founder card 2 name \"Amitav Ash\"",
+              "timedOut": null,
+              "duration": 4404,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('h3, h4, h5', 'Amitav Ash').should('be.visible');",
+              "err": {},
+              "uuid": "8c9d6d3f-4e57-40a6-81de-29ef0a760d74",
+              "parentUUID": "b3a777fd-3b61-40da-a163-63d06631b11c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC16 - Founder card 2 role label",
+              "fullTitle": "FOUNDER CARD 2 TC16 - Founder card 2 role label",
+              "timedOut": null,
+              "duration": 2278,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Co-Founder & COO').should('be.visible');",
+              "err": {},
+              "uuid": "5fe80609-af2e-4c05-ac2c-a2f0ccbfadec",
+              "parentUUID": "b3a777fd-3b61-40da-a163-63d06631b11c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC17 - Founder card 2 bio paragraph",
+              "fullTitle": "FOUNDER CARD 2 TC17 - Founder card 2 bio paragraph",
+              "timedOut": null,
+              "duration": 1909,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('WPP group agencies and Godfrey Phillips').should('be.visible');",
+              "err": {},
+              "uuid": "52b2e2d2-f384-40d9-9f76-e1b5c313515d",
+              "parentUUID": "b3a777fd-3b61-40da-a163-63d06631b11c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC16b - Founder Card 2 (Amitav Ash) image visibility",
+              "fullTitle": "FOUNDER CARD 2 TC16b - Founder Card 2 (Amitav Ash) image visibility",
+              "timedOut": null,
+              "duration": 2384,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Amitav Ash').then($name => {\n  // Walk up through ancestors until one contains an image-like element\n  let found = null;\n  let $current = $name;\n  for (let i = 0; i < 8 && !found; i++) {\n    $current = $current.parent();\n    const candidates = [...$current.find('img, div, span')].filter(el => {\n      const style = window.getComputedStyle(el);\n      return style.backgroundImage !== 'none' || el.tagName === 'IMG';\n    });\n    if (candidates.length) found = candidates[0];\n  }\n  expect(found, 'image element found within ancestor chain').to.exist;\n  const rect = found.getBoundingClientRect();\n  expect(rect.width).to.be.greaterThan(0).and.closeTo(287, 5);\n  expect(rect.height).to.be.greaterThan(0).and.closeTo(287, 5);\n});",
+              "err": {},
+              "uuid": "b17507f6-f2dd-46b0-a889-b56a0c28f91b",
+              "parentUUID": "b3a777fd-3b61-40da-a163-63d06631b11c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c9d6d3f-4e57-40a6-81de-29ef0a760d74",
+            "5fe80609-af2e-4c05-ac2c-a2f0ccbfadec",
+            "52b2e2d2-f384-40d9-9f76-e1b5c313515d",
+            "b17507f6-f2dd-46b0-a889-b56a0c28f91b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10975,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

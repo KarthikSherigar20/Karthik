@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:55:53.670Z",
+    "end": "2026-09-08T10:56:01.904Z",
+    "duration": 8234,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7c859c4e-bffc-407c-8158-497b7f494d16",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\about.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\about.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a88856f4-120f-43e0-a965-5c26bf672062",
+          "title": "About",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checking about page",
+              "fullTitle": "About Checking about page",
+              "timedOut": null,
+              "duration": 6806,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\nconst name = 'About';\ncy.contains(name).should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains(name).click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('About Us');\n});",
+              "err": {},
+              "uuid": "22d2d32a-f3cd-4be9-8abf-fe707ed58a68",
+              "parentUUID": "a88856f4-120f-43e0-a965-5c26bf672062",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "22d2d32a-f3cd-4be9-8abf-fe707ed58a68"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6806,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

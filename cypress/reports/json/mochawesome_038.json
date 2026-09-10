@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:21:57.316Z",
+    "end": "2026-09-08T10:22:13.901Z",
+    "duration": 16585,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9eec31b7-0bc1-4c75-8075-69006424a64b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Address\\Pincode.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Address\\Pincode.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "efc8e159-79bd-4022-9729-eea24a877f66",
+          "title": "Pincode",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Age",
+              "fullTitle": "Pincode Age",
+              "timedOut": null,
+              "duration": 15059,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\nP1.login();\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Address').click();\ncy.wait(1000);\ncy.contains('Add Another Address').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Address').click();\n    cy.wait(1000);\n    cy.contains('Add New').click();\n    cy.wait(1000);\n    cy.get('input[placeholder=\"Pincode\"]').scrollIntoView().type('576101');\n    cy.wait(1000);\n    cy.get('input[placeholder=\"Pincode\"]').scrollIntoView().should('have.value', '576101');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
+              "err": {},
+              "uuid": "c35c6838-dc16-482f-8f46-de2fd4f00aaf",
+              "parentUUID": "efc8e159-79bd-4022-9729-eea24a877f66",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c35c6838-dc16-482f-8f46-de2fd4f00aaf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15059,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

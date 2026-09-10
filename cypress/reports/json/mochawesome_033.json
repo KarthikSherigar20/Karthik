@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:20:24.159Z",
+    "end": "2026-09-08T10:20:40.637Z",
+    "duration": 16478,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2610442c-ce0b-4272-924c-02cdafdbc142",
+      "title": "",
+      "fullFile": "cypress\\e2e\\DataFlow\\Address\\Ambulance_No.cy.js",
+      "file": "cypress\\e2e\\DataFlow\\Address\\Ambulance_No.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ef959d4-feef-487e-ae0a-ff46306b4ca3",
+          "title": "Ambulance_No",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "No",
+              "fullTitle": "Ambulance_No No",
+              "timedOut": null,
+              "duration": 15080,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\nconst P1 = new _Elements.default();\nP1.login();\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  if (bodyText.includes('Edit Profile')) {\n    cy.contains('Edit Profile').click();\n  } else {\n    cy.contains('Complete Profile').eq(0).click();\n  }\n});\ncy.contains('Address').click();\ncy.wait(1000);\ncy.contains('Add Another Address').then($button => {\n  if ($button.prop('disabled')) {\n    cy.log('Maximum limit is reached');\n  } else {\n    cy.contains('Add Another Address').click();\n    cy.wait(1000);\n    cy.contains('Add New').click();\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-hsxcm3\"]').eq(1).scrollIntoView().select('No, ambulance not reachable');\n    cy.wait(1000);\n    cy.get('select[class=\"chakra-select css-hsxcm3\"]').eq(1).scrollIntoView().should('have.value', 'No');\n    cy.wait(1000);\n    cy.contains('Cancel').click();\n  }\n});",
+              "err": {},
+              "uuid": "8a48fceb-5edb-46b4-8dc4-07d83f69078d",
+              "parentUUID": "5ef959d4-feef-487e-ae0a-ff46306b4ca3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8a48fceb-5edb-46b4-8dc4-07d83f69078d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15080,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:52:52.503Z",
+    "end": "2026-09-08T10:52:54.713Z",
+    "duration": 2210,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "25ac8649-355a-4c3f-a61e-5068c49c8e26",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Customer login page\\socialmedialinks.cy.js",
+      "file": "cypress\\e2e\\UI\\Customer login page\\socialmedialinks.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "933b64b5-1cb9-4140-b843-5583cd718a17",
+          "title": "Pococare Page - Links Assertions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should identify social media icon buttons (currently non-navigable)",
+              "fullTitle": "Pococare Page - Links Assertions should identify social media icon buttons (currently non-navigable)",
+              "timedOut": null,
+              "duration": 851,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// These render as clickable buttons without hrefs in the current DOM\ncy.get('button').then($buttons => {\n  const socialLikeButtons = $buttons.filter((i, el) => {\n    const rect = el.getBoundingClientRect();\n    return rect.width < 50 && rect.width > 0; // small icon-sized buttons\n  });\n  cy.log(`Found ${socialLikeButtons.length} small icon-style buttons (likely social icons)`);\n});\ncy.log('NOTE: Social icons (Facebook/Twitter/Instagram/LinkedIn) are <button> elements with no href attribute - they do not navigate to external profiles. This may be an accessibility/functional gap worth flagging to the dev team.');",
+              "err": {},
+              "uuid": "4dc25b85-6964-47ef-b3cf-228e2fdae96a",
+              "parentUUID": "933b64b5-1cb9-4140-b843-5583cd718a17",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4dc25b85-6964-47ef-b3cf-228e2fdae96a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 851,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

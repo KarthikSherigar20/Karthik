@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-09-08T10:48:44.912Z",
+    "end": "2026-09-08T10:49:06.706Z",
+    "duration": 21794,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6f8ac9ac-30d4-4b44-8e42-0e9d79fb8995",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\buysubscription\\logo.cy.js",
+      "file": "cypress\\e2e\\UI\\buysubscription\\logo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "df5b902b-e83b-4ae4-ae37-e1ab9c92dba1",
+          "title": "logo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be visible and present in DOM",
+              "fullTitle": "logo should be visible and present in DOM",
+              "timedOut": null,
+              "duration": 6489,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('img[alt=\"Company Logo\"]').should('exist').and('be.visible');",
+              "err": {},
+              "uuid": "276609be-1873-44ac-9248-0f17d42971d4",
+              "parentUUID": "df5b902b-e83b-4ae4-ae37-e1ab9c92dba1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have correct src and alt",
+              "fullTitle": "logo should have correct src and alt",
+              "timedOut": null,
+              "duration": 4482,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('img[alt=\"Company Logo\"]').should('have.attr', 'src').and('not.be.empty');\ncy.get('img[alt=\"Company Logo\"]').should('have.attr', 'alt', 'Company Logo');",
+              "err": {},
+              "uuid": "c306de92-fd33-4811-b02a-cac0fd810380",
+              "parentUUID": "df5b902b-e83b-4ae4-ae37-e1ab9c92dba1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have natural dimensions > 0",
+              "fullTitle": "logo should have natural dimensions > 0",
+              "timedOut": null,
+              "duration": 4618,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('img[alt=\"Company Logo\"]').should($img => {\n  expect($img[0].naturalWidth).to.be.greaterThan(0).and.equal(234);\n  expect($img[0].naturalHeight).to.be.greaterThan(0).and.equal(94);\n});",
+              "err": {},
+              "uuid": "823b22f5-a132-42b0-8388-e5c9c73d84a6",
+              "parentUUID": "df5b902b-e83b-4ae4-ae37-e1ab9c92dba1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have expected position and size",
+              "fullTitle": "logo should have expected position and size",
+              "timedOut": null,
+              "duration": 4507,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\UI\\\\buysubscription\\\\logo.cy.js\\\\logo -- should have expected position and size (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get('img[alt=\"Company Logo\"]').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  expect(rect.width).to.be.greaterThan(0).and.closeTo(145, 5);\n  expect(rect.height).to.be.greaterThan(0).and.equal(24);\n});",
+              "err": {
+                "message": "AssertionError: expected 110.125 to be close to 145 +/- 5",
+                "estack": "AssertionError: expected 110.125 to be close to 145 +/- 5\n    at Context.eval (webpack:///./cypress/e2e/UI/buysubscription/logo.cy.js:33:56)",
+                "diff": null
+              },
+              "uuid": "4f44bc42-ed3a-4369-a0a5-fdf7d1931348",
+              "parentUUID": "df5b902b-e83b-4ae4-ae37-e1ab9c92dba1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "276609be-1873-44ac-9248-0f17d42971d4",
+            "c306de92-fd33-4811-b02a-cac0fd810380",
+            "823b22f5-a132-42b0-8388-e5c9c73d84a6"
+          ],
+          "failures": [
+            "4f44bc42-ed3a-4369-a0a5-fdf7d1931348"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 20096,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:57:17.251Z",
+    "end": "2026-09-08T10:57:24.593Z",
+    "duration": 7342,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "375a8b0d-1ca6-401f-8671-6f57eac427f1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Sanity\\Home page\\privacypolicy.cy.js",
+      "file": "cypress\\e2e\\Sanity\\Home page\\privacypolicy.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "661d5174-42f3-4420-a8cf-40b2b712c4d3",
+          "title": "Privacypolicy",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checking P&P page ",
+              "fullTitle": "Privacypolicy checking P&P page ",
+              "timedOut": null,
+              "duration": 5581,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const selectedEnvironments = _urls.default.selectedEnvironment;\nconst selectUrl = _urls.default.environments[selectedEnvironments];\ncy.visit(selectUrl);\ncy.wait(1500);\ncy.contains('\"Privacy Policy\"').should('be.visible').scrollIntoView();\ncy.wait(1500);\ncy.contains('\"Privacy Policy\"').click();\ncy.wait(1500);\ncy.get('body').then($bodyText => {\n  const bodyText = $bodyText.text();\n  expect(bodyText).to.contain('\"Privacy Policy\"');\n});",
+              "err": {},
+              "uuid": "6dab95f2-e960-4f90-8b5c-15fcf2698464",
+              "parentUUID": "661d5174-42f3-4420-a8cf-40b2b712c4d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6dab95f2-e960-4f90-8b5c-15fcf2698464"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5581,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

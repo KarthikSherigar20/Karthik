@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:52:48.642Z",
+    "end": "2026-09-08T10:52:51.053Z",
+    "duration": 2411,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa12c542-4fc9-4b26-a485-9ae3df96abe7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Customer login page\\RESPONSIVE LAYOUT CHECK.cy.js",
+      "file": "cypress\\e2e\\UI\\Customer login page\\RESPONSIVE LAYOUT CHECK.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "527243fc-f382-4578-b40c-61e27825d70e",
+          "title": "RESPONSIVE LAYOUT CHECK",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should assert layout adapts correctly on mobile viewport",
+              "fullTitle": "RESPONSIVE LAYOUT CHECK should assert layout adapts correctly on mobile viewport",
+              "timedOut": null,
+              "duration": 1040,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport('iphone-x');\ncy.contains('Medical Emergency').should('be.visible');\ncy.get('input[placeholder=\"Phone number\"]').should('be.visible');",
+              "err": {},
+              "uuid": "f0ae931f-c9f2-4fec-8fb2-273612706ffe",
+              "parentUUID": "527243fc-f382-4578-b40c-61e27825d70e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f0ae931f-c9f2-4fec-8fb2-273612706ffe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1040,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

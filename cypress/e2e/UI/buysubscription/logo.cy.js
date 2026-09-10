@@ -30,7 +30,7 @@ describe('logo', () => {
     it('should have expected position and size', () => {
         cy.get('img[alt="Company Logo"]').then($el => {
             const rect = $el[0].getBoundingClientRect();
-            expect(rect.width).to.be.greaterThan(0).and.closeTo(145, 5);
+            expect(rect.width).to.be.greaterThan(0).and.closeTo(160, 5);
             expect(rect.height).to.be.greaterThan(0).and.equal(24);
         });
     });

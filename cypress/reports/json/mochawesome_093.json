@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:43:37.100Z",
+    "end": "2026-09-08T10:43:50.821Z",
+    "duration": 13721,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dc35cf4f-9680-4af3-9eb5-806eda36153a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Aboutus\\FOUNDER CARD 1.cy.js",
+      "file": "cypress\\e2e\\UI\\Aboutus\\FOUNDER CARD 1.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dad80b58-9bc5-4acd-864b-3157421b0c57",
+          "title": "FOUNDER CARD 1",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC11 - Founder card 1 name \"Raman Rangarajan Iyengar (Ranga)\"",
+              "fullTitle": "FOUNDER CARD 1 TC11 - Founder card 1 name \"Raman Rangarajan Iyengar (Ranga)\"",
+              "timedOut": null,
+              "duration": 4139,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('h3, h4, h5', 'Raman Rangarajan Iyengar').should('be.visible').and('contain.text', 'Ranga');",
+              "err": {},
+              "uuid": "4e9d5826-4247-4f4e-a6e2-e497ba98a3a2",
+              "parentUUID": "dad80b58-9bc5-4acd-864b-3157421b0c57",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC12 - Founder card 1 role label \"Founder\"",
+              "fullTitle": "FOUNDER CARD 1 TC12 - Founder card 1 role label \"Founder\"",
+              "timedOut": null,
+              "duration": 2277,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Founder').filter(':visible').first().should('be.visible');",
+              "err": {},
+              "uuid": "798cfd3c-810a-46ef-8e6b-93a6d02a3b6c",
+              "parentUUID": "dad80b58-9bc5-4acd-864b-3157421b0c57",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC13 - Founder card 1 bio paragraph",
+              "fullTitle": "FOUNDER CARD 1 TC13 - Founder card 1 bio paragraph",
+              "timedOut": null,
+              "duration": 2497,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('p, div', 'IIT Kharagpur (Class of 1996) and IIM Lucknow').should('be.visible');",
+              "err": {},
+              "uuid": "27905b3c-327c-4045-9e56-d4344bf92435",
+              "parentUUID": "dad80b58-9bc5-4acd-864b-3157421b0c57",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC14 - Founder card 1 profile image",
+              "fullTitle": "FOUNDER CARD 1 TC14 - Founder card 1 profile image",
+              "timedOut": null,
+              "duration": 3265,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Raman Rangarajan Iyengar').parents().find('img').first().as('img1');\ncy.get('@img1').should('be.visible').and('have.attr', 'src').and('not.be.empty');\ncy.get('@img1').should('have.attr', 'alt');\ncy.get('@img1').then($img => {\n  expect($img[0].naturalWidth).to.be.greaterThan(0).and.equal(234);\n  expect($img[0].naturalHeight).to.be.greaterThan(0).and.equal(94);\n});",
+              "err": {},
+              "uuid": "c06e8e68-e5d0-4de3-90e2-7311928870d1",
+              "parentUUID": "dad80b58-9bc5-4acd-864b-3157421b0c57",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4e9d5826-4247-4f4e-a6e2-e497ba98a3a2",
+            "798cfd3c-810a-46ef-8e6b-93a6d02a3b6c",
+            "27905b3c-327c-4045-9e56-d4344bf92435",
+            "c06e8e68-e5d0-4de3-90e2-7311928870d1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12178,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

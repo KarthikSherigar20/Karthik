@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-08T10:53:52.798Z",
+    "end": "2026-09-08T10:53:57.353Z",
+    "duration": 4555,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "89e9b5a9-5acd-4251-a33a-dd49aa03a0c8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UI\\Terms & Conditions\\Copyright Footer Text.cy.js",
+      "file": "cypress\\e2e\\UI\\Terms & Conditions\\Copyright Footer Text.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c98982b0-5820-4a37-8354-6f099c3a1d23",
+          "title": "Copyright Footer Text",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify copyright text, font-size, position at bottom",
+              "fullTitle": "Copyright Footer Text should verify copyright text, font-size, position at bottom",
+              "timedOut": null,
+              "duration": 3180,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('© 2025 Copyright POCOCARE').should('be.visible').then($el => {\n  const rect = $el[0].getBoundingClientRect();\n  const viewportHeight = Cypress.config('viewportHeight');\n  expect(rect.top).to.be.greaterThan(viewportHeight - 200);\n});",
+              "err": {},
+              "uuid": "be8168b6-741b-4193-9bab-a79e04ccd563",
+              "parentUUID": "c98982b0-5820-4a37-8354-6f099c3a1d23",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "be8168b6-741b-4193-9bab-a79e04ccd563"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3180,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
